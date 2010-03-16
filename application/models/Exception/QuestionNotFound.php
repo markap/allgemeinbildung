@@ -7,7 +7,7 @@
  * @package models
  * @subpackage Exception
  */
-class QuestionNotFound extends Exception {
+class Model_Exception_QuestionNotFound extends Exception {
 
 	/**
 	 * name of the class which throws the error

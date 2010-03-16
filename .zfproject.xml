@@ -12,6 +12,11 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
+        <controllerFile controllerName="question">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="play"/>
+          <actionMethod actionName="questionrequest"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -23,6 +28,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="error">
             <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="question">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="question">
+            <viewScriptFile forActionName="play"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="question">
+            <viewScriptFile forActionName="questionrequest"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -54,6 +68,9 @@
       <testPHPUnitConfigFile/>
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
+        <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
+        </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
         <testLibraryBootstrapFile/>

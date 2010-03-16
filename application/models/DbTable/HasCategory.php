@@ -30,7 +30,7 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 		$categories  = array();	
 		foreach ($categoryIds as $categoryId) {
 			$category 		= $categoryDb->getCategory($categoryId);
-			$categories[] 	= $category[0]['name'];
+			$categories[] 	= $category['name'];
 		}
 		return $categories; 
 	}
