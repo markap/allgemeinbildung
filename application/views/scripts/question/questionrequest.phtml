@@ -1,9 +1,8 @@
 <?php if($this->isAnswerRight): ?>
 	<?php echo $this->rightAnswer; ?> ist richtig. Sehr gut!
-<?php endif; ?>
-
-
-<?php if(!$this->isAnswerRight): ?>
+<?php else: ?>
 	<?php echo $this->myAnswer; ?> ist falsch.
 	<?php echo $this->rightAnswer; ?> wäre richtig gewesen.
 <?php endif; ?>
+
+<a href="<?php echo $this->baseUrl . '/question'; ?>">Zurück zum Fragekatalog</a>

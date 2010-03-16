@@ -1,13 +1,26 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/play.js'); ?>
 
-<?php echo $this->question['question']; ?>
+<?php if($this->pageNotFound !== true): ?>
 
-<div id="answer">
-<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
-<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
-<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
-<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
-</div>
+	
+	<?php echo $this->question['question']; ?>
+	<?php echo $this->question['level']; ?>
+	<?php foreach($this->categories as $category): ?>
+		<?php echo $category; ?>
+	<?php endforeach; ?>
+	<img src="<?php echo $this->baseUrl . '/img/' . $this->question['image'] . '.jpg'; ?>" alt="fragebild" />
+	<div id="answer">
+		<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
+		<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
+		<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
+		<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+	</div>
 
-<?php var_dump($this->categories); ?>
+<?php else: ?>
+
+	<p>Die Frage existiert nicht.</p>
+	<p>Error: <?php echo $this->errorId; ?>|<?php echo $this->className; ?></p>
+	<a href="<?php echo $this->baseUrl . '/question'; ?>">Zurück zu den Fragen</a>
+
+<?php endif; ?>

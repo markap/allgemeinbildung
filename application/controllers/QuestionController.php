@@ -39,8 +39,9 @@ class QuestionController extends Zend_Controller_Action
 			$this->questionSession->questionObject = $question;
 		}
 		catch (Model_Exception_QuestionNotFound $e) {
-			echo $e->getId();	
-			echo $e->getClassName();
+			$this->view->pageNotFound = true;
+			$this->view->errorId	  = $e->getId();
+			$this->view->className	  = $e->getClassName();
 		}
     }
 

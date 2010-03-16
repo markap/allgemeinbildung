@@ -26,3 +26,5 @@
 [Tue Mar 16 18:37:25 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '<' in /home/www/allgemeinbildung/application/views/scripts/question/play.phtml on line 3
 [Tue Mar 16 18:46:02 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_PUBLIC in /home/www/allgemeinbildung/application/controllers/QuestionController.php on line 35
 [Tue Mar 16 19:12:07 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/www/allgemeinbildung/application/views/scripts/question/questionrequest.phtml on line 3, referer: http://allgemeinbildung.localhost/question/play/question/1
+[Tue Mar 16 21:02:51 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '<' in /home/www/allgemeinbildung/application/views/scripts/question/play.phtml on line 11
+[Tue Mar 16 21:05:23 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/www/allgemeinbildung/application/views/scripts/question/play.phtml on line 12
