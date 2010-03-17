@@ -33,4 +33,11 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $question->toArray();
 	}
 
+	public function countQuestions() {
+		$select = $this->select();
+		$select->from($this, array('COUNT(*) as question'));
+		$result = $this->fetchAll($select);
+		$formattedResult = $result->toArray();
+		return $formattedResult[0]['question'];
+	}
 }

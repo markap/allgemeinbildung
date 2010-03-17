@@ -28,3 +28,15 @@
 [Tue Mar 16 19:12:07 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home/www/allgemeinbildung/application/views/scripts/question/questionrequest.phtml on line 3, referer: http://allgemeinbildung.localhost/question/play/question/1
 [Tue Mar 16 21:02:51 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '<' in /home/www/allgemeinbildung/application/views/scripts/question/play.phtml on line 11
 [Tue Mar 16 21:05:23 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/www/allgemeinbildung/application/views/scripts/question/play.phtml on line 12
+[Tue Mar 16 21:43:54 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_DbTable_Question::countQuestion() in /home/www/allgemeinbildung/application/controllers/QuestionController.php on line 30, referer: http://allgemeinbildung.localhost/question/play/question/1
+[Wed Mar 17 14:19:50 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '}', expecting T_CATCH in /home/www/allgemeinbildung/application/controllers/GameController.php on line 22
+[Wed Mar 17 14:20:40 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting T_FUNCTION in /home/www/allgemeinbildung/application/models/Game.php on line 20
+[Wed Mar 17 14:22:27 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting T_FUNCTION in /home/www/allgemeinbildung/application/models/Game.php on line 20
+[Wed Mar 17 14:36:41 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_Exception_GameEndException' not found in /home/www/allgemeinbildung/application/models/Game.php on line 71
+[Wed Mar 17 14:37:06 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_Exception_GameEndException' not found in /home/www/allgemeinbildung/application/models/Game.php on line 70
+[Wed Mar 17 14:37:08 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_Exception_GameEndException' not found in /home/www/allgemeinbildung/application/models/Game.php on line 70
+[Wed Mar 17 14:38:24 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/game/index.phtml on line 8
+[Wed Mar 17 14:42:12 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/game/index.phtml on line 8
+[Wed Mar 17 15:02:22 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getRightAnswers() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 29
+[Wed Mar 17 15:14:25 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/views/scripts/game/index.phtml on line 20
+[Wed Mar 17 15:15:07 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/game/index.phtml on line 8

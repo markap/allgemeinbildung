@@ -1,8 +1,6 @@
 <?php
 
 /**
- * displays questions
- * 
  * @package controller
  */
 class QuestionController extends Zend_Controller_Action
@@ -26,6 +24,8 @@ class QuestionController extends Zend_Controller_Action
 
     public function indexAction()
     {
+		$questionDb = new Model_DbTable_Question();
+		$this->view->countQuestion = $questionDb->countQuestions();
     }
 
     public function playAction()
@@ -53,6 +53,7 @@ class QuestionController extends Zend_Controller_Action
 			$selectedAnswerHash = $this->_getParam('answer');	
 			$question = $this->questionSession->questionObject;
 			$this->view->isAnswerRight = $question->checkAnswer($selectedAnswerHash);
+
 			$this->view->myAnswer = $question->getAnswer($selectedAnswerHash);
 			$this->view->rightAnswer = $question->getRightAnswer(); 
 
