@@ -10,13 +10,19 @@
 	<?php echo $category; ?>
 	<?php endforeach; ?>
 
-	<img src="<?php echo $this->baseUrl . '/img/' . $this->question['image'] . '.jpg'; ?>" alt="fragebild" />
+	<img height="300px" src="<?php echo $this->baseUrl . '/img/' . $this->question['image'] . '.jpg'; ?>" alt="fragebild" />
 
 	<div id="answer_score">
-	<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
-	<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
-	<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
-	<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+
+	<?php if ($this->answers !== 'nochoice'): ?>
+		<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
+		<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
+		<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
+		<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+	<?php else: ?>
+		<input type="text" id="input_answer" />
+		<span id="send_answer">Beantworten</span>
+	<?php endif; ?>
 
 	<?php echo $this->playedQuestions; ?>
 	<?php echo $this->rightAnswers; ?>

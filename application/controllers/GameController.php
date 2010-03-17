@@ -16,6 +16,9 @@ class GameController extends Zend_Controller_Action
     public function indexAction()
     {
 		// start -> ensure that session is null
+//TODO
+//var_dump($this->getRequest()->getServer());
+//TODO fix    this is wrong:::
 		if ($this->getRequest()->getServer('REQUEST_URI') !== "/game") {
 			$this->gameSession->game = null;
 		}
@@ -45,6 +48,7 @@ class GameController extends Zend_Controller_Action
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$this->gameSession->result = $game->getScore();
 			$this->gameSession->game   = null;
+			$this->gameSession->waitForAnswer = false;
 			$this->_redirect('/game/result');
 		}
 		catch (Model_Exception_QuestionNotFound $e) {	 // question does not exist

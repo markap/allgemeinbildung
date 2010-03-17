@@ -51,3 +51,7 @@
 [Wed Mar 17 21:10:02 2010] [error] [client 127.0.0.1] question not found|78|question
 [Wed Mar 17 21:10:31 2010] [error] [client 127.0.0.1] question not found|78|question
 [Wed Mar 17 21:10:40 2010] [error] [client 127.0.0.1] question not found|78|question
+[Wed Mar 17 21:46:18 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_QuestionFactory' not found in /home/www/allgemeinbildung/application/models/Game.php on line 54
+[Wed Mar 17 22:02:24 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_NoMultipleChoiceQuestion::$answers in /home/www/allgemeinbildung/application/models/NoMultipleChoiceQuestion.php on line 19, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 17 22:04:22 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getPlayedQuestions() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 85
+[Wed Mar 17 22:10:29 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_NoMultipleChoiceQuestion::$answers in /home/www/allgemeinbildung/application/models/NoMultipleChoiceQuestion.php on line 19, referer: http://allgemeinbildung.localhost/game

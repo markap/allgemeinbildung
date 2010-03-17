@@ -12,18 +12,18 @@ class Model_Game {
 	 * the ids of the question the player must play
 	 * @var array
 	 */
-	private $questionIds = array();
+	protected $questionIds = array();
 
 	/**
 	 * current question-object
 	 * @var Model_Question
 	 */
-	private $question = null;
+	protected $question = null;
 
 	/**
 	 * @var Model_Score
 	 */
-	private $score = null;
+	protected $score = null;
 
 
 	/**
@@ -51,7 +51,7 @@ class Model_Game {
 			throw new Model_Exception_GameEnd();
 		}	
 		$nextId = array_pop($this->questionIds);
-		$this->question = new Model_Question($nextId);	
+		$this->question = Model_QuestionFactory::getRandomQuestion($nextId);	
 		return $this->question;
 	}
 
@@ -62,7 +62,7 @@ class Model_Game {
 	 * @author Martin Kapfhammer
 	 * @return boolean
 	 */
-	private function existNextQuestion() {
+	protected function existNextQuestion() {
 		return (count($this->questionIds) !== 0);
 	}
 

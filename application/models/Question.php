@@ -12,19 +12,19 @@ class Model_Question {
 	 * question array with the data from db
 	 * @var array
 	 */
-	private $question = array();
+	protected $question = array();
 
 	/**
 	 * answer array with the data from db
 	 * @var array
 	 */
-	private $answers = array();
+	protected $answers = array();
 
 	/**
 	 * category  array with the data from db
 	 * @var array
 	 */
-	private $categories = array();
+	protected $categories = array();
 
 	/**
 	 * constructor
@@ -75,7 +75,7 @@ class Model_Question {
 	 * @author Martin Kapfhammer	
 	 * @return array $answerStrings
 	 */
-	private function getAnswerStrings() {
+	protected function getAnswerStrings() {
 		$answerStrings = array($this->answers['answer'],
 						 	   $this->answers['fake1'],
 						 	   $this->answers['fake2'],
@@ -94,7 +94,7 @@ class Model_Question {
 	 * @param array $answers 
 	 * @return array $answers shuffled array
 	 */
-	private function shuffleAnswers(array $answers) {
+	protected function shuffleAnswers(array $answers) {
 		shuffle($answers);
 		return $answers;
 	}
@@ -107,7 +107,7 @@ class Model_Question {
 	 * @param array $answers 
 	 * @return array $answers answers with hashes
 	 */
-	private function createHashes(array $answers) {
+	protected function createHashes(array $answers) {
 		$answerHashes = array();
 		$key = 0;
 		foreach ($answers as $answer) {
@@ -133,14 +133,14 @@ class Model_Question {
 	 * checks if the given answerhash is right
 	 * 
 	 * @param string $answerHash
-	 * @return boolean $rightAnswer
+	 * @return boolean $result
 	 */
 	public function checkAnswer($answerHash) {
-		$rightAnswer = false;
+		$result = false;
 		if ($answerHash === md5($this->answers['answer'])) {
-			$rightAnswer = true;
+			$result = true;
 		}
-		return $rightAnswer;
+		return $result;
 	}
 
 	
