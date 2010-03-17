@@ -20,9 +20,9 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->game = null;
 		}
 
-		// use always the same question object
+		// use always the same game object
         if ($this->gameSession->game === null) {
-        	$this->gameSession->game = new Model_Game(array(78));	
+        	$this->gameSession->game = new Model_Game(array(1,2,3,4));	
      	}
 		$game = $this->gameSession->game; 
 

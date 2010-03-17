@@ -12,11 +12,6 @@ class QuestionController extends Zend_Controller_Action
 	protected $questionSession = null;
 
 
-	/**
-	 * inits controller
-	 *
-	 * @author Martin Kapfhammer	
-	 */
     public function init()
     {
 		$this->questionSession = new Zend_Session_Namespace('question');
