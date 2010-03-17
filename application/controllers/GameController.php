@@ -15,12 +15,14 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		//TODO you play and then you go to another
-	  	// when you go back to this, session exists
+		// start -> ensure that session is null
+		if ($this->getRequest()->getServer('REQUEST_URI') !== "/game") {
+			$this->gameSession->game = null;
+		}
 
 		// use always the same question object
         if ($this->gameSession->game === null) {
-        	$this->gameSession->game = new Model_Game(array(1,2,3,1));	
+        	$this->gameSession->game = new Model_Game(array(78));	
      	}
 		$game = $this->gameSession->game; 
 
@@ -40,14 +42,17 @@ class GameController extends Zend_Controller_Action
 			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
 		}
-		catch (Model_Exception_GameEnd $e) {
+		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$this->gameSession->result = $game->getScore();
 			$this->gameSession->game   = null;
 			$this->_redirect('/game/result');
 		}
-		catch (Model_Exception_QuestionNotFound $e) {
-        //TODO
-			// show mistake message
+		catch (Model_Exception_QuestionNotFound $e) {	 // question does not exist
+			$this->gameSession->waitForAnswer = false;
+			error_log('question not found|' . $e->getId() . '|' . $e->getClassName());
+			$this->view->pageNotFound = true;
+			$this->view->errorId	  = $e->getId();
+			$this->view->className	  = $e->getClassName();
 		}
     }
 

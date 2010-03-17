@@ -1,23 +1,32 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/game/play.js'); ?>
 
-	
-<?php echo $this->question['question']; ?>
-<?php echo $this->question['level']; ?>
+<?php if ($this->pageNotFound !== true): ?>	
 
-<?php foreach($this->categories as $category): ?>
-<?php echo $category; ?>
-<?php endforeach; ?>
+	<?php echo $this->question['question']; ?>
+	<?php echo $this->question['level']; ?>
 
-<img src="<?php echo $this->baseUrl . '/img/' . $this->question['image'] . '.jpg'; ?>" alt="fragebild" />
+	<?php foreach($this->categories as $category): ?>
+	<?php echo $category; ?>
+	<?php endforeach; ?>
 
-<div id="answer_score">
-<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
-<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
-<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
-<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+	<img src="<?php echo $this->baseUrl . '/img/' . $this->question['image'] . '.jpg'; ?>" alt="fragebild" />
 
-<?php echo $this->playedQuestions; ?>
-<?php echo $this->rightAnswers; ?>
-<?php echo $this->wrongAnswers; ?>
-</div>
+	<div id="answer_score">
+	<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
+	<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
+	<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
+	<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+
+	<?php echo $this->playedQuestions; ?>
+	<?php echo $this->rightAnswers; ?>
+	<?php echo $this->wrongAnswers; ?>
+	</div>
+
+<?php else: ?>
+
+	<p>Die Frage existiert nicht.</p>
+	<p>Error: <?php echo $this->errorId; ?>|<?php echo $this->className; ?></p>
+	<a href="<?php echo $this->baseUrl . '/game'; ?>">Nächste Frage</a>
+
+<?php endif; ?>
