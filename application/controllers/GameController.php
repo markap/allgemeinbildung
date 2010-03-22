@@ -5,6 +5,7 @@ class GameController extends Zend_Controller_Action
 
     /**
      * @var Zend_Session_Namespace
+     * 
      */
     protected $gameSession = null;
 
@@ -15,26 +16,29 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		// start -> ensure that session is null
-//TODO
-//var_dump($this->getRequest()->getServer());
-//TODO fix    this is wrong:::
-		if ($this->getRequest()->getServer('REQUEST_URI') !== "/game") {
+		$questionIds = array(1,2,3,4,5,6,7);
+
+        // start -> ensure that session->game is null
+		if ($this->gameSession->oneBrowser !== true) {
 			$this->gameSession->game = null;
+			$this->gameSession->waitForAnswer = false;
 		}
+		$this->gameSession->oneBrowser = true;
+		$this->gameSession->setExpirationHops(2, 'oneBrowser');
 
 		// use always the same game object
-        if ($this->gameSession->game === null) {
-        	$this->gameSession->game = new Model_Game(array(1,2,3,4));	
-     	}
+		if ($this->gameSession->game === null) {
+			$this->gameSession->game = new Model_Game($questionIds);	
+		}
 		$game = $this->gameSession->game; 
+
 
 		// refresh browser -> answer wrong
 		if ($this->gameSession->waitForAnswer === true) {
-			$game->getScore()->addWrongAnswer();
+			$game->getScore()->addWrongAnswer($game->getQuestion()->getQuestionId());
 		}
 		$this->gameSession->waitForAnswer = true;
-        		
+				
 		try {
 			$question = $game->nextQuestion();
 			$this->view->question 	= $question->getQuestion();
@@ -63,7 +67,7 @@ class GameController extends Zend_Controller_Action
     public function answerrequestAction()
     {
         if ($this->getRequest()->isXmlHttpRequest()) {
-        
+		
 			$this->_helper->layout->disableLayout();
 			$selectedAnswerHash = $this->_getParam('answer');	
 			$game = $this->gameSession->game;
@@ -77,6 +81,8 @@ class GameController extends Zend_Controller_Action
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
 			
 			$this->gameSession->waitForAnswer = false;
+			$this->gameSession->oneBrowser = true;
+			$this->gameSession->setExpirationHops(1, 'oneBrowser');
 
 		} else {
 			$this->_redirect('/question');
@@ -85,13 +91,39 @@ class GameController extends Zend_Controller_Action
 
     public function resultAction()
     {
-		$score = $this->gameSession->result;
+        $score = $this->gameSession->result;
 		$this->view->playedQuestions = $score->getPlayedQuestions();
 		$this->view->rightAnswers = $score->getRightAnswers();
 		$this->view->wrongAnswers = $score->getWrongAnswers();
     }
 
+    public function timeoverAction()
+    {
+        if ($this->getRequest()->isXmlHttpRequest()) {
+		
+			$this->_helper->layout->disableLayout();
+			$game = $this->gameSession->game;
+			$question = $game->getQuestion();
+			$this->view->rightAnswer = $question->getRightAnswer();
+
+			$game->getScore()->addWrongAnswer($question->getQuestionId());
+			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
+			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
+			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
+
+			$this->gameSession->waitForAnswer = false;
+			$this->gameSession->oneBrowser = true;
+			$this->gameSession->setExpirationHops(1, 'oneBrowser');
+
+		} else {
+			$this->_redirect('/question');
+		}
+    }
+
+
 }
+
+
 
 
 

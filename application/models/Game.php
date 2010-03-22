@@ -113,11 +113,12 @@ class Model_Game {
 	 * @param boolean $result
 	 */
 	protected function addScore($result) {
+		$questionId = $this->question->getQuestionId();
 		if ($result === true) { //right answer
-			$this->score->addRightAnswer();
+			$this->score->addRightAnswer($questionId);
 
 		} else { // wrong answer
-			$this->score->addWrongAnswer();
+			$this->score->addWrongAnswer($questionId);
 		}
 	}
 

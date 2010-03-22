@@ -21,6 +21,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="answerrequest"/>
           <actionMethod actionName="result"/>
+          <actionMethod actionName="timeover"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -51,6 +52,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="game">
             <viewScriptFile forActionName="result"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="game">
+            <viewScriptFile forActionName="timeover"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -174,4 +174,15 @@ class Model_Question {
 	public function getRightAnswer() {
 		return $this->answers['answer'];
 	}
+
+
+	/**
+	 * returns current questionid
+	 *
+	 * @author Martin Kapfhammer
+	 * @return string question id
+ 	 */
+	public function getQuestionId() {
+		return $this->question['questionid'];
+	}
 }

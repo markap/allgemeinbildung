@@ -1,24 +1,27 @@
 $(document).ready(function() {
 
+	// multiple choice buttons
 	$('.answer').click(function() {
-		sendRequest(this.id);
-		return;
+		sendRequest('answerrequest', this.id);
 	});
 
+	// no multiple choice button
 	$('#send_answer').click(function() {
-		sendRequest($('#input_answer').val());
-		return;
+		if ($('#input_answer').val() === '') return;
+		sendRequest('answerrequest', $('#input_answer').val());
 	});
 
+	// send textfield with button click
 	$('#input_answer').keydown(function(e) {
 		if (e.keyCode === 13) {		// Enter
-			sendRequest($('#input_answer').val());
-			return;
+			if ($('#input_answer').val() === '') return; 
+			sendRequest('answerrequest', $('#input_answer').val());
 		}
 	});
 
-	var sendRequest = function(getParam) {
-		$.post("/game/answerrequest"
+	// ajax-call for checking the answer
+	var sendRequest = function(action, getParam) {
+		$.post("/game/" + action
 			+ "/answer/" + getParam
 		,
 		function(response) {
@@ -26,6 +29,18 @@ $(document).ready(function() {
 		},
 		"text"
 		);
+	}
 
+	// countdown
+	var seconds = new Date(); 
+	seconds.setSeconds(seconds.getSeconds() + 30);
+	$('#countdown').countdown({
+		until: seconds,
+		format: 'S',
+		onExpiry: timeOverRequest
+	});
+
+	function timeOverRequest() {
+		sendRequest('timeover', 1);
 	}
 });

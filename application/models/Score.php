@@ -25,6 +25,19 @@ class Model_Score {
 	 * @var integer
 	 */
 	protected $wrongAnswers = 0;
+
+	/**
+	 * array for the right questionids
+	 * @var array
+	 */
+	protected $rightQuestionIds = array();
+	
+	/**
+	 * array for the wrong questionids
+	 * @var array
+	 */
+	protected $wrongQuestionIds = array();
+ 	
 	
 
 	/**
@@ -33,7 +46,8 @@ class Model_Score {
 	 *
 	 * @author Martin Kapfhammer
 	 */
-	public function addRightAnswer() {
+	public function addRightAnswer($questionId) {
+		$this->rightQuestionIds[] = $questionId;
 		$this->questions++;
 		$this->rightAnswers++;
 	}	
@@ -45,7 +59,8 @@ class Model_Score {
 	 *
 	 * @author Martin Kapfhammer
 	 */
-	public function addWrongAnswer() {
+	public function addWrongAnswer($questionId) {
+		$this->wrongQuestionIds[] = $questionId;
 		$this->questions++;
 		$this->wrongAnswers++;
 	}
