@@ -33,7 +33,7 @@ class Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 */
 	public function __construct(array $questionIds) {
-		$this->questionIds = $questionIds;	
+		$this->questionIds = array_reverse($questionIds);	
 		$this->score 	   = new Model_Score();
 	}
 	

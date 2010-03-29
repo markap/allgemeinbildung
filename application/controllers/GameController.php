@@ -16,15 +16,7 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$questionIds = array(1,2,3,4,5,6,7);
-
-        // start -> ensure that session->game is null
-		if ($this->gameSession->oneBrowser !== true) {
-			$this->gameSession->game = null;
-			$this->gameSession->waitForAnswer = false;
-		}
-		$this->gameSession->oneBrowser = true;
-		$this->gameSession->setExpirationHops(2, 'oneBrowser');
+		$questionIds = array(array('id' => 1, 'type' => 'mc'),array('id' => 2,'type' => 'txt'),3,4,5,6,7);
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {

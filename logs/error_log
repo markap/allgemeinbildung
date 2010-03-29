@@ -63,3 +63,18 @@
 [Thu Mar 18 22:58:19 2010] [error] [client 127.0.0.1] modify_answer|saarland|Saarland|saarland|saarland, referer: http://allgemeinbildung.localhost/game
 [Thu Mar 18 22:58:53 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
 [Sat Mar 20 22:05:57 2010] [error] [client 127.0.0.1] modify_answer|saarland|Saarland|saarland|saarland, referer: http://allgemeinbildung.localhost/game
+[Mon Mar 29 18:55:33 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ',' in /home/www/allgemeinbildung/application/controllers/GameController.php on line 19
+[Mon Mar 29 18:57:52 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 22
+[Mon Mar 29 18:58:50 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getQuestionId() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 30
+[Mon Mar 29 18:59:05 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 18:59:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 19:00:42 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 19:00:45 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getQuestionId() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 30
+[Mon Mar 29 19:00:56 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 19:01:29 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getQuestionId() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 30
+[Mon Mar 29 19:02:03 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 19:02:57 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 19:03:28 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionType in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 23
+[Mon Mar 29 19:36:08 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getQuestion() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 98, referer: http://allgemeinbildung.localhost/game
+[Mon Mar 29 19:36:15 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: type in /home/www/allgemeinbildung/application/models/QuestionFactory.php on line 57, referer: http://allgemeinbildung.localhost/game
+[Mon Mar 29 19:37:28 2010] [error] [client 127.0.0.1] modify_answer|baden w\xc3\xbcrttemberg|Baden-W\xc3\xbcrttemberg|badenwuerttemberg|badenwuerttemberg, referer: http://allgemeinbildung.localhost/game
