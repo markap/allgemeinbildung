@@ -33,4 +33,17 @@ class Model_DbTable_Category extends Zend_Db_Table_Abstract {
 		return $category->toArray();
 	}
 
+
+	/**
+	 * returns all categories
+	 *
+	 * @author Martin Kapfhammer
+	 * @return array $result
+	 */
+	public function getCategories() {
+		$orderby = array('name ASC');	
+		$result  = $this->fetchAll('1', $orderby);
+		return $result->toArray();
+	}
+
 }

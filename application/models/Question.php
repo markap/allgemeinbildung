@@ -9,6 +9,11 @@
 class Model_Question {
 
 	/**
+	 * @var string
+	 */
+	const TYPE = 'mc';
+
+	/**
 	 * question array with the data from db
 	 * @var array
 	 */
@@ -184,5 +189,16 @@ class Model_Question {
  	 */
 	public function getQuestionId() {
 		return $this->question['questionid'];
+	}
+
+
+	/**
+	 * returns the type of the question
+	 *
+	 * @author Martin Kapfhammer
+	 * @return string self::TYPE
+	 */
+	public function getQuestionType() {
+		return static::TYPE;
 	}
 }

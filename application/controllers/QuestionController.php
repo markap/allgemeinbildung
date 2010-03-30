@@ -6,9 +6,6 @@
 class QuestionController extends Zend_Controller_Action
 {
 
-	/**
-	 * @var Zend_Session_Namespace
-	 */
 	protected $questionSession = null;
 
 
@@ -20,7 +17,10 @@ class QuestionController extends Zend_Controller_Action
     public function indexAction()
     {
 		$questionDb = new Model_DbTable_Question();
+		$categoryDb = new Model_DbTable_Category();
 		$this->view->countQuestion = $questionDb->countQuestions();
+		var_dump($categoryDb->getCategories());
+		
     }
 
     public function playAction()

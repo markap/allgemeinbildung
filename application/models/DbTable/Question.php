@@ -33,6 +33,13 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $question->toArray();
 	}
 
+
+	/**
+	 * counts the question
+	 *
+ 	 * @author Martin Kapfhammer
+	 * @return integer 
+	 */
 	public function countQuestions() {
 		$select = $this->select();
 		$select->from($this, array('COUNT(*) as question'));

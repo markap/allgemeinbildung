@@ -45,8 +45,10 @@ class Model_Score {
 	 * and the played questions
 	 *
 	 * @author Martin Kapfhammer
+	 * @param integer $questionId
+	 * @param string $questionType
 	 */
-	public function addRightAnswer($questionId) {
+	public function addRightAnswer($questionId, $questionType = null) {
 		$this->rightQuestionIds[] = $questionId;
 		$this->questions++;
 		$this->rightAnswers++;
@@ -58,8 +60,10 @@ class Model_Score {
 	 * and the played questions
 	 *
 	 * @author Martin Kapfhammer
+	 * @param integer $questionId
+	 * @param string $questionType
 	 */
-	public function addWrongAnswer($questionId) {
+	public function addWrongAnswer($questionId, $questionType = null) {
 		$this->wrongQuestionIds[] = $questionId;
 		$this->questions++;
 		$this->wrongAnswers++;

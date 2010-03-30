@@ -31,10 +31,15 @@ class Model_Game {
 	 *
 	 * @author Martin Kapfhammer
 	 * @param array $questionIds one or more questionIds as array
+	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds) {
+	public function __construct(array $questionIds, $userId = null) {
 		$this->questionIds = array_reverse($questionIds);	
-		$this->score 	   = new Model_Score();
+		if ($userId === null) {
+			$this->score = new Model_Score();
+		} else {
+			$this->score = new Model_LogScore($userId);
+		}
 	}
 	
 	
@@ -113,12 +118,13 @@ class Model_Game {
 	 * @param boolean $result
 	 */
 	protected function addScore($result) {
-		$questionId = $this->question->getQuestionId();
+		$questionId   = $this->question->getQuestionId();
+		$questionType = $this->question->getQuestionType();
 		if ($result === true) { //right answer
-			$this->score->addRightAnswer($questionId);
+			$this->score->addRightAnswer($questionId, $questionType);
 
 		} else { // wrong answer
-			$this->score->addWrongAnswer($questionId);
+			$this->score->addWrongAnswer($questionId, $questionType);
 		}
 	}
 

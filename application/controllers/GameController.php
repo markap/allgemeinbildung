@@ -3,31 +3,32 @@
 class GameController extends Zend_Controller_Action
 {
 
-    /**
-     * @var Zend_Session_Namespace
-     * 
-     */
     protected $gameSession = null;
+	protected $userId	   = null;
 
     public function init()
     {
         $this->gameSession = new Zend_Session_Namespace('game');
+		$userSession 	   = new Zend_Session_Namespace('user');
+		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
     }
 
     public function indexAction()
     {
-		$questionIds = array(array('id' => 1, 'type' => 'mc'),array('id' => 2,'type' => 'txt'),3,4,5,6,7);
+		$questionIds = array(array('id' => 1, 'type' => 'mc'),
+							 array('id' => 2,'type' => 'txt'),
+							3,4,5,6,7);
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
-			$this->gameSession->game = new Model_Game($questionIds);	
+			$this->gameSession->game = new Model_Game($questionIds, $this->userId);	
 		}
 		$game = $this->gameSession->game; 
 
 
 		// refresh browser -> answer wrong
 		if ($this->gameSession->waitForAnswer === true) {
-			$game->getScore()->addWrongAnswer($game->getQuestion()->getQuestionId());
+			$game->getScore()->addWrongAnswer($game->getQuestion()->getQuestionId(), $game->getQuestion()->getQuestionType());
 		}
 		$this->gameSession->waitForAnswer = true;
 				
@@ -98,7 +99,7 @@ class GameController extends Zend_Controller_Action
 			$question = $game->getQuestion();
 			$this->view->rightAnswer = $question->getRightAnswer();
 
-			$game->getScore()->addWrongAnswer($question->getQuestionId());
+			$game->getScore()->addWrongAnswer($question->getQuestionId(), $question->getQuestionType());
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
 			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();

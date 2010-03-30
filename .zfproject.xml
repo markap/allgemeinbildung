@@ -10,6 +10,7 @@
       <controllersDirectory>
         <controllerFile controllerName="index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="login"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
         <controllerFile controllerName="question">
@@ -22,6 +23,9 @@
           <actionMethod actionName="answerrequest"/>
           <actionMethod actionName="result"/>
           <actionMethod actionName="timeover"/>
+        </controllerFile>
+        <controllerFile controllerName="community">
+          <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -56,6 +60,12 @@
           <viewControllerScriptsDirectory forControllerName="game">
             <viewScriptFile forActionName="timeover"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="community">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -87,6 +97,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
         </testApplicationControllerDirectory>

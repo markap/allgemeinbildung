@@ -7,7 +7,12 @@
  */
 class Model_NoMultipleChoiceQuestion extends Model_Question {
 
-	
+	/**
+ 	 * @var string
+	 */
+	const TYPE = 'txt';	
+
+
 	/**
 	 * returns no choice instead of an array with answers
 	 * because there is no multiple choice
