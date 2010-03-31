@@ -106,3 +106,8 @@
 [Tue Mar 30 15:27:57 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_DbTable_QuestionResult::$userid in /home/www/allgemeinbildung/application/models/DbTable/QuestionResult.php on line 50
 [Tue Mar 30 15:29:14 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_DbTable_QuestionResult::$userid in /home/www/allgemeinbildung/application/models/DbTable/QuestionResult.php on line 50, referer: http://allgemeinbildung.localhost/game
 [Tue Mar 30 15:31:37 2010] [error] [client 127.0.0.1] modify_answer|baden-w\xc3\xbcrttemberg|Baden-W\xc3\xbcrttemberg|badenwuerttemberg|badenwuerttemberg, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 31 12:41:31 2010] [error] [client 127.0.0.1] modify_answer|konrad adenauer|Konrad Adenauer|konradadenauer|konradadenauer, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 31 12:41:39 2010] [error] [client 127.0.0.1] modify_answer|sachsen|Sachsen|sachsen|sachsen, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 31 12:41:57 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 31 12:42:08 2010] [error] [client 127.0.0.1] modify_answer|rheinland - pfalz|Rheinland-Pfalz|rheinlandpfalz|rheinlandpfalz, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 31 12:42:15 2010] [error] [client 127.0.0.1] modify_answer|saarland|Saarland|saarland|saarland, referer: http://allgemeinbildung.localhost/game

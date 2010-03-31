@@ -47,4 +47,21 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		$formattedResult = $result->toArray();
 		return $formattedResult[0]['question'];
 	}
+
+	
+	/**
+	 * returns all available creationdates
+	 *
+	 * @author Martin Kapfhammer
+	 * @return array
+	 */
+	public function getDates() {
+		$select = $this->select();
+		$select->distinct()
+			   ->from($this, array('creationdate'))
+			   ->order('creationdate ASC');
+		$result = $this->fetchAll($select);
+		return $result->toArray(); 
+	}
+
 }
