@@ -111,3 +111,15 @@
 [Wed Mar 31 12:41:57 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
 [Wed Mar 31 12:42:08 2010] [error] [client 127.0.0.1] modify_answer|rheinland - pfalz|Rheinland-Pfalz|rheinlandpfalz|rheinlandpfalz, referer: http://allgemeinbildung.localhost/game
 [Wed Mar 31 12:42:15 2010] [error] [client 127.0.0.1] modify_answer|saarland|Saarland|saarland|saarland, referer: http://allgemeinbildung.localhost/game
+[Wed Mar 31 13:17:24 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: userData in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 11
+[Wed Mar 31 13:17:24 2010] [error] [client 127.0.0.1] PHP Notice:  Trying to get property of non-object in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 11
+[Wed Mar 31 13:17:24 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_QuestionResult' not found in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 17
+[Wed Mar 31 13:17:51 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: userData in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 11
+[Wed Mar 31 13:17:51 2010] [error] [client 127.0.0.1] PHP Notice:  Trying to get property of non-object in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 11
+[Wed Mar 31 13:17:51 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_QuestionResult' not found in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 17
+[Wed Mar 31 13:18:04 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_QuestionResult' not found in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 17
+[Wed Mar 31 13:18:25 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '"' in /home/www/allgemeinbildung/application/models/DbTable/QuestionResult.php on line 94
+[Wed Mar 31 13:32:30 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/models/DbTable/QuestionResult.php on line 106
+[Wed Mar 31 13:47:16 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '!' in /home/www/allgemeinbildung/application/views/scripts/result/wrongquestion.phtml on line 1
+[Wed Mar 31 14:10:07 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getQuestionId() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 44, referer: http://allgemeinbildung.localhost/result/wrongquestion
+[Wed Mar 31 14:12:24 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getQuestionId() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 46, referer: http://allgemeinbildung.localhost/result/wrongquestion

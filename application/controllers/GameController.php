@@ -20,6 +20,18 @@ class GameController extends Zend_Controller_Action
 							 array('id' => 40, 'type' => 'mc'),
 							3,4);
 
+		// get game ids
+		$nextGameSession = new Zend_Session_Namespace('nextGame');
+		if ($this->_getParam('play') === md5('nextgame!')) {
+			$this->gameSession->game = null;	
+			$this->gameSession->waitForAnswer = false;
+        	$nextGame = $nextGameSession->nextGame;
+			if ($nextGame !== null) {
+				$questionIds = $nextGame;	
+			}
+		} 
+		$nextGameSession->nextGame = null;
+
 		// use always the same game object
 		if ($this->gameSession->game === null) {
 			$this->gameSession->game = new Model_Game($questionIds, $this->userId);	

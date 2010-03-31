@@ -27,6 +27,11 @@
         <controllerFile controllerName="community">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="result">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="rightquestion"/>
+          <actionMethod actionName="wrongquestion"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -66,6 +71,15 @@
           <viewControllerScriptsDirectory forControllerName="community">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
+            <viewScriptFile forActionName="rightquestion"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
+            <viewScriptFile forActionName="wrongquestion"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -97,6 +111,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>

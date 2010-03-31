@@ -89,4 +89,27 @@ class Model_DbTable_QuestionResult extends Zend_Db_Table_Abstract {
 		$where = "userid = $this->userId and questionid = $questionId and questiontype = '$questionType'";
 		$this->update($data, $where);
 	}
+
+	public function getDistinctResult($result) {
+		$stmt = $this->select();
+		$stmt->distinct()
+			 ->from($this, array('questionid'))
+			 ->where('userid = ?', $this->userId)
+			 ->where('result = ?', $result);
+		$result = $this->fetchAll($stmt);
+		return $result->toArray();
+	}
+
+	public function getResultForGame($result) {
+		$where  = "userid = $this->userId and result = '$result'";
+		$result = $this->fetchAll($where);
+		$resultArray = $result->toArray();
+		$questionIds = array();
+		foreach ($resultArray as $result) {
+			$questionIds[] = array(
+								'id' 	=> $result['questionid'],
+								'type'	=> $result['questiontype']);
+		}
+		return $questionIds;
+	}
 }
