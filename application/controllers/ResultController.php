@@ -22,19 +22,22 @@ class ResultController extends Zend_Controller_Action
 
     public function rightquestionAction()
     {
-		$result   = $this->resultDb->getResult('Y');
+		$resultKey = 'Y';	
+		$result = $this->resultDb->getDistinctResult($resultKey);
+		var_dump($result);
+		$questionIds = $this->resultDb->getResultForGame($resultKey);
+		$nextGameSession = new Zend_Session_Namespace('nextGame');
+		$nextGameSession->nextGame = $questionIds;
     }
 
     public function wrongquestionAction()
     {
-		$result = $this->resultDb->getDistinctResult('N');
+		$resultKey = 'N';	
+		$result = $this->resultDb->getDistinctResult($resultKey);
 		var_dump($result);
-		$questionIds = $this->resultDb->getResultForGame('N');
+		$questionIds = $this->resultDb->getResultForGame($resultKey);
 		$nextGameSession = new Zend_Session_Namespace('nextGame');
 		$nextGameSession->nextGame = $questionIds;
-		// get parameter an game url anhängen -> hash wert ...
-		// dann aus session lesen
-		// falls dieser parameter nich gesetzt ist, immer löschen der session
     }
 
 

@@ -62,6 +62,8 @@ class Model_NoMultipleChoiceQuestion extends Model_Question {
 		$chars 		 = array(" ", "-", "_", "ä", "ö", "ü", "ß");
 		$replaceWith = array("", "", "", "ae", "oe", "ue", "ss");
 		$answer = str_replace($chars, $replaceWith, $answer);	
+		// TODO Konrad adenauer + adenauer konrad
+		// TODO KUrt georg kiesinger
 
 		return $answer;
 	}

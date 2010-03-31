@@ -33,4 +33,29 @@ class Model_DbTable_Answer extends Zend_Db_Table_Abstract {
 		return $answer->toArray();
 	}
 
+
+	/**
+	 * get next answerid
+	 * increment maxvalue of answers
+	 *
+ 	 * @author Martin Kapfhammer
+	 * @return integer 
+	 */
+	public function getNextAnswerId() {
+		$select = $this->select();
+		$select->from($this, array('MAX(answerid) as answerid'));
+		$result = $this->fetchAll($select);
+		$formattedResult = $result->toArray();
+		return ++$formattedResult[0]['answerid'];
+	}
+
+	public function insertAnswer(array $postValues, $answerId) {
+		$data = array('answerid' => $answerId,
+					  'answer'	 => $postValues['answer'],
+					  'fake1'	 => $postValues['fake1'],
+					  'fake2'	 => $postValues['fake2'],
+					  'fake3'	 => $postValues['fake3']
+					);
+		$this->insert($data);
+	}
 }

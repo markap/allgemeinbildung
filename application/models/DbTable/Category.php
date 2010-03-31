@@ -20,7 +20,6 @@ class Model_DbTable_Category extends Zend_Db_Table_Abstract {
 	 * returns a category for a special id
 	 * 
 	 * @author Martin Kapfhammer
- 	 *
 	 * @param string $categoryId
 	 * @throws Model_Exception_QuestionNotFound
 	 * @return array $category
@@ -43,7 +42,12 @@ class Model_DbTable_Category extends Zend_Db_Table_Abstract {
 	public function getCategories() {
 		$orderby = array('name ASC');	
 		$result  = $this->fetchAll('1', $orderby);
-		return $result->toArray();
+		$resultArray = $result->toArray();
+		$formattedResult = array();
+		foreach ($resultArray as $result) {
+			$formattedResult[$result['categoryid']] = $result['name']; 
+		}
+		return $formattedResult;
 	}
 
 }

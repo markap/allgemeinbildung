@@ -32,6 +32,9 @@
           <actionMethod actionName="rightquestion"/>
           <actionMethod actionName="wrongquestion"/>
         </controllerFile>
+        <controllerFile controllerName="createquestion">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -80,6 +83,9 @@
           <viewControllerScriptsDirectory forControllerName="result">
             <viewScriptFile forActionName="wrongquestion"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="createquestion">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -111,6 +117,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>

@@ -15,9 +15,9 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$questionIds = array(array('id' => 40, 'type' => 'mc'),
-							 array('id' => 40, 'type' => 'txt'),
-							 array('id' => 40, 'type' => 'mc'),
+		$questionIds = array(array('id' => 41, 'type' => 'mc'),
+							 array('id' => 41, 'type' => 'txt'),
+							 array('id' => 41, 'type' => 'mc'),
 							3,4);
 
 		// get game ids

@@ -64,4 +64,13 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $result->toArray(); 
 	}
 
+	public function insertQuestion(array $postValues, $answerId, $fileName) {
+		$data = array('question' => $postValues['question'],
+					  'answerid' => $answerId,
+					  'image' 	 => 1,
+					  'creationdate' => 'current_date()'
+					);
+		return $this->insert($data);
+	}
+
 }
