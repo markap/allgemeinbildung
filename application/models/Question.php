@@ -38,11 +38,11 @@ class Model_Question {
 	 * @author Martin Kapfhammer
 	 * @param string $questionId
 	 */
-	public function __construct($questionId) {
+	public function __construct($questionId, $test = false) {
 		$questionDb 	  = new Model_DbTable_Question();
 		$answerDb 		  = new Model_DbTable_Answer();
 		$hasCategoryDb 	  = new Model_DbTable_HasCategory();
-		$this->question   = $questionDb->getQuestion($questionId);
+		$this->question   = $questionDb->getQuestion($questionId, $test);
 		$this->answers	  = $answerDb->getAnswer($this->question['answerid']);
 		$this->categories = $hasCategoryDb->getCategories($questionId);
 	}

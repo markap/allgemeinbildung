@@ -66,4 +66,13 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 		}
 	}
 
+	public function getQuestionIds($categoryId) {
+		$where 		 = array('categoryid ='. $categoryId);
+		$results 	 = $this->fetchAll($where)->toArray();
+		$questionIds = array();
+		foreach ($results as $result) {
+			$questionIds[] = $result['questionid'];
+		}
+		return $questionIds;
+	}
 }

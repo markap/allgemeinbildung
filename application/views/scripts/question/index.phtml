@@ -4,10 +4,18 @@
 
 <p>Durchsuchen Sie doch unseren Fragekatalog:</p>
 
-kategorie
+<?php foreach ($this->categories as $key => $category): ?>
+	<?php echo $category; ?>
+	<a href='/game/index/play/<?php echo md5('playcat!'); ?>/cat/<?php echo $key; ?>'>Spielen</a>
+	<a href='/game/index/play/<?php echo md5('playcat!'); ?>/cat/<?php echo $key; ?>/qtyp/mc'>MultipleChoice</a>
+	<a href='/game/index/play/<?php echo md5('playcat!'); ?>/cat/<?php echo $key; ?>/qtyp/txt'>Direkteingabe</a>
+	<br />
+<?php endforeach; ?>
 
-level
+	
+<br /><br />
+Heute<br />
+Gestern<br />
+Die letzten 7 Tage<br />
+Diesen Monat<br />
 
-erstellungsdatum
-
-autor

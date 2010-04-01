@@ -25,6 +25,10 @@ class Model_Game {
 	 */
 	protected $score = null;
 
+	protected $test = false;
+
+	protected $questionType = null;
+
 
 	/**
 	 * constructor
@@ -33,13 +37,14 @@ class Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, $userId = null) {
+	public function __construct(array $questionIds, $userId = null, $test = false) {
 		$this->questionIds = array_reverse($questionIds);	
 		if ($userId === null) {
 			$this->score = new Model_Score();
 		} else {
 			$this->score = new Model_LogScore($userId);
 		}
+		$this->test = $test;
 	}
 	
 	
@@ -56,7 +61,7 @@ class Model_Game {
 			throw new Model_Exception_GameEnd();
 		}	
 		$nextId = array_pop($this->questionIds);
-		$this->question = Model_QuestionFactory::getRandomQuestion($nextId);	
+		$this->question = Model_QuestionFactory::getRandomQuestion($nextId, $this->questionType, $this->test);
 		return $this->question;
 	}
 
@@ -126,6 +131,10 @@ class Model_Game {
 		} else { // wrong answer
 			$this->score->addWrongAnswer($questionId, $questionType);
 		}
+	}
+
+	public function setQuestionType($questionType) {
+		$this->questionType = $questionType;
 	}
 
 }

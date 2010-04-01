@@ -27,12 +27,13 @@ class Model_QuestionFactory {
 	 * @throws Model_Exception_QuestionNotFound
 	 * @return Model_QuestionInterface $question
 	 */
-	static public function getRandomQuestion($questionId) {
+	static public function getRandomQuestion($questionId, $defaultQuestionType = null, $test = false) {
 		$questionType = self::getQuestionType($questionId);
+		$questionType = (in_array(strtoupper($defaultQuestionType), array('MC', 'TXT'))) ? $defaultQuestionType : $questionType; 
 		switch (strtoupper($questionType)) {
-			case 'MC' : $question = new Model_Question(self::$questionId);
+			case 'MC' : $question = new Model_Question(self::$questionId, $test);
 						break;
-			case 'TXT': $question = new Model_NoMultipleChoiceQuestion(self::$questionId);
+			case 'TXT': $question = new Model_NoMultipleChoiceQuestion(self::$questionId, $test);
 						break;
 			default: throw new Model_Exception_QuestionNotFound('questionfactory', $questionType);
 		} 

@@ -35,6 +35,7 @@
         <controllerFile controllerName="createquestion">
           <actionMethod actionName="index"/>
           <actionMethod actionName="result"/>
+          <actionMethod actionName="editquestion"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -89,6 +90,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="createquestion">
             <viewScriptFile forActionName="result"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="createquestion">
+            <viewScriptFile forActionName="editquestion"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

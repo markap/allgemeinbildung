@@ -22,11 +22,13 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 	 * @author Martin Kapfhammer
  	 *
 	 * @param string $questionId
+	 * @param boolean $test use active or unactive questions
 	 * @throws Model_Exception_QuestionNotFound
 	 * @return array $question
 	 */
-	public function getQuestion($questionId) {
-		$question = $this->fetchRow('questionid = '. $questionId);
+	public function getQuestion($questionId, $test = false) {
+		$active = ($test === false) ? 'Y' : 'N';
+		$question = $this->fetchRow('questionid = '. $questionId . ' and active = "'. $active .'"');
 		if (!$question) {
 			throw new Model_Exception_QuestionNotFound('question', $questionId);
 		}
@@ -64,14 +66,22 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $result->toArray(); 
 	}
 
-	public function insertQuestion(array $postValues, $answerId, $fileName) {
+	public function insertQuestion(array $postValues, $answerId, $fileName, $userId) {
 		$data = array('question' => $postValues['question'],
 					  'answerid' => $answerId,
 					  'image' 	 => $fileName,
 					  'level'	 => 1,
-					  'creationdate' => date()
+					  'creationdate' => date('Y-m-d'),
+					  'author'   => $userId,
+					  'active'   => 'N'
 					);
 		return $this->insert($data);
+	}
+
+	public function isAuthor($userId, $questionId) {
+		$where = "userid = $userId and questionid = $questionId";
+		$result = $this->fetchAll($where);
+		return ($result) ? true : false;
 	}
 
 }

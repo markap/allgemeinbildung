@@ -22,7 +22,11 @@ class GameController extends Zend_Controller_Action
 
 		// get game ids
 		$nextGameSession = new Zend_Session_Namespace('nextGame');
-		if ($this->_getParam('play') === md5('nextgame!')) {
+		if ($this->_getParam('play') === md5('nextgame!')
+			|| $this->_getParam('play') === md5('testquestion!')) {
+			if ($this->_getParam('play') === md5('testquestion!')) {
+				$this->gameSession->redirect = '/createquestion/result/question/' . $nextGameSession->nextGame[0]['id'];
+			}
 			$this->gameSession->game = null;	
 			$this->gameSession->waitForAnswer = false;
         	$nextGame = $nextGameSession->nextGame;
@@ -31,13 +35,36 @@ class GameController extends Zend_Controller_Action
 			}
 		} 
 		$nextGameSession->nextGame = null;
+		
+		// get params without session ->nextGame
+		if ($this->_getParam('play') === md5('playcat!')) {
+			$this->gameSession->redirect = null;
+			$this->gameSession->game = null;	
+			$this->gameSession->waitForAnswer = false;
+			$hasCategoryDb = new Model_DbTable_HasCategory();
+			$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+		}
+
+		// redirect when game is over
+		if ($this->gameSession->redirect === null) {
+			$this->gameSession->redirect = '/game/result';
+		}
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
-			$this->gameSession->game = new Model_Game($questionIds, $this->userId);	
+			if ($this->_getParam('play') === md5('testquestion!')) {
+				$this->gameSession->game = new Model_Game($questionIds, null, true);	
+			} else {
+				$this->gameSession->game = new Model_Game($questionIds, $this->userId);	
+			}
 		}
 		$game = $this->gameSession->game; 
-
+		
+		// set QuestionType
+		if ($this->getRequest()->has('qtyp')) {
+			$game->setQuestionType($this->_getParam('qtyp'));
+		}
+		
 
 		// refresh browser -> answer wrong
 		if ($this->gameSession->waitForAnswer === true) {
@@ -59,7 +86,7 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->result = $game->getScore();
 			$this->gameSession->game   = null;
 			$this->gameSession->waitForAnswer = false;
-			$this->_redirect('/game/result');
+			$this->_redirect($this->gameSession->redirect);
 		}
 		catch (Model_Exception_QuestionNotFound $e) {	 // question does not exist
 			$this->gameSession->waitForAnswer = false;
@@ -88,7 +115,6 @@ class GameController extends Zend_Controller_Action
 			
 			$this->gameSession->waitForAnswer = false;
 			$this->gameSession->oneBrowser = true;
-			$this->gameSession->setExpirationHops(1, 'oneBrowser');
 
 		} else {
 			$this->_redirect('/question');
@@ -119,7 +145,6 @@ class GameController extends Zend_Controller_Action
 
 			$this->gameSession->waitForAnswer = false;
 			$this->gameSession->oneBrowser = true;
-			$this->gameSession->setExpirationHops(1, 'oneBrowser');
 
 		} else {
 			$this->_redirect('/question');

@@ -15,6 +15,7 @@ class IndexController extends Zend_Controller_Action
 
     public function loginAction()
     {
+//TODO user ist noch nicht freigegeben, neue mail versenden
 		// if already logged in, redirect to start
 		$auth = Zend_Auth::getInstance();	
 		if ($auth->hasIdentity()) {

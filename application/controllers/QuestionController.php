@@ -19,7 +19,7 @@ class QuestionController extends Zend_Controller_Action
 		$questionDb = new Model_DbTable_Question();
 		$categoryDb = new Model_DbTable_Category();
 		$this->view->countQuestion = $questionDb->countQuestions();
-		var_dump($categoryDb->getCategories());
+		$this->view->categories    = $categoryDb->getCategories();
 		var_dump($questionDb->getDates());
 		
     }

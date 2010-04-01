@@ -2,10 +2,12 @@
 
 class CreatequestionController extends Zend_Controller_Action
 {
+	protected $userId	   = null;
 
     public function init()
     {
-        /* Initialize action controller here */
+		$userSession 	   = new Zend_Session_Namespace('user');
+		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
     }
 
     public function indexAction()
@@ -37,7 +39,7 @@ class CreatequestionController extends Zend_Controller_Action
 				$questionDb = new Model_DbTable_Question();
 				$hasCategoryDb = new Model_DbTable_HasCategory();
 				$answerId = $answerDb->getNextAnswerId();
-				$questionId = $questionDb->insertQuestion($postValues, $answerId, $newImageName.'.'.$fileExt);
+				$questionId = $questionDb->insertQuestion($postValues, $answerId, $newImageName.'.'.$fileExt, $this->userId);
 				$answerDb->insertAnswer($postValues, $answerId);
 				$hasCategoryDb->insertRelation($questionId, $postValues['category']);
 				$this->_redirect('/createquestion/result/question/' . $questionId);
@@ -50,13 +52,33 @@ class CreatequestionController extends Zend_Controller_Action
     public function resultAction()
     {
         $questionId = $this->_getParam('question');
+//todo DARF NUR AUTOR ODER admin
+//TODO chekc ob questionid ist veränderbar
+        
+		$questionIds = array(array('id' => $questionId, 'type' => 'mc'),
+							 array('id' => $questionId, 'type' => 'txt')
+							);
+		$nextGameSession = new Zend_Session_Namespace('nextGame');
+		$nextGameSession->nextGame = $questionIds;
 
 		echo "super gemacht...";
-		echo "<a href='/question/play/question/".$questionId."'>testen</a>";
+		echo "<a href='/game/index/play/".md5('testquestion!')."'>testen</a>";
+		echo "ändern";
+		echo "weitere frage anlegen";
+    }
+
+    public function editquestionAction()
+    {
+		$this->_getParam('question');
+		// TODO checken ob frage überhaupt editiert werden darf ...
+		//todo DARF NUR AUTOR ODER ERSTELLER
+		// populate form von oben ..
     }
 
 
 }
+
+
 
 
 
