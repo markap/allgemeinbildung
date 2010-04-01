@@ -26,7 +26,7 @@ class QuestionController extends Zend_Controller_Action
 
     public function playAction()
     {
-        $questionId = $this->_getParam('question');
+        $questionId = ($this->_getParam('question')) ? $this->_getParam('question') : -1;
 		try {
 			$question   = new Model_Question($questionId);
 			$this->view->question 	= $question->getQuestion();

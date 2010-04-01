@@ -58,4 +58,12 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 		return $ret;
 	}
 
+	public function insertRelation($questionId, array $categories) {
+		foreach ($categories as $category) {
+			$data = array('questionid' => $questionId,
+						  'categoryid' => $category);
+			$this->insert($data);
+		}
+	}
+
 }

@@ -10,10 +10,7 @@ class CreatequestionController extends Zend_Controller_Action
 
     public function indexAction()
     {
-			rename(APPLICATION_PATH . '/../img/mhm.jpg', APPLICATION_PATH . '/../img/test.jpg');
-/**
-        // action body
-		// TODO show hints for every question
+        // TODO show hints for every question
 		$form = new Form_CreateQuestion();
 
 		$categoryDb = new Model_DbTable_Category();
@@ -25,27 +22,41 @@ class CreatequestionController extends Zend_Controller_Action
 		if ($request->isPost()) {
 			$postValues = $request->getPost();
 			//TODO gscheite validierung
-			if (Model_ValidateFormular::notEmpty($postValues) === true 
-				&& $form->getElement('image')->receive()) {
+			if (/**Model_ValidateFormular::notEmpty($postValues) === true 
+				&& */$form->getElement('image')->receive()) {
 
-				//TODO generiere neuen bildnamen
 				$pathName = $form->getElement('image')->getFileName();
-				$fileName  = substr($pathName, strrpos($pathName, '/') + 1);
-		//		rename(APPLICATION_PATH . '/../img/' . $fileName, APPLICATION_PATH . '/../img/test.jpg');
+				if (!empty($pathName)) { 	// image upload
+					$fileName  = substr($pathName, strrpos($pathName, '/') + 1);
+					$fileExt = substr($fileName, strrpos($fileName, '.') + 1);
+					$newImageName = Model_DbTable_Helper::getInstance()->getImageNumber();
+					rename(APPLICATION_PATH . '/../public/img/' . $fileName, 
+							APPLICATION_PATH . '/../public/img/' . $newImageName . '.' . $fileExt);
+				}
 				$answerDb = new Model_DbTable_Answer();
 				$questionDb = new Model_DbTable_Question();
+				$hasCategoryDb = new Model_DbTable_HasCategory();
 				$answerId = $answerDb->getNextAnswerId();
-				//$questionId = $questionDb->insertQuestion($postValues, $answerId, $fileName);
-				//$answerDb->insertAnswer($postValues, $answerId);
-				
-			} else echo 'nix';
-			var_dump($postValues);	
+				$questionId = $questionDb->insertQuestion($postValues, $answerId, $newImageName.'.'.$fileExt);
+				$answerDb->insertAnswer($postValues, $answerId);
+				$hasCategoryDb->insertRelation($questionId, $postValues['category']);
+				$this->_redirect('/createquestion/result/question/' . $questionId);
+			} 
 		}
 
 		$this->view->form = $form;
-*/
+    }
+
+    public function resultAction()
+    {
+        $questionId = $this->_getParam('question');
+
+		echo "super gemacht...";
+		echo "<a href='/question/play/question/".$questionId."'>testen</a>";
     }
 
 
 }
+
+
 
