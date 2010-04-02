@@ -34,8 +34,9 @@ class Model_DbTable_Helper extends Zend_Db_Table_Abstract {
 	public function getImageNumber() {
 		$result = $this->fetchRow('name = "img"')->toArray();
 		$number = (int)$result['value'];
-		$data 	= array('value' => ++$number);
-		$where 	= array('name' => 'img');
+		$number = $number +1;
+		$data 	= array('value' => (string)$number);
+		$where 	= array('name = "img"');
 		$this->update($data, $where);
 		return $number;
 	}

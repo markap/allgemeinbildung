@@ -26,7 +26,7 @@ class Model_DbTable_User extends Zend_Db_Table_Abstract {
 	public function findCredentials($username, $password) {
 		$stmt =  $this->select()
 						->where('username = ?', $username)
-						->where('password = ?', $password) //TODO md5
+						->where('password = ?', md5($password)) 
 						->where('active = ?', 'Y');
 		$row  =  $this->fetchRow($stmt);
 		$this->user = $row;
