@@ -1,0 +1,7 @@
+<?php echo $this->headScript()->appendFile('/js/createquestion/index.js'); ?>
+
+<?php foreach ($this->images as $image): ?>
+	<span class="image" id="<?php echo $image['image']; ?>">
+		<img width="200px" src="<?php echo $this->baseUrl . '/img/' . $image['image'] . '.jpg'; ?>" />
+	</span>
+<?php endforeach; ?>

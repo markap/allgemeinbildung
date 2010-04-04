@@ -55,13 +55,20 @@ class Form_CreateQuestion extends Zend_Form {
 		$category = new Zend_Form_Element_Multiselect('category');
 		$category->setLabel('Kategorie(n) wählen:');
 
-		// Image Element
+		// Image upload
 		$image = new Zend_Form_Element_File('image');
 		$image->setLabel('Bild zur Frage:')
 			  ->setDestination(APPLICATION_PATH . '/../public/img')
 			  ->addValidator('Count', false, 1)
 			  ->addValidator('Size', false, 204800)
 			  ->addValidator('Extension', false, 'jpg,png,gif');
+
+		// use already uploaded image 
+        $imageText = new Zend_Form_Element_Text('imageText');
+        $imageText->setLabel('Bereits existierendes Bild verwenden:')
+              	  ->setRequired(true)
+              	  ->addFilter('StringTrim')
+              	  ->addFilter('StripTags');
 
 		// Submit Element
 		$submit = new Zend_Form_Element_Submit('Frage Speichern');
@@ -75,6 +82,7 @@ class Form_CreateQuestion extends Zend_Form {
 								 $fake2, 
 								 $fake3, 
 								 $image, 
+								 $imageText, 
 								 $category, 
 								 $submit
 								));

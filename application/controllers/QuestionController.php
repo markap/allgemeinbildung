@@ -18,8 +18,24 @@ class QuestionController extends Zend_Controller_Action
     {
 		$questionDb = new Model_DbTable_Question();
 		$categoryDb = new Model_DbTable_Category();
+		$hasCategoryDb = new Model_DbTable_HasCategory();
+
 		$this->view->countQuestion = $questionDb->countQuestions();
 		$this->view->categories    = $categoryDb->getCategories();
+		if ($this->getRequest()->has('cat')) {
+			$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+
+			$questionView = array();
+			foreach ($questionIds as $questionId) {
+				$question = new Model_Question($questionId);
+				$questionView [] = array(
+					'question' 	 => $question->getQuestion(),
+					'answers' 	 => $question->getAnswers(),
+					'categories' => $question->getCategories()
+				);
+			}
+			$this->view->questions = $questionView;
+		}
 		var_dump($questionDb->getDates());
 		
     }

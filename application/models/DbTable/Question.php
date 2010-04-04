@@ -85,4 +85,14 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return ($result) ? true : false;
 	}
 
+	public function findImages($searchTerm) {
+		$stmt = $this->select();
+		$stmt->distinct()
+			 ->from(array('q' => 'question'),
+					array('q.image'))
+			 ->where('q.question like "%' . $searchTerm . '%"');
+		$result = $this->fetchAll($stmt)->toArray();
+		return $result;
+	}
+
 }

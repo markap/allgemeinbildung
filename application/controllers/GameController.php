@@ -15,53 +15,43 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$questionIds = array(array('id' => 41, 'type' => 'mc'),
+		$questionIds = array(array('id' => 48, 'type' => 'mc'),
 							 array('id' => 41, 'type' => 'txt'),
 							 array('id' => 41, 'type' => 'mc'),
 							3,4);
 
 		// get game ids
-		$nextGameSession = new Zend_Session_Namespace('nextGame');
-		if ($this->_getParam('play') === md5('nextgame!')
-			|| $this->_getParam('play') === md5('testquestion!')) {
-			if ($this->_getParam('play') === md5('testquestion!')) {
-				$this->gameSession->redirect = '/createquestion/result/question/' . $nextGameSession->nextGame[0]['id'];
-			}
+		if ($this->isNewGame() === true) {
 			$this->gameSession->game = null;	
 			$this->gameSession->waitForAnswer = false;
-        	$nextGame = $nextGameSession->nextGame;
-			if ($nextGame !== null) {
-				$questionIds = $nextGame;	
-			}
-		} 
-		$nextGameSession->nextGame = null;
-		
-		// get params without session ->nextGame
-		if ($this->_getParam('play') === md5('playcat!')) {
-			$this->gameSession->redirect = null;
-			$this->gameSession->game = null;	
-			$this->gameSession->waitForAnswer = false;
-			$hasCategoryDb = new Model_DbTable_HasCategory();
-			$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
-		}
-
-		// redirect when game is over
-		if ($this->gameSession->redirect === null) {
 			$this->gameSession->redirect = '/game/result';
+
+			$nextGameSession = new Zend_Session_Namespace('nextGame');
+			if ($nextGameSession->nextGame !== null) {	// nextGame isset ?
+				$questionIds = $nextGameSession->nextGame;
+				if ($this->isTestGame() === true) {
+					$this->gameSession->redirect = '/createquestion/result/question/' . $nextGameSession->nextGame[0]['id'];
+				}
+				$nextGameSession->nextGame = null;
+			} else if ($this->getRequest()->has('cat')) {
+				$hasCategoryDb = new Model_DbTable_HasCategory();
+				$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+			}
 		}
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
-			if ($this->_getParam('play') === md5('testquestion!')) {
-				$this->gameSession->game = new Model_Game($questionIds, null, true);	
-			} else {
+			if ($this->isTestGame() === false) {	// it's not a testgame
 				$this->gameSession->game = new Model_Game($questionIds, $this->userId);	
+			} else {
+				$this->gameSession->game = new Model_Game($questionIds, null, true);	
 			}
 		}
 		$game = $this->gameSession->game; 
 		
 		// set QuestionType
-		if ($this->getRequest()->has('qtyp')) {
+		if ($this->isNewGame() === true && $this->getRequest()->has('qtyp')) {
+			// TODO auch sessionkönnte qtyp haben
 			$game->setQuestionType($this->_getParam('qtyp'));
 		}
 		
@@ -92,10 +82,16 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->waitForAnswer = false;
 			error_log('question not found|' . $e->getId() . '|' . $e->getClassName());
 			$this->view->pageNotFound = true;
-			$this->view->errorId	  = $e->getId();
-			$this->view->className	  = $e->getClassName();
 		}
     }
+
+	protected function isNewGame() {
+		return ($this->_getParam('play') === md5('nextgame!'));
+	}
+
+	protected function isTestGame() {
+		return ($this->_getParam('test') === md5('testgame!'));
+	}
 
     public function answerrequestAction()
     {
@@ -114,7 +110,6 @@ class GameController extends Zend_Controller_Action
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
 			
 			$this->gameSession->waitForAnswer = false;
-			$this->gameSession->oneBrowser = true;
 
 		} else {
 			$this->_redirect('/question');
@@ -144,7 +139,6 @@ class GameController extends Zend_Controller_Action
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
 
 			$this->gameSession->waitForAnswer = false;
-			$this->gameSession->oneBrowser = true;
 
 		} else {
 			$this->_redirect('/question');

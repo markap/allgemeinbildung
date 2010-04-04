@@ -225,3 +225,12 @@
 [Fri Apr 02 12:18:25 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '(' in /home/www/allgemeinbildung/application/models/DbTable/Helper.php on line 36, referer: http://allgemeinbildung.localhost/createquestion
 [Fri Apr 02 12:25:25 2010] [error] [client 127.0.0.1] modify_answer|gerhard schroeder|Gerhard Schr\xc3\xb6der|gerhardschroeder|gerhardschroeder, referer: http://allgemeinbildung.localhost/game
 [Fri Apr 02 13:20:44 2010] [error] [client 127.0.0.1] question not found|48|question, referer: http://allgemeinbildung.localhost/createquestion/result/question/48
+[Fri Apr 02 21:24:05 2010] [error] [client 127.0.0.1] modify_answer|baden w\xc3\xbcrttemberg|Baden-W\xc3\xbcrttemberg|badenwuerttemberg|badenwuerttemberg, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7
+[Fri Apr 02 21:24:23 2010] [error] [client 127.0.0.1] modify_answer|sachsen|Sachsen|sachsen|sachsen, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 02 21:24:37 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 02 21:24:58 2010] [error] [client 127.0.0.1] modify_answer|rheinland pfalz|Rheinland-Pfalz|rheinlandpfalz|rheinlandpfalz, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 02 21:25:12 2010] [error] [client 127.0.0.1] modify_answer|konrad adenauer|Konrad Adenauer|konradadenauer|konradadenauer, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 02 21:25:23 2010] [error] [client 127.0.0.1] modify_answer|kurt georg kiesinger|Kurt Georg Kiesinger|kurtgeorgkiesinger|kurtgeorgkiesinger, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 02 21:45:58 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: newImageName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 48, referer: http://allgemeinbildung.localhost/createquestion
+[Fri Apr 02 21:45:58 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileExt in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 48, referer: http://allgemeinbildung.localhost/createquestion
+[Sun Apr 04 19:52:22 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/controllers/QuestionController.php on line 26

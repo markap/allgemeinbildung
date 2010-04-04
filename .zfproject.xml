@@ -11,6 +11,7 @@
         <controllerFile controllerName="index">
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
+          <actionMethod actionName="showimages"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
         <controllerFile controllerName="question">
@@ -36,6 +37,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="result"/>
           <actionMethod actionName="editquestion"/>
+          <actionMethod actionName="showimages"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -93,6 +95,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="createquestion">
             <viewScriptFile forActionName="editquestion"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="showimages"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="createquestion">
+            <viewScriptFile forActionName="showimages"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

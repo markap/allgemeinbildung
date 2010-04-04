@@ -2,11 +2,12 @@
 
 class CreatequestionController extends Zend_Controller_Action
 {
-	protected $userId	   = null;
+
+    protected $userId = null;
 
     public function init()
     {
-		$userSession 	   = new Zend_Session_Namespace('user');
+        $userSession 	   = new Zend_Session_Namespace('user');
 		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
     }
 
@@ -34,12 +35,18 @@ class CreatequestionController extends Zend_Controller_Action
 					$newImageName = Model_DbTable_Helper::getInstance()->getImageNumber();
 					rename(APPLICATION_PATH . '/../public/img/' . $fileName, 
 							APPLICATION_PATH . '/../public/img/' . $newImageName . '.' . $fileExt);
+					$fileName = $newImageName . '.' . $fileExt;
+				} else if ($postValues['imageText']) {
+					$fileName = $postValues['imageText'];
+				} else {
+					// TODO default image
+					$fileName = 'default';
 				}
 				$answerDb = new Model_DbTable_Answer();
 				$questionDb = new Model_DbTable_Question();
 				$hasCategoryDb = new Model_DbTable_HasCategory();
 				$answerId = $answerDb->getNextAnswerId();
-				$questionId = $questionDb->insertQuestion($postValues, $answerId, $newImageName.'.'.$fileExt, $this->userId);
+				$questionId = $questionDb->insertQuestion($postValues, $answerId, $fileName, $this->userId);
 				$answerDb->insertAnswer($postValues, $answerId);
 				$hasCategoryDb->insertRelation($questionId, $postValues['category']);
 				$this->_redirect('/createquestion/result/question/' . $questionId);
@@ -52,9 +59,9 @@ class CreatequestionController extends Zend_Controller_Action
     public function resultAction()
     {
         $questionId = $this->_getParam('question');
-//todo DARF NUR AUTOR ODER admin
-//TODO chekc ob questionid ist veränderbar
-        
+        //todo DARF NUR AUTOR ODER admin
+        //TODO chekc ob questionid ist veränderbar
+                
 		$questionIds = array(array('id' => $questionId, 'type' => 'mc'),
 							 array('id' => $questionId, 'type' => 'txt')
 							);
@@ -62,21 +69,35 @@ class CreatequestionController extends Zend_Controller_Action
 		$nextGameSession->nextGame = $questionIds;
 
 		echo "super gemacht...";
-		echo "<a href='/game/index/play/".md5('testquestion!')."'>testen</a>";
+		echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!')."'>testen</a>";
 		echo "ändern";
 		echo "weitere frage anlegen";
     }
 
     public function editquestionAction()
     {
-		$this->_getParam('question');
+        $this->_getParam('question');
 		// TODO checken ob frage überhaupt editiert werden darf ...
 		//todo DARF NUR AUTOR ODER ERSTELLER
 		// populate form von oben ..
+	}
+
+    public function showimagesAction()
+    {
+		if ($this->getRequest()->isXmlHttpRequest()) {
+			$this->_helper->layout->disableLayout();
+			$searchTerm = $this->_getParam('name');
+			$questionDb = new Model_DbTable_Question();
+			$this->view->images = $questionDb->findImages($searchTerm);
+		} else {
+			$this->_redirect('/createquestion');
+		}
     }
 
 
 }
+
+
 
 
 
