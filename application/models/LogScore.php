@@ -69,11 +69,21 @@ class Model_LogScore extends Model_Score {
 			$this->resultDb->saveResult($questionId, $questionType, $result);
 			return '';
 		}
-		if ($existRecord['result'] === $result) {
+		if ($existRecord['result'] === $result && $result === 'Y') {
 			// do nothing -> it is already in db
+			return '';
+		}
+		if (!$this->isReadyToUpdate($existRecord['date']) && $result === 'Y') {
+			// do nothing -> its not the time to set right 
 			return '';
 		}
 		$this->resultDb->updateResult($questionId, $questionType, $result);
 		return '';
+	}
+
+	protected function isReadyToUpdate($existingDate) {
+		$existingTimestamp = strtotime($existingDate);
+		$nowAsTimestamp    = strtotime('now') - (60 * 60 * 24 *3);
+		return ($nowAsTimestamp >= $existingTimestamp) ? true : false;
 	}
 }

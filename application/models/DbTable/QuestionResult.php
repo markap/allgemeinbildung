@@ -60,7 +60,6 @@ class Model_DbTable_QuestionResult extends Zend_Db_Table_Abstract {
  	 * inserts the entry in db
 	 *
 	 * @author Martin Kapfhammer
-	 *
  	 * @param integer $questionId
 	 * @param string $questionType
 	 * @param string $result
@@ -69,7 +68,8 @@ class Model_DbTable_QuestionResult extends Zend_Db_Table_Abstract {
 		$data = array('userid' 		 => $this->userId,
 					  'questionid' 	 => $questionId,
 					  'questiontype' => $questionType,
-					  'result' 		 => $result
+					  'result' 		 => $result,
+					  'date'		 => date('Y-m-d')
 					);	
 		$this->insert($data);
 	}
@@ -79,13 +79,13 @@ class Model_DbTable_QuestionResult extends Zend_Db_Table_Abstract {
 	 * updates a entry
 	 *
 	 * @author Martin Kapfhammer
-	 *
  	 * @param integer $questionId
 	 * @param string $questionType
 	 * @param string $result
 	 */
 	public function updateResult($questionId, $questionType, $result) {
-		$data  = array('result' => $result);
+		$data  = array('result' => $result,
+					   'date'	=> date('Y-m-d'));
 		$where = "userid = $this->userId and questionid = $questionId and questiontype = '$questionType'";
 		$this->update($data, $where);
 	}
@@ -112,4 +112,47 @@ class Model_DbTable_QuestionResult extends Zend_Db_Table_Abstract {
 		}
 		return $questionIds;
 	}
+
+	public function countQuestions($result) {
+		$stmt = $this->select();
+		$stmt->from($this, array('COUNT(*) as question'))
+			 ->where('userid = '.$this->userId)
+			 ->where('result = "'.$result.'"');
+		$result = $this->fetchAll($stmt)->toArray();
+		return $result[0]['question'];
+	}
+
+	public function countQuestionsByCategory($categoryId, $result) {
+		$stmt = $this->select();
+		$stmt->from(array('qr' => 'questionresult'),
+					array('COUNT(*) as count'))
+			 ->join(array('hc' => 'hasCategory'),
+						  'qr.questionid = hc.questionid',
+						  array())
+			 ->where('userid = '.$this->userId)
+			 ->where('hc.categoryid = ' . $categoryId)
+			 ->where('qr.result = "' . $result .'"');
+	 	$result = $this->fetchAll($stmt)->toArray();
+		return $result[0]['count'];
+	}
+
+	public function getQuestionIds($categoryId, $result) {
+		$stmt = $this->select();
+		$stmt->from(array('qr' => 'questionresult'),
+					array('qr.questionid', 'qr.questiontype'))
+			 ->join(array('hc' => 'hasCategory'),
+						  'qr.questionid = hc.questionid',
+						  array())
+			 ->where('userid = '.$this->userId)
+			 ->where('hc.categoryid = ' . $categoryId)
+			 ->where('qr.result = "' . $result .'"');
+	 	$result = $this->fetchAll($stmt)->toArray();
+		foreach ($result as $question) {
+			$ret[] = array('id' => $question['questionid'],
+						   'type' => $question['questiontype']
+						);
+		}
+		return isset($ret) ? $ret : null;
+	}
+
 }

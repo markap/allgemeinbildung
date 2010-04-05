@@ -1,1 +1,15 @@
 <a href="<?php echo $this->baseUrl . '/game/index/play/' . md5('nextgame!'); ?>">Alle Fragen Spielen</a>
+<a href="/result/category/result/<?php echo $this->resultKey; ?>">Zu den Kategorien</a>
+<?php echo $this->count; ?>
+
+<?php foreach ($this->paginator as $question): ?>
+	<img height="100px" src="<?php echo $this->baseUrl . '/img/' . $question['question']['image'] . '.jpg'; ?>" />
+	<a href="/question/play/question/<?php echo $question['question']['questionid']; ?>/back/<?php echo $question['backUrl']; ?>">
+		<?php echo $question['question']['question']; ?><br />
+	</a>
+<?php endforeach; ?>
+
+<?php echo $this->paginationControl(
+			$this->paginator,
+			'Sliding',
+			'/partials/pagination.phtml'); ?>

@@ -95,4 +95,5 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 		$result = $this->fetchAll($stmt)->toArray();
 		return $result[0]['question'];
 	}
+
 }

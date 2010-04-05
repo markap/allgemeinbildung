@@ -34,6 +34,8 @@
           <actionMethod actionName="rightquestion"/>
           <actionMethod actionName="wrongquestion"/>
           <actionMethod actionName="questions"/>
+          <actionMethod actionName="category"/>
+          <actionMethod actionName="timeline"/>
         </controllerFile>
         <controllerFile controllerName="createquestion">
           <actionMethod actionName="index"/>
@@ -109,6 +111,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="result">
             <viewScriptFile forActionName="questions"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
+            <viewScriptFile forActionName="category"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
+            <viewScriptFile forActionName="timeline"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

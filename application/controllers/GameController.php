@@ -15,7 +15,7 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$questionIds = array(array('id' => 48, 'type' => 'mc'),
+		$defaulQuestionIds = array(array('id' => 48, 'type' => 'mc'),
 							 array('id' => 41, 'type' => 'txt'),
 							 array('id' => 41, 'type' => 'mc'),
 							3,4);
@@ -34,10 +34,17 @@ class GameController extends Zend_Controller_Action
 				}
 				$nextGameSession->nextGame = null;
 			} else if ($this->getRequest()->has('cat')) {
-				$hasCategoryDb = new Model_DbTable_HasCategory();
-				$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+				if (!$this->getRequest()->has('result')) {
+					$hasCategoryDb = new Model_DbTable_HasCategory();
+					$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+				} else {
+					$questionResultDb = new Model_DbTable_QuestionResult($this->userId);
+					$questionIds = $questionResultDb->getQuestionIds($this->_getParam('cat'), $this->_getParam('result'));
+				}
 			}
 		}
+
+		//TODO if questionids = null, show error
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {

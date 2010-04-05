@@ -114,7 +114,7 @@ class QuestionController extends Zend_Controller_Action
 					'backUrl'	 => str_replace('/', '_', getenv('REQUEST_URI'))
 				);
 			}
-			$this->view->param	   = true;
+			$this->view->param = true;
 
 			//pagination
 			$page = $this->_getParam('page', 1);

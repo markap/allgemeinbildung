@@ -1,0 +1,31 @@
+<h1>Kategorien</h1>
+
+<?php if ($this->param !== true): ?>
+	<a href="/result/questions/result/<?php echo $this->resultKey; ?>">Zurück</a>
+	<?php foreach ($this->categories as $category): ?>
+		<?php if ($category['count'] !== 0): ?>
+			<a href='/result/category/cat/<?php echo $category['key']; ?>/result/<?php echo $this->resultKey; ?>'>
+				<?php echo $category['name']. '('. $category['count'] . ')'; ?></a>
+	   		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>/result/<?php echo $this->resultKey; ?>'>
+				Spielen</a>
+		<?php else: ?>
+			<?php echo $category['name']. '('. $category['count'] . ')'; ?>
+		<?php endif; ?>
+		<br />
+	<?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (isset($this->paginator)): ?>
+	<a href="/result/category/result/<?php echo $this->resultKey; ?>">Zurück</a>
+	<?php foreach ($this->paginator as $question): ?>
+		<img height="100px" src="<?php echo $this->baseUrl . '/img/' . $question['question']['image'] . '.jpg'; ?>" />
+		<a href="/question/play/question/<?php echo $question['question']['questionid']; ?>/back/<?php echo $question['backUrl']; ?>">
+			<?php echo $question['question']['question']; ?><br />
+		</a>
+	<?php endforeach; ?>
+
+	<?php echo $this->paginationControl(
+					$this->paginator,
+					'Sliding',
+					'/partials/pagination.phtml'); ?>
+<?php endif; ?>
