@@ -4,25 +4,17 @@
 
 <p>Durchsuchen Sie doch unseren Fragekatalog:</p>
 
-<?php foreach ($this->categories as $key => $category): ?>
-	<a href='/question/index/cat/<?php echo $key; ?>'><?php echo $category; ?></a>
-	<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $key; ?>'>Spielen</a>
-	<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $key; ?>/qtyp/mc'>MultipleChoice</a>
-	<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $key; ?>/qtyp/txt'>Direkteingabe</a>
-	<br />
-<?php endforeach; ?>
-
+<a href="/question/category">Zu unseren Kategorien</a>
 	
-<br /><br />
-Heute<br />
-Gestern<br />
-Die letzten 7 Tage<br />
-Diesen Monat<br />
-
-
-<?php foreach ($this->questions as $question): ?>
+<?php foreach ($this->paginator as $question): ?>
 	<img height="100px" src="<?php echo $this->baseUrl . '/img/' . $question['question']['image'] . '.jpg'; ?>" />
 	<a href="/question/play/question/<?php echo $question['question']['questionid']; ?>">
 		<?php echo $question['question']['question']; ?><br />
 	</a>
 <?php endforeach; ?>
+
+<?php echo $this->paginationControl(
+					$this->paginator,
+					'Sliding',
+					'/partials/pagination.phtml'); ?>
+	

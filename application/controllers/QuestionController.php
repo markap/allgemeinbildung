@@ -6,38 +6,39 @@
 class QuestionController extends Zend_Controller_Action
 {
 
-	protected $questionSession = null;
-
+    protected $questionSession = null;
 
     public function init()
     {
-		$this->questionSession = new Zend_Session_Namespace('question');
+        $this->questionSession = new Zend_Session_Namespace('question');
     }
 
     public function indexAction()
     {
-		$questionDb = new Model_DbTable_Question();
-		$categoryDb = new Model_DbTable_Category();
-		$hasCategoryDb = new Model_DbTable_HasCategory();
+        $questionDb = new Model_DbTable_Question();
 
 		$this->view->countQuestion = $questionDb->countQuestions();
-		$this->view->categories    = $categoryDb->getCategories();
-		if ($this->getRequest()->has('cat')) {
-			$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+		//var_dump($questionDb->getDates());
+		$questionIds = $questionDb->getQuestionIds();
+		shuffle($questionIds);
 
-			$questionView = array();
-			foreach ($questionIds as $questionId) {
-				$question = new Model_Question($questionId);
-				$questionView [] = array(
-					'question' 	 => $question->getQuestion(),
-					'answers' 	 => $question->getAnswers(),
-					'categories' => $question->getCategories()
-				);
-			}
-			$this->view->questions = $questionView;
+		$questionView = array();
+		foreach ($questionIds as $questionId) {
+			$question = new Model_Question($questionId);
+			$questionView [] = array(
+				'question' 	 => $question->getQuestion(),
+				'answers' 	 => $question->getAnswers(),
+				'categories' => $question->getCategories()
+			);
 		}
-		var_dump($questionDb->getDates());
-		
+
+		//pagination
+		$page = $this->_getParam('page', 1);
+		$paginator = Zend_Paginator::factory($questionView);
+		$paginator->setItemCountPerPage(10);
+		$paginator->setCurrentPageNumber($page);
+		$this->view->paginator = $paginator;
+
     }
 
     public function playAction()
@@ -59,9 +60,9 @@ class QuestionController extends Zend_Controller_Action
 
     public function questionrequestAction()
     {
-		if ($this->getRequest()->isXmlHttpRequest()) {
-
-        	$this->_helper->layout->disableLayout();
+        if ($this->getRequest()->isXmlHttpRequest()) {
+        
+			$this->_helper->layout->disableLayout();
 			$selectedAnswerHash = $this->_getParam('answer');	
 			$question = $this->questionSession->questionObject;
 			$this->view->isAnswerRight = $question->checkAnswer($selectedAnswerHash);
@@ -74,8 +75,44 @@ class QuestionController extends Zend_Controller_Action
 		}
     }
 
+    public function categoryAction()
+    {
+       	$categoryDb = new Model_DbTable_Category();
+		$hasCategoryDb = new Model_DbTable_HasCategory();
+
+		$categories = $categoryDb->getCategories();
+		foreach ($categories as $key => $category) {
+			$categoryView[] = array('key' => $key,
+									'name' => $category,
+									'count' => $hasCategoryDb->countQuestions($key)
+									);	
+		}
+		$this->view->categories = $categoryView; 
+
+		if ($this->getRequest()->has('cat')) {
+			$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
+
+			$questionView = array();
+			foreach ($questionIds as $questionId) {
+				$question = new Model_Question($questionId);
+				$questionView [] = array(
+					'question' 	 => $question->getQuestion(),
+					'answers' 	 => $question->getAnswers(),
+					'categories' => $question->getCategories()
+				);
+			}
+			$this->view->param	   = true;
+
+			//pagination
+			$page = $this->_getParam('page', 1);
+			$paginator = Zend_Paginator::factory($questionView);
+			$paginator->setItemCountPerPage(10);
+			$paginator->setCurrentPageNumber($page);
+			$this->view->paginator = $paginator;
+		}
+    }
+
 
 }
-
 
 

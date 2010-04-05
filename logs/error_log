@@ -234,3 +234,5 @@
 [Fri Apr 02 21:45:58 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: newImageName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 48, referer: http://allgemeinbildung.localhost/createquestion
 [Fri Apr 02 21:45:58 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileExt in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 48, referer: http://allgemeinbildung.localhost/createquestion
 [Sun Apr 04 19:52:22 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/controllers/QuestionController.php on line 26
+[Mon Apr 05 10:33:15 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/question/index.phtml on line 23
+[Mon Apr 05 10:59:55 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 101, referer: http://allgemeinbildung.localhost/question/category

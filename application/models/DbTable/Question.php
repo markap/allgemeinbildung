@@ -95,4 +95,15 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $result;
 	}
 
+	public function getQuestionIds() {
+		$stmt = $this->select();
+		$stmt->from($this, array('questionid'))
+			 ->where('active = "Y"');
+		$result = $this->fetchAll($stmt)->toArray();
+		foreach ($result as $questionId) {
+			$questionIds[] = $questionId['questionid'];
+		}
+		return $questionIds;
+	}
+
 }

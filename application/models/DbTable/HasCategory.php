@@ -82,4 +82,17 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 		}
 		return $questionIds;
 	}
+
+	public function countQuestions($categoryId) {
+		$stmt = $this->select();
+		$stmt->from(array('h' => 'hasCategory'),
+					array('COUNT(h.questionid) as question'))
+			 ->join(array('q' => 'question'),
+						  'h.questionid = q.questionid',
+						  array())
+			 ->where('h.categoryid = ' . $categoryId)
+			 ->where('q.active = "Y"');
+		$result = $this->fetchAll($stmt)->toArray();
+		return $result[0]['question'];
+	}
 }
