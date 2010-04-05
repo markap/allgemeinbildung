@@ -15,7 +15,7 @@
 	<a href="/question/category">Zurück</a>
 	<?php foreach ($this->paginator as $question): ?>
 		<img height="100px" src="<?php echo $this->baseUrl . '/img/' . $question['question']['image'] . '.jpg'; ?>" />
-		<a href="/question/play/question/<?php echo $question['question']['questionid']; ?>">
+		<a href="/question/play/question/<?php echo $question['question']['questionid']; ?>/back/<?php echo $question['backUrl']; ?>">
 			<?php echo $question['question']['question']; ?><br />
 		</a>
 	<?php endforeach; ?>

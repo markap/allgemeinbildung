@@ -3,9 +3,9 @@
 class ResultController extends Zend_Controller_Action
 {
 
-    protected $userId   = null;
-	
-	protected $resultDb = null;
+    protected $userId = null;
+
+    protected $resultDb = null;
 
     public function init()
     {
@@ -13,35 +13,32 @@ class ResultController extends Zend_Controller_Action
 		$userSession  = new Zend_Session_Namespace('user');
 		$userData     = $userSession->user;
 		$this->userId = $userData['userid'];
-        $this->resultDb = new Model_DbTable_QuestionResult($this->userId);
-    }
+		$this->resultDb = new Model_DbTable_QuestionResult($this->userId);
+}
 
     public function indexAction()
     {
+		echo "index";
     }
 
-    public function rightquestionAction()
+    public function questionsAction()
     {
-		$resultKey = 'Y';	
+		$resultKey = strtoupper($this->_getParam('result'));
+		if (!in_array($resultKey, array('Y', 'N'))) {
+			$this->_redirect('/result');
+		}
+
 		$result = $this->resultDb->getDistinctResult($resultKey);
-		var_dump($result);
 		$questionIds = $this->resultDb->getResultForGame($resultKey);
 		$nextGameSession = new Zend_Session_Namespace('nextGame');
 		$nextGameSession->nextGame = $questionIds;
-    }
 
-    public function wrongquestionAction()
-    {
-		$resultKey = 'N';	
-		$result = $this->resultDb->getDistinctResult($resultKey);
-		var_dump($result);
-		$questionIds = $this->resultDb->getResultForGame($resultKey);
-		$nextGameSession = new Zend_Session_Namespace('nextGame');
-		$nextGameSession->nextGame = $questionIds;
     }
 
 
 }
+
+
 
 
 

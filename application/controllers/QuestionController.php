@@ -20,7 +20,13 @@ class QuestionController extends Zend_Controller_Action
 		$this->view->countQuestion = $questionDb->countQuestions();
 		//var_dump($questionDb->getDates());
 		$questionIds = $questionDb->getQuestionIds();
-		shuffle($questionIds);
+		$sortDate = true;
+		if ($this->_getParam('mode') !== 'd') {
+			shuffle($questionIds);
+			$sortDate = false;
+		}
+		$this->view->sortDate = $sortDate;
+
 
 		$questionView = array();
 		foreach ($questionIds as $questionId) {
@@ -28,7 +34,8 @@ class QuestionController extends Zend_Controller_Action
 			$questionView [] = array(
 				'question' 	 => $question->getQuestion(),
 				'answers' 	 => $question->getAnswers(),
-				'categories' => $question->getCategories()
+				'categories' => $question->getCategories(),
+				'backUrl'	 => str_replace('/', '_', getenv('REQUEST_URI'))
 			);
 		}
 
@@ -44,6 +51,7 @@ class QuestionController extends Zend_Controller_Action
     public function playAction()
     {
         $questionId = ($this->_getParam('question')) ? $this->_getParam('question') : -1;
+		$this->questionSession->backLink = $this->_getParam('back');
 		try {
 			$question   = new Model_Question($questionId);
 			$this->view->question 	= $question->getQuestion();
@@ -62,6 +70,10 @@ class QuestionController extends Zend_Controller_Action
     {
         if ($this->getRequest()->isXmlHttpRequest()) {
         
+			$backLink = ($this->questionSession->backLink !== null) 
+						 ? $this->questionSession->backLink 
+						 : '/question';
+			$this->view->backLink = str_replace('_', '/', $backLink);
 			$this->_helper->layout->disableLayout();
 			$selectedAnswerHash = $this->_getParam('answer');	
 			$question = $this->questionSession->questionObject;
@@ -98,7 +110,8 @@ class QuestionController extends Zend_Controller_Action
 				$questionView [] = array(
 					'question' 	 => $question->getQuestion(),
 					'answers' 	 => $question->getAnswers(),
-					'categories' => $question->getCategories()
+					'categories' => $question->getCategories(),
+					'backUrl'	 => str_replace('/', '_', getenv('REQUEST_URI'))
 				);
 			}
 			$this->view->param	   = true;

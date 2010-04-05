@@ -98,7 +98,8 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 	public function getQuestionIds() {
 		$stmt = $this->select();
 		$stmt->from($this, array('questionid'))
-			 ->where('active = "Y"');
+			 ->where('active = "Y"')
+			 ->order('creationdate DESC');
 		$result = $this->fetchAll($stmt)->toArray();
 		foreach ($result as $questionId) {
 			$questionIds[] = $questionId['questionid'];
