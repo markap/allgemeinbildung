@@ -42,7 +42,10 @@ class Model_Question {
 		$questionDb 	  = new Model_DbTable_Question();
 		$answerDb 		  = new Model_DbTable_Answer();
 		$hasCategoryDb 	  = new Model_DbTable_HasCategory();
+		$levelDb		  = new Model_DbTable_Level();
 		$this->question   = $questionDb->getQuestion($questionId, $test);
+		$level = $levelDb->getLevel($this->question['level']);
+		$this->question['level'] = $level['name'];
 		$this->answers	  = $answerDb->getAnswer($this->question['answerid']);
 		$this->categories = $hasCategoryDb->getCategories($questionId);
 	}
