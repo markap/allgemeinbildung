@@ -372,3 +372,4 @@
 [Tue Apr 06 17:00:50 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: categoryid in /home/www/allgemeinbildung/application/models/DbTable/Level.php on line 48
 [Tue Apr 06 17:00:50 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: categoryid in /home/www/allgemeinbildung/application/models/DbTable/Level.php on line 48
 [Tue Apr 06 17:00:50 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: categoryid in /home/www/allgemeinbildung/application/models/DbTable/Level.php on line 48
+[Tue Apr 06 17:25:36 2010] [error] [client 127.0.0.1] question not found|56|question, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/test/e679cca80190c71939fb36acc37b9344

@@ -56,7 +56,6 @@ class CreatequestionController extends Zend_Controller_Action
 				$this->_redirect('/createquestion/result/question/' . $questionId);
 			} 
 		}
-
 		$this->view->form = $form;
     }
 

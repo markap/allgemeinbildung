@@ -99,7 +99,8 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		$stmt = $this->select();
 		$stmt->from($this, array('questionid'))
 			 ->where('active = "Y"')
-			 ->order('creationdate DESC');
+			 ->order('creationdate DESC')
+			 ->order('questionid DESC');
 		$result = $this->fetchAll($stmt)->toArray();
 		foreach ($result as $questionId) {
 			$questionIds[] = $questionId['questionid'];
