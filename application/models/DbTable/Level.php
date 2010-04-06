@@ -31,4 +31,21 @@ class Model_DbTable_Level extends Zend_Db_Table_Abstract {
 		}
 		return $level->toArray();
 	}
+
+
+	/**
+	 * returns all levels
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return array $formattedResult	
+	 */
+	public function getLevels() {
+		$orderBy = array('levelid ASC');
+		$results = $this->fetchAll('1', $orderBy)->toArray();
+		$formattedResult = array();
+		foreach ($results as $result) {
+			$formattedResult[$result['levelid']] = $result['name']; 
+		}
+		return $formattedResult;
+	}
 }

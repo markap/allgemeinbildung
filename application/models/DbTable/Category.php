@@ -37,14 +37,13 @@ class Model_DbTable_Category extends Zend_Db_Table_Abstract {
 	 * returns all categories
 	 *
 	 * @author Martin Kapfhammer
-	 * @return array $result
+	 * @return array $formattedResult
 	 */
 	public function getCategories() {
 		$orderby = array('name ASC');	
-		$result  = $this->fetchAll('1', $orderby);
-		$resultArray = $result->toArray();
+		$results = $this->fetchAll('1', $orderby)->toArray();
 		$formattedResult = array();
-		foreach ($resultArray as $result) {
+		foreach ($results as $result) {
 			$formattedResult[$result['categoryid']] = $result['name']; 
 		}
 		return $formattedResult;

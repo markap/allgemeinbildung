@@ -71,7 +71,7 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		$data = array('question' => $postValues['question'],
 					  'answerid' => $answerId,
 					  'image' 	 => $fileName,
-					  'level'	 => 1,
+					  'level'	 => $postValues['level'],
 					  'creationdate' => date('Y-m-d'),
 					  'author'   => $userId,
 					  'active'   => 'N'

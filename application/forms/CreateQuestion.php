@@ -55,6 +55,10 @@ class Form_CreateQuestion extends Zend_Form {
 		$category = new Zend_Form_Element_Multiselect('category');
 		$category->setLabel('Kategorie(n) wählen:');
 
+		// level 
+		$level = new Zend_Form_Element_Select('level');
+		$level->setLabel('Schwierigkeitsstufe wählen:');
+
 		// Image upload
 		$image = new Zend_Form_Element_File('image');
 		$image->setLabel('Bild zur Frage:')
@@ -84,6 +88,7 @@ class Form_CreateQuestion extends Zend_Form {
 								 $image, 
 								 $imageText, 
 								 $category, 
+								 $level,
 								 $submit
 								));
 

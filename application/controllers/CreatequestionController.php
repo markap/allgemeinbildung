@@ -20,6 +20,10 @@ class CreatequestionController extends Zend_Controller_Action
 		$categorySelect = $form->getElement('category');
 		$categorySelect->setMultiOptions($categoryDb->getCategories());
 
+		$levelDb = new Model_DbTable_Level();
+		$levelSelect = $form->getElement('level');
+		$levelSelect->setMultiOptions($levelDb->getLevels());
+
 		// handle request
 		$request = $this->getRequest();
 		if ($request->isPost()) {
