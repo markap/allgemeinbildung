@@ -8,7 +8,7 @@
 	<?php foreach($this->categories as $category): ?>
 		<?php echo $category; ?>
 	<?php endforeach; ?>
-	<img src="<?php echo $this->baseUrl . '/img/' . $this->question['image'] . '.jpg'; ?>" alt="fragebild" />
+	<img src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
 	<div id="answer">
 		<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
 		<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>

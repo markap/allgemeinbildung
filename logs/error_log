@@ -373,3 +373,37 @@
 [Tue Apr 06 17:00:50 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: categoryid in /home/www/allgemeinbildung/application/models/DbTable/Level.php on line 48
 [Tue Apr 06 17:00:50 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: categoryid in /home/www/allgemeinbildung/application/models/DbTable/Level.php on line 48
 [Tue Apr 06 17:25:36 2010] [error] [client 127.0.0.1] question not found|56|question, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/test/e679cca80190c71939fb36acc37b9344
+[Wed Apr 07 08:54:20 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/image-slider.php' failed
+[Wed Apr 07 08:54:20 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider.php
+[Wed Apr 07 08:54:35 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/image-slider.php' failed
+[Wed Apr 07 08:54:35 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider.php
+[Wed Apr 07 08:55:19 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/image-slider.php' failed
+[Wed Apr 07 08:55:19 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider.php
+[Wed Apr 07 08:55:22 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/image-slider.php' failed
+[Wed Apr 07 08:55:22 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider.php
+[Wed Apr 07 08:56:54 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/image-slider' failed
+[Wed Apr 07 08:56:54 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider
+[Wed Apr 07 08:57:59 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/image-slider' failed
+[Wed Apr 07 08:57:59 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider
+[Wed Apr 07 08:59:11 2010] [error] [client 127.0.0.1] malformed header from script. Bad header=#: image-slider
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] String found where operator expected at /opt/lampp/cgi-bin/image-slider line 4, near "echo  "Content-type: text/plain\\n\\n""
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] \t(Do you need to predeclare echo?)
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] String found where operator expected at /opt/lampp/cgi-bin/image-slider line 5, near "echo  "hallo""
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] \t(Do you need to predeclare echo?)
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/image-slider line 4, near "echo  "Content-type: text/plain\\n\\n""
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] Execution of /opt/lampp/cgi-bin/image-slider aborted due to compilation errors.
+[Wed Apr 07 09:00:42 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider
+[Wed Apr 07 09:01:03 2010] [error] [client 127.0.0.1] malformed header from script. Bad header=#: image-slider
+[Wed Apr 07 09:03:37 2010] [error] [client 127.0.0.1] malformed header from script. Bad header=#: image-slider
+[Wed Apr 07 10:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: test in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 102
+[Wed Apr 07 10:38:41 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: CreatequestionController::$question in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 103
+[Wed Apr 07 10:44:25 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to protected method Model_DbTable_HasCategory::getCategoryIds() from context 'CreatequestionController' in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 106
+[Wed Apr 07 10:59:03 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: filename in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 138, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/56
+[Wed Apr 07 10:59:48 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: filename in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 138, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/56
+[Wed Apr 07 12:02:34 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 102
+[Wed Apr 07 12:02:34 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 161
+[Wed Apr 07 12:03:51 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 102
+[Wed Apr 07 12:03:51 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/createquestion/questionlist.phtml on line 5
+[Wed Apr 07 12:05:48 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 102
+[Wed Apr 07 12:05:48 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/createquestion/questionlist.phtml on line 7
+[Wed Apr 07 12:06:26 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 102

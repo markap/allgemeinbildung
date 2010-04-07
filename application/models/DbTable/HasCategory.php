@@ -44,7 +44,7 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 	 * @throws Model_Exception_QuestionNotFound
  	 * @return array $ret question ids
 	 */
-	protected function getCategoryIds($questionId) {
+	public function getCategoryIds($questionId) {
 		$where = array('questionid = ' . $questionId);
 		$results = $this->fetchAll($where);
 		if (!$results) {

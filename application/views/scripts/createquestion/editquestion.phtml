@@ -1,1 +1,15 @@
-<br /><br /><center>View script for controller <b>createquestion</b> and script/action name <b>editquestion</b></center>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.domwindow.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/createquestion/index.js'); ?>
+
+
+<h1>Neue Frage anlegen</h1>
+<?php echo $this->form; ?>
+
+
+<div id="imagePicker" style="display: none;"> 
+<h1>Bilder Auswahl</h1> 
+Namen zur Frage eingeben:
+<input type="text" id="imageName" />
+<div id="images"><div>
+</div>

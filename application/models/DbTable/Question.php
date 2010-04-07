@@ -79,12 +79,6 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $this->insert($data);
 	}
 
-	public function isAuthor($userId, $questionId) {
-		$where = "userid = $userId and questionid = $questionId";
-		$result = $this->fetchAll($where);
-		return ($result) ? true : false;
-	}
-
 	public function findImages($searchTerm) {
 		$stmt = $this->select();
 		$stmt->distinct()
@@ -95,17 +89,24 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $result;
 	}
 
-	public function getQuestionIds() {
+	public function getQuestionIds($active = 'Y') {
 		$stmt = $this->select();
 		$stmt->from($this, array('questionid'))
-			 ->where('active = "Y"')
+			 ->where('active = "' . $active . '"')
 			 ->order('creationdate DESC')
 			 ->order('questionid DESC');
 		$result = $this->fetchAll($stmt)->toArray();
+		$questionIds = array();
 		foreach ($result as $questionId) {
 			$questionIds[] = $questionId['questionid'];
 		}
 		return $questionIds;
+	}
+
+	public function setActive($questionId) {
+		$data  = array('active' => 'Y');
+		$where = array('questionid' => $questionId);
+		$this->update($data, $where);
 	}
 
 }

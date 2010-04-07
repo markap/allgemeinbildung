@@ -62,7 +62,7 @@ class Form_CreateQuestion extends Zend_Form {
 		// Image upload
 		$image = new Zend_Form_Element_File('image');
 		$image->setLabel('Bild zur Frage:')
-			  ->setDestination(APPLICATION_PATH . '/../public/img')
+			  ->setDestination(APPLICATION_PATH . '/../public/img/question')
 			  ->addValidator('Count', false, 1)
 			  ->addValidator('Size', false, 204800)
 			  ->addValidator('Extension', false, 'jpg,png,gif');

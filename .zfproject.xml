@@ -42,6 +42,8 @@
           <actionMethod actionName="result"/>
           <actionMethod actionName="editquestion"/>
           <actionMethod actionName="showimages"/>
+          <actionMethod actionName="questionlist"/>
+          <actionMethod actionName="setactive"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -117,6 +119,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="result">
             <viewScriptFile forActionName="timeline"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="createquestion">
+            <viewScriptFile forActionName="questionlist"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="createquestion">
+            <viewScriptFile forActionName="setactive"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
