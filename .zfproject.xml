@@ -45,6 +45,10 @@
           <actionMethod actionName="questionlist"/>
           <actionMethod actionName="setactive"/>
         </controllerFile>
+        <controllerFile controllerName="Creategame">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="saveadding"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -126,6 +130,12 @@
           <viewControllerScriptsDirectory forControllerName="createquestion">
             <viewScriptFile forActionName="setactive"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Creategame">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Creategame">
+            <viewScriptFile forActionName="saveadding"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -157,6 +167,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>

@@ -5,17 +5,19 @@ class GameController extends Zend_Controller_Action
 
     protected $gameSession = null;
 	protected $userId	   = null;
+	protected $role		   = null;
 
     public function init()
     {
         $this->gameSession = new Zend_Session_Namespace('game');
 		$userSession 	   = new Zend_Session_Namespace('user');
 		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
+		$this->role		   = isset($userSession->user['role']) ? $userSession->user['role'] : null;
     }
 
     public function indexAction()
     {
-		$defaulQuestionIds = array(array('id' => 48, 'type' => 'mc'),
+		$questionIds = array(array('id' => 48, 'type' => 'mc'),
 							 array('id' => 41, 'type' => 'txt'),
 							 array('id' => 41, 'type' => 'mc'),
 							3,4);
@@ -76,8 +78,10 @@ class GameController extends Zend_Controller_Action
 			$this->view->categories = $question->getCategories();
 
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
-			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
-			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
+			$this->view->rightAnswers  = $game->getScore()->getRightAnswers();
+			$this->view->wrongAnswers  = $game->getScore()->getWrongAnswers();
+			$this->view->role		   = $this->role;
+			$this->view->addToGameForm = new Form_AddToGame();
 		}
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$this->gameSession->result = $game->getScore();
@@ -88,7 +92,7 @@ class GameController extends Zend_Controller_Action
 		catch (Model_Exception_QuestionNotFound $e) {	 // question does not exist
 			$this->gameSession->waitForAnswer = false;
 			error_log('question not found|' . $e->getId() . '|' . $e->getClassName());
-			$this->view->pageNotFound = true;
+			$this->view->questionNotFound = true;
 		}
     }
 

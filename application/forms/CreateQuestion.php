@@ -23,6 +23,13 @@ class Form_CreateQuestion extends Zend_Form {
                  ->addFilter('StringTrim')
                  ->addFilter('StripTags');
 
+		// Question hint element
+        $hint = new Zend_Form_Element_Text('hint');
+        $hint->setLabel('Hinweiß bei Direkteingabe:')
+                 ->setRequired(true)
+                 ->addFilter('StringTrim')
+                 ->addFilter('StripTags');
+
 		// Answer element
         $answer = new Zend_Form_Element_Text('answer');
         $answer->setLabel('Die richtige Antwort:')
@@ -81,6 +88,7 @@ class Form_CreateQuestion extends Zend_Form {
 
 
 		$this->addElements(array($question,
+								 $hint,
 								 $answer, 
 								 $fake1, 
 								 $fake2, 

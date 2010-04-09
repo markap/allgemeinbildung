@@ -43,4 +43,33 @@ $(document).ready(function() {
 	function timeOverRequest() {
 		sendRequest('timeover', 1);
 	}
+
+	// add to Game
+	$('.addToGame').click(function() { 
+		$.openDOMWindow({ 
+			loader:1, 
+			loaderImagePath:'animationProcessing.gif', 
+			loaderHeight:16, 
+			loaderWidth:17, 
+			windowSourceID:'#gameAdder' 
+		}); 
+		return false; 
+	}); 
+
+	// save adding
+	$('#saveAdding').click(function() {
+		var game = $('#game').val();
+		var questiontype = $('#qtype').val();
+
+		$.post("/creategame/saveadding/game/" + 
+			+ game
+			+ "/qtype/" + questiontype
+		,
+		function(response) {
+			$("#addResult").html(response);	
+		},
+		"text"
+		);
+
+	});
 });

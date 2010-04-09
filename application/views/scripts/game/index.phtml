@@ -1,10 +1,11 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.countdown.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.countdown-de.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.domwindow.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/game/play.js'); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/3rdParty/jquery.countdown.css'); ?>
 
-<?php if ($this->pageNotFound !== true): ?>	
+<?php if ($this->questionNotFound !== true): ?>	
 
 	<?php echo $this->question['question']; ?>
 	<?php echo $this->question['level']; ?>
@@ -25,6 +26,9 @@
 		<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
 	<?php else: ?>
 		<input type="text" id="input_answer" />
+		<?php if ($this->question['hint']): ?>
+			<span>Eingabehilfe: <?php echo $this->question['hint']; ?></span>
+		<?php endif; ?>
 		<span id="send_answer">Beantworten</span>
 	<?php endif; ?>
 
@@ -32,7 +36,14 @@
 	<?php echo $this->rightAnswers; ?>
 	<?php echo $this->wrongAnswers; ?>
 	</div>
-
+	<?php if(Zend_Auth::getInstance()->hasIdentity()): ?>
+		<span class="addToGame" id="<?php echo $this->question['questionid']; ?>">
+			Zu eigenem Game hinzufügen
+		</span>	
+	<?php endif; ?>
+	<?php if($this->role === 'manager'): ?>
+		<a href="/createquestion/editquestion/question/<?php echo $this->question['questionid']; ?>" target="_blank">Frage bearbeiten</a>
+	<?php endif; ?>
 <?php else: ?>
 
 	<p>Die Frage existiert nicht.</p>
@@ -40,3 +51,12 @@
 	<a href="<?php echo $this->baseUrl . '/game'; ?>">Nächste Frage</a>
 
 <?php endif; ?>
+
+
+<div id="gameAdder" style="display: none;"> 
+<h1>Zu eigenem Game hinzufügen</h1> 
+<span id="addResult"></span>
+<?php echo $this->addToGameForm; ?>
+<span id="saveAdding">Hinzufügen</span>
+</div>
+

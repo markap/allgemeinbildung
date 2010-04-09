@@ -407,3 +407,22 @@
 [Wed Apr 07 12:05:48 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 102
 [Wed Apr 07 12:05:48 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/views/scripts/createquestion/questionlist.phtml on line 7
 [Wed Apr 07 12:06:26 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/models/DbTable/Question.php on line 102
+[Wed Apr 07 13:30:18 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 52
+[Wed Apr 07 13:30:18 2010] [error] [client 127.0.0.1] PHP Catchable fatal error:  Argument 1 passed to Model_Game::__construct() must be an array, null given, called in /home/www/allgemeinbildung/application/controllers/GameController.php on line 52 and defined in /home/www/allgemeinbildung/application/models/Game.php on line 40
+[Wed Apr 07 13:31:16 2010] [error] [client 127.0.0.1] PHP Fatal error:  Undefined class constant 'hasIdentity' in /home/www/allgemeinbildung/application/views/scripts/game/index.phtml on line 35
+[Wed Apr 07 14:32:21 2010] [error] [client 127.0.0.1] malformed header from script. Bad header=#: image-slider
+[Wed Apr 07 14:36:07 2010] [error] [client 127.0.0.1] script not found or unable to stat: /opt/lampp/cgi-bin/image-slider&test=1
+[Wed Apr 07 14:36:49 2010] [error] [client 127.0.0.1] (8)Exec format error: exec of '/opt/lampp/cgi-bin/image-slider' failed
+[Wed Apr 07 14:36:49 2010] [error] [client 127.0.0.1] Premature end of script headers: image-slider
+[Wed Apr 07 14:40:49 2010] [error] [client 127.0.0.1] malformed header from script. Bad header=#: image-slider
+[Wed Apr 07 16:28:05 2010] [error] [client 127.0.0.1] String found where operator expected at /opt/lampp/cgi-bin/printenv line 14, near "echo "<h1>test</h1>""
+[Wed Apr 07 16:28:05 2010] [error] [client 127.0.0.1] \t(Do you need to predeclare echo?)
+[Wed Apr 07 16:28:05 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 14, near "echo "<h1>test</h1>""
+[Wed Apr 07 16:28:05 2010] [error] [client 127.0.0.1] Execution of /opt/lampp/cgi-bin/printenv aborted due to compilation errors.
+[Wed Apr 07 16:28:05 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Wed Apr 07 18:02:25 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Wed Apr 07 18:02:57 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Fri Apr 09 18:57:12 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/www/allgemeinbildung/application/forms/AddToGame.php on line 22, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 09 18:58:24 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/www/allgemeinbildung/application/forms/AddToGame.php on line 22
+[Fri Apr 09 18:59:01 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/www/allgemeinbildung/application/forms/AddToGame.php on line 22
+[Fri Apr 09 19:00:00 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Form_AddToGame' not found in /home/www/allgemeinbildung/application/controllers/GameController.php on line 84

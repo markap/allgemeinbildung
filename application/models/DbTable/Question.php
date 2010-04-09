@@ -69,6 +69,7 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 
 	public function insertQuestion(array $postValues, $answerId, $fileName, $userId) {
 		$data = array('question' => $postValues['question'],
+					  'hint'	 => $postValues['hint'],
 					  'answerid' => $answerId,
 					  'image' 	 => $fileName,
 					  'level'	 => $postValues['level'],
