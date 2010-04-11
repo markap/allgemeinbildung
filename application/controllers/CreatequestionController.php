@@ -132,10 +132,12 @@ class CreatequestionController extends Zend_Controller_Action
 		$pathName   = $form->getElement('image')->getFileName();
 		if (!empty($pathName)) { 	// image upload
 			$uploadedFileName  = substr($pathName, strrpos($pathName, '/') + 1);
-			$fileExt   		   = substr($fileName, strrpos($fileName, '.') + 1);
+			$fileExt   		   = substr($uploadedFileName, strrpos($uploadedFileName, '.') + 1);
+error_log($fileExt);
 			$newImageName  = Model_DbTable_Helper::getInstance()->getImageNumber();
 			$directoryName = APPLICATION_PATH . '/../public/img/question/';
 			$fileName = $newImageName . '.' . $fileExt;
+error_log($fileName);
 			rename($directoryName . $uploadedFileName, 
 				   $directoryName . $fileName);
 		} else if ($postValues['imageText']) {
@@ -144,7 +146,7 @@ class CreatequestionController extends Zend_Controller_Action
 			// TODO default image
 			$fileName = 'default.jpg';
 		}
-		return $filename;
+		return $fileName;
     }
 
     public function showimagesAction()

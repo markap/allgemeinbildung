@@ -426,3 +426,42 @@
 [Fri Apr 09 18:58:24 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/www/allgemeinbildung/application/forms/AddToGame.php on line 22
 [Fri Apr 09 18:59:01 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/www/allgemeinbildung/application/forms/AddToGame.php on line 22
 [Fri Apr 09 19:00:00 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Form_AddToGame' not found in /home/www/allgemeinbildung/application/controllers/GameController.php on line 84
+[Sun Apr 11 18:59:04 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 135, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 18:59:04 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 135, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 18:59:05 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: filename in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 147, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 18:59:16 2010] [error] [client 127.0.0.1] Directory index forbidden by Options directive: /home/www/allgemeinbildung/public/img/question/, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/test/e679cca80190c71939fb36acc37b9344
+[Sun Apr 11 19:03:10 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
+[Sun Apr 11 19:10:49 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 135, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:10:49 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 135, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:11:20 2010] [error] [client 127.0.0.1] modify_answer|mecklenburg-vorpommern|Mecklenburg-Vorpommern|mecklenburgvorpommern|mecklenburgvorpommern, referer: http://allgemeinbildung.localhost/game
+[Sun Apr 11 19:17:41 2010] [error] [client 127.0.0.1] question not found|48|question, referer: http://allgemeinbildung.localhost/createquestion/result/question/59
+[Sun Apr 11 19:23:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 135, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:23:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: fileName in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 135, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:23:44 2010] [error] [client 127.0.0.1] , referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:23:44 2010] [error] [client 127.0.0.1] 37., referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:29:45 2010] [error] [client 127.0.0.1] modify_answer|rheinland pfalz|Rheinland Pfalz|rheinlandpfalz|rheinlandpfalz, referer: http://allgemeinbildung.localhost/game
+[Sun Apr 11 19:35:52 2010] [error] [client 127.0.0.1] jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:35:52 2010] [error] [client 127.0.0.1] 38.jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:40:37 2010] [error] [client 127.0.0.1] jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:40:37 2010] [error] [client 127.0.0.1] 39.jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:43:55 2010] [error] [client 127.0.0.1] jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:43:55 2010] [error] [client 127.0.0.1] 40.jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:49:19 2010] [error] [client 127.0.0.1] png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:49:19 2010] [error] [client 127.0.0.1] 41.png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:51:59 2010] [error] [client 127.0.0.1] png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:51:59 2010] [error] [client 127.0.0.1] 42.png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:54:30 2010] [error] [client 127.0.0.1] jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:54:31 2010] [error] [client 127.0.0.1] 43.jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:58:18 2010] [error] [client 127.0.0.1] jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 19:58:19 2010] [error] [client 127.0.0.1] 44.jpg, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:00:52 2010] [error] [client 127.0.0.1] png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:00:52 2010] [error] [client 127.0.0.1] 45.png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:02:52 2010] [error] [client 127.0.0.1] gif, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:02:52 2010] [error] [client 127.0.0.1] 46.gif, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:04:56 2010] [error] [client 127.0.0.1] png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:04:56 2010] [error] [client 127.0.0.1] 47.png, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:06:30 2010] [error] [client 127.0.0.1] gif, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:06:30 2010] [error] [client 127.0.0.1] 48.gif, referer: http://allgemeinbildung.localhost/createquestion/editquestion/question/57
+[Sun Apr 11 20:08:33 2010] [error] [client 127.0.0.1] modify_answer|bremen|Bremen|bremen|bremen, referer: http://allgemeinbildung.localhost/game
+[Sun Apr 11 20:13:33 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
+[Sun Apr 11 20:14:05 2010] [error] [client 127.0.0.1] modify_answer|mecklenburg vorpommern|Mecklenburg-Vorpommern|mecklenburgvorpommern|mecklenburgvorpommern, referer: http://allgemeinbildung.localhost/game
