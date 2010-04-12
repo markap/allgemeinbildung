@@ -133,8 +133,25 @@ class Model_Game {
 		}
 	}
 
+
+	/**
+	 * sets the questiontype of the whole game
+	 *
+	 * @author Martin Kapfhammer
+	 * @param string $questionType
+	 */
 	public function setQuestionType($questionType) {
 		$this->questionType = $questionType;
+	}
+
+	
+	/**
+	 * shuffles the questionIds
+	 *
+	 * @author Martin Kapfhammer
+	 */
+	public function shuffleQuestionIds() {
+		shuffle($this->questionIds);
 	}
 
 }

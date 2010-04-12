@@ -11,8 +11,10 @@ class GameController extends Zend_Controller_Action
     {
         $this->gameSession = new Zend_Session_Namespace('game');
 		$userSession 	   = new Zend_Session_Namespace('user');
-		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
-		$this->role		   = isset($userSession->user['role']) ? $userSession->user['role'] : null;
+		$this->userId	   = isset($userSession->user['userid']) 
+								? $userSession->user['userid'] : null;
+		$this->role		   = isset($userSession->user['role']) 
+								? $userSession->user['role'] : null;
     }
 
     public function indexAction()
@@ -62,6 +64,11 @@ class GameController extends Zend_Controller_Action
 		if ($this->isNewGame() === true && $this->getRequest()->has('qtyp')) {
 			// TODO auch sessionkönnte qtyp haben
 			$game->setQuestionType($this->_getParam('qtyp'));
+		}
+
+		// shuffle
+		if ($this->isNewGame() === true && $this->getRequest()->has('sh')) {
+			$game->shuffleQuestionIds();
 		}
 		
 

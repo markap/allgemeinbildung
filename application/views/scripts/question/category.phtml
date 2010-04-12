@@ -4,9 +4,9 @@
 	<a href="/question">Zurück</a>
 	<?php foreach ($this->categories as $category): ?>
 		<a href='/question/category/cat/<?php echo $category['key']; ?>'><?php echo $category['name']. '('. $category['count'] . ')'; ?></a>
-		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>'>Spielen</a>
-		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>/qtyp/mc'>MultipleChoice</a>
-		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>/qtyp/txt'>Direkteingabe</a>
+		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>/sh/1'>Spielen</a>
+		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>/qtyp/mc/sh/1'>MultipleChoice</a>
+		<a href='/game/index/play/<?php echo md5('nextgame!'); ?>/cat/<?php echo $category['key']; ?>/qtyp/txt/sh/1'>Direkteingabe</a>
 		<br />
 	<?php endforeach; ?>
 <?php endif; ?>
