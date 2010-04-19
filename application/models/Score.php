@@ -102,4 +102,33 @@ class Model_Score {
 		return $this->questions;
 	}
 
+
+	/**
+	 * getter for the right questionids
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return array $this->rightQuestionIds
+	 */
+	public function getRightQuestionIds() {
+		return $this->rightQuestionIds;
+	}
+
+
+	/**
+	 * getter for the wrong questionids
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return array $this->wrongQuestionIds
+	 */ 
+	public function getWrongQuestionIds() {
+		return $this->wrongQuestionIds;
+	}
+
+	public function getImplodedRightQuestionIds() {
+		return implode(',', $this->getRightQuestionIds());
+	}
+
+	public function getImplodedWrongQuestionIds() {
+		return implode(',', $this->getWrongQuestionIds());
+	}
 }

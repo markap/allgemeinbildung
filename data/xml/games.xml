@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<game id="1">
-	<questionids>1,2,3,4</questionids>
-</game>
-
+<content>
+	<game id="1">
+		<questionids>1,2,3,4</questionids>
+	</game>
+	<game id="2">
+		<questionids>3,4</questionids>
+	</game>
+</content>

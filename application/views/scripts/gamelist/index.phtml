@@ -1,0 +1,10 @@
+<h1>Games</h1>
+
+<?php foreach($this->gameList as $game): ?>
+	<a href="/gamelist/game/g/<?php echo $game['gameid']; ?>">
+		<?php echo $game['name']; ?>
+	</a>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>">
+		Spielen
+	</a><br />
+<?php endforeach; ?>

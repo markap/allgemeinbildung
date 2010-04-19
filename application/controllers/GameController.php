@@ -26,9 +26,10 @@ class GameController extends Zend_Controller_Action
 
 		// get game ids
 		if ($this->isNewGame() === true) {
-			$this->gameSession->game = null;	
+			$this->gameSession->game 	 = null;	
 			$this->gameSession->waitForAnswer = false;
 			$this->gameSession->redirect = '/game/result';
+			$this->gameSession->gameId 	 = null; 
 
 			$nextGameSession = new Zend_Session_Namespace('nextGame');
 			if ($nextGameSession->nextGame !== null) {	// nextGame isset ?
@@ -45,6 +46,13 @@ class GameController extends Zend_Controller_Action
 					$questionResultDb = new Model_DbTable_QuestionResult($this->userId);
 					$questionIds = $questionResultDb->getQuestionIds($this->_getParam('cat'), $this->_getParam('result'));
 				}
+			} else if ($this->isGame()) {
+				$gameId 	 = $this->_getParam('g');
+				$this->gameSession->gameId = $gameId;
+				//TODO try - catch
+				$gameListDb  = new Model_DbTable_GameList();
+				$questionIds  = $gameListDb->getQuestionIds($gameId);
+				$questionType = $gameListDb->getQuestionType($gameId);
 			}
 		}
 
@@ -61,16 +69,17 @@ class GameController extends Zend_Controller_Action
 		$game = $this->gameSession->game; 
 		
 		// set QuestionType
-		if ($this->isNewGame() === true && $this->getRequest()->has('qtyp')) {
-			// TODO auch sessionkönnte qtyp haben
-			$game->setQuestionType($this->_getParam('qtyp'));
+		if ($this->isNewGame() && $this->hasQuestionType()) {
+			if (!$this->isGame() && $this->getRequest()->has('qtyp')) {
+				$questionType = $this->_getParam('qtyp');
+			}
+			$game->setQuestionType($questionType);
 		}
 
 		// shuffle
 		if ($this->isNewGame() === true && $this->getRequest()->has('sh')) {
 			$game->shuffleQuestionIds();
 		}
-		
 
 		// refresh browser -> answer wrong
 		if ($this->gameSession->waitForAnswer === true) {
@@ -91,9 +100,13 @@ class GameController extends Zend_Controller_Action
 			$this->view->addToGameForm = new Form_AddToGame();
 		}
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
+			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
+				$this->saveGame($game->getScore()); 
+			}
 			$this->gameSession->result = $game->getScore();
 			$this->gameSession->game   = null;
 			$this->gameSession->waitForAnswer = false;
+			
 			$this->_redirect($this->gameSession->redirect);
 		}
 		catch (Model_Exception_QuestionNotFound $e) {	 // question does not exist
@@ -109,6 +122,23 @@ class GameController extends Zend_Controller_Action
 
 	protected function isTestGame() {
 		return ($this->_getParam('test') === md5('testgame!'));
+	}
+
+	protected function isGame() {
+		return ($this->getRequest()->has('g'));
+	}
+	
+	protected function hasQuestionType() {
+		return ($this->isGame() || $this->getRequest->has('qtyp'));
+	}
+
+	protected function saveGame(Model_Score $score) {
+		$gameId = $this->gameSession->gameId;
+		$questionIds['right'] = $score->getImplodedRightQuestionIds();
+		$questionIds['wrong'] = $score->getImplodedWrongQuestionIds();
+		
+		$gameResultDb = new Model_DbTable_GameResult();
+		$gameResultDb->insertResult($this->userId, $gameId, $questionIds);
 	}
 
     public function answerrequestAction()
@@ -140,6 +170,7 @@ class GameController extends Zend_Controller_Action
 		$this->view->playedQuestions = $score->getPlayedQuestions();
 		$this->view->rightAnswers = $score->getRightAnswers();
 		$this->view->wrongAnswers = $score->getWrongAnswers();
+		$this->gameSession->result = null;
     }
 
     public function timeoverAction()

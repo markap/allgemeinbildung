@@ -18,7 +18,6 @@ class ResultController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        echo "index";
     }
 
     public function questionsAction()

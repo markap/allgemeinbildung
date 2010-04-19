@@ -465,3 +465,129 @@
 [Sun Apr 11 20:08:33 2010] [error] [client 127.0.0.1] modify_answer|bremen|Bremen|bremen|bremen, referer: http://allgemeinbildung.localhost/game
 [Sun Apr 11 20:13:33 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
 [Sun Apr 11 20:14:05 2010] [error] [client 127.0.0.1] modify_answer|mecklenburg vorpommern|Mecklenburg-Vorpommern|mecklenburgvorpommern|mecklenburgvorpommern, referer: http://allgemeinbildung.localhost/game
+[Mon Apr 12 19:15:45 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_Xml_XmlReader' not found in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 13
+[Tue Apr 13 10:03:24 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:03:33 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:04:26 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:04:55 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:05:05 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 14.
+[Tue Apr 13 10:05:22 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:06:38 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:07:21 2010] [error] Options ExecCGI is off in this directory/opt/lampp/cgi-bin/printenv.pl
+[Tue Apr 13 10:07:27 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:07:49 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 8.
+[Tue Apr 13 10:08:04 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 8.
+[Tue Apr 13 10:08:07 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 8.
+[Tue Apr 13 10:08:12 2010] [error] [client 127.0.0.1] Can't locate object method "new" via package "CGI" (perhaps you forgot to load "CGI"?) at /opt/lampp/cgi-bin/printenv line 15.
+[Tue Apr 13 10:10:59 2010] [error] [client 127.0.0.1] Can't locate URI/Escape.pm in @INC (@INC contains: /opt/lampp/lib/perl5/5.10.0/i686-linux /opt/lampp/lib/perl5/5.10.0 /opt/lampp/lib/perl5/site_perl/5.10.0/i686-linux /opt/lampp/lib/perl5/site_perl/5.10.0 /opt/lampp/lib/perl5/site_perl .) at /opt/lampp/cgi-bin/printenv line 25.
+[Tue Apr 13 10:10:59 2010] [error] [client 127.0.0.1] BEGIN failed--compilation aborted at /opt/lampp/cgi-bin/printenv line 25.
+[Tue Apr 13 10:10:59 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] Bareword found where operator expected at /opt/lampp/cgi-bin/printenv line 18, near "] Y"
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] \t(Missing operator before Y?)
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] Bareword found where operator expected at /opt/lampp/cgi-bin/printenv line 19, near "] Y"
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] \t(Missing operator before Y?)
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] String found where operator expected at /opt/lampp/cgi-bin/printenv line 19, at end of line
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] \t(Missing semicolon on previous line?)
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 18, near "my ["
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 19, near "] Y"
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] Can't find string terminator "'" anywhere before EOF at /opt/lampp/cgi-bin/printenv line 19.
+[Tue Apr 13 10:45:17 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:45:59 2010] [error] [client 127.0.0.1] No such class Y at /opt/lampp/cgi-bin/printenv line 18, near "my  Y"
+[Tue Apr 13 10:45:59 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 18, near "my  Y ="
+[Tue Apr 13 10:45:59 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 18, near ") print"
+[Tue Apr 13 10:45:59 2010] [error] [client 127.0.0.1] Execution of /opt/lampp/cgi-bin/printenv aborted due to compilation errors.
+[Tue Apr 13 10:45:59 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:48:43 2010] [error] [client 127.0.0.1] Unrecognized character \\xE2 in column 7 at /opt/lampp/cgi-bin/printenv line 21.
+[Tue Apr 13 10:48:43 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 24, near ")
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] #{
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] #print \xe2\x80\x9c$string is in the array\xe2\x80\x9d;
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] #}
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] 
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] print"
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] Execution of /opt/lampp/cgi-bin/printenv aborted due to compilation errors.
+[Tue Apr 13 10:49:35 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:49:44 2010] [error] [client 127.0.0.1] Unrecognized character \\xE2 in column 7 at /opt/lampp/cgi-bin/printenv line 21.
+[Tue Apr 13 10:49:44 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:50:14 2010] [error] [client 127.0.0.1] Unrecognized character \\xE2 in column 7 at /opt/lampp/cgi-bin/printenv line 21.
+[Tue Apr 13 10:50:14 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] Scalar found where operator expected at /opt/lampp/cgi-bin/printenv line 21, near ") $back"
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] \t(Missing operator before $back?)
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] Scalar found where operator expected at /opt/lampp/cgi-bin/printenv line 22, near ") $next"
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] \t(Missing operator before $next?)
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 21, near ") $back "
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 22, near ") $next "
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] Execution of /opt/lampp/cgi-bin/printenv aborted due to compilation errors.
+[Tue Apr 13 10:52:59 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] Scalar found where operator expected at /opt/lampp/cgi-bin/printenv line 21, near ") $back"
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] \t(Missing operator before $back?)
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] Scalar found where operator expected at /opt/lampp/cgi-bin/printenv line 22, near ") $next"
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] \t(Missing operator before $next?)
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 21, near ") $back "
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] syntax error at /opt/lampp/cgi-bin/printenv line 22, near ") $next "
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] Execution of /opt/lampp/cgi-bin/printenv aborted due to compilation errors.
+[Tue Apr 13 10:53:01 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 10:58:35 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 10:58:35 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 10:58:42 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 10:58:42 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 10:59:29 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 10:59:29 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 10:59:35 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/1.jpg' failed
+[Tue Apr 13 10:59:35 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg
+[Tue Apr 13 11:01:01 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/1.jpg' failed
+[Tue Apr 13 11:01:01 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg
+[Tue Apr 13 11:01:07 2010] [error] [client 127.0.0.1] script not found or unable to stat: /opt/lampp/cgi-bin/zoo.localhost, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:01:57 2010] [error] [client 127.0.0.1] script not found or unable to stat: /opt/lampp/cgi-bin/bear.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:02:08 2010] [error] [client 127.0.0.1] (13)Permission denied: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:02:08 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:02:34 2010] [error] [client 127.0.0.1] (8)Exec format error: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:02:34 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:10:55 2010] [error] [client 127.0.0.1] (8)Exec format error: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:10:55 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:22:12 2010] [error] [client 127.0.0.1] Can't find string terminator "ENDOFTEXT" anywhere before EOF at /opt/lampp/cgi-bin/printenv line 24.
+[Tue Apr 13 11:22:12 2010] [error] [client 127.0.0.1] Premature end of script headers: printenv
+[Tue Apr 13 11:44:34 2010] [error] [client 127.0.0.1] (8)Exec format error: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:44:34 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:45:48 2010] [error] [client 127.0.0.1] (8)Exec format error: exec of '/opt/lampp/cgi-bin/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 11:45:48 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 16:58:32 2010] [error] [client 127.0.0.1] (8)Exec format error: exec of '/opt/lampp/cgi-bin/img/1.jpg' failed, referer: http://localhost/cgi-bin/printenv?image=1
+[Tue Apr 13 16:58:32 2010] [error] [client 127.0.0.1] Premature end of script headers: 1.jpg, referer: http://localhost/cgi-bin/printenv?image=1
+[Wed Apr 14 16:19:07 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: I/O warning : failed to load external entity &quot;/home/www/allgemeinbildung/application../data/xml/games.xml&quot; in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 14
+[Wed Apr 14 16:25:47 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: I/O warning : failed to load external entity &quot;games.xml&quot; in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 20
+[Wed Apr 14 16:26:24 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: I/O warning : failed to load external entity &quot;games.xml&quot; in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 21
+[Wed Apr 14 16:36:22 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: I/O warning : failed to load external entity &quot;test&quot; in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 26
+[Wed Apr 14 16:51:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: questionids in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 17
+[Wed Apr 14 16:53:07 2010] [error] [client 127.0.0.1] PHP Notice:  Trying to get property of non-object in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 17
+[Wed Apr 14 16:55:00 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: /home/www/allgemeinbildung/application/../data/xml/games.xml:5: parser error : Extra content at the end of the document in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 46
+[Wed Apr 14 16:55:00 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: &lt;game id=&quot;2&quot;&gt; in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 46
+[Wed Apr 14 16:55:00 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: ^ in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 46
+[Wed Apr 14 16:55:00 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function xpath() on a non-object in /home/www/allgemeinbildung/application/models/Xml/GameReader.php on line 13
+[Wed Apr 14 16:55:57 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: /home/www/allgemeinbildung/application/../data/xml/games.xml:5: parser error : Extra content at the end of the document in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 46
+[Wed Apr 14 16:55:57 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: &lt;game id=&quot;2&quot;&gt; in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 46
+[Wed Apr 14 16:55:57 2010] [error] [client 127.0.0.1] PHP Warning:  simplexml_load_file() [<a href='function.simplexml-load-file'>function.simplexml-load-file</a>]: ^ in /home/www/allgemeinbildung/application/models/Xml/XmlReader.php on line 46
+[Wed Apr 14 16:55:57 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function xpath() on a non-object in /home/www/allgemeinbildung/application/models/Xml/GameReader.php on line 13
+[Wed Apr 14 16:57:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined offset: 0 in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 17
+[Wed Apr 14 16:57:07 2010] [error] [client 127.0.0.1] PHP Notice:  Trying to get property of non-object in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 17
+[Thu Apr 15 13:19:36 2010] [error] [client 127.0.0.1] PHP Fatal error:  Cannot access protected property Model_Xml_GameReader::$xml in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:21:30 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Xml_GameReader::$game in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:21:30 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:21:45 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Xml_GameReader::$content in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:21:45 2010] [error] [client 127.0.0.1] PHP Notice:  Trying to get property of non-object in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:21:45 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:22:59 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Xml_GameReader::$game in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:22:59 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:24:33 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Xml_GameReader::$game in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:24:33 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 18
+[Thu Apr 15 13:26:24 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Xml_GameReader::$game in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 19
+[Thu Apr 15 13:26:24 2010] [error] [client 127.0.0.1] PHP Warning:  Invalid argument supplied for foreach() in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 19
+[Thu Apr 15 14:04:26 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '{' in /home/www/allgemeinbildung/application/controllers/GameController.php on line 48, referer: http://allgemeinbildung.localhost/gamelist
+[Mon Apr 19 10:45:50 2010] [error] [client 127.0.0.1] PHP Warning:  PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No such file or directory (trying to connect via unix:///opt/lampp/var/mysql/mysql.sock) in /home/www/allgemeinbildung/library/Zend/Db/Adapter/Pdo/Abstract.php on line 129
+[Mon Apr 19 11:22:31 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home/www/allgemeinbildung/application/controllers/GameController.php on line 100, referer: http://allgemeinbildung.localhost/gamelist
+[Mon Apr 19 11:26:46 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Game::$getScore in /home/www/allgemeinbildung/application/controllers/GameController.php on line 101, referer: http://allgemeinbildung.localhost/game
+[Mon Apr 19 11:26:46 2010] [error] [client 127.0.0.1] PHP Catchable fatal error:  Argument 1 passed to GameController::saveGame() must be an instance of Model_Score, null given, called in /home/www/allgemeinbildung/application/controllers/GameController.php on line 101 and defined in /home/www/allgemeinbildung/application/controllers/GameController.php on line 124, referer: http://allgemeinbildung.localhost/game
+[Mon Apr 19 11:27:07 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_DbTable_GameResult::insertResult() in /home/www/allgemeinbildung/application/controllers/GameController.php on line 130, referer: http://allgemeinbildung.localhost/game
+[Mon Apr 19 11:40:43 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: questiontype in /home/www/allgemeinbildung/application/models/DbTable/GameList.php on line 41, referer: http://allgemeinbildung.localhost/gamelist
+[Mon Apr 19 11:40:43 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined function isGame() in /home/www/allgemeinbildung/application/controllers/GameController.php on line 132, referer: http://allgemeinbildung.localhost/gamelist
+[Mon Apr 19 11:41:25 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: qype in /home/www/allgemeinbildung/application/models/DbTable/GameList.php on line 41, referer: http://allgemeinbildung.localhost/gamelist
+[Mon Apr 19 11:41:25 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: GameController::$isGame in /home/www/allgemeinbildung/application/controllers/GameController.php on line 72, referer: http://allgemeinbildung.localhost/gamelist
