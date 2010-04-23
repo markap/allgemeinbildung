@@ -25,31 +25,16 @@ class Model_Score {
 	 * @var integer
 	 */
 	protected $wrongAnswers = 0;
-
-	/**
-	 * array for the right questionids
-	 * @var array
-	 */
-	protected $rightQuestionIds = array();
-	
-	/**
-	 * array for the wrong questionids
-	 * @var array
-	 */
-	protected $wrongQuestionIds = array();
  	
-	
 
 	/**
  	 * increments the right answers
 	 * and the played questions
 	 *
 	 * @author Martin Kapfhammer
-	 * @param integer $questionId
-	 * @param string $questionType
+	 * @param Model_Question $question
 	 */
-	public function addRightAnswer($questionId, $questionType = null) {
-		$this->rightQuestionIds[] = $questionId;
+	public function addRightAnswer(Model_Question $question) {
 		$this->questions++;
 		$this->rightAnswers++;
 	}	
@@ -60,11 +45,9 @@ class Model_Score {
 	 * and the played questions
 	 *
 	 * @author Martin Kapfhammer
-	 * @param integer $questionId
-	 * @param string $questionType
+	 * @param Model_Question $question
 	 */
-	public function addWrongAnswer($questionId, $questionType = null) {
-		$this->wrongQuestionIds[] = $questionId;
+	public function addWrongAnswer(Model_Question $question) {
 		$this->questions++;
 		$this->wrongAnswers++;
 	}
@@ -102,33 +85,4 @@ class Model_Score {
 		return $this->questions;
 	}
 
-
-	/**
-	 * getter for the right questionids
-	 * 
-	 * @author Martin Kapfhammer
-	 * @return array $this->rightQuestionIds
-	 */
-	public function getRightQuestionIds() {
-		return $this->rightQuestionIds;
-	}
-
-
-	/**
-	 * getter for the wrong questionids
-	 * 
-	 * @author Martin Kapfhammer
-	 * @return array $this->wrongQuestionIds
-	 */ 
-	public function getWrongQuestionIds() {
-		return $this->wrongQuestionIds;
-	}
-
-	public function getImplodedRightQuestionIds() {
-		return implode(',', $this->getRightQuestionIds());
-	}
-
-	public function getImplodedWrongQuestionIds() {
-		return implode(',', $this->getWrongQuestionIds());
-	}
 }

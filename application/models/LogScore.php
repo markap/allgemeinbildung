@@ -13,6 +13,30 @@ class Model_LogScore extends Model_Score {
 	 */
 	protected $resultDb = null;
 
+	/**
+	 * array for the right questionids
+	 * @var array
+	 */
+	protected $rightQuestionIds = array();
+	
+	/**
+	 * array for the wrong questionids
+	 * @var array
+	 */
+	protected $wrongQuestionIds = array();
+
+	/**
+	 * contains all right question objects Model_Question
+	 * @var array
+	 */
+	protected $rightQuestions = array();
+
+	/**
+	 * contains all wrong question objects Model_Question
+	 * @var array
+	 */
+	protected $wrongQuestions = array();
+
 
 	/**
 	 * constructor
@@ -31,12 +55,14 @@ class Model_LogScore extends Model_Score {
 	 * and saves the right question
 	 *
 	 * @author Martin Kapfhammer
-	 * @param integer $questionId
- 	 * @param string $questionType
+	 * @param Model_Question $question
 	 */
-	public function addRightAnswer($questionId, $questionType = null) {
-		parent::addRightAnswer($questionId);
-		$this->saveQuestion($questionId, $questionType, 'Y');
+	public function addRightAnswer(Model_Question $question) {
+		parent::addRightAnswer($question);
+		$this->rightQuestionIds[] = $question->getQuestionId();
+		$this->rightQuestions[]	  = $question;
+		$this->saveQuestion($question->getQuestionId(), 
+							$question->getQuestionType(), 'Y');
 	}	
 	
 	
@@ -45,12 +71,14 @@ class Model_LogScore extends Model_Score {
 	 * and saves the wrong question
 	 *
 	 * @author Martin Kapfhammer
-	 * @param integer $questionId
- 	 * @param string $questionType
+	 * @param Model_Question $question
 	 */
-	public function addWrongAnswer($questionId, $questionType = null) {
-		parent::addWrongAnswer($questionId);
-		$this->saveQuestion($questionId, $questionType, 'N');
+	public function addWrongAnswer(Model_Question $question) {
+		parent::addWrongAnswer($question);
+		$this->wrongQuestionIds[] = $question->getQuestionId();
+		$this->wrongQuestions[]   = $question;
+		$this->saveQuestion($question->getQuestionId(), 
+							$question->getQuestionType(), 'N');
 	}
 
 
@@ -82,4 +110,71 @@ class Model_LogScore extends Model_Score {
 		$nowAsTimestamp    = strtotime('now') - (60 * 60 * 24 *3);
 		return ($nowAsTimestamp >= $existingTimestamp) ? true : false;
 	}
+
+
+	/**
+	 * getter for the right questionids
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return array $this->rightQuestionIds
+	 */
+	public function getRightQuestionIds() {
+		return $this->rightQuestionIds;
+	}
+
+
+	/**
+	 * getter for the wrong questionids
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return array $this->wrongQuestionIds
+	 */ 
+	public function getWrongQuestionIds() {
+		return $this->wrongQuestionIds;
+	}
+
+
+	/**
+	 * returns the right questionIds as a string
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return imploded question Ids
+	 */
+	public function getImplodedRightQuestionIds() {
+		return implode(',', $this->getRightQuestionIds());
+	}
+
+
+	/**
+	 * returns the wrong questionIds as a string
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return imploded question Ids
+	 */
+	public function getImplodedWrongQuestionIds() {
+		return implode(',', $this->getWrongQuestionIds());
+	}
+
+
+	/**
+	 * getter for the right question objects
+	 *
+	 * @author Martin Kapfhammer
+	 * @return array $this->rightQuestions
+	 */
+	public function getRightQuestions() {
+		return $this->rightQuestions;
+	}
+
+
+	/**
+	 * getter for the wrong question objects
+	 *
+	 * @author Martin Kapfhammer
+	 * @return array $this->rightQuestions
+	 */
+	public function getWrongQuestions() {
+		return $this->wrongQuestions;
+	}
+
 }

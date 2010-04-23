@@ -593,3 +593,4 @@
 [Mon Apr 19 11:41:25 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: GameController::$isGame in /home/www/allgemeinbildung/application/controllers/GameController.php on line 72, referer: http://allgemeinbildung.localhost/gamelist
 [Fri Apr 23 18:01:50 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_PUBLIC in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 100
 [Fri Apr 23 18:15:32 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_ISSET, expecting '(' in /home/www/allgemeinbildung/application/views/scripts/result/games.phtml on line 1
+[Fri Apr 23 18:37:57 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_Question::$getQuestionId in /home/www/allgemeinbildung/application/models/LogScore.php on line 65, referer: http://allgemeinbildung.localhost/game

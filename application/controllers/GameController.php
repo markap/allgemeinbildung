@@ -83,7 +83,7 @@ class GameController extends Zend_Controller_Action
 
 		// refresh browser -> answer wrong
 		if ($this->gameSession->waitForAnswer === true) {
-			$game->getScore()->addWrongAnswer($game->getQuestion()->getQuestionId(), $game->getQuestion()->getQuestionType());
+			$game->getScore()->addWrongAnswer($game->getQuestion());
 		}
 		$this->gameSession->waitForAnswer = true;
 				
@@ -182,7 +182,7 @@ class GameController extends Zend_Controller_Action
 			$question = $game->getQuestion();
 			$this->view->rightAnswer = $question->getRightAnswer();
 
-			$game->getScore()->addWrongAnswer($question->getQuestionId(), $question->getQuestionType());
+			$game->getScore()->addWrongAnswer($question);
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
 			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
