@@ -36,6 +36,7 @@
           <actionMethod actionName="questions"/>
           <actionMethod actionName="category"/>
           <actionMethod actionName="timeline"/>
+          <actionMethod actionName="games"/>
         </controllerFile>
         <controllerFile controllerName="createquestion">
           <actionMethod actionName="index"/>
@@ -145,6 +146,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="gamelist">
             <viewScriptFile forActionName="game"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
+            <viewScriptFile forActionName="games"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -1,0 +1,10 @@
+<h1>Gespielte Fragen</h1>
+
+<?php if (isset($this->gameResult)): ?>
+	<?php foreach ($this->gameResult as $result): ?>
+		<?php echo $result['name']; ?>
+		<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $result['gameid']; ?>">
+			Nochmal probieren
+		</a><br />
+	<?php endforeach; ?>
+<?php endif; ?>

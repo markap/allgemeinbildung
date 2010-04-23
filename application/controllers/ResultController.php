@@ -99,8 +99,8 @@ class ResultController extends Zend_Controller_Action
     }
 
     public function timelineAction()
-    {    
-		$resultKey = strtoupper($this->_getParam('result'));
+    {
+        $resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
 		}
@@ -109,5 +109,15 @@ class ResultController extends Zend_Controller_Action
 		echo "timeline";
     }
 
+    public function gamesAction()
+    {
+		$gameResultDb = new Model_DbTable_GameResult();
+		$gameResult	  = $gameResultDb->getGameResult($this->userId);
+		$gameListDb   = new Model_DbTable_GameList();
+		foreach ($gameResult as $key => $game) {
+			$gameDescription  		  = $gameListDb->getGame($game['gameid']);
+			$gameResult[$key]['name'] = $gameDescription['name'];
+		}	
+		$this->view->gameResult = $gameResult;
+    }
 }
-

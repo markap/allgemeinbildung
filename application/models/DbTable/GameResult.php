@@ -25,4 +25,13 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$this->insert($data);
 	}
 
+	public function getGameResult($userId) {
+		$orderBy = array('date ASC');
+		$result = $this->fetchAll('userid = ' . $userId, $orderBy);
+		if (!$result) {
+			return false;
+		}
+		return $result->toArray();
+	}
+
 }
