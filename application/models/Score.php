@@ -25,6 +25,12 @@ class Model_Score {
 	 * @var integer
 	 */
 	protected $wrongAnswers = 0;
+	
+	/**
+	 * the score at the and of a game
+	 * @var integer
+	 */
+	protected $calculatedScore = 0;
  	
 
 	/**
@@ -85,4 +91,26 @@ class Model_Score {
 		return $this->questions;
 	}
 
+
+	/**
+ 	 * setter for the calculated score at the
+	 * end of a game
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $score
+	 */
+	public function setCalculatedScore($score) {
+		$this->calculatedScore = $score;
+	}
+
+
+	/**
+	 * getter for the calculated score
+	 *
+	 * @author Martin Kapfhammer
+	 * @return integer $this->calculatedScore
+	 */
+	public function getCalculatedScore() {
+		return $this->calculatedScore;
+	}
 }

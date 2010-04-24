@@ -100,10 +100,11 @@ class GameController extends Zend_Controller_Action
 			$this->view->addToGameForm = new Form_AddToGame();
 		}
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
+			$score = $game->getScore();
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
-				$this->saveGame($game->getScore()); 
+				$this->saveGame($score); 
 			}
-			$this->gameSession->result = $game->getScore();
+			$this->gameSession->result = $score;
 			$this->gameSession->game   = null;
 			$this->gameSession->waitForAnswer = false;
 			
@@ -136,7 +137,12 @@ class GameController extends Zend_Controller_Action
 		$gameId = $this->gameSession->gameId;
 		$questionIds['right'] = $score->getImplodedRightQuestionIds();
 		$questionIds['wrong'] = $score->getImplodedWrongQuestionIds();
-		
+	
+		// calculate the score		
+		$calculateScore  = new Model_CalculateScore($score);
+		$calculatedScore = $calculateScore->getScore();
+		$score->setCalculatedScore($calculatedScore);
+
 		$gameResultDb = new Model_DbTable_GameResult();
 		$gameResultDb->insertResult($this->userId, $gameId, $questionIds);
 	}
@@ -170,6 +176,7 @@ class GameController extends Zend_Controller_Action
 		$this->view->playedQuestions = $score->getPlayedQuestions();
 		$this->view->rightAnswers = $score->getRightAnswers();
 		$this->view->wrongAnswers = $score->getWrongAnswers();
+		$this->view->score		  = $score->getCalculatedScore();
 		$this->gameSession->result = null;
     }
 

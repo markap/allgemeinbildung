@@ -1,6 +1,8 @@
 <h1>Ihr Ergebnis</h1>
 
-
+<?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+	<?php echo $this->score; ?>
+<?php endif; ?>
 <?php echo $this->playedQuestions; ?>
 <?php echo $this->rightAnswers; ?>
 <?php echo $this->wrongAnswers; ?>

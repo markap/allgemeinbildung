@@ -60,7 +60,7 @@ class Model_Question {
 		$levelId = $this->question['level'];
 		$level 	 = $levelDb->getLevel($levelId);
 		$this->question['levelid'] = $levelId;
-		$this->question['level']   = $level;
+		$this->question['level']   = $level['name'];
 	}
 
 
