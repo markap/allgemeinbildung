@@ -135,13 +135,15 @@ class GameController extends Zend_Controller_Action
 
 	protected function saveGame(Model_Score $score) {
 		$gameId = $this->gameSession->gameId;
-		$questionIds['right'] = $score->getImplodedRightQuestionIds();
-		$questionIds['wrong'] = $score->getImplodedWrongQuestionIds();
 	
 		// calculate the score		
 		$calculateScore  = new Model_CalculateScore($score);
 		$calculatedScore = $calculateScore->getScore();
 		$score->setCalculatedScore($calculatedScore);
+
+		$result['right'] = $score->getImplodedRightQuestionIds();
+		$result['wrong'] = $score->getImplodedWrongQuestionIds();
+		$result['score'] = $calculatedScore;
 
 		$gameResultDb = new Model_DbTable_GameResult();
 		$gameResultDb->insertResult($this->userId, $gameId, $questionIds);

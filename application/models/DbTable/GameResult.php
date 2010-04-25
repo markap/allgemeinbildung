@@ -15,17 +15,36 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 	 */
 	protected $_name = 'gameResult';
 
-	public function insertResult($userId, $gameId, $questionIds) {
-		$data = array('gameid' => $gameId,
-					  'rightids' => $questionIds['right'],
-					  'wrongids' => $questionIds['wrong'],
+
+	/**
+	 * inserts a result for a user
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $userId
+	 * @param integer $gameId
+	 * @param array $result
+	 */
+	public function insertResult($userId, $gameId, $result) {
+		$data = array('gameid' 	 => $gameId,
+					  'rightids' => $result['right'],
+					  'wrongids' => $result['wrong'],
+					  'score'	 => $result['score'],
 					  'userid'	 => $userId,
 					  'date'     => date('Y-m-d')
 					);
 		$this->insert($data);
 	}
 
+
+	/**
+	 * gets the game result for a user
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $userId
+	 */
 	public function getGameResult($userId) {
+		// TODO
+		// gamename, eltzter score, highscore, 
 		$orderBy = array('date ASC');
 		$result = $this->fetchAll('userid = ' . $userId, $orderBy);
 		if (!$result) {
