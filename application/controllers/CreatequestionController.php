@@ -3,26 +3,25 @@
 class CreatequestionController extends Zend_Controller_Action
 {
 
-    protected $userId = null;
+    protected $userId 		 = null;
+	protected $questionDb 	 = null;
+	protected $answerDb 	 = null;
+	protected $hasCategoryDb = null;
 
     public function init()
     {
         $userSession 	   = new Zend_Session_Namespace('user');
 		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
+		$this->questionDb  = new Model_DbTable_Question();
+		$this->answerDb    = new Model_DbTable_Answer();
+		$this->hasCategoryDb = new Model_DbTable_HasCategory();
     }
 
     public function indexAction()
     {
         // TODO show hints for every question
 		$form = new Form_CreateQuestion();
-
-		$categoryDb = new Model_DbTable_Category();
-		$categorySelect = $form->getElement('category');
-		$categorySelect->setMultiOptions($categoryDb->getCategories());
-
-		$levelDb = new Model_DbTable_Level();
-		$levelSelect = $form->getElement('level');
-		$levelSelect->setMultiOptions($levelDb->getLevels());
+		$this->setFormOptions($form);
 
 		// handle request
 		$request = $this->getRequest();
@@ -46,6 +45,16 @@ class CreatequestionController extends Zend_Controller_Action
 		}
 		$this->view->form = $form;
     }
+
+	protected function setFormOptions(Zend_Form $form) {
+		$categoryDb = new Model_DbTable_Category();
+		$categorySelect = $form->getElement('category');
+		$categorySelect->setMultiOptions($categoryDb->getCategories());
+
+		$levelDb = new Model_DbTable_Level();
+		$levelSelect = $form->getElement('level');
+		$levelSelect->setMultiOptions($levelDb->getLevels());
+	}
 
     public function resultAction()
     {
@@ -73,14 +82,7 @@ class CreatequestionController extends Zend_Controller_Action
 		// populate form von oben ..
 
 		$form = new Form_CreateQuestion();
-
-		$categoryDb = new Model_DbTable_Category();
-		$categorySelect = $form->getElement('category');
-		$categorySelect->setMultiOptions($categoryDb->getCategories());
-
-		$levelDb = new Model_DbTable_Level();
-		$levelSelect = $form->getElement('level');
-		$levelSelect->setMultiOptions($levelDb->getLevels());
+		$this->setFormOptions($form);
 
         $change = new Zend_Form_Element_Submit('Änderung Speichern');
         $change->setAttrib('id', 'changebutton');
@@ -88,20 +90,18 @@ class CreatequestionController extends Zend_Controller_Action
 
 
 		// populate formular
-		$questionDb 	  = new Model_DbTable_Question();
-		$answerDb 		  = new Model_DbTable_Answer();
-		$hasCategoryDb 	  = new Model_DbTable_HasCategory();
-		$levelDb		  = new Model_DbTable_Level();
-		$question   	  = $questionDb->getQuestion($questionId);
-		$level 			  = $levelDb->getLevel($question['level']);
-		$question['level'] = $level['levelid'];
-		$answers	  	   = $answerDb->getAnswer($question['answerid']);
-		$categories 	   = $hasCategoryDb->getCategoryIds($questionId);
-		$form->populate($question);
-		$form->populate($answers);
-		$form->populate(array('imageText'  => $question['image'],
-							  'category'   => $categories 
-						));
+		try {
+			$formInput = $this->getFormInput($questionId);
+			$form->populate($formInput);
+		} catch (Model_Exception_QuestionNotFound $e) {
+			try { 	// question could be testquestion, so not active
+				$formInput = $this->getFormInput($questionId, true);
+				$form->populate($formInput);
+			} catch (Model_Exception_QuestionNotFound $e) {
+				$this->_redirect('/createquestion');
+			}
+		}
+			
 
 		// handle request
 		$request = $this->getRequest();
@@ -114,11 +114,11 @@ class CreatequestionController extends Zend_Controller_Action
 				$fileName = $this->getFileName($form);
 
 				// if neuanlage
-					$answerId 	= $answerDb->getNextAnswerId();
-					$questionId = $questionDb->insertQuestion($postValues, $answerId, 
+					$answerId 	= $this->answerDb->getNextAnswerId();
+					$questionId = $this->questionDb->insertQuestion($postValues, $answerId, 
 														  $fileName, $this->userId);
-					$answerDb->insertAnswer($postValues, $answerId);
-					$hasCategoryDb->insertRelation($questionId, $postValues['category']);
+					$this->answerDb->insertAnswer($postValues, $answerId);
+					$this->hasCategoryDb->insertRelation($questionId, $postValues['category']);
 				// if update
 					$this->_redirect('/createquestion/result/question/' . $questionId);
 			} 
@@ -126,8 +126,22 @@ class CreatequestionController extends Zend_Controller_Action
 		$this->view->form = $form;
     }
 
-    protected function getFileName(Zend_Form $form)
-    {
+	protected function getFormInput($questionId, $testGame = false) {
+		$levelDb		  = new Model_DbTable_Level();
+
+		$question  		   = $this->questionDb->getQuestion($questionId, $testGame);
+		$level 			   = $levelDb->getLevel($question['level']);
+		$question['level'] = $level['levelid'];
+		$answers	  	   = $this->answerDb->getAnswer($question['answerid']);
+		$categories 	   = $this->hasCategoryDb->getCategoryIds($questionId);
+		
+		$formInput = array_merge($question, $answers, array('imageText'  => $question['image'],
+							  								'category'   => $categories 
+						));
+		return $formInput;
+	}
+
+    protected function getFileName(Zend_Form $form) {
         $postValues = $this->getRequest()->getPost();
 		$pathName   = $form->getElement('image')->getFileName();
 		if (!empty($pathName)) { 	// image upload

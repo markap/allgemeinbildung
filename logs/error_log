@@ -597,3 +597,8 @@
 [Sat Apr 24 22:56:55 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_Score::getRightQuestions() in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 75, referer: http://allgemeinbildung.localhost/game
 [Sat Apr 24 23:04:43 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_Score::getRightQuestions() in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 75, referer: http://allgemeinbildung.localhost/game
 [Sat Apr 24 23:08:19 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_LogScore::setCalculatedStore() in /home/www/allgemeinbildung/application/controllers/GameController.php on line 144, referer: http://allgemeinbildung.localhost/game
+[Fri Apr 30 14:32:07 2010] [error] [client 127.0.0.1] jpg, referer: http://allgemeinbildung.localhost/createquestion
+[Fri Apr 30 14:32:08 2010] [error] [client 127.0.0.1] 49.jpg, referer: http://allgemeinbildung.localhost/createquestion
+[Fri Apr 30 14:32:30 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: GameController::$getRequest in /home/www/allgemeinbildung/application/controllers/GameController.php on line 133, referer: http://allgemeinbildung.localhost/createquestion/result/question/72
+[Fri Apr 30 14:32:30 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function has() on a non-object in /home/www/allgemeinbildung/application/controllers/GameController.php on line 133, referer: http://allgemeinbildung.localhost/createquestion/result/question/72
+[Fri Apr 30 14:34:00 2010] [error] [client 127.0.0.1] question not found|48|question, referer: http://allgemeinbildung.localhost/createquestion/result/question/72

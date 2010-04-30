@@ -130,7 +130,7 @@ class GameController extends Zend_Controller_Action
 	}
 	
 	protected function hasQuestionType() {
-		return ($this->isGame() || $this->getRequest->has('qtyp'));
+		return ($this->isGame() || $this->getRequest()->has('qtyp'));
 	}
 
 	protected function saveGame(Model_Score $score) {
