@@ -33,13 +33,10 @@ class CreatequestionController extends Zend_Controller_Action
 	
 				$fileName = $this->getFileName($form);
 
-				$answerDb = new Model_DbTable_Answer();
-				$questionDb = new Model_DbTable_Question();
-				$hasCategoryDb = new Model_DbTable_HasCategory();
-				$answerId = $answerDb->getNextAnswerId();
-				$questionId = $questionDb->insertQuestion($postValues, $answerId, $fileName, $this->userId);
-				$answerDb->insertAnswer($postValues, $answerId);
-				$hasCategoryDb->insertRelation($questionId, $postValues['category']);
+				$answerId 	= $this->answerDb->getNextAnswerId();
+				$questionId = $this->questionDb->insertQuestion($postValues, $answerId, $fileName, $this->userId);
+				$this->answerDb->insertAnswer($postValues, $answerId);
+				$this->hasCategoryDb->insertRelation($questionId, $postValues['category']);
 				$this->_redirect('/createquestion/result/question/' . $questionId);
 			} 
 		}
@@ -147,11 +144,9 @@ class CreatequestionController extends Zend_Controller_Action
 		if (!empty($pathName)) { 	// image upload
 			$uploadedFileName  = substr($pathName, strrpos($pathName, '/') + 1);
 			$fileExt   		   = substr($uploadedFileName, strrpos($uploadedFileName, '.') + 1);
-error_log($fileExt);
 			$newImageName  = Model_DbTable_Helper::getInstance()->getImageNumber();
 			$directoryName = APPLICATION_PATH . '/../public/img/question/';
 			$fileName = $newImageName . '.' . $fileExt;
-error_log($fileName);
 			rename($directoryName . $uploadedFileName, 
 				   $directoryName . $fileName);
 		} else if ($postValues['imageText']) {
@@ -168,8 +163,7 @@ error_log($fileName);
         if ($this->getRequest()->isXmlHttpRequest()) {
 			$this->_helper->layout->disableLayout();
 			$searchTerm = $this->_getParam('name');
-			$questionDb = new Model_DbTable_Question();
-			$this->view->images = $questionDb->findImages($searchTerm);
+			$this->view->images = $this->questionDb->findImages($searchTerm);
 		} else {
 			$this->_redirect('/createquestion');
 		}
@@ -177,8 +171,7 @@ error_log($fileName);
 
     public function questionlistAction()
     {
-        $questionDb  = new Model_DbTable_Question();
-		$questionIds = $questionDb->getQuestionIds('N');
+		$questionIds = $this->questionDb->getQuestionIds('N');
 
 		if (!empty($questionIds)) {
 			$questionView = array();
@@ -209,8 +202,7 @@ error_log($fileName);
 		if ($this->getRequest()->isXmlHttpRequest()) {
 			$this->_helper->layout->disableLayout();
         	$questionId = $this->_getParam('question');
-			$questionDb = new Model_DbTable_Question();
-			$questionDb->setActive($questionId);
+			$this->questionDb->setActive($questionId);
 
 		} else {
 			$this->_redirect('/createquestion');
