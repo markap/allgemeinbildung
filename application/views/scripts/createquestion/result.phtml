@@ -1,1 +1,7 @@
-<br /><br /><center>View script for controller <b>createquestion</b> and script/action name <b>result</b></center>
+<h1>Danke für diese Frage</h1>
+
+<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!')."'>Frage testen</a>"; ?>
+<br />
+<?php echo "<a href='/createquestion/editquestion/question/" . $this->questionId . "'>Frage ändern</a>"; ?>
+<br />
+<a href='/createquestion'>Weitere Fragen anlegen</a>

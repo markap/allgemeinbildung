@@ -7,11 +7,16 @@ class CreatequestionController extends Zend_Controller_Action
 	protected $questionDb 	 = null;
 	protected $answerDb 	 = null;
 	protected $hasCategoryDb = null;
+	protected $userSession	 = null;
 
     public function init()
     {
-        $userSession 	   = new Zend_Session_Namespace('user');
-		$this->userId	   = isset($userSession->user['userid']) ? $userSession->user['userid'] : null;
+		if (!Zend_Auth::getInstance()->hasIdentity()) {
+			$this->_redirect('/index/login');
+		}
+        $this->userSession = new Zend_Session_Namespace('user');
+		$this->userId	   = isset($this->userSession->user['userid']) 
+								? $this->userSession->user['userid'] : null;
 		$this->questionDb  = new Model_DbTable_Question();
 		$this->answerDb    = new Model_DbTable_Answer();
 		$this->hasCategoryDb = new Model_DbTable_HasCategory();
@@ -55,9 +60,11 @@ class CreatequestionController extends Zend_Controller_Action
 
     public function resultAction()
     {
-        $questionId = $this->_getParam('question');
-		//todo DARF NUR AUTOR ODER admin
-		//TODO chekc ob questionid ist veränderbar
+        $questionId = ($this->_getParam('question')) ? $this->_getParam('question') : -1;
+
+		if (!$this->allowEditByAuthor($questionId) && !$this->isManager()) {
+			$this->redirect('/createquestion');
+		}
 				
 		$questionIds = array(array('id' => $questionId, 'type' => 'mc'),
 							 array('id' => $questionId, 'type' => 'txt')
@@ -65,40 +72,52 @@ class CreatequestionController extends Zend_Controller_Action
 		$nextGameSession = new Zend_Session_Namespace('nextGame');
 		$nextGameSession->nextGame = $questionIds;
 
-		echo "super gemacht...";
-		echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!')."'>testen</a>";
-		echo "ändern";
-		echo "weitere frage anlegen";
+		$this->view->questionId = $questionId;
     }
+
+	protected function allowEditByAuthor($questionId) {
+		return ($this->isAuthor($questionId) && $this->isNotActiveQuestion($questionId));
+	}
+
+	protected function isAuthor($questionId) {
+		return $this->questionDb->isAuthor($this->userId, $questionId);
+	}
+
+	protected function isNotActiveQuestion($questionId) {
+		return $this->questionDb->isNotActive($questionId);
+	}
+
+	protected function isManager() {
+		return ($this->userSession->user['role'] === 'manager');
+	}
 
     public function editquestionAction()
     {
         $questionId = ($this->_getParam('question')) ? $this->_getParam('question') : -1;
-		// TODO checken ob frage überhaupt editiert werden darf ...
-		//todo DARF NUR AUTOR ODER ERSTELLER
-		// populate form von oben ..
+
+		if (!$this->allowEditByAuthor($questionId) && !$this->isManager()) {
+			$this->_redirect('/createquestion');
+		}
 
 		$form = new Form_CreateQuestion();
 		$this->setFormOptions($form);
-
-        $change = new Zend_Form_Element_Submit('Änderung Speichern');
-        $change->setAttrib('id', 'changebutton');
+        $change = new Zend_Form_Element_Submit('changebutton');
+        $change->setAttrib('id', 'changebutton')
+			   ->setLabel('Änderung Speichern');
 		$form->addElement($change);
 
 
 		// populate formular
 		try {
 			$formInput = $this->getFormInput($questionId);
-			$form->populate($formInput);
 		} catch (Model_Exception_QuestionNotFound $e) {
 			try { 	// question could be testquestion, so not active
 				$formInput = $this->getFormInput($questionId, true);
-				$form->populate($formInput);
 			} catch (Model_Exception_QuestionNotFound $e) {
 				$this->_redirect('/createquestion');
 			}
 		}
-			
+		$form->populate($formInput);
 
 		// handle request
 		$request = $this->getRequest();
@@ -110,21 +129,24 @@ class CreatequestionController extends Zend_Controller_Action
 
 				$fileName = $this->getFileName($form);
 
-				// if neuanlage
+				if ($this->isNewQuestion()) {
 					$answerId 	= $this->answerDb->getNextAnswerId();
 					$questionId = $this->questionDb->insertQuestion($postValues, $answerId, 
 														  $fileName, $this->userId);
 					$this->answerDb->insertAnswer($postValues, $answerId);
 					$this->hasCategoryDb->insertRelation($questionId, $postValues['category']);
-				// if update
-					$this->_redirect('/createquestion/result/question/' . $questionId);
+
+				} else if ($this->isEditQuestion()) {
+					var_dump($formInput); exit();
+				}
+				$this->_redirect('/createquestion/result/question/' . $questionId);
 			} 
 		}
 		$this->view->form = $form;
     }
 
 	protected function getFormInput($questionId, $testGame = false) {
-		$levelDb		  = new Model_DbTable_Level();
+		$levelDb = new Model_DbTable_Level();
 
 		$question  		   = $this->questionDb->getQuestion($questionId, $testGame);
 		$level 			   = $levelDb->getLevel($question['level']);
@@ -158,6 +180,14 @@ class CreatequestionController extends Zend_Controller_Action
 		return $fileName;
     }
 
+	protected function isNewQuestion() {
+		return ($this->getRequest()->getPost('submitbutton', false) !== false);
+	}
+
+	protected function isEditQuestion() {
+		return ($this->getRequest()->getPost('changebutton', false) !== false);
+	}
+
     public function showimagesAction()
     {
         if ($this->getRequest()->isXmlHttpRequest()) {
@@ -171,6 +201,9 @@ class CreatequestionController extends Zend_Controller_Action
 
     public function questionlistAction()
     {
+// manager darf alle sehen, rest nur selbst angelegte
+// aktivieren link darf nicht jeder sehen, nur manger
+// testgame sollte laufen
 		$questionIds = $this->questionDb->getQuestionIds('N');
 
 		if (!empty($questionIds)) {
@@ -201,7 +234,7 @@ class CreatequestionController extends Zend_Controller_Action
     {
 		if ($this->getRequest()->isXmlHttpRequest()) {
 			$this->_helper->layout->disableLayout();
-        	$questionId = $this->_getParam('question');
+        	$questionId = $this->_getParam('question', -1);
 			$this->questionDb->setActive($questionId);
 
 		} else {

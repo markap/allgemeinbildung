@@ -110,4 +110,24 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		$this->update($data, $where);
 	}
 
+	public function isAuthor($userId, $questionId) {
+		$where = array('author = ' . $userId,
+					   'questionid = ' . $questionId);
+		$result = $this->fetchRow($where);
+		if (!$result) {
+			return false;
+		}
+		return true;
+	}
+
+	public function isNotActive($questionId) {
+		$where = array('questionid = ' . $questionId,
+					   'active = "N"');
+		$result = $this->fetchRow($where);
+		if (!$result) {
+			return false;
+		}
+		return true;
+	}
+
 }

@@ -82,9 +82,9 @@ class Form_CreateQuestion extends Zend_Form {
               	  ->addFilter('StripTags');
 
 		// Submit Element
-		$submit = new Zend_Form_Element_Submit('Frage Speichern');
-		$submit->setAttrib('id', 'submitbutton');
-		
+		$submit = new Zend_Form_Element_Submit('submitbutton');
+		$submit->setAttrib('id', 'submitbutton')
+			   ->setLabel('Frage Speichern');
 
 
 		$this->addElements(array($question,
