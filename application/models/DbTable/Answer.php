@@ -58,4 +58,14 @@ class Model_DbTable_Answer extends Zend_Db_Table_Abstract {
 					);
 		$this->insert($data);
 	}
+
+	public function updateAnswer($answerId, array $postValues) {
+		$data = array('answer'	 => $postValues['answer'],
+					  'fake1'	 => $postValues['fake1'],
+					  'fake2'	 => $postValues['fake2'],
+					  'fake3'	 => $postValues['fake3']
+					);
+		$where = array('answerid = ' . $answerId);
+		$this->update($data, $where);
+	}
 }

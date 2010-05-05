@@ -137,7 +137,12 @@ class CreatequestionController extends Zend_Controller_Action
 					$this->hasCategoryDb->insertRelation($questionId, $postValues['category']);
 
 				} else if ($this->isEditQuestion()) {
-					var_dump($formInput); exit();
+					$this->questionDb->updateQuestion($questionId, $postValues, $fileName);
+					$answerId = $formInput['answerid'];
+					$this->answerDb->updateAnswer($answerId, $postValues);
+					$oldVals = $formInput['category'];
+					$newVals = $postValues['category'];
+					$this->hasCategoryDb->updateRelation($questionId, $oldVals, $newVals);
 				}
 				$this->_redirect('/createquestion/result/question/' . $questionId);
 			} 
@@ -233,6 +238,7 @@ class CreatequestionController extends Zend_Controller_Action
     public function setactiveAction()
     {
 		if ($this->getRequest()->isXmlHttpRequest()) {
+//////////////////TODO kkkkkkkkkkkklappt nicht, nimmt immer alle
 			$this->_helper->layout->disableLayout();
         	$questionId = $this->_getParam('question', -1);
 			$this->questionDb->setActive($questionId);

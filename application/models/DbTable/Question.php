@@ -80,6 +80,17 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return $this->insert($data);
 	}
 
+	public function updateQuestion($questionId, array $postValues, $fileName) {
+		$data = array('question' => $postValues['question'],
+					  'hint'	 => $postValues['hint'],
+					  'image' 	 => $fileName,
+					  'level'	 => $postValues['level']
+					);
+		$where = array('questionid = ' . $questionId);
+		$this->update($data, $where);
+
+	}
+
 	public function findImages($searchTerm) {
 		$stmt = $this->select();
 		$stmt->distinct()

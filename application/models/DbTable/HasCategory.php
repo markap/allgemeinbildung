@@ -96,4 +96,20 @@ class Model_DbTable_HasCategory extends Zend_Db_Table_Abstract {
 		return $result[0]['question'];
 	}
 
+	public function updateRelation($questionId, array $oldVals, array $newVals) {
+		// compare both arrays	
+		$insertVals = array_diff($newVals, $oldVals);
+		$deleteVals = array_diff($oldVals, $newVals);
+		$this->insertRelation($questionId, $insertVals);
+		$this->deleteRelation($questionId, $deleteVals);
+	}
+
+	protected function deleteRelation($questionId, array $categories) {
+		foreach ($categories as $category) {
+			$where = array('questionid' => $questionId,
+						   'categoryid' => $category);
+			$this->delete($where);
+		}
+	}
+
 }
