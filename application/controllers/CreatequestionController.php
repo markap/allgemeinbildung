@@ -238,9 +238,8 @@ class CreatequestionController extends Zend_Controller_Action
     public function setactiveAction()
     {
 		if ($this->getRequest()->isXmlHttpRequest()) {
-//////////////////TODO kkkkkkkkkkkklappt nicht, nimmt immer alle
 			$this->_helper->layout->disableLayout();
-        	$questionId = $this->_getParam('question', -1);
+        	$questionId = $this->_getParam('questionid', -1);
 			$this->questionDb->setActive($questionId);
 
 		} else {

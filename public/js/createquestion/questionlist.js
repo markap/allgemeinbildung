@@ -2,11 +2,12 @@ $(document).ready(function() {
 	
 	$('.setActive').click(function() {
 		var questionId = this.id;
+		$(this).parents(".question").animate({opacity: "hide"}, "slow");
 
 		$.post("/createquestion/setactive"
 			+ "/questionid/" + questionId
 		, function (response) {
-			$("#" + questionId).html(response);
+			$("#success").html(response);
 		},
 		"text"
 		);	

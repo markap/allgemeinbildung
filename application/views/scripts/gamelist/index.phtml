@@ -5,6 +5,9 @@
 		<?php echo $game['name']; ?>
 	</a>
 	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/sh/1">
-		Spielen
+		Multiple Choice
+	</a><br />
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
+		Direkteingabe
 	</a><br />
 <?php endforeach; ?>

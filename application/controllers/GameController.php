@@ -70,9 +70,7 @@ class GameController extends Zend_Controller_Action
 		
 		// set QuestionType
 		if ($this->isNewGame() && $this->hasQuestionType()) {
-			if (!$this->isGame() && $this->getRequest()->has('qtyp')) {
-				$questionType = $this->_getParam('qtyp');
-			}
+			$questionType = $this->_getParam('qtyp');
 			$game->setQuestionType($questionType);
 		}
 

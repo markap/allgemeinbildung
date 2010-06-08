@@ -2,16 +2,20 @@
 <?php echo $this->headScript()->appendFile('/js/createquestion/questionlist.js'); ?>
 <h1>Erstellte Fragen</h1>
 
+<span id="success"></span>
+
 <?php if ($this->message): ?>
 <?php echo $this->message; ?>
 <?php else: ?>
 
 <?php foreach ($this->paginator as $question): ?>
+<div class="question">
 	<img height="100px" src="<?php echo $this->baseUrl . '/img/question/' . $question['question']['image']; ?>" />
 	<a href="/question/play/question/<?php echo $question['question']['questionid']; ?>/back/<?php echo $question['backUrl']; ?>">
 		<?php echo $question['question']['question']; ?><br />
 	</a>
-	<span class="setActive" id="<?php echo $this->question['questionid']; ?>">Aktivieren</span>
+	<span class="setActive" id="<?php echo $question['question']['questionid']; ?>">Aktivieren</span>
+</div>
 <?php endforeach; ?>
 
 <?php echo $this->paginationControl(
