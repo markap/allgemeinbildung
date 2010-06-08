@@ -13,7 +13,12 @@ class GamelistController extends Zend_Controller_Action
 
     public function indexAction()
     {
-      	$this->view->gameList = $this->gameListDb->getGames();
+		$gameList = $this->gameListDb->getGames();
+		foreach ($gameList as $key => $game) {
+			$gameList[$key]['numberOfQuestions'] =
+				$this->gameListDb->countQuestionIds($game['gameid']);	
+		}
+      	$this->view->gameList = $gameList;
     }
 
     public function gameAction()

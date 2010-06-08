@@ -36,6 +36,11 @@ class Model_DbTable_GameList extends Zend_Db_Table_Abstract {
 		return $questionIds;
 	}
 
+	public function countQuestionIds($gameId) {
+		$questionIds = $this->getQuestionIds($gameId);
+		return count($questionIds);
+	}
+
 	public function getQuestionType($gameId) {
 		$game = $this->getGame($gameId);
 		return $game['qtype'];

@@ -647,3 +647,4 @@
 [Mon Jun 07 20:45:47 2010] [error] [client 127.0.0.1] PHP Warning:  error_log() expects parameter 1 to be string, array given in /home/www/allgemeinbildung/application/models/LogScore.php on line 66, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/qtyp/txt/sh/1
 [Tue Jun 08 20:06:57 2010] [error] [client 127.0.0.1] question not found|80|question, referer: http://allgemeinbildung.localhost/createquestion/result/question/80
 [Tue Jun 08 20:07:01 2010] [error] [client 127.0.0.1] question not found|80|question, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/test/e679cca80190c71939fb36acc37b9344
+[Tue Jun 08 21:27:47 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 147, referer: http://allgemeinbildung.localhost/game

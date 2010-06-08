@@ -4,7 +4,8 @@
 	<a href="/gamelist/game/g/<?php echo $game['gameid']; ?>">
 		<?php echo $game['name']; ?>
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/sh/1">
+	<?php echo '(' . $game['numberOfQuestions'] . ')'; ?>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/mc/sh/1">
 		Multiple Choice
 	</a><br />
 	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
