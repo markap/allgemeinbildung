@@ -144,7 +144,7 @@ class GameController extends Zend_Controller_Action
 		$result['score'] = $calculatedScore;
 
 		$gameResultDb = new Model_DbTable_GameResult();
-		$gameResultDb->insertResult($this->userId, $gameId, $questionIds);
+		$gameResultDb->insertResult($this->userId, $gameId, $result);
 	}
 
     public function answerrequestAction()
