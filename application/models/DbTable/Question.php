@@ -117,7 +117,7 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 
 	public function setActive($questionId) {
 		$data  = array('active' => 'Y');
-		$where = array('questionid' => $questionId);
+		$where = array('questionid = ' . $questionId);
 		$this->update($data, $where);
 	}
 
