@@ -53,4 +53,39 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		return $result->toArray();
 	}
 
+
+	/**
+	 * checks if for this game and user exist a result 
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $gameId
+	 * @param integer $userId
+	 * @return boolean 
+	 */ 
+	public function existResultForGameAndUser($gameId, $userId) {
+		$stmt = $this->select()
+					 ->where('userid = ?', $userId)
+					 ->where('gameid = ?', $gameId);
+		$row = $this->fetchRow($stmt);
+		return ($row) ? true : false;
+	}
+
+
+	/**
+	 * returns the result for this game and user 
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $gameId
+	 * @param integer $userId
+	 * @return array|boolean 
+	 */ 
+	public function getResultForGameAndUser($gameId, $userId) {
+		$stmt = $this->select()
+					 ->where('userid = ?', $userId)
+					 ->where('gameid = ?', $gameId)
+					 ->order('date ASC');
+		$row = $this->fetchAll($stmt);
+		return ($row) ? $row->toArray() : false;	
+	}
+
 }

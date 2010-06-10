@@ -3,12 +3,19 @@
 class GamelistController extends Zend_Controller_Action
 {
 
-	protected $gameListDb = null;
+	protected $gameListDb   = null;
+	protected $gameResultDb = null;
+	protected $userId	    = null;
 
     public function init()
     {
 		//TODO try catch
-        $this->gameListDb = new Model_DbTable_GameList();
+        $this->gameListDb   = new Model_DbTable_GameList();
+        $this->gameResultDb = new Model_DbTable_GameResult();
+		$userSession 	    = new Zend_Session_Namespace('user');
+		$this->userId	    = isset($userSession->user['userid']) 
+								? $userSession->user['userid'] : null;
+
     }
 
     public function indexAction()
@@ -17,6 +24,9 @@ class GamelistController extends Zend_Controller_Action
 		foreach ($gameList as $key => $game) {
 			$gameList[$key]['numberOfQuestions'] =
 				$this->gameListDb->countQuestionIds($game['gameid']);	
+			$gameList[$key]['existResult'] = 
+				($this->userId != null) ? $this->gameResultDb->existResultForGameAndUser($game['gameid'], $this->userId)
+				: false;
 		}
       	$this->view->gameList = $gameList;
     }

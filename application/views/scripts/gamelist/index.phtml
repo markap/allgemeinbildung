@@ -7,8 +7,12 @@
 	<?php echo '(' . $game['numberOfQuestions'] . ')'; ?>
 	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/mc/sh/1">
 		Multiple Choice
-	</a><br />
+	</a>
 	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
 		Direkteingabe
-	</a><br />
+	</a>
+	<?php if($game['existResult']): ?>
+		<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Bisherige Ergebnisse</a>
+	<?php endif; ?>
+	<br />
 <?php endforeach; ?>

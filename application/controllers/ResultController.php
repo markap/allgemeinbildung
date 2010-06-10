@@ -3,9 +3,10 @@
 class ResultController extends Zend_Controller_Action
 {
 
-    protected $userId = null;
-
-    protected $resultDb = null;
+    protected $userId 		= null;
+    protected $resultDb 	= null;
+    protected $gameResultDb = null;
+    protected $gameListDb   = null;
 
     public function init()
     {
@@ -14,6 +15,8 @@ class ResultController extends Zend_Controller_Action
 		$userData     = $userSession->user;
 		$this->userId = $userData['userid'];
 		$this->resultDb = new Model_DbTable_QuestionResult($this->userId);
+		$this->gameResultDb = new Model_DbTable_GameResult();
+		$this->gameListDb   = new Model_DbTable_GameList();
     }
 
     public function indexAction()
@@ -111,13 +114,34 @@ class ResultController extends Zend_Controller_Action
 
     public function gamesAction()
     {
-		$gameResultDb = new Model_DbTable_GameResult();
-		$gameResult	  = $gameResultDb->getGameResult($this->userId);
-		$gameListDb   = new Model_DbTable_GameList();
+		$gameResult	  = $this->gameResultDb->getGameResult($this->userId);
 		foreach ($gameResult as $key => $game) {
-			$gameDescription  		  = $gameListDb->getGame($game['gameid']);
+			$gameDescription  		  = $this->gameListDb->getGame($game['gameid']);
 			$gameResult[$key]['name'] = $gameDescription['name'];
 		}	
 		$this->view->gameResult = $gameResult;
     }
+
+    public function gameAction()
+    {
+		// user muss angemeldet sein!!!
+		$gameId = $this->_getParam('gid', -1);
+		$results = $this->gameResultDb->getResultForGameAndUser($gameId, $this->userId);
+		if (empty($results)) {
+			$this->_redirect('/gamelist');
+		}
+
+		$gameDescription = $this->gameListDb->getGame($gameId);
+		$this->view->gameName = $gameDescription['name'];
+		foreach ($results as $key => $result) {
+			$results[$key]['right'] = Model_String::countValues($result['rightids']);	
+			$results[$key]['wrong'] = Model_String::countValues($result['wrongids']);	
+			$results[$key]['sum']   = $results[$key]['right'] + $results[$key]['wrong'];
+		}
+		$this->view->results = $results;
+    }
+
+
 }
+
+
