@@ -1,0 +1,35 @@
+/*
+ * the main css file
+ */
+
+#header {
+	background-color: green;
+	height: 100px;
+}
+
+#container {
+	margin: auto;
+	width: 820px;
+}
+
+
+#content {
+	padding: 15px;
+}
+
+
+#topnavi {
+}
+
+#topnavi li {
+	display: inline;
+}
+
+#topnavi li a:hover {
+	background-color: red;
+}
+
+#footer {
+	background-color: green;
+	height: 20px;
+}

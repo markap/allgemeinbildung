@@ -4,9 +4,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<?php echo $this->headLink()->appendStylesheet('/css/main.css'); ?>
   </head>
   <body> 
-	<?php echo $this->layout()->content; ?>
+		<div id="header">
+			allgemeinbildung.de
+		</div>
+		<div id="topnavi">
+				<ul>
+					<li><a href="/index/login">Login</a></li>
+					<li><a href="/gamelist">Games</a></li>
+				</ul>
+			</div>
+
+		<div id="container">
+						<div id="content">
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+		<div id="footer">
+			impressum etc.
+		</div>
   </body>
 </html>
 
