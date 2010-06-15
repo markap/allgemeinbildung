@@ -693,3 +693,10 @@
 [Wed Jun 09 22:17:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: game in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 138, referer: http://allgemeinbildung.localhost/gamelist
 [Wed Jun 09 22:17:17 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: game in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 138, referer: http://allgemeinbildung.localhost/gamelist
 [Wed Jun 09 22:20:14 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/views/scripts/result/game.phtml on line 8, referer: http://allgemeinbildung.localhost/gamelist
+[Tue Jun 15 19:56:37 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/www/allgemeinbildung/application/models/Game.php on line 151, referer: http://allgemeinbildung.localhost/gamelist
+[Tue Jun 15 19:57:17 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/www/allgemeinbildung/application/models/Game.php on line 151, referer: http://allgemeinbildung.localhost/gamelist
+[Tue Jun 15 19:57:32 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ':' in /home/www/allgemeinbildung/application/models/Game.php on line 152, referer: http://allgemeinbildung.localhost/gamelist
+[Tue Jun 15 20:01:12 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Tue Jun 15 20:01:52 2010] [error] [client 127.0.0.1] modify_answer|DEutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Tue Jun 15 20:02:18 2010] [error] [client 127.0.0.1] modify_answer|d\xc3\xa4nemark|D\xc3\xa4nemark|daenemark|daenemark, referer: http://allgemeinbildung.localhost/game
+[Tue Jun 15 20:02:28 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game

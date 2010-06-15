@@ -4,19 +4,14 @@
 
 #header {
 	background-color: green;
-	height: 100px;
+	height: 80px;
 }
-
-#container {
-	margin: auto;
-	width: 820px;
-}
-
 
 #content {
 	padding: 15px;
+	margin: auto;
+	width: 820px;
 }
-
 
 #topnavi {
 }
@@ -27,6 +22,10 @@
 
 #topnavi li a:hover {
 	background-color: red;
+}
+
+#topnavi li a:active {
+	background-color: navy;
 }
 
 #footer {

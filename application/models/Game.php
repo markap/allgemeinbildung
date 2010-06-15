@@ -141,7 +141,18 @@ class Model_Game {
 		$this->questionType = $questionType;
 	}
 
+
+	/**
+	 * returns the question type
+	 *
+	 * @author Martin Kapfhammer
+	 * @return string $this->getQuestiontype;
+	 */
+	public function getQuestionType() {
+		return ($this->questionType !== null) ? $this->questionType : 'MCTXT';
+	}
 	
+
 	/**
 	 * shuffles the questionIds
 	 *

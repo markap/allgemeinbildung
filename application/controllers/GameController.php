@@ -99,8 +99,9 @@ class GameController extends Zend_Controller_Action
 		}
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$score = $game->getScore();
+			$questionType = $game->getQuestionType();
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
-				$this->saveGame($score); 
+				$this->saveGame($score, $questionType); 
 			}
 			$this->gameSession->result = $score;
 			$this->gameSession->game   = null;
@@ -131,7 +132,7 @@ class GameController extends Zend_Controller_Action
 		return ($this->isGame() || $this->getRequest()->has('qtyp'));
 	}
 
-	protected function saveGame(Model_Score $score) {
+	protected function saveGame(Model_Score $score, $questionType) {
 		$gameId = $this->gameSession->gameId;
 	
 		// calculate the score		
@@ -142,6 +143,7 @@ class GameController extends Zend_Controller_Action
 		$result['right'] = $score->getImplodedRightQuestionIds();
 		$result['wrong'] = $score->getImplodedWrongQuestionIds();
 		$result['score'] = $calculatedScore;
+		$result['qtype']  = $questionType;
 
 		$gameResultDb = new Model_DbTable_GameResult();
 		$gameResultDb->insertResult($this->userId, $gameId, $result);
