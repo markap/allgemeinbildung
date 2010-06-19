@@ -47,12 +47,27 @@ class GameController extends Zend_Controller_Action
 					$questionIds = $questionResultDb->getQuestionIds($this->_getParam('cat'), $this->_getParam('result'));
 				}
 			} else if ($this->isGame()) {
-				$gameId 	 = $this->_getParam('g');
-				$this->gameSession->gameId = $gameId;
-				//TODO try - catch
+				$gameId = $this->_getParam('g');
+				if ($this->toLearn()) {
+					$this->gameSession->gameId = $gameId;
+				}
 				$gameListDb  = new Model_DbTable_GameList();
 				$questionIds  = $gameListDb->getQuestionIds($gameId);
 				$questionType = $gameListDb->getQuestionType($gameId);
+			} else if ($this->replayGameResult()) {
+				$resultType = $this->_getParam('rty'); // result type -> y or n
+				$resultId   = $this->_getParam('rid'); // result id 
+				$gameResultDb = new Model_DbTable_GameResult();
+				$result	= $gameResultDb->getGameResultForResultId($resultId, $this->userId);
+				if ($result === false) { 
+					$this->_redirect('/gamelist');
+				}	
+				if ($resultType === 'N') {
+					$getIds = 'wrongids';
+				} else if ($resultType === 'Y') {
+					$getIds = 'rightids';
+				}	
+				$questionIds = Model_String::explodeString($result[$getIds]);
 			}
 		}
 
@@ -60,11 +75,13 @@ class GameController extends Zend_Controller_Action
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
-			if ($this->isTestGame() === false) {	// it's not a testgame
+			if ($this->toLearn() === true) { // Learn game
+				$this->gameSession->game = new Model_LearnGame($questionIds, null);	
+			} else if ($this->isTestGame() === false) {	// it's not a testgame, it is a normal game
 				$this->gameSession->game = new Model_Game($questionIds, $this->userId);	
-			} else {
+			} else if ($this->isTestGame() === true) {	// test game
 				$this->gameSession->game = new Model_Game($questionIds, null, true);	
-			}
+			} 
 		}
 		$game = $this->gameSession->game; 
 		
@@ -127,7 +144,15 @@ class GameController extends Zend_Controller_Action
 	protected function isGame() {
 		return ($this->getRequest()->has('g'));
 	}
+
+	protected function toLearn() {
+		return ($this->_getParam('tl') === md5('toLearn!'));
+	}
 	
+	protected function replayGameResult() {
+		return ($this->_getParam('re') === md5('replay!'));
+	}
+
 	protected function hasQuestionType() {
 		return ($this->isGame() || $this->getRequest()->has('qtyp'));
 	}

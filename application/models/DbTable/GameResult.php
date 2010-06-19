@@ -89,4 +89,21 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		return ($row) ? $row->toArray() : false;	
 	}
 
+
+	/**
+	 * get the result for a resultId
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $resultId
+	 * @param integer $userId
+	 * @return array|boolean 
+ 	 */
+	public function getGameResultForResultId($resultId, $userId) {
+		$stmt = $this->select()
+					 ->where('userid = ?', $userId)
+					 ->where('resultid = ?', $resultId);
+		$row = $this->fetchRow($stmt);
+		return ($row) ? $row->toArray() : false;
+	}
+
 }

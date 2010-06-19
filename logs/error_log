@@ -700,3 +700,151 @@
 [Tue Jun 15 20:01:52 2010] [error] [client 127.0.0.1] modify_answer|DEutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
 [Tue Jun 15 20:02:18 2010] [error] [client 127.0.0.1] modify_answer|d\xc3\xa4nemark|D\xc3\xa4nemark|daenemark|daenemark, referer: http://allgemeinbildung.localhost/game
 [Tue Jun 15 20:02:28 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:42:48 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/9/qtyp/txt/sh/1
+[Wed Jun 16 19:42:59 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:43:13 2010] [error] [client 127.0.0.1] modify_answer|england|England|england|england, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:43:20 2010] [error] [client 127.0.0.1] modify_answer|brasilien|Brasilien|brasilien|brasilien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:43:36 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:43:42 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:43:50 2010] [error] [client 127.0.0.1] modify_answer|brasilien|Brasilien|brasilien|brasilien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:43:56 2010] [error] [client 127.0.0.1] modify_answer|uruguay|Uruguay|uruguay|uruguay, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:44:04 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:44:10 2010] [error] [client 127.0.0.1] modify_answer|uruguay|Uruguay|uruguay|uruguay, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:44:23 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:44:30 2010] [error] [client 127.0.0.1] modify_answer|brasilien|Brasilien|brasilien|brasilien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:44:37 2010] [error] [client 127.0.0.1] modify_answer|brasilien|Brasilien|brasilien|brasilien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:44:57 2010] [error] [client 127.0.0.1] modify_answer|brasilien|Brasilien|brasilien|brasilien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:45:04 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:45:13 2010] [error] [client 127.0.0.1] modify_answer|argentinien|Argentinien|argentinien|argentinien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:45:23 2010] [error] [client 127.0.0.1] modify_answer|argentinien|Argentinien|argentinien|argentinien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 19:45:36 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:28:09 2010] [error] [client 127.0.0.1] PHP Fatal error:  Cannot access parent:: when current class scope has no parent in /home/www/allgemeinbildung/application/models/LearnGame.php on line 35, referer: http://allgemeinbildung.localhost/gamelist
+[Wed Jun 16 20:29:10 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Wed Jun 16 20:29:25 2010] [error] [client 127.0.0.1] modify_answer|island|Island|island|island, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:31:35 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Wed Jun 16 20:31:40 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:31:48 2010] [error] [client 127.0.0.1] modify_answer|portugal|Portugal|portugal|portugal, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:31:52 2010] [error] [client 127.0.0.1] modify_answer|island|Island|island|island, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:33:38 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Wed Jun 16 20:34:51 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Wed Jun 16 20:35:46 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Wed Jun 16 20:49:53 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Wed Jun 16 20:49:59 2010] [error] [client 127.0.0.1] modify_answer|portugal|Portugal|portugal|portugal, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:50:16 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:50:25 2010] [error] [client 127.0.0.1] modify_answer|island|Island|island|island, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:50:48 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:50:52 2010] [error] [client 127.0.0.1] modify_answer|island|Island|island|island, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:50:58 2010] [error] [client 127.0.0.1] modify_answer|portugal|Portugal|portugal|portugal, referer: http://allgemeinbildung.localhost/game
+[Wed Jun 16 20:51:15 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 18:55:34 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Form_Register' not found in /home/www/allgemeinbildung/application/controllers/IndexController.php on line 68
+[Thu Jun 17 18:57:11 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_RegisterValidator' not found in /home/www/allgemeinbildung/application/controllers/IndexController.php on line 61, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 18:57:42 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 70, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 18:57:42 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 78, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 18:59:33 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 70, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 18:59:33 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 78, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:04:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 70, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:04:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 78, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:04:52 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 70, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:04:52 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 78, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:05:39 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 69, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:05:39 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: data in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 77, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:09:33 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 69, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:09:33 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 77, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:09:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 69, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:09:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 77, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:10:22 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 69, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:10:22 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 77, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:10:29 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 69, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:10:29 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 77, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:10:51 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 69, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:10:51 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: user in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 76, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:11:39 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: email in /home/www/allgemeinbildung/application/models/RegisterValidator.php on line 114, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:27:38 2010] [error] [client 127.0.0.1] PHP Notice:  Indirect modification of overloaded property Zend_View::$errors has no effect in /home/www/allgemeinbildung/application/controllers/IndexController.php on line 72, referer: http://allgemeinbildung.localhost/index/register
+[Thu Jun 17 19:38:30 2010] [error] [client 127.0.0.1] modify_answer|Alzey-worms|Alzey-Worms|alzeyworms|alzeyworms, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/5/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Thu Jun 17 19:38:36 2010] [error] [client 127.0.0.1] modify_answer|annaberg|Annaberg|annaberg|annaberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:38:55 2010] [error] [client 127.0.0.1] modify_answer|amberg|Amberg|amberg|amberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:10 2010] [error] [client 127.0.0.1] modify_answer|anhalt bitterfeld|Anhalt-Bitterfeld|anhaltbitterfeld|anhaltbitterfeld, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:16 2010] [error] [client 127.0.0.1] modify_answer|ahrweiler|Ahrweiler|ahrweiler|ahrweiler, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:21 2010] [error] [client 127.0.0.1] modify_answer|aachen|Aachen|aachen|aachen, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:28 2010] [error] [client 127.0.0.1] modify_answer|weimarer land|Weimarer Land|weimarerland|weimarerland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:36 2010] [error] [client 127.0.0.1] modify_answer|aichau friedberg|Aichau-Friedberg|aichaufriedberg|aichaufriedberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:41 2010] [error] [client 127.0.0.1] modify_answer|alt\xc3\xb6tting|Alt\xc3\xb6tting|altoetting|altoetting, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:49 2010] [error] [client 127.0.0.1] modify_answer|aurich|Aurich|aurich|aurich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:39:53 2010] [error] [client 127.0.0.1] modify_answer|augsburg|Augsburg|augsburg|augsburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:40:22 2010] [error] [client 127.0.0.1] modify_answer|aschaffenburg|Aschaffenburg|aschaffenburg|aschaffenburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:40:30 2010] [error] [client 127.0.0.1] modify_answer|ansbach|Ansbach|ansbach|ansbach, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:40:37 2010] [error] [client 127.0.0.1] modify_answer|ahrweiler|Ahrweiler|ahrweiler|ahrweiler, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:10 2010] [error] [client 127.0.0.1] modify_answer|aschaffenburg|Aschaffenburg|aschaffenburg|aschaffenburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:17 2010] [error] [client 127.0.0.1] modify_answer|altenburg|Altenburg|altenburg|altenburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:23 2010] [error] [client 127.0.0.1] modify_answer|alzey-worms|Alzey-Worms|alzeyworms|alzeyworms, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:27 2010] [error] [client 127.0.0.1] modify_answer|alt\xc3\xb6tting|Alt\xc3\xb6tting|altoetting|altoetting, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:34 2010] [error] [client 127.0.0.1] modify_answer|weimarer land|Weimarer Land|weimarerland|weimarerland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:44 2010] [error] [client 127.0.0.1] modify_answer|amberg sulzbach|Amberg-Sulzbach|ambergsulzbach|ambergsulzbach, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:41:55 2010] [error] [client 127.0.0.1] modify_answer|ansbach|Ansbach|ansbach|ansbach, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:42:21 2010] [error] [client 127.0.0.1] modify_answer|amberg|Amberg|amberg|amberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:43:02 2010] [error] [client 127.0.0.1] modify_answer|aichau-friedberg|Aichau-Friedberg|aichaufriedberg|aichaufriedberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:43:12 2010] [error] [client 127.0.0.1] modify_answer|annaberg|Annaberg|annaberg|annaberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:43:17 2010] [error] [client 127.0.0.1] modify_answer|augsburg|Augsburg|augsburg|augsburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:43:22 2010] [error] [client 127.0.0.1] modify_answer|aachen|Aachen|aachen|aachen, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:43:25 2010] [error] [client 127.0.0.1] modify_answer|aurich|Aurich|aurich|aurich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:43:46 2010] [error] [client 127.0.0.1] modify_answer|anhalt bitterfeld|Anhalt-Bitterfeld|anhaltbitterfeld|anhaltbitterfeld, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:44:09 2010] [error] [client 127.0.0.1] modify_answer|aalen ostalbkreis|Aalen Ostalbkreis|aalenostalbkreis|aalenostalbkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:44:17 2010] [error] [client 127.0.0.1] modify_answer|aalen ostalbkreis|Aalen Ostalbkreis|aalenostalbkreis|aalenostalbkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:44:38 2010] [error] [client 127.0.0.1] modify_answer|altenburg|Altenburg|altenburg|altenburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:44:49 2010] [error] [client 127.0.0.1] modify_answer|aschersleben stra\xc3\x9ffurter landkreis|Aschersleben-Stra\xc3\x9ffurter Landkreis|ascherslebenstrassfurterlandkreis|ascherslebenstrassfurterlandkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:45:30 2010] [error] [client 127.0.0.1] modify_answer|amberg sulzbach|Amberg-Sulzbach|ambergsulzbach|ambergsulzbach, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:46:19 2010] [error] [client 127.0.0.1] modify_answer|aue schwarzenberg|Aue-Schwarzenberg|aueschwarzenberg|aueschwarzenberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:46:26 2010] [error] [client 127.0.0.1] modify_answer|aue schwarzenberg|Aue-Schwarzenberg|aueschwarzenberg|aueschwarzenberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:46:49 2010] [error] [client 127.0.0.1] modify_answer|aschersleben stra\xc3\x9ffurter landkreis|Aschersleben-Stra\xc3\x9ffurter Landkreis|ascherslebenstrassfurterlandkreis|ascherslebenstrassfurterlandkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:56:17 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/10/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Thu Jun 17 19:56:27 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:56:48 2010] [error] [client 127.0.0.1] modify_answer|griechenland|Griechenland|griechenland|griechenland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:56:58 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:57:07 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:57:34 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:57:41 2010] [error] [client 127.0.0.1] modify_answer|d\xc3\xa4nemark|D\xc3\xa4nemark|daenemark|daenemark, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:57:50 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:57:56 2010] [error] [client 127.0.0.1] modify_answer|sowjetunion|Sowjetunion|sowjetunion|sowjetunion, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:58:03 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:58:24 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:58:29 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:58:40 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:58:47 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:58:55 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:59:12 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:59:22 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:59:27 2010] [error] [client 127.0.0.1] modify_answer|sowjetunion|Sowjetunion|sowjetunion|sowjetunion, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:59:32 2010] [error] [client 127.0.0.1] modify_answer|d\xc3\xa4nemark|D\xc3\xa4nemark|daenemark|daenemark, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:59:45 2010] [error] [client 127.0.0.1] modify_answer|griechenland|Griechenland|griechenland|griechenland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 19:59:55 2010] [error] [client 127.0.0.1] modify_answer|tschechoslowakei|Tschechoslowakei|tschechoslowakei|tschechoslowakei, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 20:00:09 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 20:00:14 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 20:00:28 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 20:00:35 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 20:00:45 2010] [error] [client 127.0.0.1] modify_answer|tschechoslowakei|Tschechoslowakei|tschechoslowakei|tschechoslowakei, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 17 20:22:59 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: gameId in /home/www/allgemeinbildung/application/controllers/GameController.php on line 56, referer: http://allgemeinbildung.localhost/gamelist
+[Thu Jun 17 20:23:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: gameId in /home/www/allgemeinbildung/application/controllers/GameController.php on line 56, referer: http://allgemeinbildung.localhost/gamelist
+[Sat Jun 19 12:33:26 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'String' not found in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:34:11 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: getIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:34:11 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:34:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: getIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:34:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:35:05 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: getIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:35:05 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:35:11 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: getIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:35:11 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:35:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: getIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 71, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:35:44 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/controllers/GameController.php on line 71, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:36:03 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: wrongids in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:36:34 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: wrongids in /home/www/allgemeinbildung/application/controllers/GameController.php on line 71, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:37:17 2010] [error] [client 127.0.0.1] question not found|144|question, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:37:30 2010] [error] [client 127.0.0.1] question not found|144|question, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:39:26 2010] [error] [client 127.0.0.1] question not found|144|question, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:39:30 2010] [error] [client 127.0.0.1] question not found|137|question, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/rid/7/rty/Y/re/43a8b82293873f48c7654198009eed69/test/e679cca80190c71939fb36acc37b9344
+[Sat Jun 19 12:39:33 2010] [error] [client 127.0.0.1] question not found|140|question, referer: http://allgemeinbildung.localhost/game
+[Sat Jun 19 12:40:31 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: getIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:40:31 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/controllers/GameController.php on line 70, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:40:44 2010] [error] [client 127.0.0.1] question not found|144|question, referer: http://allgemeinbildung.localhost/result/game/gid/10
+[Sat Jun 19 12:44:39 2010] [error] [client 127.0.0.1] modify_answer|tschechoslowakei|Tschechoslowakei|tschechoslowakei|tschechoslowakei, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/rid/7/rty/Y/re/43a8b82293873f48c7654198009eed69/tl/7bd9311d0bcc50525da92db3bacd7c0e
+[Sat Jun 19 12:45:11 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game
+[Sat Jun 19 13:57:40 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/views/scripts/result/game.phtml on line 14, referer: http://allgemeinbildung.localhost/gamelist

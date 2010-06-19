@@ -11,6 +11,9 @@
 	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
 		Direkteingabe
 	</a>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/txt/">
+		Lernen
+	</a>
 	<?php if($game['existResult']): ?>
 		<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Bisherige Ergebnisse</a>
 	<?php endif; ?>

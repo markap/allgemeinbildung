@@ -48,8 +48,38 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
+    public function registerAction()
+    {
+        /// if already logged in, redirect to start
+		$auth = Zend_Auth::getInstance();	
+		if ($auth->hasIdentity()) {
+			$this->_redirect('/index'); 
+		}
+
+		$request = $this->getRequest();
+		if ($request->isPost()) {
+			if (Model_ValidateFormular::notEmpty($request->getPost())) {	
+				$registerValidator = new Model_RegisterValidator($request->getPost());
+				if ($registerValidator->isValid()) {
+					echo 'valid'; exit();
+					$this->_redirect('/index'); 
+				} else {
+						
+				$errors = $registerValidator->getErrors();
+		var_dump($errors); exit();
+				}
+			} else {
+				$this->view->errors = array('Bitte alle Felder ausfüllen');
+			}
+		}
+		$this->view->form = new Form_Register();
+
+    }
+
 
 }
+
+
 
 
 

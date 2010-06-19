@@ -9,8 +9,27 @@
 		<td><?php echo $result['date']; ?></td>
 		<td><?php echo $result['score']; ?></td>
 		<td><?php echo $result['sum']; ?></td>
-		<td><?php echo $result['right']; ?></td>
-		<td><?php echo $result['wrong']; ?></td>
+
+		<td>
+			<?php echo $result['right']; ?>
+			<?php if ($result['right'] !== 0): ?>
+			<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/rid/<?php echo $result['resultid']; ?>/rty/Y/re/<?php echo md5('replay!'); ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/<?php echo $result['qtype']; ?>">
+Nochmal
+			</a>
+			<?php endif; ?>
+		</td>
+
+
+		<td>
+			<?php echo $result['wrong']; ?>
+			<?php if ($result['wrong'] !== 0): ?>
+			<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/rid/<?php echo $result['resultid']; ?>/rty/N/re/<?php echo md5('replay!'); ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/<?php echo $result['qtype']; ?>">
+Nochmal
+			</a>
+			<?php endif; ?>
+		</td>
+
+
 		<td><?php echo $result['qtype']; ?></td>
 	</tr>
 <?php endforeach; ?>

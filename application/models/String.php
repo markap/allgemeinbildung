@@ -23,4 +23,16 @@ class Model_String {
 		$array = explode(',', $string);
 		return count($array);
 	}
+
+
+	/**
+	 * explodes an string
+	 *
+	 * @author Martin Kapfhammer
+	 * @param string 
+	 * @return array
+	 */
+	public static function explodeString($string) {
+		return explode(',', $string);
+	}
 }

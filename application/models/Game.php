@@ -25,8 +25,14 @@ class Model_Game {
 	 */
 	protected $score = null;
 
+	/**
+	 * @var boolean
+	 */
 	protected $test = false;
 
+	/**
+	 * @var string
+	 */
 	protected $questionType = null;
 
 
@@ -138,7 +144,7 @@ class Model_Game {
 	 * @param string $questionType
 	 */
 	public function setQuestionType($questionType) {
-		$this->questionType = $questionType;
+		$this->questionType = ($questionType === 'MCTXT') ? null : $questionType;
 	}
 
 

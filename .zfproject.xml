@@ -12,6 +12,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="login"/>
           <actionMethod actionName="showimages"/>
+          <actionMethod actionName="register"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
         <controllerFile controllerName="question">
@@ -153,6 +154,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="result">
             <viewScriptFile forActionName="game"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="register"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
