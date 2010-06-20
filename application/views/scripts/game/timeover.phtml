@@ -1,8 +1,10 @@
-Ihre Zeit ist leider um.
+<div class="error">Ihre Zeit ist leider um.
 <?php echo $this->rightAnswer; ?> wäre richtig gewesen.
+</div>
 
-<?php echo $this->playedQuestions; ?>
-<?php echo $this->rightAnswers; ?>
-<?php echo $this->wrongAnswers; ?>
-
+<div id="result">
+Fragen: <?php echo $this->playedQuestions; ?>
+ Richtig: <?php echo $this->rightAnswers; ?>
+ Falsch: <?php echo $this->wrongAnswers; ?>
+</div>
 <a href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>

@@ -4,46 +4,52 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.domwindow.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/game/play.js'); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/3rdParty/jquery.countdown.css'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/game/game.css'); ?>
 
 <?php if ($this->questionNotFound !== true): ?>	
 
-	<?php echo $this->question['question']; ?>
-	<?php echo $this->question['level']; ?>
+	<div id="game">
+			<h1><?php echo $this->question['question']; ?></h1>
+			<?php //echo $this->question['level']; ?>
 
-	<?php foreach($this->categories as $category): ?>
-	<?php echo $category; ?>
-	<?php endforeach; ?>
+			<?php foreach($this->categories as $category): ?>
+			<?php //echo $category; ?>
+			<?php endforeach; ?>
 
-	<img height="300px" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
+			<img height="300px" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
 
-	<div id="answer_score">
-	<div style="width: 60px;" id="countdown"></div>
+			<div id="answer_score">
+			<div style="width: 60px;" id="countdown"></div>
 
-	<?php if ($this->answers !== 'nochoice'): ?>
-		<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
-		<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
-		<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
-		<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
-	<?php else: ?>
-		<input type="text" id="input_answer" />
-		<?php if ($this->question['hint']): ?>
-			<span>Eingabehilfe: <?php echo $this->question['hint']; ?></span>
-		<?php endif; ?>
-		<span id="send_answer">Beantworten</span>
-	<?php endif; ?>
-
-	<?php echo $this->playedQuestions; ?>
-	<?php echo $this->rightAnswers; ?>
-	<?php echo $this->wrongAnswers; ?>
+			<?php if ($this->answers !== 'nochoice'): ?>
+				<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
+				<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
+				<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
+				<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+			<?php else: ?>
+				<span id="textfield"><input type="text" id="input_answer" /></span>
+				<?php if ($this->question['hint']): ?>
+					<span>Eingabehilfe: <?php echo $this->question['hint']; ?></span>
+				<?php endif; ?>
+				<span id="send_answer">Beantworten</span>
+			<?php endif; ?>
+			<br/>
+			<br/>
+			<div id="result">
+			Fragen: <?php echo $this->playedQuestions; ?>
+			Richtig: <?php echo $this->rightAnswers; ?>
+			Falsch: <?php echo $this->wrongAnswers; ?>
+			</div>
+			</div>
+			<?php if(Zend_Auth::getInstance()->hasIdentity()): ?>
+				<span class="addToGame" id="<?php echo $this->question['questionid']; ?>">
+					Zu eigenem Game hinzufügen
+				</span>	
+			<?php endif; ?>
+			<?php if($this->role === 'manager'): ?>
+				<a href="/createquestion/editquestion/question/<?php echo $this->question['questionid']; ?>" target="_blank">Frage bearbeiten</a>
+			<?php endif; ?>
 	</div>
-	<?php if(Zend_Auth::getInstance()->hasIdentity()): ?>
-		<span class="addToGame" id="<?php echo $this->question['questionid']; ?>">
-			Zu eigenem Game hinzufügen
-		</span>	
-	<?php endif; ?>
-	<?php if($this->role === 'manager'): ?>
-		<a href="/createquestion/editquestion/question/<?php echo $this->question['questionid']; ?>" target="_blank">Frage bearbeiten</a>
-	<?php endif; ?>
 <?php else: ?>
 
 	<p>Die Frage existiert nicht.</p>

@@ -76,7 +76,7 @@ class Form_CreateQuestion extends Zend_Form {
 
 		// use already uploaded image 
         $imageText = new Zend_Form_Element_Text('imageText');
-        $imageText->setLabel('Bereits existierendes Bild verwenden:')
+        $imageText->setLabel('Existierendes Bild verwenden:')
               	  ->setRequired(true)
               	  ->addFilter('StringTrim')
               	  ->addFilter('StripTags');

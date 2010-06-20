@@ -1,13 +1,15 @@
 
 <?php if($this->isAnswerRight): ?>
-	<?php echo $this->rightAnswer; ?> ist richtig. Sehr gut!
+	<div class="success"><?php echo $this->rightAnswer; ?> ist richtig. Sehr gut!</div>
 <?php else: ?>
-	<?php echo $this->myAnswer; ?> ist falsch.
-	<?php echo $this->rightAnswer; ?> wäre richtig gewesen.
+	<div class="error"><?php echo $this->myAnswer; ?> ist falsch.
+	<?php echo $this->rightAnswer; ?> wäre richtig gewesen.</div>
 <?php endif; ?>
 
-<?php echo $this->playedQuestions; ?>
-<?php echo $this->rightAnswers; ?>
-<?php echo $this->wrongAnswers; ?>
+<div id="result">
+Fragen: <?php echo $this->playedQuestions; ?>
+ Richtig: <?php echo $this->rightAnswers; ?>
+ Falsch: <?php echo $this->wrongAnswers; ?>
+</div>
 
 <a href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>

@@ -117,6 +117,7 @@ class GameController extends Zend_Controller_Action
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$score = $game->getScore();
 			$questionType = $game->getQuestionType();
+var_dump($this->gameSession->gameId);exit();
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
 				$this->saveGame($score, $questionType); 
 			}

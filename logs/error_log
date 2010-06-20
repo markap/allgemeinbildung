@@ -848,3 +848,28 @@
 [Sat Jun 19 12:44:39 2010] [error] [client 127.0.0.1] modify_answer|tschechoslowakei|Tschechoslowakei|tschechoslowakei|tschechoslowakei, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/rid/7/rty/Y/re/43a8b82293873f48c7654198009eed69/tl/7bd9311d0bcc50525da92db3bacd7c0e
 [Sat Jun 19 12:45:11 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game
 [Sat Jun 19 13:57:40 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/views/scripts/result/game.phtml on line 14, referer: http://allgemeinbildung.localhost/gamelist
+[Sat Jun 19 16:51:59 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Sat Jun 19 17:25:08 2010] [error] [client 127.0.0.1] modify_answer|sachsen|Sachsen|sachsen|sachsen, referer: http://allgemeinbildung.localhost/game
+[Sat Jun 19 17:26:32 2010] [error] [client 127.0.0.1] modify_answer|bayern|Bayern|bayern|bayern, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 14:25:47 2010] [error] [client 127.0.0.1] modify_answer|sofia|Sofia|sofia|sofia, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/3/qtyp/txt/sh/1
+[Sun Jun 20 15:01:26 2010] [error] [client 127.0.0.1] question not found|40|question, referer: http://allgemeinbildung.localhost/createquestion/result/question/40
+[Sun Jun 20 17:11:35 2010] [error] [client 127.0.0.1] modify_answer|horst k\xc3\xb6hler|Horst K\xc3\xb6hler|horstkoehler|horstkoehler, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/11/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Sun Jun 20 17:11:54 2010] [error] [client 127.0.0.1] modify_answer|johannes rau|Johannes Rau|johannesrau|johannesrau, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/11/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt/
+[Sun Jun 20 17:12:02 2010] [error] [client 127.0.0.1] modify_answer|walter scheel|Walter Scheel|walterscheel|walterscheel, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:12:23 2010] [error] [client 127.0.0.1] modify_answer|gustav heinemann|Gustav Heinemann |gustavheinemann|gustavheinemann, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:12:33 2010] [error] [client 127.0.0.1] modify_answer|richard von weizs\xc3\xa4cker|Richard von Weizs\xc3\xa4cker|richardvonweizsaecker|richardvonweizsaecker, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:12:55 2010] [error] [client 127.0.0.1] modify_answer|karl carstens|Karl Carstens|karlcarstens|karlcarstens, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:13:07 2010] [error] [client 127.0.0.1] modify_answer|horst k\xc3\xb6hler|Horst K\xc3\xb6hler|horstkoehler|horstkoehler, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:13:17 2010] [error] [client 127.0.0.1] modify_answer|theodor heuss|Theodor Heuss|theodorheuss|theodorheuss, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:13:26 2010] [error] [client 127.0.0.1] modify_answer|roman herzog|Roman Herzog|romanherzog|romanherzog, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:13:36 2010] [error] [client 127.0.0.1] modify_answer|horst k\xc3\xb6hler|Horst K\xc3\xb6hler|horstkoehler|horstkoehler, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:13:45 2010] [error] [client 127.0.0.1] modify_answer|richard von weizs\xc3\xa4cker|Richard von Weizs\xc3\xa4cker|richardvonweizsaecker|richardvonweizsaecker, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:13:56 2010] [error] [client 127.0.0.1] modify_answer|heinrich l\xc3\xbcbke|Heinrich L\xc3\xbcbke|heinrichluebke|heinrichluebke, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:14:12 2010] [error] [client 127.0.0.1] modify_answer|gustav heinemann|Gustav Heinemann |gustavheinemann|gustavheinemann, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:14:18 2010] [error] [client 127.0.0.1] modify_answer|walter scheel|Walter Scheel|walterscheel|walterscheel, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:14:23 2010] [error] [client 127.0.0.1] modify_answer|roman herzog|Roman Herzog|romanherzog|romanherzog, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:14:36 2010] [error] [client 127.0.0.1] modify_answer|karl carstens|Karl Carstens|karlcarstens|karlcarstens, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:14:42 2010] [error] [client 127.0.0.1] modify_answer|johannes rau|Johannes Rau|johannesrau|johannesrau, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:14:48 2010] [error] [client 127.0.0.1] modify_answer|theodor heuss|Theodor Heuss|theodorheuss|theodorheuss, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:15:06 2010] [error] [client 127.0.0.1] modify_answer|heinrich l\xc3\xbcbke|Heinrich L\xc3\xbcbke|heinrichluebke|heinrichluebke, referer: http://allgemeinbildung.localhost/game
+[Sun Jun 20 17:15:08 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_Score::getRightQuestions() in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 75, referer: http://allgemeinbildung.localhost/game

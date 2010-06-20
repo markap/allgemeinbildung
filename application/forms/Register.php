@@ -29,7 +29,7 @@ class Form_Register extends Zend_Form {
 
 		 //password repeat
         $passRepeat = new Zend_Form_Element_Password('password_repeat');
-        $passRepeat->setLabel('Passwort wiederholen')
+        $passRepeat->setLabel('Passwortwhd')
              ->setRequired(true)
              ->addFilter('StripTags')
              ->addFilter('StringTrim');
@@ -43,7 +43,7 @@ class Form_Register extends Zend_Form {
 
 		//mail repeat
         $mailRepeat = new Zend_Form_Element_Text('mail_repeat');
-        $mailRepeat->setLabel('Email erneut eingeben')
+        $mailRepeat->setLabel('Emailwhd')
                  ->setRequired(true)
                  ->addFilter('StripTags')
                  ->addFilter('StringTrim');

@@ -5,7 +5,49 @@
 #header {
 	background-color: green;
 	height: 80px;
+	background: url(/img/header_repeat.png) top center  repeat-x;
 }
+
+#header h1 {
+	margin: auto;
+	position: relative;
+	left: 230px;
+}
+
+#header ul {
+  position: absolute;
+  right: 440px;
+  top: 42px;;
+}
+
+
+#header ul li {
+  float: left;
+  list-style: none;
+  margin: 0 0 0 8px;
+}
+
+
+#header ul a,
+#header ul strong {
+  color: #352545;
+  background: #FBFBFB url(img/navi.png) bottom left repeat-x;
+  display: block;
+  padding: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+
+
+}
+#header ul a:hover,
+#header ul a:focus,
+#header ul a:active,
+#header ul strong {
+  color: white;
+  background: #638F56 url(img/navi_hover.png) bottom left repeat-x; 
+}
+
 
 #content {
 	padding: 15px;
@@ -29,6 +71,40 @@
 }
 
 #footer {
+	background: url(/img/header_repeat.png) top center  repeat-x;
 	background-color: green;
 	height: 20px;
 }
+
+body {
+	font-family: 'Verdana';
+}
+
+h1 {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+/* img links without borders */
+a img {
+border : 0 none;
+}
+
+/*DL, DT, DD TAGS LIST DATA*/
+dl {
+	margin-bottom:50px;
+}
+
+dl dt {
+	float:left;
+	font-weight:bold;
+	margin-right:10px;
+	padding:5px;
+	width:150px;
+}
+
+dl dd {
+	margin:2px 0;
+	padding:5px 0;
+}
+
