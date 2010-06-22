@@ -1,9 +1,11 @@
 
+<a id="next" href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>
+
 <?php if($this->isAnswerRight): ?>
-	<div class="success"><?php echo $this->rightAnswer; ?> ist richtig. Sehr gut!</div>
+	<div class="success"><b><?php echo $this->rightAnswer; ?><b/> ist richtig. Sehr gut!</div>
 <?php else: ?>
 	<div class="error"><?php echo $this->myAnswer; ?> ist falsch.
-	<?php echo $this->rightAnswer; ?> wäre richtig gewesen.</div>
+	<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.</div>
 <?php endif; ?>
 
 <div id="result">
@@ -12,4 +14,3 @@ Fragen: <?php echo $this->playedQuestions; ?>
  Falsch: <?php echo $this->wrongAnswers; ?>
 </div>
 
-<a href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>

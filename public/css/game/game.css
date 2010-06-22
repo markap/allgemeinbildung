@@ -1,7 +1,9 @@
 #game h1 {
-	font-size: 16px;
+	font-size: 20px;
 	text-align: center;
-	background-color: #32DD1B;
+	background: url(/img/grey.png) top center  repeat-x;
+	padding: 10px;
+	/*background-color: #32DD1B;*/
 }
 
 input {
@@ -20,21 +22,36 @@ input {
 }
 
 #game #result {
-	background-color: #32DD1B;
+	/*background-color: #32DD1B;*/
 	text-align: center;
+	font-weight: bold;
 	padding: 10px;
+	background: url(/img/grey.png) top center  repeat-x;
 }
 
 #game .error {
 	padding: 10px;
-	background-color: #de1923;
+	/*background-color: #de1923;*/
 	text-align: center;
 	margin-bottom: 5px;
+	background: url(/img/red.png) top center  repeat-x;
 }
 
 #game .success {
 	padding: 10px;
-	background-color: #32DD1B;
+	/*background-color: #32DD1B;*/
 	text-align: center;
 	margin-bottom: 5px;
+	background: url(/img/green.png) top center  repeat-x;
+}
+
+#gameimg {
+	position: relative;
+	left: 200px;
+}
+
+#next {
+	height: 100px;
+	width: 100px;
+	border: 1px solid red;
 }

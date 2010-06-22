@@ -14,6 +14,12 @@
 	left: 230px;
 }
 
+#header .login {
+  position: absolute;
+  left: 590px;
+  top: 25px;
+}
+
 #header ul {
   position: absolute;
   right: 440px;
@@ -108,3 +114,6 @@ dl dd {
 	padding:5px 0;
 }
 
+input {
+	width: 150px;
+}

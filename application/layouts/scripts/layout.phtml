@@ -9,6 +9,18 @@
   <body> 
 		<div id="header">
 			<h1><a href="/"><img src="/img/header.png" alt="allgemein-bildung.de" height="80px" /></a></h1>
+
+				<?php if(Zend_Auth::getInstance()->hasIdentity()): ?>
+					<?php $user = new Zend_Session_Namespace('user'); ?>
+					<div class="login">Herzlich Willkommen 
+						<b><?php echo $user->user['username']; ?></b>
+						<a href="/index/logout">&raquo;Logout</a>
+					</div>
+				<?php else: ?>
+					<div class="login">Sie sind nicht angemeldet
+					<a href="/index/login">&raquo;Login</a></div>
+				<?php endif; ?>
+
 				<ul>
 					<li><a href="/index/login">Login</a></li>
 					<li><a href="/gamelist">Gameliste</a></li>

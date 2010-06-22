@@ -1,5 +1,8 @@
+
+<a id="next" href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>
+
 <div class="error">Ihre Zeit ist leider um.
-<?php echo $this->rightAnswer; ?> wäre richtig gewesen.
+<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.
 </div>
 
 <div id="result">
@@ -7,4 +10,3 @@ Fragen: <?php echo $this->playedQuestions; ?>
  Richtig: <?php echo $this->rightAnswers; ?>
  Falsch: <?php echo $this->wrongAnswers; ?>
 </div>
-<a href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>

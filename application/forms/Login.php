@@ -30,7 +30,7 @@ class Form_Login extends Zend_Form {
              ->addValidator('NotEmpty');
 
         //submit
-        $submit = new Zend_Form_Element_Submit('OK');
+        $submit = new Zend_Form_Element_Submit('Anmelden');
         $submit->setAttrib('id', 'submitbutton');
 
         $this->addElements(array($username, $pass, $submit));

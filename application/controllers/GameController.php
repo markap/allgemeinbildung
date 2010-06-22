@@ -48,7 +48,7 @@ class GameController extends Zend_Controller_Action
 				}
 			} else if ($this->isGame()) {
 				$gameId = $this->_getParam('g');
-				if ($this->toLearn()) {
+				if (!$this->toLearn()) {
 					$this->gameSession->gameId = $gameId;
 				}
 				$gameListDb  = new Model_DbTable_GameList();
@@ -117,7 +117,6 @@ class GameController extends Zend_Controller_Action
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$score = $game->getScore();
 			$questionType = $game->getQuestionType();
-var_dump($this->gameSession->gameId);exit();
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
 				$this->saveGame($score, $questionType); 
 			}

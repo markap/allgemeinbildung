@@ -16,7 +16,6 @@ class IndexController extends Zend_Controller_Action
     public function loginAction()
     {
         //TODO user ist noch nicht freigegeben, neue mail versenden
-		// if already logged in, redirect to start
 		$auth = Zend_Auth::getInstance();	
 		if ($auth->hasIdentity()) {
 			$this->_redirect('/index'); 
@@ -73,11 +72,18 @@ class IndexController extends Zend_Controller_Action
 			}
 		}
 		$this->view->form = new Form_Register();
-
     }
 
 
+    public function logoutAction()
+    {
+		Zend_Auth::getInstance()->clearIdentity();
+		$this->_redirect("/");
+    }
+
 }
+
+
 
 
 
