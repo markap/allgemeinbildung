@@ -2,7 +2,7 @@
 <a id="next" href="<?php echo $this->baseUrl . '/game'; ?>">Weiter</a>
 
 <?php if($this->isAnswerRight): ?>
-	<div class="success"><b><?php echo $this->rightAnswer; ?><b/> ist richtig. Sehr gut!</div>
+	<div class="success"><b><?php echo $this->rightAnswer; ?></b> ist richtig. Sehr gut!</div>
 <?php else: ?>
 	<div class="error"><?php echo $this->myAnswer; ?> ist falsch.
 	<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.</div>

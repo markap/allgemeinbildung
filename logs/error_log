@@ -959,3 +959,116 @@
 [Tue Jun 22 20:47:36 2010] [error] [client 127.0.0.1] modify_answer|sachsen|Sachsen|sachsen|sachsen, referer: http://allgemeinbildung.localhost/game
 [Tue Jun 22 20:47:43 2010] [error] [client 127.0.0.1] modify_answer|niedersachsen|Niedersachsen|niedersachsen|niedersachsen, referer: http://allgemeinbildung.localhost/game
 [Tue Jun 22 21:32:25 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '<' in /home/www/allgemeinbildung/application/layouts/scripts/layout.phtml on line 15, referer: http://allgemeinbildung.localhost/index/login
+[Thu Jun 24 21:12:06 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/10/qtyp/txt/sh/1
+[Thu Jun 24 21:12:21 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:12:31 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:12:39 2010] [error] [client 127.0.0.1] modify_answer|sowjetunion|Sowjetunion|sowjetunion|sowjetunion, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:13:10 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:14:06 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:14:14 2010] [error] [client 127.0.0.1] modify_answer|griechenland|Griechenland|griechenland|griechenland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:14:34 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:14:45 2010] [error] [client 127.0.0.1] modify_answer|italien|Italien|italien|italien, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:14:54 2010] [error] [client 127.0.0.1] modify_answer|d\xc3\xa4nemark|D\xc3\xa4nemark|daenemark|daenemark, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:15:02 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:15:17 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:16:25 2010] [error] [client 127.0.0.1] modify_answer|ljubljana|Ljubljana|ljubljana|ljubljana, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:17:00 2010] [error] [client 127.0.0.1] modify_answer|skopje|Skopje|skopje|skopje, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:17:19 2010] [error] [client 127.0.0.1] modify_answer|bukarest|Bukarest|bukarest|bukarest, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:17:48 2010] [error] [client 127.0.0.1] modify_answer|berlin|Berlin|berlin|berlin, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:17:56 2010] [error] [client 127.0.0.1] modify_answer|valletta|Valletta|valletta|valletta, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:18:15 2010] [error] [client 127.0.0.1] modify_answer|belgrad|Belgrad|belgrad|belgrad, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:18:29 2010] [error] [client 127.0.0.1] modify_answer|reykjavik|Reykjavik|reykjavik|reykjavik, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:18:40 2010] [error] [client 127.0.0.1] modify_answer|belgrad|Belgrad|belgrad|belgrad, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:19:00 2010] [error] [client 127.0.0.1] modify_answer|tirana|Tirana|tirana|tirana, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:19:12 2010] [error] [client 127.0.0.1] modify_answer|ljubljana|Ljubljana|ljubljana|ljubljana, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:19:18 2010] [error] [client 127.0.0.1] modify_answer|bukarest|Bukarest|bukarest|bukarest, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:19:29 2010] [error] [client 127.0.0.1] modify_answer|tallinn|Tallinn|tallinn|tallinn, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:19:37 2010] [error] [client 127.0.0.1] modify_answer|skopje|Skopje|skopje|skopje, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:19:45 2010] [error] [client 127.0.0.1] modify_answer|berlin|Berlin|berlin|berlin, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:20:06 2010] [error] [client 127.0.0.1] modify_answer|sarajevo|Sarajevo|sarajevo|sarajevo, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:20:13 2010] [error] [client 127.0.0.1] modify_answer|valletta|Valletta|valletta|valletta, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:20:28 2010] [error] [client 127.0.0.1] modify_answer|reykjavik|Reykjavik|reykjavik|reykjavik, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:20:41 2010] [error] [client 127.0.0.1] modify_answer|podgorica|Podgorica|podgorica|podgorica, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:20:51 2010] [error] [client 127.0.0.1] modify_answer|tallinn|Tallinn|tallinn|tallinn, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:20:58 2010] [error] [client 127.0.0.1] modify_answer|podgorica|Podgorica|podgorica|podgorica, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:21:04 2010] [error] [client 127.0.0.1] modify_answer|sarajevo|Sarajevo|sarajevo|sarajevo, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:21:19 2010] [error] [client 127.0.0.1] modify_answer|tirana|Tirana|tirana|tirana, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:22:34 2010] [error] [client 127.0.0.1] modify_answer|brake|Brake|brake|brake, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/rid/13/rty/N/re/43a8b82293873f48c7654198009eed69/tl/7bd9311d0bcc50525da92db3bacd7c0e/qtyp/txt
+[Thu Jun 24 21:22:44 2010] [error] [client 127.0.0.1] modify_answer|braunschweig|Braunschweig|braunschweig|braunschweig, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:24:27 2010] [error] [client 127.0.0.1] modify_answer|braunschweig|Braunschweig|braunschweig|braunschweig, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:24:39 2010] [error] [client 127.0.0.1] modify_answer|burgenlandkreis|Burgenlandkreis|burgenlandkreis|burgenlandkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:25:41 2010] [error] [client 127.0.0.1] modify_answer|bielefeld|Bielefeld|bielefeld|bielefeld, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:26:25 2010] [error] [client 127.0.0.1] modify_answer|brake|Brake|brake|brake, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:26:42 2010] [error] [client 127.0.0.1] modify_answer|bayernreuth|Bayernreuth|bayernreuth|bayernreuth, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:27:26 2010] [error] [client 127.0.0.1] modify_answer|bayernreuth|Bayernreuth|bayernreuth|bayernreuth, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:27:34 2010] [error] [client 127.0.0.1] modify_answer|biberach an der ri\xc3\x9f|Biberach an der Ri\xc3\x9f|biberachanderriss|biberachanderriss, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:28:15 2010] [error] [client 127.0.0.1] modify_answer|b\xc3\xbcsingen am hochrhein|B\xc3\xbcsingen am Hochrhein|buesingenamhochrhein|buesingenamhochrhein, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:28:21 2010] [error] [client 127.0.0.1] modify_answer|balingen|Balingen|balingen|balingen, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:28:27 2010] [error] [client 127.0.0.1] modify_answer|b\xc3\xb6rde|B\xc3\xb6rde|boerde|boerde, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:28:36 2010] [error] [client 127.0.0.1] modify_answer|burgenlandkreis|Burgenlandkreis|burgenlandkreis|burgenlandkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:28:54 2010] [error] [client 127.0.0.1] modify_answer|balingen|Balingen|balingen|balingen, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:29:25 2010] [error] [client 127.0.0.1] modify_answer|biberach an der ri\xc3\x9f|Biberach an der Ri\xc3\x9f|biberachanderriss|biberachanderriss, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:29:59 2010] [error] [client 127.0.0.1] modify_answer|bergheim|Bergheim|bergheim|bergheim, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:30:20 2010] [error] [client 127.0.0.1] modify_answer|borken in ahaus|Borken in Ahaus|borkeninahaus|borkeninahaus, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:30:34 2010] [error] [client 127.0.0.1] modify_answer|balingen|Balingen|balingen|balingen, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:30:48 2010] [error] [client 127.0.0.1] modify_answer|bergheim|Bergheim|bergheim|bergheim, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:30:54 2010] [error] [client 127.0.0.1] modify_answer|bielefeld|Bielefeld|bielefeld|bielefeld, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:31:05 2010] [error] [client 127.0.0.1] modify_answer|b\xc3\xb6rde|B\xc3\xb6rde|boerde|boerde, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:31:14 2010] [error] [client 127.0.0.1] modify_answer|b\xc3\xbcsingen am hochrhein|B\xc3\xbcsingen am Hochrhein|buesingenamhochrhein|buesingenamhochrhein, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:31:33 2010] [error] [client 127.0.0.1] modify_answer|borken in ahaus|Borken in Ahaus|borkeninahaus|borkeninahaus, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:32:03 2010] [error] [client 127.0.0.1] modify_answer|aurich|Aurich|aurich|aurich, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/5/qtyp/txt/sh/1
+[Thu Jun 24 21:32:14 2010] [error] [client 127.0.0.1] modify_answer|amberg sulzbach|Amberg-Sulzbach|ambergsulzbach|ambergsulzbach, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:32:50 2010] [error] [client 127.0.0.1] modify_answer|aschersleben stra\xc3\x9ffurter landkreis|Aschersleben-Stra\xc3\x9ffurter Landkreis|ascherslebenstrassfurterlandkreis|ascherslebenstrassfurterlandkreis, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:32:57 2010] [error] [client 127.0.0.1] modify_answer|alt\xc3\xb6tting|Alt\xc3\xb6tting|altoetting|altoetting, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:33:09 2010] [error] [client 127.0.0.1] modify_answer|weimarer land|Weimarer Land|weimarerland|weimarerland, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:33:20 2010] [error] [client 127.0.0.1] modify_answer|ahrweiler|Ahrweiler|ahrweiler|ahrweiler, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:33:28 2010] [error] [client 127.0.0.1] modify_answer|aschaffenburg|Aschaffenburg|aschaffenburg|aschaffenburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:33:34 2010] [error] [client 127.0.0.1] modify_answer|augsburg|Augsburg|augsburg|augsburg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:33:43 2010] [error] [client 127.0.0.1] modify_answer|annaberg|Annaberg|annaberg|annaberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:33:58 2010] [error] [client 127.0.0.1] modify_answer|aichau friedberg|Aichau-Friedberg|aichaufriedberg|aichaufriedberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:34:04 2010] [error] [client 127.0.0.1] modify_answer|aachen|Aachen|aachen|aachen, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:34:18 2010] [error] [client 127.0.0.1] modify_answer|amberg|Amberg|amberg|amberg, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:34:24 2010] [error] [client 127.0.0.1] modify_answer|ansbach|Ansbach|ansbach|ansbach, referer: http://allgemeinbildung.localhost/game
+[Thu Jun 24 21:34:43 2010] [error] [client 127.0.0.1] modify_answer|alzey worms|Alzey-Worms|alzeyworms|alzeyworms, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:46:59 2010] [error] [client 127.0.0.1] modify_answer|reykjavik|Reykjavik|reykjavik|reykjavik, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/3/qtyp/txt/sh/1
+[Fri Jun 25 20:47:25 2010] [error] [client 127.0.0.1] modify_answer|minsk|Minsk|minsk|minsk, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:47:31 2010] [error] [client 127.0.0.1] modify_answer|chisinau|Chisinau|chisinau|chisinau, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:47:41 2010] [error] [client 127.0.0.1] modify_answer|budapest|Budapest|budapest|budapest, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:47:48 2010] [error] [client 127.0.0.1] modify_answer|tallinn|Tallinn|tallinn|tallinn, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:48:04 2010] [error] [client 127.0.0.1] modify_answer|dublin|Dublin|dublin|dublin, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:48:14 2010] [error] [client 127.0.0.1] modify_answer|berlin|Berlin|berlin|berlin, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:48:24 2010] [error] [client 127.0.0.1] modify_answer|sarajevo|Sarajevo|sarajevo|sarajevo, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:48:30 2010] [error] [client 127.0.0.1] modify_answer|podgorica|Podgorica|podgorica|podgorica, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:48:40 2010] [error] [client 127.0.0.1] modify_answer|moskau|Moskau|moskau|moskau, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:01 2010] [error] [client 127.0.0.1] modify_answer|helsinki|Helsinki|helsinki|helsinki, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:16 2010] [error] [client 127.0.0.1] modify_answer|belgrad|Belgrad|belgrad|belgrad, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:25 2010] [error] [client 127.0.0.1] modify_answer|warschau|Warschau|warschau|warschau, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:31 2010] [error] [client 127.0.0.1] modify_answer|oslo|Oslo|oslo|oslo, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:39 2010] [error] [client 127.0.0.1] modify_answer|madrid|Madrid|madrid|madrid, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:47 2010] [error] [client 127.0.0.1] modify_answer|paris|Paris|paris|paris, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:51 2010] [error] [client 127.0.0.1] modify_answer|rom|Rom|rom|rom, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:49:56 2010] [error] [client 127.0.0.1] modify_answer|valletta|Valletta|valletta|valletta, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:50:18 2010] [error] [client 127.0.0.1] modify_answer|lissabon|Lissabon|lissabon|lissabon, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:50:24 2010] [error] [client 127.0.0.1] modify_answer|bukarest|Bukarest|bukarest|bukarest, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:50:30 2010] [error] [client 127.0.0.1] modify_answer|skopje|Skopje|skopje|skopje, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:51:02 2010] [error] [client 127.0.0.1] modify_answer|ankara|Ankara|ankara|ankara, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:51:27 2010] [error] [client 127.0.0.1] modify_answer|kiew|Kiew|kiew|kiew, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:51:33 2010] [error] [client 127.0.0.1] modify_answer|london|London|london|london, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:51:58 2010] [error] [client 127.0.0.1] modify_answer|vaduz|Vaduz|vaduz|vaduz, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:52:20 2010] [error] [client 127.0.0.1] modify_answer|zagreb|Zagreb|zagreb|zagreb, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:52:29 2010] [error] [client 127.0.0.1] modify_answer|kopenhagen|Kopenhagen|kopenhagen|kopenhagen, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:52:34 2010] [error] [client 127.0.0.1] modify_answer|athen|Athen|athen|athen, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:52:47 2010] [error] [client 127.0.0.1] modify_answer|ljubljana|Ljubljana|ljubljana|ljubljana, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:52:53 2010] [error] [client 127.0.0.1] modify_answer|sofia|Sofia|sofia|sofia, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:04 2010] [error] [client 127.0.0.1] modify_answer|br\xc3\xbcssel|Br\xc3\xbcssel|bruessel|bruessel, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:18 2010] [error] [client 127.0.0.1] modify_answer|amsterdam|Amsterdam|amsterdam|amsterdam, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:30 2010] [error] [client 127.0.0.1] modify_answer|prag|Prag|prag|prag, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:36 2010] [error] [client 127.0.0.1] modify_answer|riga|Riga|riga|riga, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:43 2010] [error] [client 127.0.0.1] modify_answer|tirana|Tirana|tirana|tirana, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:50 2010] [error] [client 127.0.0.1] modify_answer|stockholm|Stockholm|stockholm|stockholm, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:53:55 2010] [error] [client 127.0.0.1] modify_answer|wien|Wien|wien|wien, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:54:01 2010] [error] [client 127.0.0.1] modify_answer|bern|Bern|bern|bern, referer: http://allgemeinbildung.localhost/game
+[Fri Jun 25 20:56:23 2010] [error] [client 127.0.0.1] modify_answer|bottrop|Bottrop|bottrop|bottrop, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/13/qtyp/txt/sh/1
+[Fri Jun 25 21:00:02 2010] [error] [client 127.0.0.1] modify_answer|brasilien|Brasilien|brasilien|brasilien, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/9/qtyp/txt/sh/1
+[Sat Jun 26 16:11:36 2010] [error] [client 127.0.0.1] PHP Fatal error:  Function name must be a string in /home/www/allgemeinbildung/application/models/DbTable/User.php on line 47, referer: http://allgemeinbildung.localhost/index/register
+[Sat Jun 26 16:17:50 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home/www/allgemeinbildung/application/models/AuthAdapter.php on line 52, referer: http://allgemeinbildung.localhost/index/login

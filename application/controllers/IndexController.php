@@ -28,7 +28,11 @@ class IndexController extends Zend_Controller_Action
 			if (!empty($username) && !empty($password)) {
 				$authAdapter = new Model_AuthAdapter($username, $password);
 				$result = $auth->authenticate($authAdapter);
-				if ($result->isValid()) {
+				if (!$authAdapter->isActive() && $result->isValid()) {
+					$this->view->error = 'Benutzer ist noch nicht aktiv.' . 
+										 ' Bitte aktivieren Sie den Link in der Email, 
+											den Sie bei Anmeldung bekommen haben';
+				} else if ($result->isValid()) {
 					$userSession = new Zend_Session_Namespace('user');
 					$userSession->user = $result->getIdentity();
 					$this->_redirect('/index'); 
@@ -58,14 +62,16 @@ class IndexController extends Zend_Controller_Action
 		$request = $this->getRequest();
 		if ($request->isPost()) {
 			if (Model_ValidateFormular::notEmpty($request->getPost())) {	
-				$registerValidator = new Model_RegisterValidator($request->getPost());
+				$postValues = $request->getPost();
+				$registerValidator = new Model_RegisterValidator($postValues);
 				if ($registerValidator->isValid()) {
-					echo 'valid'; exit();
-					$this->_redirect('/index'); 
+					$userDb = new Model_DbTable_User();
+					$userDb->saveUser($postValues);
+					$this->sendActivationMail($postValues);
+					$this->_redirect('/index/registersave'); 
 				} else {
 						
-				$errors = $registerValidator->getErrors();
-		var_dump($errors); exit();
+				$this->view->errors = $registerValidator->getErrors();
 				}
 			} else {
 				$this->view->errors = array('Bitte alle Felder ausfüllen');
@@ -74,14 +80,27 @@ class IndexController extends Zend_Controller_Action
 		$this->view->form = new Form_Register();
     }
 
+    protected function sendActivationMail(array $data)
+    {
+        //create a md5 string 
+		// send mail
+    }
 
     public function logoutAction()
     {
-		Zend_Auth::getInstance()->clearIdentity();
+        Zend_Auth::getInstance()->clearIdentity();
 		$this->_redirect("/");
+}
+
+    public function registersaveAction()
+    {
+        // just render view 
     }
 
+
 }
+
+
 
 
 

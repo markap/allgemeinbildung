@@ -1,3 +1,11 @@
 <h1>Registrieren</h1>
 
+<?php if(!empty($this->errors)): ?>
+	<ul>
+	<?php foreach($this->errors as $error): ?>
+			<li><?php echo $error; ?></li>
+	<?php endforeach; ?>
+	</ul>
+<?php endif; ?>
+
 <?php echo $this->form; ?>

@@ -14,6 +14,7 @@
           <actionMethod actionName="showimages"/>
           <actionMethod actionName="register"/>
           <actionMethod actionName="logout"/>
+          <actionMethod actionName="registersave"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
         <controllerFile controllerName="question">
@@ -161,6 +162,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="index">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="registersave"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

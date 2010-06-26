@@ -21,6 +21,11 @@ class Model_AuthAdapter implements Zend_Auth_Adapter_Interface {
 	 */
 	protected $userDb;
 
+	/**
+	 * @var object
+	 */	
+	protected $match;
+
 
 	/**
 	 * constructor
@@ -33,6 +38,7 @@ class Model_AuthAdapter implements Zend_Auth_Adapter_Interface {
 		$this->username = $username;
 		$this->password = $password;
 		$this->userDb 	= new Model_DbTable_User();
+		$this->match = $this->userDb->findCredentials($this->username, $this->password);
 	}
 
 
@@ -43,18 +49,28 @@ class Model_AuthAdapter implements Zend_Auth_Adapter_Interface {
 	 * @return Zend_Auth_Result $result
 	 */
 	public function authenticate() {
-		$match = $this->userDb->findCredentials($this->username, $this->password);
-
- 		if (!$match) {
+ 		if (!$this->match) {
             $result = new Zend_Auth_Result(
                             Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID,
                             null);
         } else {
-        	$user = current($match);
+        	$user = current($this->match);
         	$result = new Zend_Auth_Result(
                         Zend_Auth_Result::SUCCESS,
                         $user);
 		}
         return $result;
+	}
+
+
+	/**
+	 * checks if the user is active
+	 *
+	 * @author Martin Kapfhammer
+	 * @return boolean 
+	 */
+	public function isActive() {
+		$match = $this->match->toArray();
+		return ($match['active'] === 'Y') ? true : false;
 	}
 }
