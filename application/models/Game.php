@@ -33,7 +33,12 @@ class Model_Game {
 	/**
 	 * @var string
 	 */
-	protected $questionType = null;
+	protected $questionType = 'MC';
+
+	/**
+	 * @var integer
+	 */
+	protected $numberOfQuestions;
 
 
 	/**
@@ -51,6 +56,7 @@ class Model_Game {
 			$this->score = new Model_LogScore($userId);
 		}
 		$this->test = $test;
+		$this->numberOfQuestions = count($this->questionIds);
 	}
 	
 	
@@ -67,7 +73,11 @@ class Model_Game {
 			throw new Model_Exception_GameEnd();
 		}	
 		$nextId = array_pop($this->questionIds);
-		$this->question = Model_QuestionFactory::getRandomQuestion($nextId, $this->questionType, $this->test);
+		$this->question = 
+			Model_QuestionFactory::getRandomQuestion(
+				$nextId, 
+				$this->questionType, 
+				$this->test);
 		return $this->question;
 	}
 
@@ -144,7 +154,7 @@ class Model_Game {
 	 * @param string $questionType
 	 */
 	public function setQuestionType($questionType) {
-		$this->questionType = ($questionType === 'MCTXT') ? null : $questionType;
+		$this->questionType = $questionType;
 	}
 
 
@@ -155,7 +165,7 @@ class Model_Game {
 	 * @return string $this->getQuestiontype;
 	 */
 	public function getQuestionType() {
-		return ($this->questionType !== null) ? $this->questionType : 'MCTXT';
+		return $this->questionType;
 	}
 	
 
@@ -168,4 +178,25 @@ class Model_Game {
 		shuffle($this->questionIds);
 	}
 
+	
+	/**
+	 * returns the number of question
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return integer number of questions
+	 */
+	public function getNumberOfQuestions() {
+		return $this->numberOfQuestions; 
+	}
+	
+
+	/*
+	 * returns the number of question left to play
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return integer number of questions
+	 */
+	public function getCurrentNumberOfQuestions() {
+		return count($this->questionIds)+1;
+	}
 }

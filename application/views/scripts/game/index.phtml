@@ -9,6 +9,8 @@
 <?php if ($this->questionNotFound !== true): ?>	
 
 	<div id="game">
+			Insgesamt: <?php echo $this->numberOfQuestions; ?>
+			Left : <?php echo $this->currentNumberOfQuestions; ?>
 			<h1><?php echo $this->question['question']; ?></h1>
 			<?php //echo $this->question['level']; ?>
 
@@ -16,9 +18,10 @@
 			<?php //echo $category; ?>
 			<?php endforeach; ?>
 
-			<img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
 
 			<div id="answer_score">
+			<img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
+			<div>
 			<div style="width: 60px;" id="countdown"></div>
 
 			<?php if ($this->answers !== 'nochoice'): ?>
@@ -39,6 +42,7 @@
 			Fragen: <?php echo $this->playedQuestions; ?>
 			Richtig: <?php echo $this->rightAnswers; ?>
 			Falsch: <?php echo $this->wrongAnswers; ?>
+			</div>
 			</div>
 			</div>
 			<?php if(Zend_Auth::getInstance()->hasIdentity()): ?>

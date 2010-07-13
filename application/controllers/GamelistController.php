@@ -27,6 +27,20 @@ class GamelistController extends Zend_Controller_Action
 			$gameList[$key]['existResult'] = 
 				($this->userId != null) ? $this->gameResultDb->existResultForGameAndUser($game['gameid'], $this->userId)
 				: false;
+			$hasCategoryDb = new Model_DbTable_HasCategory();
+			$questionIds   = Model_String::explodeString($game['questionids']);
+			$categoryIds   = array();
+			foreach ($questionIds as $questionId) {
+				$currentIds  = $hasCategoryDb->getCategoryIds($questionId);
+				$categoryIds = array_merge($categoryIds, $currentIds);
+			}
+			$categoryIds = (array_unique($categoryIds));
+			$categoryDb  = new Model_DbTable_Category();
+			$categories  = array();
+			foreach ($categoryIds as $categoryId) {
+				$categories[] = $categoryDb->getCategory($categoryId);	
+			}
+			$gameList[$key]['cat'] = $categories;
 		}
       	$this->view->gameList = $gameList;
     }

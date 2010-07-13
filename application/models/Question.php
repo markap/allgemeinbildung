@@ -228,4 +228,19 @@ class Model_Question {
 	public function getLevelId() {
 		return $this->question['levelid'];
 	}
+
+
+	/**
+	 * checks if there exists an answer image
+	 * if not, return question image 
+	 *
+	 * @author Martin Kapfhammer
+	 * @return string
+	 */
+	public function getAnswerImage() {
+		if ($this->answers['image'] !== '0') {
+			return $this->answers['image'];
+		}
+		return $this->question['image'];
+	}
 }

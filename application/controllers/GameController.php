@@ -107,6 +107,10 @@ class GameController extends Zend_Controller_Action
 			$this->view->question 	= $question->getQuestion();
 			$this->view->answers  	= $question->getAnswers();
 			$this->view->categories = $question->getCategories();
+			$this->view->numberOfQuestions = 
+						$game->getNumberOfQuestions();
+			$this->view->currentNumberOfQuestions = 
+						$game->getCurrentNumberOfQuestions();
 
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
 			$this->view->rightAnswers  = $game->getScore()->getRightAnswers();
@@ -183,6 +187,7 @@ class GameController extends Zend_Controller_Action
 			$game = $this->gameSession->game;
 			$question = $game->getQuestion();
 			$this->view->isAnswerRight = $game->checkAnswer($selectedAnswerHash);
+			$this->view->image	  = $question->getAnswerImage();
 			$this->view->myAnswer = $question->getAnswer($selectedAnswerHash);
 			$this->view->rightAnswer = $question->getRightAnswer(); 
 
@@ -215,6 +220,7 @@ class GameController extends Zend_Controller_Action
 			$game = $this->gameSession->game;
 			$question = $game->getQuestion();
 			$this->view->rightAnswer = $question->getRightAnswer();
+			$this->view->image	  	 = $question->getAnswerImage();
 
 			$game->getScore()->addWrongAnswer($question);
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();

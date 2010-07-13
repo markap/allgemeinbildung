@@ -35,6 +35,7 @@ class Model_LearnGame extends Model_Game {
 		parent::__construct($questionIds, $userId, $test);
 		$this->shuffleQuestionIds();
 		$this->copiedQuestionIds = $this->questionIds;
+		$this->numberOfQuestions = $this->numberOfQuestions * 2;
 	}
 
 
@@ -80,7 +81,22 @@ class Model_LearnGame extends Model_Game {
 		$result = parent::checkAnswer($answerHash);
 		if ($result === false) {
 			$this->wrongQuestionIds[] = $this->getQuestion()->getQuestionId();
+			$this->numberOfQuestions++;
 		}
 		return $result;	
+	}
+
+
+	/**
+	 * returns the number of questions left to play
+	 * 
+	 * @author Martin Kapfhammer
+ 	 * @return integer
+	 */
+	public function getCurrentNumberOfQuestions() {
+		$number = count($this->questionIds);
+		$number += count($this->copiedQuestionIds);
+		$number += count($this->wrongQuestionIds);
+		return $number+1;
 	}
 }

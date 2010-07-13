@@ -1,10 +1,22 @@
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/gamelist/index.js'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/gamelist/index.css'); ?>
+
+
 <h1>Games</h1>
 
 <?php foreach($this->gameList as $game): ?>
-	<a href="/gamelist/game/g/<?php echo $game['gameid']; ?>">
-		<?php echo $game['name']; ?>
-	</a>
-	<?php echo '(' . $game['numberOfQuestions'] . ')'; ?>
+	<div class="head"><?php echo $game['name']; ?>
+		<?php if($game['existResult']): ?>
+			Result
+		<?php endif; ?>
+	</div>
+	<div class="content">
+	<b>Fragen: <?php echo $game['numberOfQuestions']; ?></b><br/>
+	<b>Kategorien</b><br/>
+	<?php foreach($game['cat'] as $cat): ?>
+		<?php echo $cat['name']; ?><br/>
+	<?php endforeach; ?>
 	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/mc/sh/1">
 		Multiple Choice
 	</a>
@@ -17,5 +29,5 @@
 	<?php if($game['existResult']): ?>
 		<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Bisherige Ergebnisse</a>
 	<?php endif; ?>
-	<br />
+	</div>
 <?php endforeach; ?>
