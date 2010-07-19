@@ -31,6 +31,12 @@ class Model_Score {
 	 * @var integer
 	 */
 	protected $calculatedScore = 0;
+
+	/**
+	 * resultcreator instance
+	 * @var Model_ResultCreator
+	 */
+	protected $resultCreator = null;
  	
 
 	/**
@@ -112,5 +118,38 @@ class Model_Score {
 	 */
 	public function getCalculatedScore() {
 		return $this->calculatedScore;
+	}
+
+
+	/**
+	 * setter for the resultcreator instance
+	 *
+	 * @author Martin Kapfhammer
+	 * @param Model_ResultCreator $resultCreator
+	 */
+	public function setResultCreator(Model_ResultCreator $resultCreator) {
+		$this->resultCreator = $resultCreator;
+	}
+
+
+	/**
+	 * getter for the result type
+	 *
+	 * @author Martin Kapfhammer
+	 * @return String
+	 */
+	public function getResultType() {
+		return $this->resultCreator->getType();
+	}
+
+
+	/**
+	 * getter for the result text
+	 *
+	 * @author Martin Kapfhammer
+	 * @return String
+	 */
+	public function getResultText() {
+		return $this->resultCreator->getText();
 	}
 }

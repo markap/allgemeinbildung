@@ -120,7 +120,8 @@ class GameController extends Zend_Controller_Action
 		}
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$score = $game->getScore();
-			$questionType = $game->getQuestionType();
+			$questionType  = $game->getQuestionType();
+			$score->setResultCreator(new Model_ResultCreator($score, $questionType));
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
 				$this->saveGame($score, $questionType); 
 			}
@@ -172,7 +173,8 @@ class GameController extends Zend_Controller_Action
 		$result['right'] = $score->getImplodedRightQuestionIds();
 		$result['wrong'] = $score->getImplodedWrongQuestionIds();
 		$result['score'] = $calculatedScore;
-		$result['qtype']  = $questionType;
+		$result['qtype'] = $questionType;
+		$result['type']  = $score->getResultType();
 
 		$gameResultDb = new Model_DbTable_GameResult();
 		$gameResultDb->insertResult($this->userId, $gameId, $result);
@@ -209,7 +211,7 @@ class GameController extends Zend_Controller_Action
 		$this->view->rightAnswers = $score->getRightAnswers();
 		$this->view->wrongAnswers = $score->getWrongAnswers();
 		$this->view->score		  = $score->getCalculatedScore();
-		$this->gameSession->result = null;
+		$this->view->resultText   = $score->getResultText();
     }
 
     public function timeoverAction()

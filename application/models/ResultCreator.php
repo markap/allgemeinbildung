@@ -19,6 +19,11 @@ class Model_ResultCreator {
 	 */
 	protected $questionType;
 
+	
+	/**
+	 * @var float
+	 */
+	protected $percentage;
 
 	/**
 	 * @var array
@@ -32,13 +37,24 @@ class Model_ResultCreator {
 	 */
 	protected $typeForPercentage = array(
 									'percentage' => array(0.9, 0.5, 0.0),
-									'type'		 => array('PL', 'LG', 'PW')
+									'type'		 => array('PL', 'PW', 'LG')
 									);
+
+	/**
+	 * @var array
+	 */
+	protected $textForType = array(
+								'LG' => 'Das kannst du sicher besser. Versuche dieses Game bald im Lernmodus zu spielen!',
+								'PW' => 'Keine schlechte Leistung. Spiele deine falschen Fragen im Lernmodus, um noch besser zu werden!',
+								'PL' => 'Super, auf diese Leistung kannst du stolz sein. Dieses Game kannst du sehr gut!',
+								'PT' => 'Super, auf diese Leistung kannst du stolz sein. Versuche dieses Game im Direkteingabemodus zu spielen, um noch besser zu werden'
+								);
 									
 
 
 	/**
 	 * constructor
+	 * calculates percentage
 	 * 
 	 * @author Martin Kapfhammer
 	 * @param Model_Score $score
@@ -47,6 +63,7 @@ class Model_ResultCreator {
 	public function __construct(Model_Score $score, $questionType) {
 		$this->score 		= $score;
 		$this->questionType = $questionType;
+		$this->calculatePercentage();
 	}
 
 
@@ -55,7 +72,6 @@ class Model_ResultCreator {
 	 *
 	 * the following exists:
 	 * 		LG -> play a learn game
-	 * 		PA -> play again now
 	 * 		PW -> play wrong questions in learn mode
 	 * 		PL -> play later (2 month) 
 	 * 		PT -> play a txt game
@@ -64,10 +80,9 @@ class Model_ResultCreator {
 	 * @return String 
 	 */
 	public function getType() {
-		$percentage = $this->calculatePercentage();
-		foreach ($typeForPercentage['percentage'] as $index => $p) {
-			if ($percentage >== $p) {
-				$type = $typeForPercentage['type'][$index];
+		foreach ($this->typeForPercentage['percentage'] as $_index => $_percentage) {
+			if ($this->percentage >= $_percentage) {
+				$type = $this->typeForPercentage['type'][$_index];
 				break;
 			}
 		}
@@ -84,12 +99,21 @@ class Model_ResultCreator {
 	 * @author Martin Kapfhammer
 	 * @return String 
 	 */
-	public function getResultText() {
-		$this->getType();
-		return 'Super gemacht';
+	public function getText() {
+		$text 	 = number_format($this->percentage * 100, 2) . ' % der Fragen sind richtig beantwortet. ';
+		$type 	 = $this->getType();
+		$text 	.= $this->textForType[$type];
+		return $text;
 	}
 
+
+	/**
+	 * calculates the percentage of right and wrong questions
+	 *
+	 * @author Martin Kapfhammer
+	 */
 	protected function calculatePercentage() {
-		return $score->getRightAnswers() / $score->getPlayedQuestions();	
+		$this->percentage =  $this->score->getRightAnswers() 
+								/ $this->score->getPlayedQuestions();	
 	}
 }

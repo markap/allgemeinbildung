@@ -31,6 +31,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 					  'score'	 => $result['score'],
 					  'userid'	 => $userId,
 					  'qtype'	 => $result['qtype'],
+					  'type'	 => $result['type'],
 					  'date'     => date('Y-m-d')
 					);
 		$this->insert($data);
