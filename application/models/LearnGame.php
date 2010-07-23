@@ -23,6 +23,11 @@ class Model_LearnGame extends Model_Game {
 	 */
 	protected $wrongQuestionIds  = array();
 
+	/**
+	 * @var string
+	 */
+	const TYPE = 'LEARNGAME';
+
 
 	/**
 	 * constructor

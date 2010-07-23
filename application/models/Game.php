@@ -40,6 +40,11 @@ class Model_Game {
 	 */
 	protected $numberOfQuestions;
 
+	/**
+ 	 * @var string
+	 */
+	const TYPE = 'GAME';
+
 
 	/**
 	 * constructor

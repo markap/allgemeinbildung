@@ -1184,3 +1184,89 @@
 [Mon Jul 19 14:54:47 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/models/ResultCreator.php on line 105, referer: http://allgemeinbildung.localhost/game
 [Mon Jul 19 15:05:11 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: type in /home/www/allgemeinbildung/application/models/ResultCreator.php on line 96, referer: http://allgemeinbildung.localhost/game
 [Mon Jul 19 15:05:11 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: type in /home/www/allgemeinbildung/application/models/ResultCreator.php on line 99, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 17:59:05 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_ENDIF in /home/www/allgemeinbildung/application/views/scripts/gamelist/category.phtml on line 5
+[Mon Jul 19 19:04:02 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: GamelistController::$request in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 81, referer: http://allgemeinbildung.localhost/gamelist/category
+[Mon Jul 19 19:04:02 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getPost() on a non-object in /home/www/allgemeinbildung/application/controllers/GamelistController.php on line 81, referer: http://allgemeinbildung.localhost/gamelist/category
+[Mon Jul 19 20:20:36 2010] [error] [client 127.0.0.1] modify_answer|portugal|Portugal|portugal|portugal, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:20:48 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:21:17 2010] [error] [client 127.0.0.1] modify_answer|serbien|Serbien|serbien|serbien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:21:32 2010] [error] [client 127.0.0.1] modify_answer|belgien|Belgien|belgien|belgien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:21:49 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:22:02 2010] [error] [client 127.0.0.1] modify_answer|t\xc3\xbcrkei|T\xc3\xbcrkei|tuerkei|tuerkei, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:22:12 2010] [error] [client 127.0.0.1] modify_answer|andorra|Andorra|andorra|andorra, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:22:47 2010] [error] [client 127.0.0.1] modify_answer|schweiz|Schweiz|schweiz|schweiz, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:22:55 2010] [error] [client 127.0.0.1] modify_answer|island|Island|island|island, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:23:07 2010] [error] [client 127.0.0.1] modify_answer|griechenland|Griechenland|griechenland|griechenland, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:23:17 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:34:32 2010] [error] [client 127.0.0.1] modify_answer|andorra|Andorra|andorra|andorra, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/4/qtyp/txt/sh/1
+[Mon Jul 19 20:34:48 2010] [error] [client 127.0.0.1] modify_answer|griechenland|Griechenland|griechenland|griechenland, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:35:03 2010] [error] [client 127.0.0.1] modify_answer|rum\xc3\xa4nien|Rum\xc3\xa4nien|rumaenien|rumaenien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:35:18 2010] [error] [client 127.0.0.1] modify_answer|portugal|Portugal|portugal|portugal, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:35:26 2010] [error] [client 127.0.0.1] modify_answer|belgien|Belgien|belgien|belgien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:35:35 2010] [error] [client 127.0.0.1] modify_answer|ungarn|Ungarn|ungarn|ungarn, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:35:51 2010] [error] [client 127.0.0.1] modify_answer|niederlande|Niederlande|niederlande|niederlande, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:36:20 2010] [error] [client 127.0.0.1] modify_answer|serbien|Serbien|serbien|serbien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:36:38 2010] [error] [client 127.0.0.1] modify_answer|schweiz|Schweiz|schweiz|schweiz, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:36:52 2010] [error] [client 127.0.0.1] modify_answer|island|Island|island|island, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:09 2010] [error] [client 127.0.0.1] modify_answer|slowakei|Slowakei|slowakei|slowakei, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:20 2010] [error] [client 127.0.0.1] modify_answer|t\xc3\xbcrkei|T\xc3\xbcrkei|tuerkei|tuerkei, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:27 2010] [error] [client 127.0.0.1] modify_answer|spanien|Spanien|spanien|spanien, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:38 2010] [error] [client 127.0.0.1] modify_answer|frankreich|Frankreich|frankreich|frankreich, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:50 2010] [error] [client 127.0.0.1] modify_answer|deutschland|Deutschland|deutschland|deutschland, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 20:37:53 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined property: Model_CalculateScore::$scoreForLevel in /home/www/allgemeinbildung/application/models/CalculateScore.php on line 96, referer: http://allgemeinbildung.localhost/game
+[Mon Jul 19 21:17:17 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: select in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 124
+[Mon Jul 19 21:17:17 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function assemble() on a non-object in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 124
+[Mon Jul 19 21:38:12 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '*' in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 128
+[Fri Jul 23 22:43:34 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_STRING in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 131
+[Fri Jul 23 23:07:10 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ')' in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 29
+[Fri Jul 23 23:08:09 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ';' in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 33
+[Fri Jul 23 23:08:33 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ';' in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 33
+[Fri Jul 23 23:08:41 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ';' in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 33
+[Fri Jul 23 23:09:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: userId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 29
+[Fri Jul 23 23:10:18 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: userId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 29
+[Fri Jul 23 23:10:58 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: userId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 29
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:14:32 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: gameId in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 39
+[Fri Jul 23 23:18:28 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined offset: 3 in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 38
+[Fri Jul 23 23:18:28 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined offset: 3 in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 38
+[Fri Jul 23 23:18:28 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined offset: 3 in /home/www/allgemeinbildung/application/models/WhatsNext.php on line 36

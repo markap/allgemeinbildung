@@ -11,7 +11,7 @@ class Model_CalculateScore {
 	 * score for a right answer listed by level
 	 * @var array
 	 */
-	protected $scoreForLevelDepr = array(
+	protected $scoreForLevel = array(
 						1 => 20,
 						2 => 50,
 						3 => 80,

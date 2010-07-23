@@ -30,6 +30,7 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->waitForAnswer = false;
 			$this->gameSession->redirect = '/game/result';
 			$this->gameSession->gameId 	 = null; 
+			$this->gameSession->typeOfLearnGame = null;
 
 			$nextGameSession = new Zend_Session_Namespace('nextGame');
 			if ($nextGameSession->nextGame !== null) {	// nextGame isset ?
@@ -47,22 +48,25 @@ class GameController extends Zend_Controller_Action
 					$questionIds = $questionResultDb->getQuestionIds($this->_getParam('cat'), $this->_getParam('result'));
 				}
 			} else if ($this->isGame()) {
-				$gameId = $this->_getParam('g');
-				if (!$this->toLearn()) {
-					$this->gameSession->gameId = $gameId;
+				if ($this->toLearn()) {
+					$this->gameSession->typeOfLearnGame = 'LG';
 				}
+				$gameId = $this->_getParam('g');
+				$this->gameSession->gameId = $gameId;
 				$gameListDb  = new Model_DbTable_GameList();
 				$questionIds  = $gameListDb->getQuestionIds($gameId);
 				$questionType = $gameListDb->getQuestionType($gameId);
 			} else if ($this->replayGameResult()) {
 				$resultType = $this->_getParam('rty'); // result type -> y or n
 				$resultId   = $this->_getParam('rid'); // result id 
+				$this->gameSession->gameId = $resultId;
 				$gameResultDb = new Model_DbTable_GameResult();
 				$result	= $gameResultDb->getGameResultForResultId($resultId, $this->userId);
 				if ($result === false) { 
 					$this->_redirect('/gamelist');
 				}	
 				if ($resultType === 'N') {
+					$this->gameSession->typeOfLearnGame = 'PW';
 					$getIds = 'wrongids';
 				} else if ($resultType === 'Y') {
 					$getIds = 'rightids';
@@ -123,7 +127,11 @@ class GameController extends Zend_Controller_Action
 			$questionType  = $game->getQuestionType();
 			$score->setResultCreator(new Model_ResultCreator($score, $questionType));
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
-				$this->saveGame($score, $questionType); 
+				if ($game::TYPE === 'GAME') {
+					$this->saveGame($score, $questionType); 
+				} else if ($game::TYPE === 'LEARNGAME') {
+					$this->updateGameResult($questionType);
+				}
 			}
 			$this->gameSession->result = $score;
 			$this->gameSession->game   = null;
@@ -163,6 +171,7 @@ class GameController extends Zend_Controller_Action
 	}
 
 	protected function saveGame(Model_Score $score, $questionType) {
+		$gameResultDb = new Model_DbTable_GameResult();
 		$gameId = $this->gameSession->gameId;
 	
 		// calculate the score		
@@ -176,8 +185,18 @@ class GameController extends Zend_Controller_Action
 		$result['qtype'] = $questionType;
 		$result['type']  = $score->getResultType();
 
-		$gameResultDb = new Model_DbTable_GameResult();
 		$gameResultDb->insertResult($this->userId, $gameId, $result);
+	}
+
+	protected function updateGameResult($questionType) {
+		$gameResultDb = new Model_DbTable_GameResult();
+		$gameId = $this->gameSession->gameId;
+		$typeOfLearnGame = $this->gameSession->typeOfLearnGame;
+		if ($typeOfLearnGame === 'LG') {
+			$gameResultDb->updateLGGameResult($this->userId, $gameId, $questionType);
+		} else if ($typeOfLearnGame === 'PW') {
+			$gameResultDb->updatePWGameResult($this->userId, $gameId, $questionType);
+		}
 	}
 
     public function answerrequestAction()

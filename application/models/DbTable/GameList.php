@@ -17,7 +17,7 @@ class Model_DbTable_GameList extends Zend_Db_Table_Abstract {
 
 
 	public function getGames() {
-		$orderBy = array('gameid ASC');
+		$orderBy = array('RAND()');
 		return $this->fetchAll(1, $orderBy)->toArray();
 	}
 
@@ -47,4 +47,6 @@ class Model_DbTable_GameList extends Zend_Db_Table_Abstract {
 	}
 
 
+	public function getGamesForCategories() {
+	}
 }

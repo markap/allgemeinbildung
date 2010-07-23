@@ -1,0 +1,16 @@
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/gamelist/category.js'); ?>
+
+<h1>Kategorien</h1>
+
+<p id="error"></p>
+
+<form action="/gamelist/categoryresult" method="POST" id="form">
+
+<?php foreach($this->categories as $categoryId => $category): ?>
+	<input type="checkbox" name="cat[]" value="<?php echo $categoryId; ?>"><?php echo $category; ?><br />
+<?php endforeach; ?>
+
+<div id="send">Senden</div>
+
+</form>

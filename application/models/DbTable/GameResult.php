@@ -45,8 +45,6 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 	 * @param integer $userId
 	 */
 	public function getGameResult($userId) {
-		// TODO
-		// gamename, eltzter score, highscore, 
 		$orderBy = array('date ASC');
 		$result = $this->fetchAll('userid = ' . $userId, $orderBy);
 		if (!$result) {
@@ -105,6 +103,60 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 					 ->where('resultid = ?', $resultId);
 		$row = $this->fetchRow($stmt);
 		return ($row) ? $row->toArray() : false;
+	}
+
+
+	/**
+	 * gets the game result for a user
+	 * by type and date
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $userId
+	 * @return array
+	 */
+	public function getGames($userId) {
+		$where = 'userid = ' . $userId . ' AND 
+					DATE_ADD(date, INTERVAL 3 DAY) <= CURDATE() AND
+					DATE_ADD(date, INTERVAL 3 MONTH) >= CURDATE() AND
+					type IN ("LG", "PW", "PN", "PT")';
+					
+		$orWhere = 'userid = ' . $userId . ' AND 
+					DATE_ADD(date, INTERVAL 2 MONTH) <= CURDATE() AND
+					DATE_ADD(date, INTERVAL 4 MONTH) >= CURDATE() AND
+					type = "PL"';
+					
+		$stmt = $this->select()
+					 ->where($where)
+					 ->orWhere($orWhere)
+					 ->order(array('date DESC'));
+//Zend_Debug::Dump($stmt->assemble());
+		$row = $this->fetchAll($stmt);
+		return ($row) ? $row->toArray() : false;
+	}
+
+	public function updateLGGameResult($userId, $gameId, $questionType) {
+		$data = array('type = PN');
+		$where = array('userId = ' . $userId,
+					   'gameId = ' . $gameId,
+					   'qtype =  ' . $questionType,
+					   'type = LG',
+					   'DATE_ADD(date, INTERVAL 1 DAY) <= CURDATE()',
+					   'DATE_ADD(date, INTERVAL 1 MONTH) >= CURDATE()'
+					);
+		$this->update($data, $where);
+	}
+
+
+	public function updatePWGameResult($userId, $resultId, $questionType) {
+		$data = array('type = PN');
+		$where = array('userId = ' . $userId,
+					   'resultId = ' . $resultId,
+					   'qtype =  ' . $questionType,
+					   'type = PW',
+					   'DATE_ADD(date, INTERVAL 1 DAY) <= CURDATE()',
+					   'DATE_ADD(date, INTERVAL 1 MONTH) >= CURDATE()'
+					);
+		$this->update($data, $where);
 	}
 
 }

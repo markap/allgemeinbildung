@@ -3,24 +3,23 @@
 class GamelistController extends Zend_Controller_Action
 {
 
-	protected $gameListDb   = null;
-	protected $gameResultDb = null;
-	protected $userId	    = null;
+    protected $gameListDb 	= null;
+    protected $gameResultDb = null;
+    protected $userId 		= null;
 
     public function init()
     {
-		//TODO try catch
-        $this->gameListDb   = new Model_DbTable_GameList();
-        $this->gameResultDb = new Model_DbTable_GameResult();
+        //TODO try catch
+		$this->gameListDb   = new Model_DbTable_GameList();
+		$this->gameResultDb = new Model_DbTable_GameResult();
 		$userSession 	    = new Zend_Session_Namespace('user');
 		$this->userId	    = isset($userSession->user['userid']) 
 								? $userSession->user['userid'] : null;
-
     }
 
     public function indexAction()
     {
-		$gameList = $this->gameListDb->getGames();
+        $gameList = $this->gameListDb->getGames();
 		foreach ($gameList as $key => $game) {
 			$gameList[$key]['numberOfQuestions'] =
 				$this->gameListDb->countQuestionIds($game['gameid']);	
@@ -42,12 +41,12 @@ class GamelistController extends Zend_Controller_Action
 			}
 			$gameList[$key]['cat'] = $categories;
 		}
-      	$this->view->gameList = $gameList;
+		$this->view->gameList = $gameList;
     }
 
     public function gameAction()
     {
-		$gameId = $this->_getParam('g');
+        $gameId = $this->_getParam('g');
 		$questionIds = $this->gameListDb->getQuestionIds($gameId);
 
 		$questionView = array();
@@ -69,8 +68,18 @@ class GamelistController extends Zend_Controller_Action
 		$this->view->paginator = $paginator;
     }
 
-
+    public function categoryAction()
+    {
+        $categoryDb = new Model_DbTable_Category();
+		$this->view->categories = $categoryDb->getCategories();
 }
 
+    public function categoryresultAction()
+    {
+		var_dump($this->getRequest()->getPost('cat'));
+    }
+
+
+}
 
 

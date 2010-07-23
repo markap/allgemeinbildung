@@ -2,15 +2,20 @@
 
 class IndexController extends Zend_Controller_Action
 {
+	protected $userId = null;
+
 
     public function init()
     {
-        /* Initialize action controller here */
+		$userSession 	    = new Zend_Session_Namespace('user');
+		$this->userId	    = isset($userSession->user['userid']) 
+								? $userSession->user['userid'] : null;
     }
 
     public function indexAction()
     {
-        // action body
+		$whatsNext = new Model_WhatsNext($this->userId);
+
     }
 
     public function loginAction()
