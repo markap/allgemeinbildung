@@ -14,7 +14,13 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$whatsNext = new Model_WhatsNext($this->userId);
+		$whatsNext 		= new Model_WhatsNext($this->userId);
+		$linkBuilder	= new Model_WhatsNextLinkBuilder();
+		$next = $whatsNext->getNext();
+		foreach ($next as $key => $result) {
+			$next[$key]['link'] = $linkBuilder->getLink($result);	
+		}	
+		$this->view->next = $next;
 
     }
 

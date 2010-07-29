@@ -114,12 +114,18 @@ class ResultController extends Zend_Controller_Action
 
     public function gamesAction()
     {
-		$gameResult	  = $this->gameResultDb->getGameResult($this->userId);
-		foreach ($gameResult as $key => $game) {
-			$gameDescription  		  = $this->gameListDb->getGame($game['gameid']);
-			$gameResult[$key]['name'] = $gameDescription['name'];
-		}	
-		$this->view->gameResult = $gameResult;
+		$gameResult = $this->gameResultDb->getGameResult($this->userId);
+		foreach ($gameResult as $result) {
+			$gameIds[] = $result['gameid'];
+		}
+		if (isset($gameIds)) {
+			$gameIds = array_unique($gameIds);
+			foreach ($gameIds as $gameId) {
+				$gameList[] = $this->gameListDb->getGame($gameId);			
+			}
+			$helper = new Model_ControllerHelper();
+			$this->view->gameList = $helper->createGameList($gameList, $this->userId);				//TODO render gamelist/index-view instead of copy
+		}
     }
 
     public function gameAction()
@@ -139,6 +145,7 @@ class ResultController extends Zend_Controller_Action
 			$results[$key]['sum']   = $results[$key]['right'] + $results[$key]['wrong'];
 		}
 		$this->view->results = $results;
+		$this->view->gameId  = $gameId;
     }
 
 

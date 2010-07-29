@@ -37,6 +37,9 @@ class Model_Score {
 	 * @var Model_ResultCreator
 	 */
 	protected $resultCreator = null;
+
+	protected $gameId;
+	protected $gameType;
  	
 
 	/**
@@ -152,4 +155,32 @@ class Model_Score {
 	public function getResultText() {
 		return $this->resultCreator->getText();
 	}
+
+
+	/**
+	 * getter for the result percentage
+	 *
+	 * @author Martin Kapfhammer
+	 * @return float
+	 */
+	public function getResultPercentage() {
+		return $this->resultCreator->getPercentage();
+	}
+
+	public function setGameId($gameId) {
+		$this->gameId = $gameId;
+	}
+
+	public function getGameId() {
+		return $this->gameId;
+	}
+
+	public function setGameType($gameType) {
+		$this->gameType = $gameType;
+	}
+
+	public function getGameType() {
+		return $this->gameType;
+	}
+
 }

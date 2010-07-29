@@ -61,8 +61,8 @@ class Model_LogScore extends Model_Score {
 		parent::addRightAnswer($question);
 		$this->rightQuestionIds[] = $question->getQuestionId();
 		$this->rightQuestions[]	  = $question;
-		$this->saveQuestion($question->getQuestionId(), 
-							$question->getQuestionType(), 'Y');
+		//$this->saveQuestion($question->getQuestionId(), 
+							//$question->getQuestionType(), 'Y');
 	}	
 	
 	
@@ -77,8 +77,8 @@ class Model_LogScore extends Model_Score {
 		parent::addWrongAnswer($question);
 		$this->wrongQuestionIds[] = $question->getQuestionId();
 		$this->wrongQuestions[]   = $question;
-		$this->saveQuestion($question->getQuestionId(), 
-							$question->getQuestionType(), 'N');
+		//$this->saveQuestion($question->getQuestionId(), 
+							//$question->getQuestionType(), 'N');
 	}
 
 

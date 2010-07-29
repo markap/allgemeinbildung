@@ -1,9 +1,13 @@
 <h1>Ihr Ergebnis</h1>
 
-<?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
-	<?php echo $this->score; ?>
-<?php endif; ?>
+<div><?php echo     $this->percentage;;; ?></div>
+<p><?php echo $this->resultText; ?></p>
 <?php echo $this->playedQuestions; ?>
 <?php echo $this->rightAnswers; ?>
 <?php echo $this->wrongAnswers; ?>
-<p><?php echo $this->resultText; ?></p>
+
+
+<?php if ($this->lastResult !== null): ?>
+	<?php var_dump($this->lastResult); ?>
+	<?php echo $this->trend; ?>
+<?php endif; ?>

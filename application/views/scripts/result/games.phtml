@@ -1,10 +1,34 @@
-<h1>Gespielte Fragen</h1>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/gamelist/index.js'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/gamelist/index.css'); ?>
 
-<?php if (isset($this->gameResult)): ?>
-	<?php foreach ($this->gameResult as $result): ?>
-		<?php echo $result['name']; ?>
-		<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $result['gameid']; ?>">
-			Nochmal probieren
-		</a><br />
+
+<h1>Zuletzt gespielte Fragen</h1>
+
+<?php if (!empty($this->gameList)): ?>
+<?php foreach($this->gameList as $game): ?>
+	<div class="head"><?php echo $game['name']; ?>
+	</div>
+	<div class="content">
+	<b>Fragen: <?php echo $game['numberOfQuestions']; ?></b><br/>
+	<b>Kategorien</b><br/>
+	<?php foreach($game['cat'] as $cat): ?>
+		<?php echo $cat['name']; ?><br/>
 	<?php endforeach; ?>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/mc/sh/1">
+		Multiple Choice
+	</a>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
+		Direkteingabe
+	</a>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/txt/">
+		Lernen
+	</a>
+	<?php if($game['existResult']): ?>
+		<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Bisherige Ergebnisse</a>
+	<?php endif; ?>
+	</div>
+<?php endforeach; ?>
+<?php else: ?>
+<p>Noch nichts gespielt</p>
 <?php endif; ?>

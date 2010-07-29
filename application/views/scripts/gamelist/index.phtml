@@ -5,6 +5,10 @@
 
 <h1>Games</h1>
 
+<a href="/gamelist/category">Nach Kategorien auswählen</a>
+<?php if ($this->userId !== null): ?>
+	<a href="/result/games">Zuletzt gespielte Fragen</a>
+<?php endif; ?>
 <?php foreach($this->gameList as $game): ?>
 	<div class="head"><?php echo $game['name']; ?>
 		<?php if($game['existResult']): ?>
@@ -17,16 +21,20 @@
 	<?php foreach($game['cat'] as $cat): ?>
 		<?php echo $cat['name']; ?><br/>
 	<?php endforeach; ?>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/mc/sh/1">
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($game['gameid'], 'mc'); ?>">
 		Multiple Choice
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($game['gameid'], 'txt'); ?>">
 		Direkteingabe
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/txt/">
-		Lernen
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($game['gameid'], 'mc'); ?>">
+		Lernen MC
+	</a>
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($game['gameid'], 'txt'); ?>">
+		Lernen TXT
 	</a>
 	<?php if($game['existResult']): ?>
+		<?php var_dump($game['lastResult']); ?>
 		<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Bisherige Ergebnisse</a>
 	<?php endif; ?>
 	</div>

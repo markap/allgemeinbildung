@@ -32,6 +32,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 					  'userid'	 => $userId,
 					  'qtype'	 => $result['qtype'],
 					  'type'	 => $result['type'],
+					  'result'	 => $result['result'],
 					  'date'     => date('Y-m-d')
 					);
 		$this->insert($data);
@@ -45,7 +46,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 	 * @param integer $userId
 	 */
 	public function getGameResult($userId) {
-		$orderBy = array('date ASC');
+		$orderBy = array('date DESC', 'resultid DESC');
 		$result = $this->fetchAll('userid = ' . $userId, $orderBy);
 		if (!$result) {
 			return false;
@@ -83,7 +84,8 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$stmt = $this->select()
 					 ->where('userid = ?', $userId)
 					 ->where('gameid = ?', $gameId)
-					 ->order('date ASC');
+					 ->order('date DESC')
+					 ->order('resultid DESC');
 		$row = $this->fetchAll($stmt);
 		return ($row) ? $row->toArray() : false;	
 	}
@@ -133,6 +135,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$row = $this->fetchAll($stmt);
 		return ($row) ? $row->toArray() : false;
 	}
+
 
 	public function updateLGGameResult($userId, $gameId, $questionType) {
 		$data = array('type = PN');

@@ -47,7 +47,7 @@ class Model_ResultCreator {
 								'LG' => 'Das kannst du sicher besser. Versuche dieses Game bald im Lernmodus zu spielen!',
 								'PW' => 'Keine schlechte Leistung. Spiele deine falschen Fragen im Lernmodus, um noch besser zu werden!',
 								'PL' => 'Super, auf diese Leistung kannst du stolz sein. Dieses Game kannst du sehr gut!',
-								'PT' => 'Super, auf diese Leistung kannst du stolz sein. Versuche dieses Game im Direkteingabemodus zu spielen, um noch besser zu werden'
+								'PT' => 'Super, auf diese Leistung kannst du stolz sein. Versuche dieses Game im Direkteingabemodus zu spielen, um noch besser zu werden!'
 								);
 									
 
@@ -86,7 +86,7 @@ class Model_ResultCreator {
 				break;
 			}
 		}
-		if ($type === 'PL' && $this->questionType === 'MC') {
+		if ($type === 'PL' && strtoupper($this->questionType) === 'MC') {
 			$type = 'PT';
 		}
 		return $type;
@@ -115,5 +115,16 @@ class Model_ResultCreator {
 	protected function calculatePercentage() {
 		$this->percentage =  $this->score->getRightAnswers() 
 								/ $this->score->getPlayedQuestions();	
+	}
+
+
+	/**
+	 * returns the result percentage
+	 * 
+	 * @author Martin Kapfhammer
+	 * @return float 
+	 */
+	public function getPercentage() {
+		return number_format($this->percentage * 100, 2);
 	}
 }

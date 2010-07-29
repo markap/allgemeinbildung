@@ -3,3 +3,7 @@ sprichwort zum wissen
 login oder registrieren
 
 aktuelle spiele
+
+<?php foreach ($this->next as $result): ?>
+	<a href="<?php echo $result['link']; ?>">Link</a>
+<?php endforeach; ?>

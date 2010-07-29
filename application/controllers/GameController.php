@@ -59,7 +59,6 @@ class GameController extends Zend_Controller_Action
 			} else if ($this->replayGameResult()) {
 				$resultType = $this->_getParam('rty'); // result type -> y or n
 				$resultId   = $this->_getParam('rid'); // result id 
-				$this->gameSession->gameId = $resultId;
 				$gameResultDb = new Model_DbTable_GameResult();
 				$result	= $gameResultDb->getGameResultForResultId($resultId, $this->userId);
 				if ($result === false) { 
@@ -67,6 +66,7 @@ class GameController extends Zend_Controller_Action
 				}	
 				if ($resultType === 'N') {
 					$this->gameSession->typeOfLearnGame = 'PW';
+					$this->gameSession->gameId = $resultId;
 					$getIds = 'wrongids';
 				} else if ($resultType === 'Y') {
 					$getIds = 'rightids';
@@ -133,6 +133,8 @@ class GameController extends Zend_Controller_Action
 					$this->updateGameResult($questionType);
 				}
 			}
+			$score->setGameId($this->gameSession->gameId);
+			$score->setGameType($game::TYPE);
 			$this->gameSession->result = $score;
 			$this->gameSession->game   = null;
 			$this->gameSession->waitForAnswer = false;
@@ -184,6 +186,7 @@ class GameController extends Zend_Controller_Action
 		$result['score'] = $calculatedScore;
 		$result['qtype'] = $questionType;
 		$result['type']  = $score->getResultType();
+		$result['result'] = $score->getResultPercentage();
 
 		$gameResultDb->insertResult($this->userId, $gameId, $result);
 	}
@@ -231,6 +234,25 @@ class GameController extends Zend_Controller_Action
 		$this->view->wrongAnswers = $score->getWrongAnswers();
 		$this->view->score		  = $score->getCalculatedScore();
 		$this->view->resultText   = $score->getResultText();
+		$this->view->percentage = $score->getResultPercentage();
+
+		if ($score->getGameId() && $this->userId && $score->getGameType() === 'GAME') {
+			$gameResultDb = new Model_DbTable_GameResult();
+			$lastResult = $gameResultDb->
+					getResultForGameAndUser($score->getGameId(), $this->userId);
+			if (isset($lastResult[1])) {
+				$lastResult = $lastResult[1];
+				$this->view->lastResult = $lastResult;
+				if ($score->getResultPercentage() > $lastResult['result']) {
+					$trend = 1;
+				} else if($score->getResultPercentage() == $lastResult['result']) {
+					$trend = 0;
+				} else {
+					$trend = -1;
+				}
+				$this->view->trend = $trend;
+			}
+		}
     }
 
     public function timeoverAction()

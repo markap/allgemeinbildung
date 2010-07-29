@@ -17,26 +17,27 @@ class Model_WhatsNext {
 
 	protected $userId;	
 	protected $result = array();
+	protected $resultDb;
 
 	public function __construct($userId) {
+		$this->resultDb = new Model_DbTable_GameResult();
 		$this->userId = $userId;
 		$this->getResults();
-var_dump($this->result);
 		$this->removeDoubleResults();
-var_dump($this->result);
 		$this->getUnplayedGames();
 	}
 
-	public function getResults() {
-		$resultDb = new Model_DbTable_GameResult();
-		$this->result = $resultDb->getGames($this->userId);
+	protected function getResults() {
+		$this->result = $this->resultDb->getGames($this->userId);
 	}
 	
-	public function getUnplayedGames() {
-		//userid
+	protected function getUnplayedGames() {
+		$resultCnt = count($this->result);
+		$unplayedCnt = ($resultCnt <= 10) ? 10 : 5;
+		//$games = $this->resultDb->getUnplayedGames($this->userId, $unplayedCnt);
 	}
 
-	public function removeDoubleResults() {
+	protected function removeDoubleResults() {
 		$unsetIds = array();
 		for ($i = 0; $i < count($this->result); $i++) {
 			$j = $i + 1;
@@ -51,5 +52,9 @@ var_dump($this->result);
 		foreach ($unsetIds as $unsetId) {
 			unset($this->result[$unsetId]);
 		}
+	}
+
+	public function getNext() {
+		return $this->result;
 	}
 }

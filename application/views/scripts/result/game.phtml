@@ -1,5 +1,15 @@
 <?php echo $this->gameName; ?>
 
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $this->gameId; ?>/qtyp/mc/sh/1">
+		Multiple Choice
+	</a>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $this->gameId; ?>/qtyp/txt/sh/1">
+		Direkteingabe
+	</a>
+	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $this->gameId; ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/txt/">
+		Lernen
+	</a>
+
 <table>
 	<tr>
 		<td>Date</td><td>Score</td><td>Fragen</td><td>Richtig</td><td>Falsch</td><td>Questiontype</td>

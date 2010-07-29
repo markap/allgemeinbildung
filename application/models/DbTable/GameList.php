@@ -46,7 +46,7 @@ class Model_DbTable_GameList extends Zend_Db_Table_Abstract {
 		return $game['qtype'];
 	}
 
-
 	public function getGamesForCategories() {
 	}
+
 }
