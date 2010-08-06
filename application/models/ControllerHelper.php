@@ -24,20 +24,8 @@ class Model_ControllerHelper {
 				$gameList[$key]['lastResult'] = $lastResult[0];
 			}
 
-            $hasCategoryDb = new Model_DbTable_HasCategory();
-            $questionIds   = Model_String::explodeString($game['questionids']);
-            $categoryIds   = array();
-            foreach ($questionIds as $questionId) {
-                $currentIds  = $hasCategoryDb->getCategoryIds($questionId);
-                $categoryIds = array_merge($categoryIds, $currentIds);
-            }
-            $categoryIds = (array_unique($categoryIds));
-            $categoryDb  = new Model_DbTable_Category();
-            $categories  = array();
-            foreach ($categoryIds as $categoryId) {
-                $categories[] = $categoryDb->getCategory($categoryId);
-            }
-            $gameList[$key]['cat'] = $categories;
+            $categoryDb = new Model_DbTable_GameCategoryRelation();
+            $gameList[$key]['cat'] = $categoryDb->getCategories($game['gameid']);;
         }
 		return $gameList;
 	}

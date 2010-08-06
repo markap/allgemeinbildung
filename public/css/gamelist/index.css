@@ -7,5 +7,47 @@
 
 .content {
 	padding: 10px;
-	margin-bottom: 10px;
+	height: 120px;
+}
+
+.question-count {
+	font-size: 56px;
+	text-align: center;
+}
+
+
+.question-count-container {
+	width: 100px;
+	height: 100px;
+	background-color: #EFEFEF;
+	text-align: center;
+	float: left;
+}
+
+
+.category-container {
+	float:left;
+	height: 100px;
+	margin-left: 20px;
+}
+
+.links-container {
+	margin-left: 20px;
+	float: left;
+	height: 100px;
+}
+
+.result-count {
+	font-size: 56px;
+	text-align: center;
+}
+
+
+.result-count-container {
+	width: 180;
+	height: 100px;
+	background-color: #EFEFEF;
+	text-align: center;
+	float: left;
+	margin-left: 20px;
 }

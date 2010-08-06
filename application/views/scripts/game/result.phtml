@@ -1,13 +1,44 @@
-<h1>Ihr Ergebnis</h1>
-
-<div><?php echo     $this->percentage;;; ?></div>
-<p><?php echo $this->resultText; ?></p>
-<?php echo $this->playedQuestions; ?>
-<?php echo $this->rightAnswers; ?>
-<?php echo $this->wrongAnswers; ?>
+<?php echo $this->headLink()->appendStylesheet('/css/game/game.css'); ?>
 
 
-<?php if ($this->lastResult !== null): ?>
-	<?php var_dump($this->lastResult); ?>
-	<?php echo $this->trend; ?>
-<?php endif; ?>
+<h1 style="margin-left:45px">Ihr Ergebnis</h1>
+
+<div id="game-result-container">
+	<div>
+		<div class="result-count-container" style="margin-left:45px"><div class="result-count"><?php echo $this->percentage; ?>%</div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->playedQuestions; ?></div>Fragen</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->rightAnswers; ?></div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->wrongAnswers; ?></div>Falsch</div>
+	</div>
+<br/>	
+<br/>	
+<br/>	
+<br/>	
+<br/>	
+<br/>	
+<br/>
+		<div class="result-text"><?php echo $this->resultText; ?></div>
+
+	<div>
+		<?php if ($this->lastResult !== null): ?>
+			
+			<?php if ($this->trend === 1): ?>
+				<div class="trend-positive">Du hast dich verbessert.
+				Beim letzten Mal hattest du nur
+				<?php echo $this->lastResult['result']; ?>%
+				richtig beantwortet.</div>
+			<?php elseif ($this->trend === 0): ?>
+				<div class="trend-positive">
+				Du bist genauso gut wie beim letzten Mal.
+				</div>
+			<?php elseif ($this->trend === -1): ?>
+				<div class="trend-negative">
+				Du hast dich leider verschlechtert.
+				Beim letzten Mal hattest du noch
+				<?php echo $this->lastResult['result']; ?>%
+				richtig beantwortet.
+				</div>
+			<?php endif; ?>
+		<?php endif; ?>
+	</div>
+</div>

@@ -100,7 +100,7 @@ class Model_ResultCreator {
 	 * @return String 
 	 */
 	public function getText() {
-		$text 	 = number_format($this->percentage * 100, 2) . ' % der Fragen sind richtig beantwortet. ';
+		$text 	 = number_format($this->percentage * 100, 0) . ' % der Fragen sind richtig beantwortet. ';
 		$type 	 = $this->getType();
 		$text 	.= $this->textForType[$type];
 		return $text;
@@ -125,6 +125,6 @@ class Model_ResultCreator {
 	 * @return float 
 	 */
 	public function getPercentage() {
-		return number_format($this->percentage * 100, 2);
+		return number_format($this->percentage * 100, 0);
 	}
 }

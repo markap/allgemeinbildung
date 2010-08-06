@@ -117,3 +117,14 @@ dl dd {
 input {
 	width: 150px;
 }
+
+.text-container {
+	float:left;
+	height: 100px;
+	margin-left: 20px;
+}
+
+.text-container-number {
+	font-size: 56px;
+	text-align: center;
+}

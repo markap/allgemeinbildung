@@ -57,7 +57,16 @@ class GamelistController extends Zend_Controller_Action
 
     public function categoryresultAction()
     {
-		var_dump($this->getRequest()->getPost('cat'));
+		$categoryIds 	= implode(',', $this->getRequest()->getPost('cat'));
+		$gameCategoryDb = new Model_DbTable_GameCategoryRelation();
+		$gameIds = $gameCategoryDb->getGameIds($categoryIds);
+		foreach ($gameIds as $gameId) {
+			$gameList[] = $this->gameListDb->getGame($gameId);			
+		}
+		$helper = new Model_ControllerHelper();
+		$this->view->gameList = $helper->createGameList($gameList, $this->userId);	
+			//TODO render gamelist/index-view instead of copy
+		
     }
 
 

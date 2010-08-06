@@ -10,6 +10,7 @@ class QuestionController extends Zend_Controller_Action
 
     public function init()
     {
+		Model_ControllerDeprecated::redirectToIndex($this);
         $this->questionSession = new Zend_Session_Namespace('question');
     }
 

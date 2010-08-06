@@ -21,10 +21,12 @@ class ResultController extends Zend_Controller_Action
 
     public function indexAction()
     {
+		Model_ControllerDeprecated::redirectToIndex($this);
     }
 
     public function questionsAction()
     {
+		Model_ControllerDeprecated::redirectToIndex($this);
         $resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
@@ -59,6 +61,7 @@ class ResultController extends Zend_Controller_Action
 
     public function categoryAction()
     {
+		Model_ControllerDeprecated::redirectToIndex($this);
         $resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
@@ -103,6 +106,7 @@ class ResultController extends Zend_Controller_Action
 
     public function timelineAction()
     {
+		Model_ControllerDeprecated::redirectToIndex($this);
         $resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
