@@ -19,9 +19,14 @@ th.headerSortDown {
     background-color: #3399FF; 
 } 
 
+tr {
+	text-align: center;
+}
+
 .even {
 	background-color: #45C241;
 }
 
 .odd {
 }
+

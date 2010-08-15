@@ -117,23 +117,37 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 	 * @return array
 	 */
 	public function getGames($userId) {
-		$where = 'userid = ' . $userId . ' AND 
-					DATE_ADD(date, INTERVAL 3 DAY) <= CURDATE() AND
-					DATE_ADD(date, INTERVAL 3 MONTH) >= CURDATE() AND
-					type IN ("LG", "PW", "PN", "PT")';
+		$db = $this->getAdapter();
+
+		$where = 'gr.userid = ' . $userId . ' AND 
+					DATE_ADD(gr.date, INTERVAL 3 DAY) <= CURDATE() AND
+					DATE_ADD(gr.date, INTERVAL 3 MONTH) >= CURDATE() AND
+					gr.type IN ("LG", "PW", "PN", "PT")';
 					
-		$orWhere = 'userid = ' . $userId . ' AND 
-					DATE_ADD(date, INTERVAL 2 MONTH) <= CURDATE() AND
-					DATE_ADD(date, INTERVAL 4 MONTH) >= CURDATE() AND
-					type = "PL"';
+		$orWhere = 'gr.userid = ' . $userId . ' AND 
+					DATE_ADD(gr.date, INTERVAL 2 MONTH) <= CURDATE() AND
+					DATE_ADD(gr.date, INTERVAL 4 MONTH) >= CURDATE() AND
+					gr.type = "PL"';
+
+		$sqlMustPlay = 'select gl.gameid, gl.name, gl.qtype, gr.date, gr.type, gr.result
+					from gameResult gr, gameList gl 
+					where gr.gameid = gl.gameid AND (' . $where
+					. ' OR  ' . $orWhere . ')';
+
+		$sqlNotPlayed = 'select gameid, name, name, name, name, name
+					from gameList
+					where gameid NOT IN (
+						select gameid
+						from gameResult
+						where userid = ' . $userId . ')
+					limit 5';
+
+		$sql = '(' . $sqlMustPlay . ') union (' . $sqlNotPlayed . ') order by rand()';
+
+		$stmt = $db->query($sql);
 					
-		$stmt = $this->select()
-					 ->where($where)
-					 ->orWhere($orWhere)
-					 ->order(array('date DESC'));
-//Zend_Debug::Dump($stmt->assemble());
-		$row = $this->fetchAll($stmt);
-		return ($row) ? $row->toArray() : false;
+		$row = $stmt->fetchAll();
+		return ($row) ? $row : false;
 	}
 
 

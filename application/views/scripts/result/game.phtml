@@ -1,5 +1,6 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.tablesorter.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.tooltip.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/result/game.js'); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/gamelist/index.css'); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/result/game.css'); ?>
@@ -62,8 +63,8 @@
 		<td>
 			<?php echo $result['right']; ?>
 			<?php if ($result['right'] !== 0): ?>
-			<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/rid/<?php echo $result['resultid']; ?>/rty/Y/re/<?php echo md5('replay!'); ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/<?php echo $result['qtype']; ?>">
-Nochmal
+			<a title="Hier kannst du die richtigen Fragen im Lernmodus spielen." href="/game/index/play/<?php echo md5('nextgame!'); ?>/rid/<?php echo $result['resultid']; ?>/rty/Y/re/<?php echo md5('replay!'); ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/<?php echo $result['qtype']; ?>">
+				Nochmal
 			</a>
 			<?php endif; ?>
 		</td>
@@ -72,7 +73,7 @@ Nochmal
 		<td>
 			<?php echo $result['wrong']; ?>
 			<?php if ($result['wrong'] !== 0): ?>
-			<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/rid/<?php echo $result['resultid']; ?>/rty/N/re/<?php echo md5('replay!'); ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/<?php echo $result['qtype']; ?>">
+			<a title="Hier kannst du die falschen Fragen im Lernmodus spielen." href="/game/index/play/<?php echo md5('nextgame!'); ?>/rid/<?php echo $result['resultid']; ?>/rty/N/re/<?php echo md5('replay!'); ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/<?php echo $result['qtype']; ?>">
 Nochmal
 			</a>
 			<?php endif; ?>
