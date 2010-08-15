@@ -1,23 +1,62 @@
-<?php echo $this->gameName; ?>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.tablesorter.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/result/game.js'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/gamelist/index.css'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/result/game.css'); ?>
 
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $this->gameId; ?>/qtyp/mc/sh/1">
+
+<h1><?php echo $this->gameName; ?></h1>
+
+
+<div class="content">
+	<div class="question-count-container"><div class="question-count"><?php echo $this->lastResult['sum']; ?></div>Fragen</div>
+
+	<div class="text-container"><b>Kategorien</b><br/>
+	<?php foreach($this->lastResult['cat'] as $cat): ?>
+		<?php echo $cat; ?><br/>
+	<?php endforeach; ?></div>
+
+	<div class="text-container">
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($this->lastResult['gameid'], 'mc'); ?>">
 		Multiple Choice
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $this->gameId; ?>/qtyp/txt/sh/1">
+	<br />
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($this->lastResult['gameid'], 'txt'); ?>">
 		Direkteingabe
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $this->gameId; ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/txt/">
-		Lernen
+	<br />
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($this->lastResult['gameid'], 'mc'); ?>">
+		Lernen MC
 	</a>
+	<br />
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($this->lastResult['gameid'], 'txt'); ?>">
+		Lernen TXT
+	</a>
+	<br />
+	</div>
 
-<table>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->lastResult['result']; ?>%</div>Richtig</div>
+		<div class="text-container">
+			<b>Letztes Ergebnis</b><br />
+			Richtig: <?php echo $this->lastResult['right']; ?><br />
+			Falsch: <?php echo $this->lastResult['wrong']; ?><br /> 
+		</div>
+</div>
+
+
+<h2>Alle Ergebnisse</h2>
+
+<table id="result-table">
+	<thead>
 	<tr>
-		<td>Date</td><td>Score</td><td>Fragen</td><td>Richtig</td><td>Falsch</td><td>Questiontype</td>
+		<th>Richtig</th><th>Fragen</th><th>Richtig</th><th>Falsch</th><th>Fragetyp</th><th>Datum</th>
 	</tr>
-<?php foreach ($this->results as $result): ?>
-	<tr>	
-		<td><?php echo $result['date']; ?></td>
-		<td><?php echo $result['score']; ?></td>
+	</thead>
+	</tbody>
+<?php foreach ($this->results as $key => $result): ?>
+	<?php $class = (($key % 2) === 0) ? 'odd' : 'even'; ?>
+	<tr class="<?php echo $class; ?>">	
+		<td><?php echo $result['result']; ?>%</td>
 		<td><?php echo $result['sum']; ?></td>
 
 		<td>
@@ -40,9 +79,12 @@ Nochmal
 		</td>
 
 
-		<td><?php echo $result['qtype']; ?></td>
+		<td><?php echo Model_Text::get($result['qtype']); ?></td>
+		<?php $date = new Zend_Date($result['date']); ?>
+		<td><?php echo $date->toString('dd.MM.yyyy'); ?></td>
 	</tr>
 <?php endforeach; ?>
+	</tbody>
 </table>
 
 

@@ -143,13 +143,16 @@ class ResultController extends Zend_Controller_Action
 
 		$gameDescription = $this->gameListDb->getGame($gameId);
 		$this->view->gameName = $gameDescription['name'];
+        $categoryDb = new Model_DbTable_GameCategoryRelation();
 		foreach ($results as $key => $result) {
 			$results[$key]['right'] = Model_String::countValues($result['rightids']);	
 			$results[$key]['wrong'] = Model_String::countValues($result['wrongids']);	
 			$results[$key]['sum']   = $results[$key]['right'] + $results[$key]['wrong'];
+            $results[$key]['cat'] = $categoryDb->getCategories($result['gameid']);;
 		}
 		$this->view->results = $results;
 		$this->view->gameId  = $gameId;
+		$this->view->lastResult = $results[0];
     }
 
 
