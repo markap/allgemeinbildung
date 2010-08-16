@@ -26,7 +26,10 @@ class Model_WhatsNextLinkBuilder extends Model_LinkBuilder {
 												  'txt');
 			break;
 
-			case 'PW': $link = null;
+			case 'PW': $link = $this->getPlayResultLink($result['gameid'],
+														'N',
+														$result['qtype']);
+			break;
 
 		}	
 		return $link;

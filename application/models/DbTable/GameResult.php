@@ -134,7 +134,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 					where gr.gameid = gl.gameid AND (' . $where
 					. ' OR  ' . $orWhere . ')';
 
-		$sqlNotPlayed = 'select gameid, name, name, name, name, name
+		$sqlNotPlayed = 'select gameid, name, null as qtype, null as date, null as type, null as result
 					from gameList
 					where gameid NOT IN (
 						select gameid

@@ -10,6 +10,11 @@ $(document).ready(function() {
 	}
 
 	var error = function() {
-		$("#error").text('Bitte wähle mindestens eine Kategorie aus');
+		$(".error").show();
 	}
+
+	$(".category").click(function() {
+		var check = $(this).children("input[type=checkbox]").attr('checked');
+		$(this).children("input[type=checkbox]").attr('checked', !check);
+	});
 });

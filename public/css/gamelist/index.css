@@ -1,8 +1,20 @@
 .head {
-	font-size: 20px;
 	background: url(/img/grey.png) top center  repeat-x;
 	padding: 10px;	
 	cursor: pointer;
+	position: relative;
+}
+
+.title {
+	font-size: 20px;
+}
+
+.postfix {
+	font-size: 16px;
+	color: red;
+	font-weight: bold;
+	position: absolute;
+	right: 10px;
 }
 
 .content {

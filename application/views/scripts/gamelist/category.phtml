@@ -1,14 +1,18 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/gamelist/category.js'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/gamelist/category.css'); ?>
 
 <h1>Kategorien</h1>
 
-<p id="error"></p>
+<p class="error" style="width:665px">Bitte wähle mindestens eine Kategorie aus</p>
 
 <form action="/gamelist/categoryresult" method="POST" id="form">
 
 <?php foreach($this->categories as $categoryId => $category): ?>
-	<input type="checkbox" name="cat[]" value="<?php echo $categoryId; ?>"><?php echo $category; ?><br />
+	<div class="category">
+		<input type="checkbox" name="cat[]" value="<?php echo $categoryId; ?>">
+		<?php echo $category; ?>
+	</div>
 <?php endforeach; ?>
 
 <div id="send">Senden</div>

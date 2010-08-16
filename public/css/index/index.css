@@ -1,0 +1,22 @@
+.whats-next .header {
+	padding: 10px;
+	background-color: gray;
+	background: url(/img/grey.png) top center  repeat-x;
+	position: relative;
+}
+
+.whats-next .title {
+	font-size: 20px;
+	color: black;
+}
+
+
+.whats-next .postfix {
+	color: red;
+	font-weight: bold;
+	position: absolute;
+	right: 20px;
+	font: 8px;
+}
+
+

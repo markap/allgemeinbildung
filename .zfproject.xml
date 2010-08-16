@@ -60,6 +60,10 @@
           <actionMethod actionName="category"/>
           <actionMethod actionName="categoryresult"/>
         </controllerFile>
+        <controllerFile controllerName="content">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="faq"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -174,6 +178,12 @@
           <viewControllerScriptsDirectory forControllerName="gamelist">
             <viewScriptFile forActionName="categoryresult"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="content">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="content">
+            <viewScriptFile forActionName="faq"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -205,6 +215,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>

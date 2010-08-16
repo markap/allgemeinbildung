@@ -1,0 +1,20 @@
+.category {
+	padding: 10px;
+	font-size: 16px;
+	background-color: green;	
+	background: url(/img/grey.png) top center  repeat-x;
+	width: 200px;
+	margin: 5px;
+	float: left;
+	cursor: pointer;
+}
+
+input {
+	cursor: pointer;
+}
+
+#send {
+	clear: left;
+	padding: 20px;
+	cursor: pointer;
+}

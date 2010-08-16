@@ -14,13 +14,41 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$whatsNext 		= new Model_WhatsNext($this->userId);
 		$linkBuilder	= new Model_WhatsNextLinkBuilder();
-		$next = $whatsNext->getNext();
-		foreach ($next as $key => $result) {
-			$next[$key]['link'] = $linkBuilder->getLink($result);	
-		}	
-		$this->view->next = $next;
+		if ($this->userId === null) {
+				
+				$gameDb = new Model_DbTable_GameList();
+				$games  = $gameDb->getGames(5);
+				foreach ($games as $key => $game) {
+						$games[$key]['link'] 	= $linkBuilder->getGameLink($game['gameid'], 'MC');	
+						$games[$key]['postfix'] 	= ''; 
+						$games[$key]['tooltip'] 	= ''; 
+						$games[$key]['qtype'] 		= null; 
+				
+					
+				}
+				$this->view->next = $games;
+
+		} else {
+
+				$whatsNext 		= new Model_WhatsNext($this->userId);
+				$next = $whatsNext->getNext();
+				foreach ($next as $key => $result) {
+					if ($result['qtype'] !== null) {
+						$next[$key]['link'] 	= $linkBuilder->getLink($result);	
+						$next[$key]['postfix'] 	= $result['result'] . '%  richtig!'; 
+						$date 					= new Zend_Date($result['date']);
+						$next[$key]['tooltip'] 	= Model_Text::get($result['type'])
+													. "\n Zuletzt gespielt am "
+													. $date->toString('dd.MM.yyyy');
+					} else {
+						$next[$key]['link'] 	= $linkBuilder->getGameLink($result['gameid'], 'MC');	
+						$next[$key]['postfix'] 	= 'neu!'; 
+						$next[$key]['tooltip'] 	= 'Diese Game hast du noch nie gespielt!'; 
+					}
+				}	
+				$this->view->next = $next;
+		}
 
     }
 
@@ -100,8 +128,10 @@ class IndexController extends Zend_Controller_Action
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
+		$userSession = new Zend_Session_Namespace('user');
+		unset($userSession->user);
 		$this->_redirect("/");
-}
+	}
 
     public function registersaveAction()
     {
