@@ -70,6 +70,9 @@ class Model_AuthAdapter implements Zend_Auth_Adapter_Interface {
 	 * @return boolean 
 	 */
 	public function isActive() {
+		if (!$this->match) {
+			return false;
+		}
 		$match = $this->match->toArray();
 		return ($match['active'] === 'Y') ? true : false;
 	}

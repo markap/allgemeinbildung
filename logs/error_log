@@ -1631,3 +1631,10 @@
 [Tue Aug 17 13:37:39 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questionIds in /home/www/allgemeinbildung/application/controllers/GameController.php on line 74
 [Tue Aug 17 14:26:33 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_OBJECT_OPERATOR in /home/www/allgemeinbildung/application/controllers/ResultController.php on line 13
 [Tue Aug 17 14:40:07 2010] [error] [client 127.0.0.1] PHP Notice:  Trying to get property of non-object in /home/www/allgemeinbildung/application/controllers/CreatequestionController.php on line 95
+[Tue Aug 17 17:14:33 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/www/allgemeinbildung/application/controllers/IndexController.php on line 130
+[Tue Aug 17 17:14:36 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/www/allgemeinbildung/application/controllers/IndexController.php on line 130
+[Tue Aug 17 17:38:37 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: mail in /home/www/allgemeinbildung/application/controllers/IndexController.php on line 160
+[Tue Aug 17 17:50:34 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/www/allgemeinbildung/application/models/DbTable/User.php on line 36
+[Tue Aug 17 17:51:24 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/www/allgemeinbildung/application/models/AuthAdapter.php on line 73, referer: http://allgemeinbildung.localhost/index/login
+[Tue Aug 17 17:52:30 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/www/allgemeinbildung/application/models/AuthAdapter.php on line 76, referer: http://allgemeinbildung.localhost/index/login
+[Tue Aug 17 17:52:36 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function toArray() on a non-object in /home/www/allgemeinbildung/application/models/AuthAdapter.php on line 76, referer: http://allgemeinbildung.localhost/index/login

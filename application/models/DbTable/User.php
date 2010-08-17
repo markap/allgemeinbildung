@@ -31,12 +31,25 @@ class Model_DbTable_User extends Zend_Db_Table_Abstract {
 		return ($row) ? $row : false;
 	}
 
+	public function getUser($userId) {
+		$where = array('userid = ' . $userId);
+		$user  = $this->fetchRow($where);
+		return ($user) ? $user->toArray() : false;
+	}
+
+	public function activateUser($userId) {
+		$data  = array('active' => 'Y');
+		$where = array('userid = ' . $userId);
+		$this->update($data, $where);
+	}
+
 	
 	/**
 	 * saves the username 
 	 * 
 	 * @author Martin Kapfhammer
 	 * @param array $data the userdata coming from formular
+	 * @return insert id
 	 */
 	public function saveUser(array $data) {
 		$data = array('username' => $data['username'],
@@ -46,6 +59,6 @@ class Model_DbTable_User extends Zend_Db_Table_Abstract {
 					  'role'	 => 'user',
 					  'email'	 => $data['mail']
 					);
-		$this->insert($data);
+		return $this->insert($data);
 	}  
 }

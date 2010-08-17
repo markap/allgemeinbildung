@@ -2,20 +2,20 @@
 
 class IndexController extends Zend_Controller_Action
 {
-	protected $userId = null;
 
+    protected $userId = null;
 
     public function init()
     {
-		$userSession 	    = new Zend_Session_Namespace('user');
+        $userSession 	    = new Zend_Session_Namespace('user');
 		$this->userId	    = isset($userSession->user['userid']) 
-								? $userSession->user['userid'] : null;
+        								? $userSession->user['userid'] : null;
     }
 
     public function indexAction()
     {
-		$linkBuilder	= new Model_WhatsNextLinkBuilder();
-
+        $linkBuilder	= new Model_WhatsNextLinkBuilder();
+        
 		$this->view->randomGameLink =  $linkBuilder->getRandomGameLink('MC');	
 
 		if ($this->userId === null) {
@@ -52,13 +52,11 @@ class IndexController extends Zend_Controller_Action
 				}	
 				$this->view->next = $next;
 		}
-
     }
 
     public function loginAction()
     {
-        //TODO user ist noch nicht freigegeben, neue mail versenden
-		$auth = Zend_Auth::getInstance();	
+        $auth = Zend_Auth::getInstance();	
 		if ($auth->hasIdentity()) {
 			$this->_redirect('/index'); 
 		}
@@ -108,8 +106,8 @@ class IndexController extends Zend_Controller_Action
 				$registerValidator = new Model_RegisterValidator($postValues);
 				if ($registerValidator->isValid()) {
 					$userDb = new Model_DbTable_User();
-					$userDb->saveUser($postValues);
-					$this->sendActivationMail($postValues);
+					$userId = $userDb->saveUser($postValues);
+					$this->sendActivationMail($userId, $postValues);
 					$this->_redirect('/index/registersave'); 
 				} else {
 						
@@ -122,10 +120,20 @@ class IndexController extends Zend_Controller_Action
 		$this->view->form = new Form_Register();
     }
 
-    protected function sendActivationMail(array $data)
+    protected function sendActivationMail($userId, array $data)
     {
-        //create a md5 string 
-		// send mail
+        $md5 = md5($data['username'] + $data['mail'] + '123!');
+        	
+		$content = '<h1>Herlichen Glückwunsch zur Anmeldung auf allgemein-bildung.de</h1>';
+		$content .= 'Um deine Anmeldung zu aktivieren, klicke auf den folgenden Link:';
+		$content .= '<a href="/index/activate/u/' . $userId . '/h/' . $md5 . '">Aktivierungslink</a>';
+
+		$mail = new Zend_Mail();
+		$mail->setBodyText($content);
+		$mail->setFrom('no-replay@allgemein-bildung.de');
+		$mail->setSubject('Anmeldung auf allgemein-bildung.de');
+		$mail->addTo($data['mail'], $data['username']);
+		$mail->send();
     }
 
     public function logoutAction()
@@ -134,15 +142,38 @@ class IndexController extends Zend_Controller_Action
 		$userSession = new Zend_Session_Namespace('user');
 		unset($userSession->user);
 		$this->_redirect("/");
-	}
+    }
 
     public function registersaveAction()
     {
-        // just render view 
+		// just render view
     }
+
+    public function activateAction()
+    {
+		$userId = $this->_getParam('u');
+		$md5	= $this->_getParam('h');
+        
+   		$userDb = new Model_DbTable_User();
+		$data   = $userDb->getUser($userId);
+
+	
+        $md5Hash = md5($data['username'] + $data['email'] + '123!');
+		if ($md5 === $md5Hash && $data['active'] !== 'Y') {
+			$userDb->activateUser($userId);
+			$this->view->result = 'Herlichen Glückwunsch ' . $data['username'] .
+									', dein Account wurde erfolgreich registriert.';
+		} 
+		$this->view->result = 'Aktivierung nicht erfolgreich.';
+
+        
+    }
+		
 
 
 }
+
+
 
 
 

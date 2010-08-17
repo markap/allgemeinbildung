@@ -1,6 +1,8 @@
 <h1>Login</h1>
 
-<?php echo $this->error; ?>
+<?php if ($this->error): ?>
+<div class="error"><?php echo $this->error; ?></div>
+<?php endif; ?>
 
 <?php echo $this->loginForm; ?>
 

@@ -15,6 +15,7 @@
           <actionMethod actionName="register"/>
           <actionMethod actionName="logout"/>
           <actionMethod actionName="registersave"/>
+          <actionMethod actionName="activate"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
         <controllerFile controllerName="question">
@@ -183,6 +184,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="content">
             <viewScriptFile forActionName="faq"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="activate"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

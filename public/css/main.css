@@ -134,11 +134,18 @@ input {
 
 .error {
 	padding: 10px;
-	/*background-color: #de1923;*/
-	text-align: center;
 	margin-bottom: 5px;
+	font-weight: bold;
 	background: url(/img/red.png) top center  repeat-x;
-	display: none;
+}
+
+
+.errorlist  {
+	padding: 10px;
+	background: url(/img/red.png) top center  repeat-x;
+	list-style: none;
+	margin-left: -40px;
+	font-weight: bold;
 }
 
 a:link { color: green; text-decoration:none }
