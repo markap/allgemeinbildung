@@ -70,7 +70,7 @@ input {
 
 
 .result-count-container {
-	width: 130px;
+	width: 160px;
 	height: 100px;
 	background-color: #EFEFEF;
 	text-align: center;
@@ -98,7 +98,7 @@ input {
 }
 
 .result-text {
-	width: 650px;
+	width: 750px;
 	text-align: center;
 	background-color: #EFEFEF;
 	padding: 10px;

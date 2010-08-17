@@ -54,7 +54,8 @@ class Model_DbTable_Answer extends Zend_Db_Table_Abstract {
 					  'answer'	 => $postValues['answer'],
 					  'fake1'	 => $postValues['fake1'],
 					  'fake2'	 => $postValues['fake2'],
-					  'fake3'	 => $postValues['fake3']
+					  'fake3'	 => $postValues['fake3'],
+					  'image'	 => '0'
 					);
 		$this->insert($data);
 	}

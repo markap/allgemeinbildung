@@ -10,7 +10,7 @@
 
 <?php foreach($this->categories as $categoryId => $category): ?>
 	<div class="category">
-		<input type="checkbox" name="cat[]" value="<?php echo $categoryId; ?>">
+		<input type="checkbox" name="cat[]" class="cb" value="<?php echo $categoryId; ?>">
 		<?php echo $category; ?>
 	</div>
 <?php endforeach; ?>

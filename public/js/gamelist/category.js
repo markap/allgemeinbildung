@@ -17,4 +17,5 @@ $(document).ready(function() {
 		var check = $(this).children("input[type=checkbox]").attr('checked');
 		$(this).children("input[type=checkbox]").attr('checked', !check);
 	});
+
 });
