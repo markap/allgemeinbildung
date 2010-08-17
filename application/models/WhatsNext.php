@@ -24,18 +24,12 @@ class Model_WhatsNext {
 		$this->userId = $userId;
 		$this->getResults();
 		$this->removeDoubleResults();
-		$this->getUnplayedGames();
 	}
 
 	protected function getResults() {
 		$this->result = $this->resultDb->getGames($this->userId);
 	}
 	
-	protected function getUnplayedGames() {
-		$resultCnt = count($this->result);
-		$unplayedCnt = ($resultCnt <= 10) ? 10 : 5;
-		//$games = $this->resultDb->getUnplayedGames($this->userId, $unplayedCnt);
-	}
 
 	protected function removeDoubleResults() {
 		$unsetIds = array();

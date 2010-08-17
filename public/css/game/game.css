@@ -13,12 +13,14 @@ input {
 	font-weight: bold;
 }
 
+
 #textfield {
 	padding: 20px;
 }
 
 #game #countdown {
 	float: left;
+	margin-right: 5px;
 }
 
 #game #result {
@@ -52,9 +54,12 @@ input {
 }
 
 #next {
-	height: 100px;
+	position: absolute;
+	height: 150px;
 	width: 100px;
-	border: 1px solid red;
+	top: 110px;
+	right: 10px;	
+	cursor: pointer;
 }
 
 
@@ -115,4 +120,29 @@ input {
 	background-color: #D82023;
 	text-align: center;
 	margin-bottom: 5px;
+}
+
+.answer {
+	width: 360px;
+	height: 35px;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+#send_answer {
+	position: absolute;
+	top: 265px;
+	width: 180px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#hint {
+	position: absolute;
+	top: 305px;
+	left: 90px;
+}
+
+#answer_score {
+	position: relative;
 }

@@ -18,21 +18,21 @@
 
 
 			<div id="answer_score">
-			<img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
+			<img height="260px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
 			<div>
 			<div style="width: 60px;" id="countdown"></div>
 
 			<?php if ($this->answers !== 'nochoice'): ?>
-				<span id="<?php echo $this->answers[0]; ?>" class="answer" ><?php echo $this->answers[1]; ?></span>
-				<span id="<?php echo $this->answers[2]; ?>" class="answer" ><?php echo $this->answers[3]; ?></span>
-				<span id="<?php echo $this->answers[4]; ?>" class="answer" ><?php echo $this->answers[5]; ?></span>
-				<span id="<?php echo $this->answers[6]; ?>" class="answer" ><?php echo $this->answers[7]; ?></span>
+				<input type="button" id="<?php echo $this->answers[0]; ?>" class="answer" value="<?php echo $this->answers[1]; ?>" />
+				<input type="button" id="<?php echo $this->answers[2]; ?>" class="answer" value="<?php echo $this->answers[3]; ?>" />
+				<input type="button" id="<?php echo $this->answers[4]; ?>" class="answer" value="<?php echo $this->answers[5]; ?>" />
+				<input type="button" id="<?php echo $this->answers[6]; ?>" class="answer" value="<?php echo $this->answers[7]; ?>" />
 			<?php else: ?>
 				<span id="textfield"><input type="text" id="input_answer" /></span>
 				<?php if ($this->question['hint']): ?>
-					<span>Eingabehilfe: <?php echo $this->question['hint']; ?></span>
+					<span id="hint">Eingabehilfe: <?php echo $this->question['hint']; ?></span>
 				<?php endif; ?>
-				<span id="send_answer">Beantworten</span>
+				<input type="button" id="send_answer" value="Beantworten" />
 			<?php endif; ?>
 			<br/>
 			<br/>

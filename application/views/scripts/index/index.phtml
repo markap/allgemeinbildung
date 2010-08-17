@@ -2,16 +2,36 @@
 
 <p>Text</p>
 
-<a href="<?php echo $this->randomGameLink; ?>"><div class="random">Zufallsgame</div></a>
+<div class="random">Zufallsgame
+	<span class="postfix">
+	<input type="button" value="MC" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $this->randomMCLink; ?>');"/>
+	<input type="button" value="TXT" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $this->randomTXTLink; ?>');"/>
+	</span>
+</div>
 
 <h2>Vorschläge</h2>
 
 <?php foreach ($this->next as $result): ?>
 	
-	<a href="<?php echo $result['link']; ?>">
-	<div title="<?php echo $result['tooltip']; ?>" class="whats-next">
-		<div class="header"><span class="title"><?php echo $result['name']; ?></span>
-			<span class="postfix"><?php echo $result['postfix']; ?></span></div>
-	</div>
-	</a>
+		<?php if ($result['qtype'] !== null): ?>
+			<a href="<?php echo $result['link']; ?>">
+			<div title="<?php echo $result['tooltip']; ?>" class="whats-next">
+				<div class="header"><span class="title"><?php echo $result['name']; ?></span>
+					<span class="postfix"><?php echo $result['postfix']; ?></span>
+			</div>
+			</div>
+			</a>
+		<?php else: ?>
+
+		<div title="<?php echo $result['tooltip']; ?>" class="whats-next">
+				<div class="header"><span class="title"><?php echo $result['name']; ?></span>
+					<span class="postfix">
+						<input type="button" value="MC" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $result['linkMC']; ?>');"/>
+						<input type="button" value="TXT" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $result['linkTXT']; ?>');"/>
+						<?php echo $result['postfix']; ?></span>
+			</div>
+			</div>
+
+		<?php endif; ?>
+
 <?php endforeach; ?>

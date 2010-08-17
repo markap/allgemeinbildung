@@ -16,7 +16,8 @@ class IndexController extends Zend_Controller_Action
     {
         $linkBuilder	= new Model_WhatsNextLinkBuilder();
         
-		$this->view->randomGameLink =  $linkBuilder->getRandomGameLink('MC');	
+		$this->view->randomMCLink  =  $linkBuilder->getRandomGameLink('MC');	
+		$this->view->randomTXTLink =  $linkBuilder->getRandomGameLink('TXT');	
 
 		if ($this->userId === null) {
 				
@@ -45,7 +46,8 @@ class IndexController extends Zend_Controller_Action
 													. "\n Zuletzt gespielt am "
 													. $date->toString('dd.MM.yyyy');
 					} else {
-						$next[$key]['link'] 	= $linkBuilder->getGameLink($result['gameid'], 'MC');	
+						$next[$key]['linkMC'] 	= $linkBuilder->getGameLink($result['gameid'], 'MC');	
+						$next[$key]['linkTXT'] 	= $linkBuilder->getGameLink($result['gameid'], 'TXT');	
 						$next[$key]['postfix'] 	= 'neu!'; 
 						$next[$key]['tooltip'] 	= 'Diese Game hast du noch nie gespielt!'; 
 					}

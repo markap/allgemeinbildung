@@ -1,3 +1,7 @@
+.whats-next {
+	padding: 3px;
+}
+
 .whats-next .header {
 	padding: 10px;
 	background-color: gray;
@@ -11,7 +15,7 @@
 }
 
 
-.whats-next .postfix {
+.postfix {
 	color: red;
 	font-weight: bold;
 	position: absolute;
@@ -27,4 +31,11 @@
 	color: black;
 	background: url(/img/grey.png) top center  repeat-x;
 	font-size: 20px;
+	position: relative;
+}
+
+.qtypeButton {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
 }
