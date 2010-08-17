@@ -10,7 +10,9 @@ class ResultController extends Zend_Controller_Action
 
     public function init()
     {
-        //TODO must be logged
+		if (!Zend_Auth::getInstance()->hasIdentity()) {
+			$this->_redirect('/index');
+		}
 		$userSession  = new Zend_Session_Namespace('user');
 		$userData     = $userSession->user;
 		$this->userId = $userData['userid'];

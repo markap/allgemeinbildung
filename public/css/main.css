@@ -23,7 +23,7 @@
 #header ul {
   position: absolute;
   left: 200px;
-  top: 42px;;
+  top: 43px;;
 }
 
 
@@ -86,7 +86,7 @@
 }
 
 body {
-	font-family: 'Verdana';
+	font-family: arial, sans-serif;;
 }
 
 h1 {

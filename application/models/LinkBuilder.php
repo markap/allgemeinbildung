@@ -28,6 +28,17 @@ class Model_LinkBuilder {
 	}
 
 
+	public function getRandomGameLink($questionType) {
+		return "/game/index/play/" 
+				. md5('nextgame!') 
+				."/ra/" 
+				. md5('random!') 
+				. "/qtyp/". $questionType 
+				. "/sh/1";
+	}
+
+
+
 	public function getLGLink($gameId, $questionType) {
  		return "/game/index/play/" 
 				. md5('nextgame!') 

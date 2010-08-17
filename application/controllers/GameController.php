@@ -19,10 +19,6 @@ class GameController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		$questionIds = array(array('id' => 48, 'type' => 'mc'),
-							 array('id' => 41, 'type' => 'txt'),
-							 array('id' => 41, 'type' => 'mc'),
-							3,4);
 
 		// get game ids
 		if ($this->isNewGame() === true) {
@@ -75,7 +71,10 @@ class GameController extends Zend_Controller_Action
 			}
 		}
 
-		//TODO if questionids = null, show error
+		if (!isset($questionIds) || $this->isRandomGame()) {
+			$questionDb  = new Model_DbTable_Question();
+			$questionIds = $questionDb->getRandomQuestionIds();
+		} 
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
@@ -172,6 +171,10 @@ class GameController extends Zend_Controller_Action
 		return ($this->isGame() || $this->getRequest()->has('qtyp'));
 	}
 
+	protected function isRandomGame() {
+		return ($this->isGame() && $this->_getParam('ra') === md5('random!'));
+	}
+
 	protected function saveGame(Model_Score $score, $questionType) {
 		$gameResultDb = new Model_DbTable_GameResult();
 		$gameId = $this->gameSession->gameId;
@@ -211,10 +214,15 @@ class GameController extends Zend_Controller_Action
 			$game = $this->gameSession->game;
 			$question = $game->getQuestion();
 			$this->view->isAnswerRight = $game->checkAnswer($selectedAnswerHash);
+
 			$this->view->image	  = $question->getAnswerImage();
 			$this->view->myAnswer = $question->getAnswer($selectedAnswerHash);
 			$this->view->rightAnswer = $question->getRightAnswer(); 
 
+			$this->view->numberOfQuestions = 
+						$game->getNumberOfQuestions();
+			$this->view->currentNumberOfQuestions = 
+						$game->getCurrentNumberOfQuestions() - 1;
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
 			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
 			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
@@ -265,6 +273,10 @@ class GameController extends Zend_Controller_Action
 			$this->view->rightAnswer = $question->getRightAnswer();
 			$this->view->image	  	 = $question->getAnswerImage();
 
+			$this->view->numberOfQuestions = 
+						$game->getNumberOfQuestions();
+			$this->view->currentNumberOfQuestions = 
+						$game->getCurrentNumberOfQuestions() - 1;
 			$game->getScore()->addWrongAnswer($question);
 			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
 			$this->view->rightAnswers = $game->getScore()->getRightAnswers();

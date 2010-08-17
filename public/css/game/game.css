@@ -33,6 +33,7 @@ input {
 	padding: 10px;
 	/*background-color: #de1923;*/
 	text-align: center;
+	display: block;
 	margin-bottom: 5px;
 	background: url(/img/red.png) top center  repeat-x;
 }

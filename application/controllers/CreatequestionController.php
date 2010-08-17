@@ -14,9 +14,14 @@ class CreatequestionController extends Zend_Controller_Action
 		if (!Zend_Auth::getInstance()->hasIdentity()) {
 			$this->_redirect('/index/login');
 		}
+
         $this->userSession = new Zend_Session_Namespace('user');
 		$this->userId	   = isset($this->userSession->user['userid']) 
 								? $this->userSession->user['userid'] : null;
+
+		if (!$this->isManager()) {
+			$this->_redirect('/index');
+		}
 		$this->questionDb  = new Model_DbTable_Question();
 		$this->answerDb    = new Model_DbTable_Answer();
 		$this->hasCategoryDb = new Model_DbTable_HasCategory();
@@ -63,7 +68,7 @@ class CreatequestionController extends Zend_Controller_Action
         $questionId = ($this->_getParam('question')) ? $this->_getParam('question') : -1;
 
 		if (!$this->allowEditByAuthor($questionId) && !$this->isManager()) {
-			$this->redirect('/createquestion');
+			$this->_redirect('/createquestion');
 		}
 				
 		$questionIds = array(array('id' => $questionId, 'type' => 'mc'),

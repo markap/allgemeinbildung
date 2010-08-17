@@ -9,6 +9,6 @@
 class Model_ControllerDeprecated {
 
 	public static function redirectToIndex(Zend_Controller_Action $ctr) {
-		$ctr->_redirect('/index');
+		$ctr->getHelper('redirector')->gotoUrl('/index', array());
 	}
 }

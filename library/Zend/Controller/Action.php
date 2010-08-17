@@ -685,4 +685,5 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
     {
         $this->_helper->redirector->gotoUrl($url, $options);
     }
+
 }

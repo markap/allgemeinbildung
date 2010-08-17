@@ -10,8 +10,11 @@
 <?php endif; ?>
 
 <div id="result">
-Fragen: <?php echo $this->playedQuestions; ?>
- Richtig: <?php echo $this->rightAnswers; ?>
- Falsch: <?php echo $this->wrongAnswers; ?>
+
+	Insgesamt: <?php echo $this->numberOfQuestions; ?> | 
+	Noch übrig: <?php echo $this->currentNumberOfQuestions; ?> | 
+	Beantwortet: <?php echo $this->playedQuestions; ?> | 
+ 	Richtig: <?php echo $this->rightAnswers; ?>
+ 	Falsch: <?php echo $this->wrongAnswers; ?>
 </div>
 

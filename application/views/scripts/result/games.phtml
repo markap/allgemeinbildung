@@ -7,28 +7,50 @@
 
 <?php if (!empty($this->gameList)): ?>
 <?php foreach($this->gameList as $game): ?>
-	<div class="head"><?php echo $game['name']; ?>
+	<div class="head">
+		<span class="title"><?php echo $game['name']; ?></span>
+		<?php if($game['existResult']): ?>
+			<span class="postfix">Ergebnis!</span>
+		<?php endif; ?>
 	</div>
 	<div class="content">
-	<b>Fragen: <?php echo $game['numberOfQuestions']; ?></b><br/>
-	<b>Kategorien</b><br/>
+	<div class="question-count-container"><div class="question-count"><?php echo $game['numberOfQuestions']; ?></div>Fragen</div>
+	<div class="text-container"><b>Kategorien</b><br/>
 	<?php foreach($game['cat'] as $cat): ?>
-		<?php echo $cat['name']; ?><br/>
-	<?php endforeach; ?>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/mc/sh/1">
+		<?php echo $cat; ?><br/>
+	<?php endforeach; ?></div>
+	<div class="text-container">
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($game['gameid'], 'mc'); ?>">
 		Multiple Choice
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/qtyp/txt/sh/1">
+	<br />
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($game['gameid'], 'txt'); ?>">
 		Direkteingabe
 	</a>
-	<a href="/game/index/play/<?php echo md5('nextgame!'); ?>/g/<?php echo $game['gameid']; ?>/tl/<?php echo md5('toLearn!'); ?>/qtyp/txt/">
-		Lernen
+	<br />
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($game['gameid'], 'mc'); ?>">
+		Lernen MC
 	</a>
+	<br />
+	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($game['gameid'], 'txt'); ?>">
+		Lernen TXT
+	</a>
+	<br />
+	</div>
+	<div>
 	<?php if($game['existResult']): ?>
-		<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Bisherige Ergebnisse</a>
+		<div class="result-count-container"><div class="result-count"><?php echo $game['lastResult']['result']; ?>%</div>Richtig</div>
+		<div class="text-container">
+			<b>Letztes Ergebnis</b>
+			<br />
+			Richtig: <?php echo Model_String::countValues($game['lastResult']['rightids']); ?><br />
+			Falsch: <?php echo Model_String::countValues($game['lastResult']['wrongids']); ?><br /> 
+			<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Alle Ergebnisse</a>
+		</div>
 	<?php endif; ?>
 	</div>
-<?php endforeach; ?>
+	</div>
+	<?php endforeach; ?>
 <?php else: ?>
 <p>Noch nichts gespielt</p>
 <?php endif; ?>

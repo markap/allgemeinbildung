@@ -6,9 +6,10 @@
 <h1>Games für deine Kategorien</h1>
 
 <?php foreach($this->gameList as $game): ?>
-	<div class="head"><?php echo $game['name']; ?>
+	<div class="head">
+		<span class="title"><?php echo $game['name']; ?></span>
 		<?php if($game['existResult']): ?>
-			Ergebnisse vorhanden
+			<span class="postfix">Ergebnis!</span>
 		<?php endif; ?>
 	</div>
 	<div class="content">

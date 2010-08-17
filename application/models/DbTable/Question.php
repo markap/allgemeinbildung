@@ -91,6 +91,19 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 
 	}
 
+
+	public function getRandomQuestionIds() {
+		$orderBy = array('RAND()');	
+		$limit   = 15;
+		$questions 		= $this->fetchAll(1, $orderBy, $limit)->toArray();
+		$questionIds   	= array();
+		foreach ($questions as $question) {
+			$questionIds[] = $question['questionid'];
+		}
+		return $questionIds;
+	}
+
+
 	public function findImages($searchTerm) {
 		$stmt = $this->select();
 		$stmt->distinct()

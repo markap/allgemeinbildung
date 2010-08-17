@@ -15,6 +15,9 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
 		$linkBuilder	= new Model_WhatsNextLinkBuilder();
+
+		$this->view->randomGameLink =  $linkBuilder->getRandomGameLink('MC');	
+
 		if ($this->userId === null) {
 				
 				$gameDb = new Model_DbTable_GameList();

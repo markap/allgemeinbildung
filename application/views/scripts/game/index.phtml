@@ -9,8 +9,6 @@
 <?php if ($this->questionNotFound !== true): ?>	
 
 	<div id="game">
-			Insgesamt: <?php echo $this->numberOfQuestions; ?>
-			Left : <?php echo $this->currentNumberOfQuestions; ?>
 			<h1><?php echo $this->question['question']; ?></h1>
 			<?php //echo $this->question['level']; ?>
 
@@ -39,17 +37,14 @@
 			<br/>
 			<br/>
 			<div id="result">
-			Fragen: <?php echo $this->playedQuestions; ?>
-			Richtig: <?php echo $this->rightAnswers; ?>
-			Falsch: <?php echo $this->wrongAnswers; ?>
+			Insgesamt: <?php echo $this->numberOfQuestions; ?> | 
+			Noch übrig: <?php echo $this->currentNumberOfQuestions; ?> | 
+			Beantwortet: <?php echo $this->playedQuestions; ?> | 
+			Richtig: <?php echo $this->rightAnswers; ?> | 
+			Falsch: <?php echo $this->wrongAnswers; ?> 
 			</div>
 			</div>
 			</div>
-			<?php if(Zend_Auth::getInstance()->hasIdentity()): ?>
-				<span class="addToGame" id="<?php echo $this->question['questionid']; ?>">
-					Zu eigenem Game hinzufügen
-				</span>	
-			<?php endif; ?>
 			<?php if($this->role === 'manager'): ?>
 				<a href="/createquestion/editquestion/question/<?php echo $this->question['questionid']; ?>" target="_blank">Frage bearbeiten</a>
 			<?php endif; ?>
@@ -63,10 +58,4 @@
 <?php endif; ?>
 
 
-<div id="gameAdder" style="display: none;"> 
-<h1>Zu eigenem Game hinzufügen</h1> 
-<span id="addResult"></span>
-<?php echo $this->addToGameForm; ?>
-<span id="saveAdding">Hinzufügen</span>
-</div>
 
