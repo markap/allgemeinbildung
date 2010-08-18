@@ -122,20 +122,21 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$where = 'gr.userid = ' . $userId . ' AND 
 					gr.type IN ("LG", "PW", "PN", "PT", "PL")';
 					
-		$sqlMustPlay = 'select gl.gameid, gl.name, gl.qtype, gr.date, gr.type, gr.result
+		$sqlMustPlay = 'select gl.gameid, gl.name, gl.qtype, gr.date, gr.type, gr.result, gr.resultid
 					from gameResult gr, gameList gl 
 					where gr.gameid = gl.gameid AND ' . $where
-					. ' order by gr.date asc, gr.resultid asc';
+					. ' order by gr.date desc, gr.resultid desc';
 
-		$sqlNotPlayed = 'select gameid, name, null as qtype, null as date, null as type, null as result
+		$sqlNotPlayed = 'select gameid, name, null as qtype, null as date, null as type, null as result, null as resultid
 					from gameList
 					where gameid NOT IN (
 						select gameid
 						from gameResult
 						where userid = ' . $userId . ')
+					order by rand()
 					limit 5';
 
-		$sql = '(' . $sqlMustPlay . ') union (' . $sqlNotPlayed . ') order by rand()';
+		$sql = '(' . $sqlMustPlay . ') union (' . $sqlNotPlayed . ') order by date desc, resultid desc';
 
 		$stmt = $db->query($sql);
 					

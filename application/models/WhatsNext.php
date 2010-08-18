@@ -25,6 +25,7 @@ class Model_WhatsNext {
 		$this->getResults();
 		$this->removeDoubleResults();
 		$this->removeOutOfTimeResults();
+		$this->shuffleResults();
 	}
 
 	protected function getResults() {
@@ -33,20 +34,19 @@ class Model_WhatsNext {
 	
 
 	protected function removeDoubleResults() {
-		$unsetIds = array();
-		for ($i = 0; $i < count($this->result); $i++) {
+		$newResult 	= $this->result;
+		$length		= count($this->result);
+		for ($i = 0; $i < $length; $i++) {
 			$j = $i + 1;
 			$result = $this->result[$i];
-			for ($j; $j < count($this->result); $j++) {
+			for ($j; $j < $length; $j++) {
 				$resultToCompare = $this->result[$j];	
 				if ($result['gameid'] === $resultToCompare['gameid']) {
-					$unsetIds[] = $j;
+					unset($newResult[$j]);
 				}
 			}
 		}
-		foreach ($unsetIds as $unsetId) {
-			unset($this->result[$unsetId]);
-		}
+		$this->result = $newResult;
 	}
 
 	protected function removeOutOfTimeResults() {
@@ -84,6 +84,10 @@ class Model_WhatsNext {
 			}
 		}
 		$this->result = $newResult;
+	}
+
+	public function shuffleResults() {
+		shuffle($this->result);
 	}
 
 	public function getNext() {

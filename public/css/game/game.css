@@ -107,7 +107,7 @@ input {
 
 
 .trend-positive {
-	width: 650px;
+	width: 750px;
 	padding: 10px;
 	background-color: #1FE464;
 	text-align: center;
@@ -115,7 +115,7 @@ input {
 }
 
 .trend-negative {
-	width: 650px;
+	width: 750px;
 	padding: 10px;
 	background-color: #D82023;
 	text-align: center;

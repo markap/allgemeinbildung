@@ -1946,3 +1946,23 @@
 [Wed Aug 18 21:21:40 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 30, referer: http://allgemeinbildung.localhost/css/main.css
 [Wed Aug 18 21:21:40 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 29, referer: http://allgemeinbildung.localhost/css/main.css
 [Wed Aug 18 21:21:40 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 30, referer: http://allgemeinbildung.localhost/css/main.css
+[Wed Aug 18 22:29:53 2010] [error] [client 127.0.0.1] modify_answer|baden-w\xc3\xbcrttemberg|Baden-W\xc3\xbcrttemberg|badenwuerttemberg|badenwuerttemberg, referer: http://allgemeinbildung.localhost/game/index/play/245b60f18afba699488a1b9fc62500b7/g/2/qtyp/txt/sh/1
+[Wed Aug 18 22:30:03 2010] [error] [client 127.0.0.1] modify_answer|hessen|Hessen|hessen|hessen, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:30:16 2010] [error] [client 127.0.0.1] modify_answer|nordrhein-westfalen|Nordrhein Westfalen|nordrheinwestfalen|nordrheinwestfalen, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:30:26 2010] [error] [client 127.0.0.1] modify_answer|mecklenburg vorpommern|Mecklenburg-Vorpommern|mecklenburgvorpommern|mecklenburgvorpommern, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:30:32 2010] [error] [client 127.0.0.1] modify_answer|sachsen anhalt|Sachsen Anhalt|sachsenanhalt|sachsenanhalt, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:30:51 2010] [error] [client 127.0.0.1] modify_answer|brandenburg|Brandenburg|brandenburg|brandenburg, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:30:57 2010] [error] [client 127.0.0.1] modify_answer|sachsen|Sachsen|sachsen|sachsen, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:03 2010] [error] [client 127.0.0.1] modify_answer|th\xc3\xbcringen|Th\xc3\xbcringen|thueringen|thueringen, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:11 2010] [error] [client 127.0.0.1] modify_answer|bremen|Bremen|bremen|bremen, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:20 2010] [error] [client 127.0.0.1] modify_answer|rheinland pfalz|Rheinland Pfalz|rheinlandpfalz|rheinlandpfalz, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:34 2010] [error] [client 127.0.0.1] modify_answer|schleswig holstein|Schleswig-Holstein|schleswigholstein|schleswigholstein, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:41 2010] [error] [client 127.0.0.1] modify_answer|berlin|Berlin|berlin|berlin, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:48 2010] [error] [client 127.0.0.1] modify_answer|hamburg|Hamburg|hamburg|hamburg, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:31:55 2010] [error] [client 127.0.0.1] modify_answer|saarland|Saarland|saarland|saarland, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:32:08 2010] [error] [client 127.0.0.1] modify_answer|niedersachsen|Niedersachsen|niedersachsen|niedersachsen, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:32:14 2010] [error] [client 127.0.0.1] modify_answer|bayern|Bayern|bayern|bayern, referer: http://allgemeinbildung.localhost/game
+[Wed Aug 18 22:39:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: sqlNotPlay in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 140, referer: http://allgemeinbildung.localhost/
+[Wed Aug 18 22:39:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: sqlNotPlay in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 140, referer: http://allgemeinbildung.localhost/
+[Wed Aug 18 22:39:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: sqlNotPlay in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 140, referer: http://allgemeinbildung.localhost/
+[Wed Aug 18 22:39:37 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: sqlNotPlay in /home/www/allgemeinbildung/application/models/DbTable/GameResult.php on line 140, referer: http://allgemeinbildung.localhost/css/main.css
