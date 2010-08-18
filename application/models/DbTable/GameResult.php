@@ -120,19 +120,12 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$db = $this->getAdapter();
 
 		$where = 'gr.userid = ' . $userId . ' AND 
-					DATE_ADD(gr.date, INTERVAL 3 DAY) <= CURDATE() AND
-					DATE_ADD(gr.date, INTERVAL 3 MONTH) >= CURDATE() AND
-					gr.type IN ("LG", "PW", "PN", "PT")';
+					gr.type IN ("LG", "PW", "PN", "PT", "PL")';
 					
-		$orWhere = 'gr.userid = ' . $userId . ' AND 
-					DATE_ADD(gr.date, INTERVAL 2 MONTH) <= CURDATE() AND
-					DATE_ADD(gr.date, INTERVAL 4 MONTH) >= CURDATE() AND
-					gr.type = "PL"';
-
 		$sqlMustPlay = 'select gl.gameid, gl.name, gl.qtype, gr.date, gr.type, gr.result
 					from gameResult gr, gameList gl 
-					where gr.gameid = gl.gameid AND (' . $where
-					. ' OR  ' . $orWhere . ')';
+					where gr.gameid = gl.gameid AND ' . $where
+					. ' order by gr.date asc, gr.resultid asc';
 
 		$sqlNotPlayed = 'select gameid, name, null as qtype, null as date, null as type, null as result
 					from gameList

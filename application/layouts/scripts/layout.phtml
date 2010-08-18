@@ -26,6 +26,9 @@
 					<li><a href="/gamelist">Gameliste</a></li>
 					<li><a href="/gamelist/category">Kategorien</a></li>
 					<li><a href="/content/faq">FAQ</a></li>
+					<?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+					<li><a href="/result/games">Ergebnisse</a></li>
+					<?php endif; ?>
 				</ul>
 		</div>
 
