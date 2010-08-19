@@ -152,3 +152,15 @@ a:link { color: green; text-decoration:none }
 a:visited { color: green; text-decoration:none }
 a:active { color: green; text-decoration:none }
 a:hover {color:green; text-decoration:underline}
+
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+	opacity: 0.9;
+}
+#tooltip h3, #tooltip div { margin: 0; }

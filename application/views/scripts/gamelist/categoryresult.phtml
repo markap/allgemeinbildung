@@ -5,48 +5,4 @@
 
 <h1>Games für deine Kategorien</h1>
 
-<?php foreach($this->gameList as $game): ?>
-	<div class="head">
-		<span class="title"><?php echo $game['name']; ?></span>
-		<?php if($game['existResult']): ?>
-			<span class="postfix">Ergebnis!</span>
-		<?php endif; ?>
-	</div>
-	<div class="content">
-	<div class="question-count-container"><div class="question-count"><?php echo $game['numberOfQuestions']; ?></div>Fragen</div>
-	<div class="text-container"><b>Kategorien</b><br/>
-	<?php foreach($game['cat'] as $cat): ?>
-		<?php echo $cat; ?><br/>
-	<?php endforeach; ?></div>
-	<div class="text-container">
-	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($game['gameid'], 'mc'); ?>">
-		Multiple Choice
-	</a>
-	<br />
-	<a href="<?php echo Model_LinkBuilder::getInstance()->getGameLink($game['gameid'], 'txt'); ?>">
-		Direkteingabe
-	</a>
-	<br />
-	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($game['gameid'], 'mc'); ?>">
-		Lernen MC
-	</a>
-	<br />
-	<a href="<?php echo Model_LinkBuilder::getInstance()->getLGLink($game['gameid'], 'txt'); ?>">
-		Lernen TXT
-	</a>
-	<br />
-	</div>
-	<div>
-	<?php if($game['existResult']): ?>
-		<div class="result-count-container"><div class="result-count"><?php echo $game['lastResult']['result']; ?>%</div>Richtig</div>
-		<div class="text-container">
-			<b>Letztes Ergebnis</b>
-			<br />
-			Richtig: <?php echo Model_String::countValues($game['lastResult']['rightids']); ?><br />
-			Falsch: <?php echo Model_String::countValues($game['lastResult']['wrongids']); ?><br /> 
-			<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Alle Ergebnisse</a>
-		</div>
-	<?php endif; ?>
-	</div>
-	</div>
-<?php endforeach; ?>
+<?php echo $this->render('gamelist.phtml');
