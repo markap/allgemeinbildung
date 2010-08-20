@@ -39,3 +39,23 @@
 	height: 35px;
 	cursor: pointer;
 }
+
+
+#start-info {
+	border: 3px solid gray;
+	background-color: #06E005;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+#start-info p {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#start-info span {
+	padding-left: 600px;
+	font-size: 12px;
+	font-style: italic;
+}

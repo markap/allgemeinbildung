@@ -2244,3 +2244,104 @@
 [Thu Aug 19 19:46:03 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 30, referer: http://allgemeinbildung.localhost/css/main.css
 [Thu Aug 19 19:48:57 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected '<' in /home/www/allgemeinbildung/application/views/scripts/result/games.phtml on line 10, referer: http://allgemeinbildung.localhost/gamelist/categoryresult
 [Thu Aug 19 19:51:58 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/www/allgemeinbildung/application/views/scripts/gamelist.phtml on line 40, referer: http://allgemeinbildung.localhost/
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:06 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:07 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Thu Aug 19 21:03:12 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 21:03:36 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Thu Aug 19 22:04:04 2010] [error] [client 127.0.0.1] question not found|241|question, referer: http://allgemeinbildung.localhost/gamelist
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:08 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:09 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:10 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35
+[Fri Aug 20 16:38:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkMC in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 35, referer: http://allgemeinbildung.localhost/css/main.css
+[Fri Aug 20 16:40:13 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index: linkTXT in /home/www/allgemeinbildung/application/views/scripts/index/index.phtml on line 36, referer: http://allgemeinbildung.localhost/css/main.css
