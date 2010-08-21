@@ -126,14 +126,14 @@ class GameController extends Zend_Controller_Action
 			$questionType  = $game->getQuestionType();
 			$score->setResultCreator(new Model_ResultCreator($score, $questionType));
 			if (Zend_Auth::getInstance()->hasIdentity() && $this->gameSession->gameId !== null) { // user played game -> save it
-				if ($game::TYPE === 'GAME') {
+				if ($game->getGameType() === 'GAME') {
 					$this->saveGame($score, $questionType); 
-				} else if ($game::TYPE === 'LEARNGAME') {
+				} else if ($game->getGameType() === 'LEARNGAME') {
 					$this->updateGameResult($questionType);
 				}
 			}
 			$score->setGameId($this->gameSession->gameId);
-			$score->setGameType($game::TYPE);
+			$score->setGameType($game->getGameType());
 			$this->gameSession->result = $score;
 			$this->gameSession->game   = null;
 			$this->gameSession->waitForAnswer = false;

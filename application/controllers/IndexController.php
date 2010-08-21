@@ -24,7 +24,8 @@ class IndexController extends Zend_Controller_Action
 				$gameDb = new Model_DbTable_GameList();
 				$games  = $gameDb->getGames(5);
 				foreach ($games as $key => $game) {
-						$games[$key]['link'] 	= $linkBuilder->getGameLink($game['gameid'], 'MC');	
+						$games[$key]['linkMC'] 	= $linkBuilder->getGameLink($game['gameid'], 'MC');	
+						$games[$key]['linkTXT'] 	= $linkBuilder->getGameLink($game['gameid'], 'TXT');	
 						$games[$key]['postfix'] 	= ''; 
 						$games[$key]['tooltip'] 	= ''; 
 						$games[$key]['qtype'] 		= null; 

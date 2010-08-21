@@ -8,10 +8,6 @@
  */
 class Model_Question {
 
-	/**
-	 * @var string
-	 */
-	const TYPE = 'mc';
 
 	/**
 	 * question array with the data from db
@@ -215,7 +211,7 @@ class Model_Question {
 	 * @return string self::TYPE
 	 */
 	public function getQuestionType() {
-		return static::TYPE;
+		return 'mc'; 
 	}
 
 	

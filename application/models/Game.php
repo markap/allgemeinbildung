@@ -40,10 +40,6 @@ class Model_Game {
 	 */
 	protected $numberOfQuestions;
 
-	/**
- 	 * @var string
-	 */
-	const TYPE = 'GAME';
 
 
 	/**
@@ -203,5 +199,10 @@ class Model_Game {
 	 */
 	public function getCurrentNumberOfQuestions() {
 		return count($this->questionIds)+1;
+	}
+
+
+	public function getGameType() {
+		return 'GAME';
 	}
 }

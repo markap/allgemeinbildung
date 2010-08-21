@@ -23,11 +23,6 @@ class Model_LearnGame extends Model_Game {
 	 */
 	protected $wrongQuestionIds  = array();
 
-	/**
-	 * @var string
-	 */
-	const TYPE = 'LEARNGAME';
-
 
 	/**
 	 * constructor
@@ -103,5 +98,9 @@ class Model_LearnGame extends Model_Game {
 		$number += count($this->copiedQuestionIds);
 		$number += count($this->wrongQuestionIds);
 		return $number+1;
+	}
+
+	public function getGameType() {
+		return 'LEARNGAME';
 	}
 }

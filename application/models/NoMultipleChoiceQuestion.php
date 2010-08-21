@@ -7,11 +7,6 @@
  */
 class Model_NoMultipleChoiceQuestion extends Model_Question {
 
-	/**
- 	 * @var string
-	 */
-	const TYPE = 'txt';	
-
 
 	/**
 	 * returns no choice instead of an array with answers
@@ -80,4 +75,16 @@ class Model_NoMultipleChoiceQuestion extends Model_Question {
 	public function getAnswer($answerString) {
 		return $answerString;
 	}
+
+
+	/**
+	 * returns the type of the question
+	 *
+	 * @author Martin Kapfhammer
+	 * @return string self::TYPE
+	 */
+	public function getQuestionType() {
+		return 'txt'; 
+	}
+
 }
