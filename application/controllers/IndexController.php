@@ -166,8 +166,9 @@ class IndexController extends Zend_Controller_Action
 			$userDb->activateUser($userId);
 			$this->view->result = 'Herlichen Glückwunsch ' . $data['username'] .
 									', dein Account wurde erfolgreich registriert.';
-		} 
-		$this->view->result = 'Aktivierung nicht erfolgreich.';
+		} else {
+			$this->view->result = 'Aktivierung nicht erfolgreich.';
+		}
 
         
     }
