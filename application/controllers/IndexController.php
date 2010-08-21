@@ -129,11 +129,11 @@ class IndexController extends Zend_Controller_Action
         	
 		$content = '<h1>Herlichen Glückwunsch zur Anmeldung auf allgemein-bildung.de</h1>';
 		$content .= 'Um deine Anmeldung zu aktivieren, klicke auf den folgenden Link:';
-		$content .= '<a href="/index/activate/u/' . $userId . '/h/' . $md5 . '">Aktivierungslink</a>';
+		$content .= '<a href="allgemein-bildung.de/index/activate/u/' . $userId . '/h/' . $md5 . '">Aktivierungslink</a>';
 
 		$mail = new Zend_Mail();
-		$mail->setBodyText($content);
-		$mail->setFrom('no-replay@allgemein-bildung.de');
+		$mail->setBodyHtml($content);
+		$mail->setFrom('anmeldung@allgemein-bildung.de');
 		$mail->setSubject('Anmeldung auf allgemein-bildung.de');
 		$mail->addTo($data['mail'], $data['username']);
 		$mail->send();
