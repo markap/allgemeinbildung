@@ -239,4 +239,9 @@ class Model_Question {
 		}
 		return $this->question['image'];
 	}
+
+	public function getAnswerText() {
+		$answerText = $this->answers['text'];
+		return ($answerText !== '') ? $answerText : '';
+	}
 }

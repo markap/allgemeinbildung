@@ -1,17 +1,18 @@
 $(document).ready(function() {
 
 	$("#send").click(function() {
-		$("input[type=checkbox][checked]").each(submit);
-		setTimeout(error, 1000);
+		var checkboxes = $("input[type=checkbox]");
+		var doSubmit = false;
+		for (var i = 0; i < checkboxes.length; i++) {
+			if (checkboxes[i].checked == true) doSubmit = true;
+		}
+		if (doSubmit) {
+			$("#form").submit();
+		} else {
+			$(".error").show();
+		}
 	});
 
-	var submit = function() {
-		$("#form").submit();
-	}
-
-	var error = function() {
-		$(".error").show();
-	}
 
 	$(".category").click(function() {
 		var check = $(this).children("input[type=checkbox]").attr('checked');

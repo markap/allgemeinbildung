@@ -3,7 +3,7 @@
 	font-size: 16px;
 	background-color: green;	
 	background: url(/img/grey.png) top center  repeat-x;
-	width: 200px;
+	width: 300px;
 	margin: 5px;
 	float: left;
 	cursor: pointer;
@@ -17,4 +17,6 @@ input {
 	clear: left;
 	cursor: pointer;
 	font-weight: bold;
+	margin-bottom: 100px;
+	margin-top: 20px;
 }
