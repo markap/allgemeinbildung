@@ -18,8 +18,15 @@ class ContentController extends Zend_Controller_Action
         // action body
     }
 
+    public function imprintAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 

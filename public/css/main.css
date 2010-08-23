@@ -85,6 +85,15 @@
 	height: 20px;
 }
 
+#footer a {
+	color: black;
+	text-decoration: underline;
+}
+
+#footer #footer-links {
+	margin-left: 250px;
+}
+
 body {
 	font-family: arial, sans-serif;;
 }

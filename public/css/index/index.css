@@ -15,6 +15,7 @@
 }
 
 
+
 .postfix {
 	color: red;
 	font-weight: bold;
@@ -35,13 +36,14 @@
 }
 
 .qtypeButton {
-	width: 35px;
+	width: 50px;
 	height: 35px;
 	cursor: pointer;
 }
 
 
 #start-info {
+	background: url(/img/start-info.png);
 	border: 3px solid gray;
 	background-color: #06E005;
 	padding: 20px;

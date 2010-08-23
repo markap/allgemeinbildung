@@ -64,6 +64,7 @@
         <controllerFile controllerName="content">
           <actionMethod actionName="index"/>
           <actionMethod actionName="faq"/>
+          <actionMethod actionName="imprint"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -187,6 +188,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="index">
             <viewScriptFile forActionName="activate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="content">
+            <viewScriptFile forActionName="imprint"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -32,8 +32,8 @@
 		<div title="<?php echo $result['tooltip']; ?>" class="whats-next">
 				<div class="header"><span class="title"><?php echo $result['name']; ?></span>
 					<span class="postfix">
-						<input type="button" value="MC" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $result['linkMC']; ?>');"/>
-						<input type="button" value="TXT" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $result['linkTXT']; ?>');"/>
+						<input title="<?php echo ($result['tooltip'] !== '') ? $result['tooltip'] . '<br />' : ''; ?>Spiele im Multiple Choice Modus" type="button" value="MC" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $result['linkMC']; ?>');"/>
+						<input title="<?php echo !isset($result['tooltip']) ? $result['tooltip'] . '<br />' : ''; ?>Spiele im Direkteingabe Modus" type="button" value="TXT" class="qtypeButton"  onClick="javascript:window.location.replace('<?php echo $result['linkTXT']; ?>');"/>
 						<?php echo $result['postfix']; ?></span>
 			</div>
 			</div>
