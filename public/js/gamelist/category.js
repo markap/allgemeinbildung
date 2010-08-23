@@ -6,6 +6,7 @@ $(document).ready(function() {
 		for (var i = 0; i < checkboxes.length; i++) {
 			if (checkboxes[i].checked == true) doSubmit = true;
 		}
+
 		if (doSubmit) {
 			$("#form").submit();
 		} else {

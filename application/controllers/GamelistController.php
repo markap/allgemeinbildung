@@ -9,7 +9,6 @@ class GamelistController extends Zend_Controller_Action
 
     public function init()
     {
-        //TODO try catch
 		$this->gameListDb   = new Model_DbTable_GameList();
 		$this->gameResultDb = new Model_DbTable_GameResult();
 		$userSession 	    = new Zend_Session_Namespace('user');
@@ -60,12 +59,12 @@ class GamelistController extends Zend_Controller_Action
 		$categoryIds 	= implode(',', $this->getRequest()->getPost('cat'));
 		$gameCategoryDb = new Model_DbTable_GameCategoryRelation();
 		$gameIds = $gameCategoryDb->getGameIds($categoryIds);
+		$gameIds = array_unique($gameIds);
 		foreach ($gameIds as $gameId) {
 			$gameList[] = $this->gameListDb->getGame($gameId);			
 		}
 		$helper = new Model_ControllerHelper();
 		$this->view->gameList = $helper->createGameList($gameList, $this->userId);	
-			//TODO render gamelist/index-view instead of copy
 		
     }
 

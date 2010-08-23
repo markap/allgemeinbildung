@@ -66,6 +66,9 @@
           <actionMethod actionName="faq"/>
           <actionMethod actionName="imprint"/>
         </controllerFile>
+        <controllerFile controllerName="calculate">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -192,6 +195,9 @@
           <viewControllerScriptsDirectory forControllerName="content">
             <viewScriptFile forActionName="imprint"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="calculate">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -223,6 +229,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
