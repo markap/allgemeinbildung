@@ -39,24 +39,8 @@ class Model_Question {
 		$answerDb 		  = new Model_DbTable_Answer();
 		$hasCategoryDb 	  = new Model_DbTable_HasCategory();
 		$this->question   = $questionDb->getQuestion($questionId, $test);
-		$this->setLevel();
 		$this->answers	  = $answerDb->getAnswer($this->question['answerid']);
 		$this->categories = $hasCategoryDb->getCategories($questionId);
-	}
-
-
-	/** 
-	 * sets the level and levelid for the question	
-	 * extract method from the contructor
-	 *
-	 * @author martin Kapfhammer
-	 */
-	public function setLevel() {
-		$levelDb = new Model_DbTable_Level();
-		$levelId = $this->question['level'];
-		$level 	 = $levelDb->getLevel($levelId);
-		$this->question['levelid'] = $levelId;
-		$this->question['level']   = $level['name'];
 	}
 
 
@@ -214,17 +198,6 @@ class Model_Question {
 		return 'mc'; 
 	}
 
-	
-	/**
-	 * return the levelid 
-	 *
-	 * @author Martin Kapfhammer
-	 * @return 
-	 */
-	public function getLevelId() {
-		return $this->question['levelid'];
-	}
-
 
 	/**
 	 * checks if there exists an answer image
@@ -244,4 +217,5 @@ class Model_Question {
 		$answerText = $this->answers['text'];
 		return ($answerText !== '') ? $answerText : '';
 	}
+
 }

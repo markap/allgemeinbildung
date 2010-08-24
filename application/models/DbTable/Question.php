@@ -72,7 +72,7 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 					  'hint'	 => $postValues['hint'],
 					  'answerid' => $answerId,
 					  'image' 	 => $fileName,
-					  'level'	 => $postValues['level'],
+					  'level'	 => 1,
 					  'creationdate' => date('Y-m-d'),
 					  'author'   => $userId,
 					  'active'   => 'N'

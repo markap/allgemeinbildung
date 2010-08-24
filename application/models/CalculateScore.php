@@ -92,8 +92,7 @@ class Model_CalculateScore {
 	 * @return integer the level score
 	 */
 	protected function getScoreForLevel(Model_Question $question) {
-		$levelId = $question->getLevelId();
-		return $this->scoreForLevel[$levelId];
+		return $this->scoreForLevel[1];
 	}
 
 	
@@ -107,8 +106,7 @@ class Model_CalculateScore {
 	 */
 	protected function getMultiForLevel(Model_Question $question) {
 		if ($this->isTXTQuestion($question)) {
-			$levelId = $question->getLevelId();
-			return $this->multiForlevel[$levelId];
+			return $this->multiForlevel[1];
 		}
 		return 1;
 	}	

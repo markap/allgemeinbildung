@@ -69,6 +69,11 @@
         <controllerFile controllerName="calculate">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="generategame">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="show"/>
+          <actionMethod actionName="save"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -198,6 +203,15 @@
           <viewControllerScriptsDirectory forControllerName="calculate">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="generategame">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="generategame">
+            <viewScriptFile forActionName="show"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="generategame">
+            <viewScriptFile forActionName="save"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -229,6 +243,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
