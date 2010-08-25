@@ -5,4 +5,9 @@ $(document).ready(function() {
 	$('input').tooltip({
 		delay: 0
 	});
+
+	$('h2#whats-next-head').tooltip({
+		delay: 0
+	});
+	
 });

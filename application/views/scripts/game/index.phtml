@@ -1,10 +1,13 @@
-<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
-<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.countdown.js'); ?>
-<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.countdown-de.js'); ?>
-<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.domwindow.js'); ?>
-<?php echo $this->headScript()->appendFile('/js/3rdParty/jquery.tooltip.js'); ?>
-<?php echo $this->headScript()->appendFile('/js/game/play.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jquery.countdown.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jquery.countdown-de.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jquery.domwindow.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jquery.tooltip.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jquery.fancybox.js'); ?>
+<?php  $this->headScript()->appendFile('/js/game/play.js'); ?>
+<?php echo $this->headScript(); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/3rdParty/jquery.countdown.css'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/3rdParty/jquery.fancybox.css'); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/game/game.css'); ?>
 
 <?php if ($this->questionNotFound !== true): ?>	
@@ -18,7 +21,9 @@
 
 
 			<div id="answer_score">
-			<img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
+			<a id="big-img" href="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>">
+			<img title="Vergrößern" height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
+			</a>
 			<div>
 			<div style="width: 60px;" id="countdown"></div>
 

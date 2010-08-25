@@ -14,10 +14,12 @@ $(document).ready(function() {
 		}
 	});
 
-
-	$(".category").click(function() {
-		var check = $(this).children("input[type=checkbox]").attr('checked');
-		$(this).children("input[type=checkbox]").attr('checked', !check);
+	$(".category").click(function(event) {
+    	if($(event.target).is('div')){
+        	var check = $(this).children("input[type=checkbox]").attr('checked');
+        	$(this).children("input[type=checkbox]").attr('checked', !check);
+    	}
 	});
+
 
 });

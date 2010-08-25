@@ -73,4 +73,8 @@ $(document).ready(function() {
 
 	});
 
+	$('a#big-img').fancybox({
+		titleShow: false
+	});
+
 });
