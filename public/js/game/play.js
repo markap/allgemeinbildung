@@ -74,7 +74,9 @@ $(document).ready(function() {
 	});
 
 	$('a#big-img').fancybox({
-		titleShow: false
+		titleShow: false,
+		scrolling: 'yes',
+		centerOnScroll: true
 	});
 
 });

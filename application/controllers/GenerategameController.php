@@ -23,14 +23,14 @@ class GenerategameController extends Zend_Controller_Action
 		}
 
 		$gameListDb  		= new Model_DbTable_GameList();
-		$this->questionIds	= $gameListDb->getQuestionIds(7);
+		$this->questionIds	= $gameListDb->getQuestionIds(11);
     }
 
     public function indexAction()
     {
-$s = array('167.jpg', '164.jpg', '163.jpg', '162.jpg');
-$t = new Model_GeneratorMapping_ImageMerge($s);
-$t->merge();
+//$s = array('167.jpg', '164.jpg', '163.jpg', '162.jpg');
+//$t = new Model_GeneratorMapping_ImageMerge($s);
+//$t->merge();
 
     }
 
@@ -39,7 +39,7 @@ $t->merge();
         // action body
  		$this->view->questions = array();
         foreach ($this->questionIds as $id) {
-        	$mapping  = new Model_GeneratorMapping_BundeskanzlerParteiQuestionMapping($id, $this->userId);
+        	$mapping  = new Model_GeneratorMapping_BundespraesiParteiQuestionMapping($id, $this->userId);
             $this->view->questions[] = $mapping->map()->getValues();
 		}
 
@@ -50,7 +50,7 @@ $t->merge();
         // action body
 		$this->view->questions = array();
         foreach ($this->questionIds as $id) {
-        	$mapping  = new Model_GeneratorMapping_BundeskanzlerParteiQuestionMapping($id, $this->userId);
+        	$mapping  = new Model_GeneratorMapping_BundespraesiParteiQuestionMapping($id, $this->userId);
             $mapping->map()->save();
 		}
 

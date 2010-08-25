@@ -54,6 +54,7 @@
         <controllerFile controllerName="Creategame">
           <actionMethod actionName="index"/>
           <actionMethod actionName="saveadding"/>
+          <actionMethod actionName="savegame"/>
         </controllerFile>
         <controllerFile controllerName="gamelist">
           <actionMethod actionName="index"/>
@@ -68,6 +69,7 @@
         </controllerFile>
         <controllerFile controllerName="calculate">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="result"/>
         </controllerFile>
         <controllerFile controllerName="generategame">
           <actionMethod actionName="index"/>
@@ -211,6 +213,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="generategame">
             <viewScriptFile forActionName="save"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Creategame">
+            <viewScriptFile forActionName="savegame"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="calculate">
+            <viewScriptFile forActionName="result"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

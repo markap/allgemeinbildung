@@ -144,6 +144,17 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 		return true;
 	}
 
+	public function getCreatedQuestions($userId, $active = 'Y') {
+		$where = array('author = ' . $userId,
+					   'active = "' . $active . '"');
+		$result = $this->fetchAll($where);
+		if (!$result) {
+			return false;
+		}
+		return $result->toArray();
+
+	}
+
 	public function isNotActive($questionId) {
 		$where = array('questionid = ' . $questionId,
 					   'active = "N"');

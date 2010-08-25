@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
+	$('.right').hide();
+	$('.wrong').hide();
+
 	$('.textfield').live('keydown', function(e) { 
- 	var keyCode = e.keyCode || e.which; 
+		var me = $(this);
+ 		var keyCode = e.keyCode || e.which; 
 
   		if (keyCode == 9) { 
 			var input  = $(this).val();
@@ -12,13 +16,17 @@ $(document).ready(function() {
 			var numberTwo = values[2].id;
 			var result	  = parseInt(numberOne) + parseInt(numberTwo);
 			
-console.log(result);
-console.log(input);
 			if (result == input) {
-				alert('super');
+				$(this).parent().children('.right').show();
 			} else {
-				alert('bad');
+				$(this).parent().children('.wrong').show();
 			}	
+
+			me.attr('readOnly', true);
+
+			if (this.id == 'last') {
+				$('#calculate-form').submit();
+			}
     	} 
     });
 

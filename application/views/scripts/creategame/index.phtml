@@ -1,1 +1,18 @@
-<br /><br /><center>View script for controller <b>Creategame</b> and script/action name <b>index</b></center>
+
+<h1>Game anlegen</h1>
+
+<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
+|
+
+<?php if ($this->questions !== false): ?>
+<?php foreach ($this->questions as $question): ?>
+	<img height="100px" src="img/question/<?php echo $question['image']; ?>" />
+	<?php echo $question['question']; ?>
+	<hr />
+<?php endforeach; ?>
+
+<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
+
+<?php else: ?>
+<p>Zurzeit gibt es keine Fragen zum anlegen</p>
+<?php endif; ?>

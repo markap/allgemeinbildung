@@ -29,7 +29,7 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->typeOfLearnGame = null;
 
 			$nextGameSession = new Zend_Session_Namespace('nextGame');
-			if ($nextGameSession->nextGame !== null) {	// nextGame isset ?
+			if ($nextGameSession->nextGame !== null && $this->useSession()) {	// nextGame isset ?
 				$questionIds = $nextGameSession->nextGame;
 				if ($this->isTestGame() === true) {
 					$this->gameSession->redirect = '/createquestion/result/question/' . $nextGameSession->nextGame[0]['id'];
@@ -165,6 +165,11 @@ class GameController extends Zend_Controller_Action
 	
 	protected function replayGameResult() {
 		return ($this->_getParam('re') === md5('replay!'));
+	}
+
+	
+	protected function useSession() {
+		return ($this->_getParam('se') === md5('session!'));
 	}
 
 	protected function hasQuestionType() {

@@ -1,10 +1,21 @@
 <?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
 <?php echo $this->headScript()->appendFile('/js/calculate/index.js'); ?>
-<?php foreach ($this->numberPairs as $pair): ?>
+
+<form id="calculate-form" action="/calculate/result" method="POST">
+
+<?php $length = count($this->numberPairs); ?>
+<?php foreach ($this->numberPairs as $key => $pair): ?>
 	<div>
 	<span class="numberOne" id="<?php echo $pair->numberOne; ?>"><?php echo $pair->numberOne; ?></span>
 	<span class="operator" id="<?php echo $pair->operator; ?>"><?php echo $pair->displayOperator; ?></span>
 	<span class="numberTwo" id="<?php echo $pair->numberTwo; ?>"><?php echo $pair->numberTwo; ?></span>
-	<input class="textfield" type="textfield" />
+
+	<?php  $id = ($length -1 === $key) ? "last" : ''; ?>
+	<input id="<?php echo $id; ?>" class="textfield" name="<?php echo $key; ?>" type="textfield" />
+
+	<span class="right">Richtig</span>
+	<span class="wrong">Falsch</span>
 	</div>
 <?php endforeach; ?>
+
+</form>

@@ -2545,3 +2545,15 @@
 [Tue Aug 24 12:03:05 2010] [error] [client 127.0.0.1] question not found|0|level, referer: http://allgemeinbildung.localhost/gamelist
 [Tue Aug 24 12:03:09 2010] [error] [client 127.0.0.1] question not found|0|level
 [Tue Aug 24 12:04:01 2010] [error] [client 127.0.0.1] question not found|0|level
+[Wed Aug 25 19:28:04 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_GeneratorMapping_BundespraesiParteiQuestionMapping' not found in /home/www/allgemeinbildung/application/controllers/GenerategameController.php on line 42, referer: http://allgemeinbildung.localhost/generategame
+[Wed Aug 25 19:44:47 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: questions in /home/www/allgemeinbildung/application/controllers/CreategameController.php on line 14
+[Wed Aug 25 19:44:47 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to a member function getCreatedQuestions() on a non-object in /home/www/allgemeinbildung/application/controllers/CreategameController.php on line 14
+[Wed Aug 25 19:46:24 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: answer in /home/www/allgemeinbildung/application/models/GeneratorMapping/BundeskanzlerParteiQuestionMapping.php on line 38, referer: http://allgemeinbildung.localhost/generategame/show
+[Wed Aug 25 21:06:31 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home/www/allgemeinbildung/application/views/scripts/creategame/index.phtml on line 2
+[Wed Aug 25 21:51:05 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'HasCategoryDb' not found in /home/www/allgemeinbildung/application/controllers/CreategameController.php on line 36
+[Wed Aug 25 21:55:18 2010] [error] [client 127.0.0.1] PHP Warning:  include(Zend/TextField.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/www/allgemeinbildung/library/Zend/Loader.php on line 83
+[Wed Aug 25 21:55:18 2010] [error] [client 127.0.0.1] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'Zend/TextField.php' for inclusion (include_path='/home/www/allgemeinbildung/library:.:/home/www/data/ZendFramework') in /home/www/allgemeinbildung/library/Zend/Loader.php on line 83
+[Wed Aug 25 21:55:18 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Zend_TextField' not found in /home/www/allgemeinbildung/application/forms/TextField.php on line 7
+[Wed Aug 25 21:56:42 2010] [error] [client 127.0.0.1] PHP Notice:  Array to string conversion in /home/www/allgemeinbildung/application/views/scripts/creategame/savegame.phtml on line 3
+[Wed Aug 25 21:57:06 2010] [error] [client 127.0.0.1] PHP Notice:  Array to string conversion in /home/www/allgemeinbildung/application/views/scripts/creategame/savegame.phtml on line 3
+[Wed Aug 25 21:57:30 2010] [error] [client 127.0.0.1] PHP Notice:  Array to string conversion in /home/www/allgemeinbildung/application/views/scripts/creategame/savegame.phtml on line 4
