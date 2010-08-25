@@ -28,6 +28,10 @@ class GenerategameController extends Zend_Controller_Action
 
     public function indexAction()
     {
+$s = array('167.jpg', '164.jpg', '163.jpg', '162.jpg');
+$t = new Model_GeneratorMapping_ImageMerge($s);
+$t->merge();
+
     }
 
     public function showAction()
