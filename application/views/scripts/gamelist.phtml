@@ -37,7 +37,7 @@
 			<br />
 			Richtig: <?php echo Model_String::countValues($game['lastResult']['rightids']); ?><br />
 			Falsch: <?php echo Model_String::countValues($game['lastResult']['wrongids']); ?><br /> 
-			Fragetyp: <?php echo $game['lastResult']['qtype']; ?><br /> 
+			Fragetyp: <?php echo strtoupper($game['lastResult']['qtype']); ?><br /> 
 			<a href="/result/game/gid/<?php echo $game['gameid']; ?>">Alle Ergebnisse</a>
 		</div>
 	<?php endif; ?>
