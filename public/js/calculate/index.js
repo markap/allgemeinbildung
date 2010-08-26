@@ -14,7 +14,7 @@ $(document).ready(function() {
 			var numberOne = values[0].id;
 			var operator  = values[1].id;
 			var numberTwo = values[2].id;
-			var result	  = parseInt(numberOne) + parseInt(numberTwo);
+			var result	  = calculate(numberOne, numberTwo, operator);
 			
 			if (result == input) {
 				$(this).parent().children('.right').show();
@@ -30,5 +30,26 @@ $(document).ready(function() {
     	} 
     });
 
+
+	var calculate = function (numberOne, numberTwo, operator) {
+		numberOne = parseInt(numberOne);
+		numberTwo = parseInt(numberTwo);
+		var result = 0;
+		switch (operator) {
+			case '+':
+				result = numberOne + numberTwo;
+			break;
+			case '-':
+				result = numberOne - numberTwo;
+			break;
+			case '*':
+				result = numberOne * numberTwo;
+			break;
+			case '/':
+				result = numberOne / numberTwo;
+			break;
+		}
+		return result;
+	}
 
 });
