@@ -46,10 +46,10 @@ class Model_GeneratorMapping_Image {
 	}
 
 
- 	public function addBorder() {
+ 	public function addBorder($top, $right, $bottom, $left) {
 
-        $newWidth  = $this->getWidth() + 5;
-        $newHeigth = $this->getHeight() + 5;
+        $newWidth  = $this->getWidth() + $right + $left;
+        $newHeigth = $this->getHeight() + $top + $bottom;
         $newImage  = imagecreatetruecolor($newWidth, $newHeigth);
 
 
@@ -57,8 +57,8 @@ class Model_GeneratorMapping_Image {
         imagefilledrectangle($newImage, 0, 0, $newWidth, $newHeigth, $borderColor);
 
 		imagecopy($newImage, $this->getResource(),
-					0,
-					0,
+					$left,
+					$top,
 					0,
 					0,
 					$this->getWidth(),

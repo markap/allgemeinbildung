@@ -1,0 +1,15 @@
+<?php foreach ($this->questions as $question): ?>
+	<?php echo $question[0]['question']; ?><br />
+	<img height="300px" src="/tmp/<?php echo $question[0]['image']; ?>" />
+	<br />
+	<?php echo $question[1]['answer']; ?> |
+	<?php echo $question[1]['fake1']; ?> |
+	<?php echo $question[1]['fake2']; ?> |
+	<?php echo $question[1]['fake3']; ?> <br />
+
+	<?php foreach ($question[2] as $cat): ?>
+		<?php echo $cat; ?>
+	<?php endforeach; ?>
+	<br />
+	<hr />
+<?php endforeach; ?>

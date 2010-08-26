@@ -74,4 +74,13 @@ class Model_DbTable_GameCategoryRelation extends Zend_Db_Table_Abstract {
 		return $gameIds;
 	}
 
+	public function insertRelation($gameId, array $categories) {
+		foreach ($categories as $category) {
+			$data = array('gameid' => $gameId,
+						  'catid'  => $category);
+			$this->insert($data);
+		}
+	}
+
+
 }

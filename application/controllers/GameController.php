@@ -31,8 +31,8 @@ class GameController extends Zend_Controller_Action
 			$nextGameSession = new Zend_Session_Namespace('nextGame');
 			if ($nextGameSession->nextGame !== null && $this->useSession()) {	// nextGame isset ?
 				$questionIds = $nextGameSession->nextGame;
-				if ($this->isTestGame() === true) {
-					$this->gameSession->redirect = '/createquestion/result/question/' . $nextGameSession->nextGame[0]['id'];
+				if ($nextGameSession->redirect !== null) {
+					$this->gameSession->redirect = $nextGameSession->redirect; 
 				}
 				$nextGameSession->nextGame = null;
 			} else if ($this->getRequest()->has('cat')) {
@@ -51,7 +51,6 @@ class GameController extends Zend_Controller_Action
 				$this->gameSession->gameId = $gameId;
 				$gameListDb  = new Model_DbTable_GameList();
 				$questionIds  = $gameListDb->getQuestionIds($gameId);
-				$questionType = $gameListDb->getQuestionType($gameId);
 			} else if ($this->replayGameResult()) {
 				$resultType = $this->_getParam('rty'); // result type -> y or n
 				$resultId   = $this->_getParam('rid'); // result id 

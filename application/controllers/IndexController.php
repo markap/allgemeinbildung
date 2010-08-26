@@ -28,7 +28,7 @@ class IndexController extends Zend_Controller_Action
 						$games[$key]['linkTXT'] 	= $linkBuilder->getGameLink($game['gameid'], 'TXT');	
 						$games[$key]['postfix'] 	= ''; 
 						$games[$key]['tooltip'] 	= ''; 
-						$games[$key]['qtype'] 		= null; 
+						$games[$key]['type'] 		= null; 
 				
 					
 				}
@@ -39,7 +39,7 @@ class IndexController extends Zend_Controller_Action
 				$whatsNext 		= new Model_WhatsNext($this->userId);
 				$next = $whatsNext->getNext();
 				foreach ($next as $key => $result) {
-					if ($result['qtype'] !== null) {
+					if ($result['type'] !== null) {
 						$next[$key]['link'] 	= $linkBuilder->getLink($result);	
 						$next[$key]['postfix'] 	= $result['result'] . '%  richtig!'; 
 						$date 					= new Zend_Date($result['date']);

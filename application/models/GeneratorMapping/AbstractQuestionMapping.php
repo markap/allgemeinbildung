@@ -7,6 +7,8 @@
  */
 abstract class Model_GeneratorMapping_AbstractQuestionMapping {
 
+	protected $imageAnswers = array('Bild A', 'Bild B', 'Bild C', 'Bild D');
+
 
 	/**
 	 * a question array
@@ -36,18 +38,48 @@ abstract class Model_GeneratorMapping_AbstractQuestionMapping {
 
 	protected $categoriesData = array();
 
+	protected $questionIds 	= array();
 
-	public function __construct($questionId, $userId) {
+	public function __construct($questionIds, $userId) {
+		$this->questionIds 			= $questionIds;
 		$this->questionDb 	  		= new Model_DbTable_Question();
 		$this->answerDb 		  	= new Model_DbTable_Answer();
 		$this->hasCategoryDb 	  	= new Model_DbTable_HasCategory();
-		$this->questionOrg   		= $this->questionDb->getQuestion($questionId);
-		$this->answerOrg	 		= $this->answerDb->getAnswer($this->questionOrg['answerid']);
-		$this->categoriesOrg 		= $this->hasCategoryDb->getCategoryIds($questionId);
 		$this->userId				= $userId;
+		$this->init();
 	}
 
-	public function map() {
+	protected function init() {
+	}
+
+	public function runAndGetValues() {
+		$data = array();
+		foreach ($this->questionIds as $questionId) {
+			$this->setQuestion($questionId);
+			$this->map();
+			$data[] = $this->getValues();
+		}
+		return $data;
+	}
+
+	public function runAndSave() {
+		foreach ($this->questionIds as $questionId) {
+			$this->setQuestion($questionId);
+			$this->map();
+			$this->save();
+		}
+
+	}
+
+
+	protected function setQuestion($questionId) {
+		$this->questionOrg		= $this->questionDb->getQuestion($questionId);
+		$this->answerOrg	 	= $this->answerDb->getAnswer($this->questionOrg['answerid']);
+		$this->categoriesOrg 	= $this->hasCategoryDb->getCategoryIds($questionId);
+	}
+
+	protected function map() {
+		$this->initEach();
 		$this->createQuestionTitle();
 		$this->createQuestionHint();
 		$this->createQuestionImage();
@@ -58,6 +90,9 @@ abstract class Model_GeneratorMapping_AbstractQuestionMapping {
 		$this->createCategories();
 		
 		return $this;
+	}
+
+	protected function initEach() {
 	}
 
 	protected function createQuestionTitle() {
@@ -94,7 +129,31 @@ abstract class Model_GeneratorMapping_AbstractQuestionMapping {
 		$this->categoriesData = $this->categoriesOrg;
 	}
 
-	public function getValues() {
+	protected function getOtherIds() {
+		$questionIds = $this->questionIds;
+		$currentId   = $this->getCurrentId();
+		$key		 = array_search($currentId, $questionIds);
+		unset($questionIds[$key]);
+		return $questionIds;
+	}
+
+	protected function getCurrentId() {
+		return $this->questionOrg['questionid'];
+	}
+
+
+	protected function getThreeOtherIds() {
+		$questionIds = $this->getOtherIds();
+		shuffle($questionIds);
+		return array(
+					$questionIds[0],
+					$questionIds[1],
+					$questionIds[2]
+					);
+	}
+
+
+	protected function getValues() {
 		$categoryDb  = new Model_DbTable_Category();
         $categories  = array();
         foreach ($this->categoriesData as $categoryId) {
@@ -112,7 +171,7 @@ abstract class Model_GeneratorMapping_AbstractQuestionMapping {
 					);
 	}
 
-	public function save() {
+	protected function save() {
 		$answerId 	= $this->answerDb->getNextAnswerId();
 		$questionId = $this->questionDb->insertQuestion($this->questionData, 
 														$answerId, 

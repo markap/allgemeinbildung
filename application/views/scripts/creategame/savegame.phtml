@@ -3,7 +3,9 @@
 
 <h1>Game abspeichern</h1>
 
+<?php if ($this->error): ?>
 <p class="error"><?php echo $this->error; ?></p>
+<?php endif; ?>
 <br />
 
 <b>Kategorien: <?php echo implode($this->categories, ','); ?></b><br />

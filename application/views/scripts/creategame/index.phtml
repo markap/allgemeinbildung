@@ -1,10 +1,13 @@
 
 <h1>Game anlegen</h1>
 
-<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
-|
+<?php if (!empty($this->questions)): ?>
 
-<?php if ($this->questions !== false): ?>
+<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
+ | <a href='/creategame/savegame'>Game abspeichern</a>
+<br />
+<br />
+
 <?php foreach ($this->questions as $question): ?>
 	<img height="100px" src="img/question/<?php echo $question['image']; ?>" />
 	<?php echo $question['question']; ?>
@@ -12,6 +15,7 @@
 <?php endforeach; ?>
 
 <?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
+ | <a href='/creategame/savegame'>Game abspeichern</a>
 
 <?php else: ?>
 <p>Zurzeit gibt es keine Fragen zum anlegen</p>

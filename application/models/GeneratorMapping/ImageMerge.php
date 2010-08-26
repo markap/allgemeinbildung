@@ -16,14 +16,30 @@ class Model_GeneratorMapping_ImageMerge {
 
 	public function __construct(array $images) {
 		$this->createImages($images);
+		$this->createBorderAndText();
 		$this->createMaxHeightAndWidth();
-		$this->template = imagecreatetruecolor($this->maxWidth *2-5, $this->maxHeigth *2-5);
+		$this->template = imagecreatetruecolor($this->maxWidth *2, $this->maxHeigth *2);
 	}
 
 	protected function createImages($images) {
 		foreach ($images as $name) {
 			$this->images[] = new Model_GeneratorMapping_Image($name, self::PATH);
 		}
+	}
+
+	protected function createBorderAndText() {
+		$image = $this->images[0];
+		$image->addBorder(0, 5, 5, 0);
+		$image->addText('A');
+		$image = $this->images[1];
+		$image->addBorder(0, 0, 5, 5);
+		$image->addText('B');
+		$image = $this->images[2];
+		$image->addBorder(5, 5, 0, 0);
+		$image->addText('C');
+		$image = $this->images[3];
+		$image->addBorder(5, 0, 0, 5);
+		$image->addText('D');
 	}
 
 	protected function createMaxHeightAndWidth() {
@@ -35,26 +51,26 @@ class Model_GeneratorMapping_ImageMerge {
 		}
 		rsort($width);
 		rsort($height);
-		$this->maxWidth  = $width[0] +5;
-		$this->maxHeigth = $height[0] +5;
+		$this->maxWidth  = $width[0];
+		$this->maxHeigth = $height[0];
 	}
 
 	public function merge() {
-		$this->addImage(0, 0, 0, 'A');
-		$this->addImage(1, $this->maxWidth, 0, 'B');
-		$this->addImage(2, 0, $this->maxHeigth, 'C');
-		$this->addImage(3, $this->maxWidth, $this->maxHeigth, 'D');
+		$this->addImage(0, 0, 0);
+		$this->addImage(1, $this->maxWidth, 0);
+		$this->addImage(2, 0, $this->maxHeigth);
+		$this->addImage(3, $this->maxWidth, $this->maxHeigth);
+		return $this;
+	}
 
-		imagejpeg($this->template, '/tmp/tada.jpg');
+	public function save($path) {
+		imagejpeg($this->template, $path);
 		imagedestroy($this->template);
-
 	}
 
 
-	protected function addImage($key, $x, $y, $text) {
+	protected function addImage($key, $x, $y) {
 		$image = $this->images[$key];
-		$image->addBorder();
-		$image->addText($text);
 		imagecopy($this->template, $image->getResource(),
     		$x, 
     		$y,

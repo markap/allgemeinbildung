@@ -12,4 +12,23 @@ class Model_Calculate_NumberPair {
 	public $operator;
 	public $displayOperator;
 
+	public function getResult() {
+		$result = 0;
+		switch ($operator) {
+			case '+':
+				$result = $numberOne + $numberTwo;	
+			break;
+			case '-':
+				$result = $numberOne - $numberTwo;	
+			break;
+			case '*':
+				$result = $numberOne * $numberTwo;	
+			break;
+			case '/':
+				$result = $numberOne / $numberTwo;	
+			break;
+		}
+		return $result;
+	}
+
 }

@@ -3,10 +3,28 @@
 class CreategameController extends Zend_Controller_Action
 {
 
+	protected $userSession 	= null;
+	protected $userId 		= null;
+
     public function init()
     {
-        /* Initialize action controller here */
+		if (!Zend_Auth::getInstance()->hasIdentity()) {
+			$this->_redirect('/index/login');
+		}
+
+        $this->userSession = new Zend_Session_Namespace('user');
+		$this->userId	   = isset($this->userSession->user['userid']) 
+								? $this->userSession->user['userid'] : null;
+
+		if (!$this->isManager()) {
+			$this->_redirect('/index');
+		}
+
     }
+
+	protected function isManager() {
+		return ($this->userSession->user['role'] === 'manager');
+	}
 
     public function indexAction()
     {
@@ -21,6 +39,7 @@ class CreategameController extends Zend_Controller_Action
 
 		$nextGameSession = new Zend_Session_Namespace('nextGame');
 		$nextGameSession->nextGame = $questionIds;
+		$nextGameSession->redirect = '/creategame';
     }
 
     public function saveaddingAction()
@@ -56,8 +75,16 @@ class CreategameController extends Zend_Controller_Action
 		if ($request->isPost()) {
 			$gameName = $request->getPost('textfield');
 			if (!empty($gameName)) {
-			// abspeicher	
-			// redirect
+				$questionIdString 	= implode(',', $questionIds);
+				$gameListDb 		= new Model_DbTable_GameList();
+				$gameCategoryDb		= new Model_DbTable_GameCategoryRelation();
+				$questionDb			= new Model_DbTable_Question();
+				$gameId = $gameListDb->insertGame($gameName, $questionIdString);
+				$gameCategoryDb->insertRelation($gameId, $categoryIds);
+				foreach ($questionIds as $id) {
+					$questionDb->setActive($id);
+				}
+				$this->_redirect('/gamelist');
 			} else {
 				$this->view->error = 'Bitte Name eingeben';
 			}

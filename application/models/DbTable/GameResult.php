@@ -122,7 +122,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$where = 'gr.userid = ' . $userId . ' AND 
 					gr.type IN ("LG", "PW", "PN", "PT", "PL")';
 					
-		$sqlMustPlay = 'select gl.gameid, gl.name, gl.qtype, gr.date, gr.type, gr.result, gr.resultid
+		$sqlMustPlay = 'select gl.gameid, gl.name, gr.qtype, gr.date, gr.type, gr.result, gr.resultid
 					from gameResult gr, gameList gl 
 					where gr.gameid = gl.gameid AND ' . $where
 					. ' order by gr.date desc, gr.resultid desc';

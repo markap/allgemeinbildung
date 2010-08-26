@@ -76,6 +76,7 @@ class CreatequestionController extends Zend_Controller_Action
 							);
 		$nextGameSession = new Zend_Session_Namespace('nextGame');
 		$nextGameSession->nextGame = $questionIds;
+		$nextGameSession->redirect = '/createquestion/result/question/' . $questionId;
 
 		$this->view->questionId = $questionId;
     }

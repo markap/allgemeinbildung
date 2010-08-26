@@ -3,18 +3,17 @@
 class GenerategameController extends Zend_Controller_Action
 {
 
-    protected $questionIds 	= null;
-
-	protected $userSession 	= null;
-    protected $userId 		= null;
+    protected $mapping 		= null;
+    protected $userSession 	= null;
+    protected $userId 	= null;
 
     public function init()
     {
-		if (!Zend_Auth::getInstance()->hasIdentity()) {
+        if (!Zend_Auth::getInstance()->hasIdentity()) {
 			$this->_redirect('/index/login');
 		}
 
-        $this->userSession = new Zend_Session_Namespace('user');
+		$this->userSession = new Zend_Session_Namespace('user');
 		$this->userId	   = isset($this->userSession->user['userid']) 
 								? $this->userSession->user['userid'] : null;
 
@@ -22,45 +21,43 @@ class GenerategameController extends Zend_Controller_Action
 			$this->_redirect('/index');
 		}
 
-		$gameListDb  		= new Model_DbTable_GameList();
-		$this->questionIds	= $gameListDb->getQuestionIds(11);
+		$gameListDb  	= new Model_DbTable_GameList();
+		$questionIds	= $gameListDb->getQuestionIds(11);
+		$this->mapping  = new Model_GeneratorMapping_BundespraesiParteiQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()
     {
-//$s = array('167.jpg', '164.jpg', '163.jpg', '162.jpg');
-//$t = new Model_GeneratorMapping_ImageMerge($s);
-//$t->merge();
-
     }
 
     public function showAction()
     {
-        // action body
- 		$this->view->questions = array();
-        foreach ($this->questionIds as $id) {
-        	$mapping  = new Model_GeneratorMapping_BundespraesiParteiQuestionMapping($id, $this->userId);
-            $this->view->questions[] = $mapping->map()->getValues();
-		}
-
+		$this->view->questions = $this->mapping->runAndGetValues(); 
     }
 
     public function saveAction()
     {
-        // action body
-		$this->view->questions = array();
-        foreach ($this->questionIds as $id) {
-        	$mapping  = new Model_GeneratorMapping_BundespraesiParteiQuestionMapping($id, $this->userId);
-            $mapping->map()->save();
-		}
+		$this->mapping->runAndSave();
+    }
 
+    protected function isManager()
+    {
+        return ($this->userSession->user['role'] === 'manager');
+    }
+
+    public function testAction()
+    {
+
+		$gameListDb  	= new Model_DbTable_GameList();
+		$questionIds	= $gameListDb->getQuestionIds(1);
+		$mapping  = new Model_GeneratorMapping_Bundesland4ImageQuestionMapping($questionIds, $this->userId);
+		$this->view->questions = $mapping->runAndGetValues(); 
     }
 
 
-	protected function isManager() {
-		return ($this->userSession->user['role'] === 'manager');
-	}
 }
+
+
 
 
 
