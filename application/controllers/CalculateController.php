@@ -12,7 +12,7 @@ class CalculateController extends Zend_Controller_Action
     public function indexAction()
     {
         $calculator  = new Model_Calculate_Calculator();
-        $numberPairs = $calculator->createNumberPairs();
+        $numberPairs = $calculator->createNumberPairs(2, 'all');
 		
 		$this->session->numberPairs = $numberPairs;
         $this->view->numberPairs 	= $numberPairs;
@@ -22,13 +22,21 @@ class CalculateController extends Zend_Controller_Action
     {
 		$results 	 = $this->getRequest()->getPost();
 		$numberPairs = $this->session->numberPairs;
+		$right = 0;
+		$wrong = 0;
 
 		foreach ($results as $key => $result) {
 			$numberPair = $numberPairs[$key];
-			// wenn gleich dann richtig, anders falsch
+			if ($numberPair->getResult() === (int)$result) {
+				$right++;
+			} else {
+				$wrong++;
+			}
 			// auswertung, abspecihern, zeit
 			// besserer mathe algorithmus
 		}
+echo "richitg: ". $right;
+echo "<br/>falsch : ". $wrong;
     }
 
 

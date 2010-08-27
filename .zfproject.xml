@@ -75,6 +75,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="show"/>
           <actionMethod actionName="save"/>
+          <actionMethod actionName="test"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -219,6 +220,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="calculate">
             <viewScriptFile forActionName="result"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="generategame">
+            <viewScriptFile forActionName="test"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

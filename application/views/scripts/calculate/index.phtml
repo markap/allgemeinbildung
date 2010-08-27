@@ -6,9 +6,9 @@
 <?php $length = count($this->numberPairs); ?>
 <?php foreach ($this->numberPairs as $key => $pair): ?>
 	<div>
-	<span class="numberOne" id="<?php echo $pair->numberOne; ?>"><?php echo $pair->numberOne; ?></span>
-	<span class="operator" id="<?php echo $pair->operator; ?>"><?php echo $pair->displayOperator; ?></span>
-	<span class="numberTwo" id="<?php echo $pair->numberTwo; ?>"><?php echo $pair->numberTwo; ?></span>
+	<span class="numberOne" id="<?php echo $pair->getNumberOne(); ?>"><?php echo $pair->getNumberOne(); ?></span>
+	<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
+	<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
 
 	<?php  $id = ($length -1 === $key) ? "last" : ''; ?>
 	<input id="<?php echo $id; ?>" class="textfield" name="<?php echo $key; ?>" type="textfield" />
