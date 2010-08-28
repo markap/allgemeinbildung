@@ -11,9 +11,14 @@ class CalculateController extends Zend_Controller_Action
 
     public function indexAction()
     {
+		$level = $this->_getParam('l', 1);
+		$op = $this->_getParam('op', '+');
+		if ($op === ':') $op = '/';
+		$cnt = $this->_getParam('cnt', 10);
+
         $calculator  = new Model_Calculate_Calculator();
-        $numberPairs = $calculator->createNumberPairs(2, 'all');
-		
+        $numberPairs = $calculator->createNumberPairs($level, $op, $cnt);
+
 		$this->session->numberPairs = $numberPairs;
         $this->view->numberPairs 	= $numberPairs;
     }

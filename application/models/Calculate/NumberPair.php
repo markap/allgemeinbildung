@@ -12,9 +12,34 @@ class Model_Calculate_NumberPair {
 	protected $operator;
 	protected $displayOperator;
 
+	protected $child = null;
+	protected $childNumber = 0;
+
+
 	public function setNumbers($numberOne, $numberTwo) {
 		$this->numberOne = $numberOne;
 		$this->numberTwo = $numberTwo;
+	}
+
+
+	public function setChild(Model_Calculate_NumberPair $child) {
+		$this->child = $child;
+	}
+
+	public function nextChild() {
+		return $this->child;
+	}
+
+	public function hasChild() {
+		return ($this->child !== null);
+	}
+
+	public function setChildNumber($childNumber) {
+		$this->childNumber = $childNumber;
+	}
+
+	public function getChildNumber() {
+		return $this->childNumber;
 	}
 
 
@@ -45,19 +70,29 @@ class Model_Calculate_NumberPair {
 
 
 	public function getResult() {
+		$result = $this->calculate($this->numberOne, $this->numberTwo, $this->operator);
+		$pair 	= $this;
+		while ($pair->hasChild()) {
+			$pair 	= $pair->nextChild();
+			$result = $this->calculate($result, $pair->numberTwo, $pair->operator);
+		}
+		return $result;
+	}
+
+	protected function calculate($numberOne, $numberTwo, $operation) {
 		$result = 0;
-		switch ($this->operator) {
+		switch ($operation) {
 			case '+':
-				$result = $this->numberOne + $this->numberTwo;	
+				$result = $numberOne + $numberTwo;	
 			break;
 			case '-':
-				$result = $this->numberOne - $this->numberTwo;	
+				$result = $numberOne - $numberTwo;	
 			break;
 			case '*':
-				$result = $this->numberOne * $this->numberTwo;	
+				$result = $numberOne * $numberTwo;	
 			break;
 			case '/':
-				$result = $this->numberOne / $this->numberTwo;	
+				$result = $numberOne / $numberTwo;	
 			break;
 		}
 		return $result;

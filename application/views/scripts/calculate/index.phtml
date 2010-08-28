@@ -5,10 +5,15 @@
 
 <?php $length = count($this->numberPairs); ?>
 <?php foreach ($this->numberPairs as $key => $pair): ?>
-	<div>
+	<div id="<?php echo $pair->getChildNumber() ?>">
 	<span class="numberOne" id="<?php echo $pair->getNumberOne(); ?>"><?php echo $pair->getNumberOne(); ?></span>
 	<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
 	<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
+	<?php while ($pair->hasChild()): ?> 
+		<?php $pair = $pair->nextChild(); ?>
+		<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
+		<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
+	<?php endwhile; ?>
 
 	<?php  $id = ($length -1 === $key) ? "last" : ''; ?>
 	<input id="<?php echo $id; ?>" class="textfield" name="<?php echo $key; ?>" type="textfield" />

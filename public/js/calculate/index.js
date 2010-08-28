@@ -15,6 +15,16 @@ $(document).ready(function() {
 			var operator  = values[1].id;
 			var numberTwo = values[2].id;
 			var result	  = calculate(numberOne, numberTwo, operator);
+
+			// check if there are some children
+			var div 	= $(this).parent();
+			var childs 	= div[0].id;
+
+			for (var i = 0; i < childs; i++) {
+				var operator  = values[3 + i].id;
+				var numberTwo = values[4 + i].id;
+				result = calculate(result, numberTwo, operator);
+			}  
 			
 			if (result == input) {
 				$(this).parent().children('.right').show();

@@ -11,11 +11,12 @@ class Model_Calculate_Calculator {
 		$creator 	= new Model_Calculate_NumberCreator();
 
 		for ($i = 0; $i < $count; $i++) {
-			$pair = $creator->init($level, $operation)->create();
+			$pair = $creator->init($level, $operation);
 			$numberPairs[] = $pair;	
 		}
 
 		return $numberPairs;
 	}
+
 
 }
