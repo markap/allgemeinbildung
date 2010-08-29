@@ -5,7 +5,7 @@
  *
  * @package models
  */
-class Model_GeneratorMapping_Bundesland4ImageQuestionMapping extends Model_GeneratorMapping_AbstractQuestionMapping {
+class Model_GeneratorMapping_Bundesland4ImageQuestionMapping extends Model_GeneratorMapping_AbstractImageQuestionMapping {
 
 	protected $answerKey;
 
@@ -28,10 +28,10 @@ class Model_GeneratorMapping_Bundesland4ImageQuestionMapping extends Model_Gener
 		$this->answerKey = array_search($questionImage, $images);
 
         $imageMerger = new Model_GeneratorMapping_ImageMerge($images);
-		//$newImageName  = Model_DbTable_Helper::getInstance()->getImageNumber();
-        $imageMerger->merge()->save('tmp/' . $this->getCurrentId() . '.jpg');
+		$imageData	 = $this->getImageName();
+		$imageMerger->merge()->save($imageData['full']);
 		
-		$this->questionImage = $this->getCurrentId() . '.jpg';	
+		$this->questionImage = $imageData['name']; 
 	}
 
 	protected function getImage($questionId) {

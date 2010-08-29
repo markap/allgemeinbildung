@@ -7,8 +7,6 @@
  */
 abstract class Model_GeneratorMapping_AbstractQuestionMapping {
 
-	protected $imageAnswers = array('Bild A', 'Bild B', 'Bild C', 'Bild D');
-
 
 	/**
 	 * a question array

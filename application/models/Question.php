@@ -91,12 +91,19 @@ class Model_Question {
 	 * to ensure callback value
 	 * and better reading
 	 *
+	 * shuffle not all answers
+	 * e.g. do not shuffle bild a, bild b etc...
+	 *
 	 * @author Martin Kapfhammer
 	 * @param array $answers 
 	 * @return array $answers shuffled array
 	 */
 	protected function shuffleAnswers(array $answers) {
-		shuffle($answers);
+		if (!in_array('Bild A', $answers)) {
+			shuffle($answers);
+		} else {
+			$answers = array('Bild A', 'Bild B', 'Bild C', 'Bild D');
+		}
 		return $answers;
 	}
 
