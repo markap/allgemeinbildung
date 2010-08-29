@@ -3464,3 +3464,25 @@
 [Sat Aug 28 23:37:34 2010] [error] [client 127.0.0.1] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/www/allgemeinbildung/application/models/Calculate/NumberPair.php on line 68, referer: http://allgemeinbildung.localhost/calculate/index/op/all
 [Sat Aug 28 23:38:51 2010] [error] [client 127.0.0.1] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/www/allgemeinbildung/application/models/Calculate/NumberPair.php on line 68, referer: http://allgemeinbildung.localhost/calculate
 [Sat Aug 28 23:59:02 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_Calculate_NumberPair::getChilds() in /home/www/allgemeinbildung/application/views/scripts/calculate/index.phtml on line 8
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:40:01 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined variable: operator in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 46
+[Sun Aug 29 19:50:54 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_Calculate_NumberCreator::createNumberPairs() in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 65
+[Sun Aug 29 19:53:42 2010] [error] [client 127.0.0.1] PHP Fatal error:  Non-abstract method Model_Calculate_NumberCreator::createOperator() must contain body in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 101
