@@ -22,8 +22,8 @@ class GenerategameController extends Zend_Controller_Action
 		}
 
 		$gameListDb  	= new Model_DbTable_GameList();
-		$questionIds	= $gameListDb->getQuestionIds(1);
-		$this->mapping  = new Model_GeneratorMapping_Bundesland4ImageQuestionMapping($questionIds, $this->userId);
+		$questionIds	= $gameListDb->getQuestionIds(4);
+		$this->mapping  = new Model_GeneratorMapping_FlaggenEuropeQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()

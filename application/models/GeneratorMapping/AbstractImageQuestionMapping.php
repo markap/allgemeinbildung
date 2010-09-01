@@ -41,7 +41,7 @@ abstract class Model_GeneratorMapping_AbstractImageQuestionMapping
 
 
 	protected function existTmpImage($tmpName) {
-		return (file_exists(self::TEST_IMG_PATH . $name)) ? true : false;
+		return (file_exists(self::TEST_IMG_PATH . $tmpName)) ? true : false;
 	}
 
 
