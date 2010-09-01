@@ -48,4 +48,21 @@ abstract class Model_GeneratorMapping_AbstractImageQuestionMapping
 	protected function moveImage($tmpName, $newName) {
 		rename(self::TEST_IMG_PATH . $tmpName, self::IMG_PATH . $newName);	
 	}
+
+	protected function getFolderContent($tmp) {
+		$dir 	= ($tmp) ? self::TEST_IMG_PATH : self::IMG_PATH;
+		$files 	= array();
+
+		if ($handle = opendir($dir)) {
+
+    		while (false !== ($file = readdir($handle))) {
+        		if ($file != "." && $file != "..") {
+					$files[] = $file;
+        		}
+    		}
+
+    		closedir($handle);
+		}
+		return $files;
+	}
 }

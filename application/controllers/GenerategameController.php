@@ -22,8 +22,9 @@ class GenerategameController extends Zend_Controller_Action
 		}
 
 		$gameListDb  	= new Model_DbTable_GameList();
-		$questionIds	= $gameListDb->getQuestionIds(4);
-		$this->mapping  = new Model_GeneratorMapping_FlaggenEuropeQuestionMapping($questionIds, $this->userId);
+		$questionIds	= array();
+		for ($i = 0; $i < 48; $i++) $questionIds[] = 18;
+		$this->mapping  = new Model_GeneratorMapping_AsiaMapQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()
@@ -48,11 +49,12 @@ class GenerategameController extends Zend_Controller_Action
 
     public function testAction()
     {
-
+/**
 		$gameListDb  	= new Model_DbTable_GameList();
 		$questionIds	= $gameListDb->getQuestionIds(1);
 		$mapping  = new Model_GeneratorMapping_Bundesland4ImageQuestionMapping($questionIds, $this->userId);
 		$this->view->questions = $mapping->runAndGetValues(); 
+**/
     }
 
 
