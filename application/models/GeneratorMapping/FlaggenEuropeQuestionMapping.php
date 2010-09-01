@@ -28,4 +28,9 @@ class Model_GeneratorMapping_FlaggenEuropeQuestionMapping extends Model_Generato
 		
 		$this->questionImage = $fileName;
 	}
+
+
+	protected function createCategories() {
+		$this->categoriesData = array(5,6); 
+	}
 }
