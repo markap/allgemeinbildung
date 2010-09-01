@@ -1,26 +1,14 @@
-<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
-<?php echo $this->headScript()->appendFile('/js/calculate/index.js'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/calculate/index.css'); ?>
 
-<form id="calculate-form" action="/calculate/result" method="POST">
+<h1>Kopfrechnen</h1>
 
-<?php $length = count($this->numberPairs); ?>
-<?php foreach ($this->numberPairs as $key => $pair): ?>
-	<div id="<?php echo $pair->getChildNumber() ?>">
-	<span class="numberOne" id="<?php echo $pair->getNumberOne(); ?>"><?php echo $pair->getNumberOne(); ?></span>
-	<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
-	<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
-	<?php while ($pair->hasChild()): ?> 
-		<?php $pair = $pair->nextChild(); ?>
-		<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
-		<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
-	<?php endwhile; ?>
-
-	<?php  $id = ($length -1 === $key) ? "last" : ''; ?>
-	<input id="<?php echo $id; ?>" class="textfield" name="<?php echo $key; ?>" type="textfield" />
-
-	<span class="right">Richtig</span>
-	<span class="wrong">Falsch</span>
-	</div>
+<?php foreach ($this->levels as $level): ?>
+	<?php echo $level['linkstart']; ?>
+	<div class="<?php echo $level['divclass']; ?>"><?php echo $level['name']; ?></div>
+	<?php echo $level['linkend']; ?>
 <?php endforeach; ?>
 
-</form>
+
+<div id="seperator">
+
+</div>

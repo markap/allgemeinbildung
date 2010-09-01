@@ -62,4 +62,31 @@ $(document).ready(function() {
 		return result;
 	}
 
+	// timer of the calculation
+	var timer = 0;
+	timer = setInterval(showTime, 1000);
+
+	var second = 0;
+	var minute = 0;
+	var secondDiv = $('#stopwatch-second');
+	var minuteDiv = $('#stopwatch-minute');
+	var secondInput = $('#clock-second-hidden');
+	var minuteInput = $('#clock-minute-hidden');
+
+	function showTime() {
+		second++;
+		
+		if (second > 59) {
+			second = 0;
+			minute = minute + 1;
+		}
+
+		
+		secondDiv.html("0".substring(second >= 10) + second);
+		minuteDiv.html("0".substring(minute >= 10) + minute);
+
+		secondInput.val("0".substring(second >= 10) + second);
+		minuteInput.val("0".substring(second >= 10) + minute);
+	}
+
 });

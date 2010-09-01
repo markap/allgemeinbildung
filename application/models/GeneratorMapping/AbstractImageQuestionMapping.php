@@ -35,4 +35,13 @@ abstract class Model_GeneratorMapping_AbstractImageQuestionMapping
 					 'full' => $path . $imageName);
 	}
 
+
+	protected function existTmpImage($tmpName) {
+		return (file_exists(self::TEST_IMG_PATH . $name)) : true ? false;
+	}
+
+
+	protected function moveImage($tmpName, $newName) {
+		rename(self::TEST_IMG_PATH . $tmpName, self::IMG_PATH . $newName);	
+	}
 }

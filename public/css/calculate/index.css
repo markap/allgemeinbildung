@@ -1,0 +1,26 @@
+div.abled {
+	background: url(/img/green.png) top center  repeat-x;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	width: 40px;	
+	margin: 10px;
+	float: left;
+	color: black;
+}
+
+div.disabled {
+	background: url(/img/grey.png) top center  repeat-x;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px;
+	width: 40px;	
+	margin: 10px;
+	float: left;
+}
+
+
+#seperator {
+	height: 300px;
+	clear: left;
+}

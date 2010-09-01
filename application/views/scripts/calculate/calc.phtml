@@ -1,0 +1,33 @@
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/calculate/index.js'); ?>
+
+
+<span id="stopwatch-minute">00</span>:
+<span id="stopwatch-second">00</span>
+
+<form id="calculate-form" action="/calculate/result" method="POST">
+
+	<input type="hidden" id="clock-minute-hidden" name="minute" value="0" />
+	<input type="hidden" id="clock-second-hidden" name="second" value="0" />
+
+<?php $length = count($this->numberPairs); ?>
+<?php foreach ($this->numberPairs as $key => $pair): ?>
+	<div id="<?php echo $pair->getChildNumber() ?>">
+	<span class="numberOne" id="<?php echo $pair->getNumberOne(); ?>"><?php echo $pair->getNumberOne(); ?></span>
+	<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
+	<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
+	<?php while ($pair->hasChild()): ?> 
+		<?php $pair = $pair->nextChild(); ?>
+		<span class="operator" id="<?php echo $pair->getOperator(); ?>"><?php echo $pair->getDisplayOperator(); ?></span>
+		<span class="numberTwo" id="<?php echo $pair->getNumberTwo(); ?>"><?php echo $pair->getNumberTwo(); ?></span>
+	<?php endwhile; ?>
+
+	<?php  $id = ($length -1 === $key) ? "last" : ''; ?>
+	<input id="<?php echo $id; ?>" class="textfield" name="<?php echo $key; ?>" type="textfield" />
+
+	<span class="right">Richtig</span>
+	<span class="wrong">Falsch</span>
+	</div>
+<?php endforeach; ?>
+
+</form>

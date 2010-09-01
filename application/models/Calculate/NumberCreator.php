@@ -12,6 +12,12 @@ class Model_Calculate_NumberCreator {
 	 * @var array
 	 */
 	protected $operators = array('+', '-', '*', '/');
+
+	/**
+	 * get parameter - operator relation	
+	 * @var array
+	 */
+	protected $getOperatorRelation = array('plus' => '+', 'minus' => '-', 'multi' => '*', 'divide' => '/');
 		
 	/**
 	 * display operators
@@ -103,11 +109,13 @@ class Model_Calculate_NumberCreator {
 		if ($this->operator === 'all') {
 			$operator = $this->randomOperator();
 		} else {
-			$operator = $this->operator;
+			$operator = $this->getOperatorRelation[$this->operator];
 		}
+
 		if ($hasParent === true) {		// has parent? than dont allow dividing
 			if ($operator === '/') $operator = '+';
 		}
+
 		return $operator;
 	}
 

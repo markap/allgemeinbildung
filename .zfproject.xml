@@ -70,6 +70,8 @@
         <controllerFile controllerName="calculate">
           <actionMethod actionName="index"/>
           <actionMethod actionName="result"/>
+          <actionMethod actionName="calc"/>
+          <actionMethod actionName="list"/>
         </controllerFile>
         <controllerFile controllerName="generategame">
           <actionMethod actionName="index"/>
@@ -223,6 +225,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="generategame">
             <viewScriptFile forActionName="test"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="calculate">
+            <viewScriptFile forActionName="calc"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="calculate">
+            <viewScriptFile forActionName="list"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
