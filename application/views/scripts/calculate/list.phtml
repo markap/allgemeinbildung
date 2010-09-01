@@ -1,10 +1,10 @@
-<a href="/calculate/calc/l/<?php echo $this->level; ?>/op/plus">Plus</a>
-<br />
-<a href="/calculate/calc/l/<?php echo $this->level; ?>/op/minus">Minus</a>
-<br />
-<a href="/calculate/calc/l/<?php echo $this->level; ?>/op/multi">Mal</a>
-<br />
-<a href="/calculate/calc/l/<?php echo $this->level; ?>/op/divide">Geteilt</a>
-<br />
-<a href="/calculate/calc/l/<?php echo $this->level; ?>/op/all">All</a>
-<br />
+<?php foreach ($this->list as $operation): ?>
+	<a href="/calculate/calc/l/<?php echo $this->level; ?>/op/<?php echo $operation['op']; ?>"><?php echo $operation['tx']; ?></a> | 
+	
+	<?php if (isset($operation['lr']) && $operation['lr'] !== false): ?>
+		<?php echo $operation['lr']['right']; ?> Richtig in
+		<?php echo $operation['lr']['time']; ?> Sekunden
+		<?php echo ($operation['lr']['next'] === 'N') ? 'Nicht erreicht' : 'Super'; ?> 
+	<?php endif; ?>
+	<br />
+<?php endforeach; ?>

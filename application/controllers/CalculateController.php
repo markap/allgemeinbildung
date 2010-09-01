@@ -23,7 +23,7 @@ class CalculateController extends Zend_Controller_Action
 		$displayLevels = array();
 		$user		   = new Model_Calculate_UserManagement();
 		foreach ($levels as $key => $level) {
-			$allowed = $user->isAllowed($level);
+			$allowed = $user->isAllowed($level, $this->userId);
 			$divClass  = ($allowed) ? 'abled' : 'disabled';
 			$linkStart = ($allowed) ? '<a href="/calculate/list/l/' . $level . '" class="calculate-link">' : '';
 			$linkEnd   = ($allowed) ? '</a>' : '';
@@ -57,23 +57,38 @@ class CalculateController extends Zend_Controller_Action
 				$wrong++;
 			}
 		}
+		
+		$op 	= $this->session->operation;
+		$level 	= $this->session->level;
 
 		if ($this->userId !== null) {
 			$completeTime = $second + $minute * 60;
 			$data = array('time' 		=> $completeTime,
-						  'level' 		=> $this->session->level,
-						  'operation' 	=> $this->session->operation,
+						  'level' 		=> $level,
+						  'operation' 	=> $op,
 						  'right' 		=> $right
 						);
-			$result = $calculateResultDb->getResult($op, $level, $this->userId);	
+			
+			$readyForNext = Model_Calculate_Rules::readyForNext($level, Model_Calculate_Util::operatorStringToSign($op), $data);
+			$data['next'] = ($readyForNext) ? 'Y' : 'N';
+
 			$calculateResultDb = new Model_DbTable_CalculateResult();
-			$calculateResultDb->insertResult($data, $this->userId);
+			$result = $calculateResultDb->getResult($op, $level, $this->userId);	
+			if ($result !== false  		// than update
+				&& (($result['right'] < $right) || ($result['right'] === $right && $result['time'] < $completeTime))) {
+				$calculateResultDb->updateResult($data, $this->userId);
+			} else if ($result === false) { 	// insert
+				$calculateResultDb->insertResult($data, $this->userId);
+			}
 		}
 
 echo "zeit :  : " .$minute . " : " . $second;
 		echo "<br />richitg: ". $right;
 		echo "<br/>falsch : ". $wrong;
+		$this->view->level = $level;
+
     }
+
 
     public function calcAction()
     {
@@ -97,14 +112,19 @@ echo "zeit :  : " .$minute . " : " . $second;
 		$level = $this->_getParam('l', 1);
         $this->view->level = $level;
 		
-		$operators 			= array('plus', 'minus', 'multi', 'divide', 'all');
+		$operators 			= Model_Calculate_Util::getStringOperators(); 
+		$text	 			= array('Plus', 'Minus', 'Mal', 'Geteilt', 'Gemischt');
+		
 		$calculateResultDb 	= new Model_DbTable_CalculateResult();
-		foreach ($operators as $op) {
+		$list				= array();
+		foreach ($operators as $key => $op) {
+			$list[$key]['op'] = $op;
+			$list[$key]['tx'] = $text[$key];
 			if ($this->userId !== null) {
-				$result = $calculateResultDb->getResult($op, $level, $this->userId);	
+				$list[$key]['lr'] = $calculateResultDb->getResult($op, $level, $this->userId);	
 			}
-var_dump($result);
 		}
+		$this->view->list = $list;
     }
 
 

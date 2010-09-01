@@ -10,7 +10,7 @@ class Model_Calculate_Calculator {
 
 		$creator 	= new Model_Calculate_NumberCreator();
 
-		for ($i = 0; $i < $count; $i++) {
+		for ($i = 0; $i < 20; $i++) {
 			$pair = $creator->init($level, $operation);
 			$numberPairs[] = $pair;	
 		}
