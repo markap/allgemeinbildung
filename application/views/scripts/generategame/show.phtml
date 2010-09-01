@@ -8,7 +8,7 @@
 
 <?php foreach ($this->questions as $question): ?>
 	<?php echo $question[0]['question']; ?><br />
-	<img height="300px" src="/img/question/<?php echo $question[0]['image']; ?>" />
+	<img height="300px" src="/<?php echo $this->path; ?><?php echo $question[0]['image']; ?>" />
 	<br />
 	<?php echo $question[1]['answer']; ?> |
 	<?php echo $question[1]['fake1']; ?> |

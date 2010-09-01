@@ -3529,3 +3529,4 @@
 [Mon Aug 30 20:10:43 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:   in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 112
 [Mon Aug 30 20:10:43 2010] [error] [client 127.0.0.1] PHP Notice:  Undefined index:  in /home/www/allgemeinbildung/application/models/Calculate/Rules.php on line 40
 [Mon Aug 30 20:10:43 2010] [error] [client 127.0.0.1] PHP Catchable fatal error:  Argument 1 passed to Model_Calculate_NumberCreator::createNumberPairs() must be an array, null given, called in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 64 and defined in /home/www/allgemeinbildung/application/models/Calculate/NumberCreator.php on line 95
+[Wed Sep 01 11:09:41 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ':' in /home/www/allgemeinbildung/application/models/GeneratorMapping/AbstractImageQuestionMapping.php on line 44

@@ -29,7 +29,7 @@ class CreategameController extends Zend_Controller_Action
     public function indexAction()
     {
         $questionDb = new Model_DbTable_Question();
-		$questions  = $questionDb->getCreatedQuestions(6, 'N');
+		$questions  = $questionDb->getCreatedQuestions($this->userId, 'N');
 		$this->view->questions = $questions;
 
 		$questionIds = array();

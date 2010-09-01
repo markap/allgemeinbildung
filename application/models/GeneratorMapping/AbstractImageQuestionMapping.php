@@ -15,10 +15,14 @@ abstract class Model_GeneratorMapping_AbstractImageQuestionMapping
 	const TEST_IMG_PATH		= 'tmp/'; 
 	const IMG_PATH			= 'img/question/'; 
 
-	public function setTest($isTest) {
+	public function setTestCreation($isTest) {
 		$this->isTestImageCreation = $isTest;
 		return $this;
 	}	
+
+	public function getImagePath($test) {
+		return ($test) ? self::TEST_IMG_PATH : self::IMG_PATH;
+	}
 
 
 	protected function getImageName() {
@@ -37,7 +41,7 @@ abstract class Model_GeneratorMapping_AbstractImageQuestionMapping
 
 
 	protected function existTmpImage($tmpName) {
-		return (file_exists(self::TEST_IMG_PATH . $name)) : true ? false;
+		return (file_exists(self::TEST_IMG_PATH . $name)) ? true : false;
 	}
 
 
