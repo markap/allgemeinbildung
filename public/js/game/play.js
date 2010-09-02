@@ -1,13 +1,19 @@
 $(document).ready(function() {
 
+	var timeRequest = true;
+
 	// multiple choice buttons
 	$('.answer').click(function() {
+		$('.answer').attr('disabled', true);
+		timeRequest = false;
 		sendRequest('answerrequest', this.id);
 	});
 
 	// no multiple choice button
 	$('#send_answer').click(function() {
 		if ($('#input_answer').val() === '') return;
+		$('#send_answer').attr('disabled', true);
+		timeRequest = false;
 		sendRequest('answerrequest', $('#input_answer').val());
 	});
 
@@ -15,6 +21,8 @@ $(document).ready(function() {
 	$('#input_answer').keydown(function(e) {
 		if (e.keyCode === 13) {		// Enter
 			if ($('#input_answer').val() === '') return; 
+			$('#input_answer').attr('disabled', true);
+			timeRequest = false;
 			sendRequest('answerrequest', $('#input_answer').val());
 		}
 	});
@@ -41,7 +49,12 @@ $(document).ready(function() {
 	});
 
 	function timeOverRequest() {
-		sendRequest('timeover', 1);
+		if (timeRequest == true) {
+			$('.answer').attr('disabled', true);
+			$('#input_answer').attr('disabled', true);
+			$('#send_answer').attr('disabled', true);
+			sendRequest('timeover', 1);
+		}
 	}
 
 	// add to Game
