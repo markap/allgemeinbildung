@@ -11,7 +11,8 @@ class Model_Calculate_Util {
 	protected static $operator = array('plus' 	=> '+',
 									   'minus' 	=> '-', 
 									   'multi' 	=> '*', 
-									   'divide' => '/');
+									   'divide' => '/',
+									   'all'	=> 'all');
 
 	public static function operatorStringToSign($sign) {
 		return self::$operator[$sign];

@@ -23,8 +23,8 @@ class GenerategameController extends Zend_Controller_Action
 
 		$gameListDb  	= new Model_DbTable_GameList();
 		$questionIds	= array();
-		for ($i = 0; $i < 48; $i++) $questionIds[] = 18;
-		$this->mapping  = new Model_GeneratorMapping_AsiaMapQuestionMapping($questionIds, $this->userId);
+		for ($i = 0; $i < 46; $i++) $questionIds[] = 18;
+		$this->mapping  = new Model_GeneratorMapping_AsiaCapitalQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()

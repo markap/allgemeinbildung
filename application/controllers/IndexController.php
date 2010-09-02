@@ -128,9 +128,9 @@ class IndexController extends Zend_Controller_Action
         $md5 = md5($data['username'] + $data['mail'] + '123!');
         	
 		$content = '<h2>Anmeldung auf allgemein-bildung.de</h2>';
-		$content .= 'Um deine Anmeldung zu aktivieren, klicke auf den folgenden Link: ';
-		$content .= '<a href=\'allgemein-bildung.de/index/activate/u/' . $userId . '/h/' . $md5 . '\'>Aktivierungslink</a><br /><br />';
-		$content .= 'Vielen Dank'; 
+		$content .= 'Um deine Anmeldung zu aktivieren, kopiere den folgenden Link und öffne ihn im Browser: <br /><br />';
+		$content .= 'allgemein-bildung.de/index/activate/u/' . $userId . '/h/' . $md5;
+		$content .= '<br /><br />Vielen Dank'; 
 
 		$mail = new Zend_Mail();
 		$mail->setBodyHtml($content);

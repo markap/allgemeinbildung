@@ -94,8 +94,9 @@ class Model_DbTable_Question extends Zend_Db_Table_Abstract {
 
 	public function getRandomQuestionIds() {
 		$orderBy = array('RAND()');	
+		$where   = array('active = "Y"');
 		$limit   = 15;
-		$questions 		= $this->fetchAll(1, $orderBy, $limit)->toArray();
+		$questions 		= $this->fetchAll($where, $orderBy, $limit)->toArray();
 		$questionIds   	= array();
 		foreach ($questions as $question) {
 			$questionIds[] = $question['questionid'];

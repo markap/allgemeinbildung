@@ -32,10 +32,20 @@ class Model_NoMultipleChoiceQuestion extends Model_Question {
 		}		
 		$myAnswer 	 = $this->modifyAnswer($answer);
 		$rightAnswer = $this->modifyAnswer($this->answers['answer']);
+
 		if ($myAnswer === $rightAnswer) {
 			error_log('modify_answer|' . $answer . '|' . $this->answers['answer'] . '|' . $myAnswer . '|' . $rightAnswer);
 			return true;
 		}
+
+		if ($this->imageAnswer($rightAnswer, $myAnswer)) {
+			return true;
+		}	
+
+		if ($this->rotateAnswer($rightAnswer, $myAnswer)) {
+			return true;
+		}
+	
 		return false;
 	}
 
@@ -57,10 +67,23 @@ class Model_NoMultipleChoiceQuestion extends Model_Question {
 		$chars 		 = array(" ", "-", "_", "ä", "ö", "ü", "ß");
 		$replaceWith = array("", "", "", "ae", "oe", "ue", "ss");
 		$answer = str_replace($chars, $replaceWith, $answer);	
-		// TODO Konrad adenauer + adenauer konrad
-		// TODO KUrt georg kiesinger
 
 		return $answer;
+	}
+
+
+	protected function rotateAnswer($rightAnswer, $myAnswer) {
+		return false;
+	}
+
+
+	protected function imageAnswer($rightAnswer, $myAnswer) {
+		$answerKey  = substr($rightAnswer, -1);
+		$answerText = substr($rightAnswer, 0, 4);
+		if ($answerText === 'bild' && $answerKey === $myAnswer) {
+			return true;
+		}
+		return false;
 	}
 
 

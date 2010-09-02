@@ -19,6 +19,7 @@ class Model_Calculate_UserManagement {
 				$operators 			= Model_Calculate_Util::getStringOperators();
 				$calculateResultDb 	= new Model_DbTable_CalculateResult();
 				$allowed			= true;
+				$level				= $level -1;
 
 				foreach ($operators as $op) {
 					$result = $calculateResultDb->getResult($op, $level, $userId);	

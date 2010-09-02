@@ -68,7 +68,7 @@ class Model_RegisterValidator {
 		$lengthValidation  = new Zend_Validate_StringLength(0, 40);
 		$isValid = $lengthValidation->isValid($this->data['username']);		
 		if ($isValid === false) {
-			$this->errors[] = 'Kein gültiger Username';
+			$this->errors[] = 'Kein gültiger Benutzername';
 		}
 	}
 
@@ -81,7 +81,7 @@ class Model_RegisterValidator {
 		$uniqueUserValidate = new Zend_Validate_Db_RecordExists('user', 'username');
 		$existsUser = $uniqueUserValidate->isValid($this->data['username']);
 		if ($existsUser === true) {
-			$this->errors[] = 'Username existiert bereits';
+			$this->errors[] = 'Benutzername existiert bereits';
 		}
 	}
 

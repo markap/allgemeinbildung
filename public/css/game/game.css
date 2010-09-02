@@ -16,6 +16,7 @@ input {
 
 #textfield {
 	padding: 20px;
+	position: relative;
 }
 
 #game #countdown {
@@ -139,7 +140,7 @@ input {
 
 #hint {
 	position: absolute;
-	top: 305px;
+	top: 345px;
 	left: 90px;
 }
 

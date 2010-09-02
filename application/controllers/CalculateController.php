@@ -92,10 +92,15 @@ echo "zeit :  : " .$minute . " : " . $second;
 
     public function calcAction()
     {
-//TODO is allowed
         $level 	= $this->_getParam('l', 1);
 		$op 	= $this->_getParam('op', 'plus');
 		$cnt 	= $this->_getParam('cnt', 10);
+
+		$user    = new Model_Calculate_UserManagement();
+		$allowed = $user->isAllowed($level, $this->userId);
+		if (!$allowed) {
+			$this->_redirect('/calculate');
+		}
 
 		$calculator  = new Model_Calculate_Calculator();
 		$numberPairs = $calculator->createNumberPairs($level, $op, $cnt);
