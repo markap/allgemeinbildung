@@ -146,11 +146,11 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 
 
 	public function updateLGGameResult($userId, $gameId, $questionType) {
-		$data = array('type = PN');
+		$data = array('type = "PN"');
 		$where = array('userId = ' . $userId,
 					   'gameId = ' . $gameId,
-					   'qtype =  ' . $questionType,
-					   'type = LG',
+					   'qtype =  "' . $questionType . '"',
+					   'type = "LG"',
 					   'DATE_ADD(date, INTERVAL 1 DAY) <= CURDATE()',
 					   'DATE_ADD(date, INTERVAL 1 MONTH) >= CURDATE()'
 					);
@@ -159,11 +159,11 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 
 
 	public function updatePWGameResult($userId, $resultId, $questionType) {
-		$data = array('type = PN');
+		$data = array('type = "PN"');
 		$where = array('userId = ' . $userId,
 					   'resultId = ' . $resultId,
-					   'qtype =  ' . $questionType,
-					   'type = PW',
+					   'qtype =  "' . $questionType . '"',
+					   'type = "PW"',
 					   'DATE_ADD(date, INTERVAL 1 DAY) <= CURDATE()',
 					   'DATE_ADD(date, INTERVAL 1 MONTH) >= CURDATE()'
 					);
