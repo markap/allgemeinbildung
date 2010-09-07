@@ -13,6 +13,7 @@ $(document).ready(function() {
 	$('#send_answer').click(function() {
 		if ($('#input_answer').val() === '') return;
 		$('#send_answer').attr('disabled', true);
+		$('#input_answer').attr('disabled', true);
 		timeRequest = false;
 		sendRequest('answerrequest', $('#input_answer').val());
 	});
@@ -21,6 +22,7 @@ $(document).ready(function() {
 	$('#input_answer').keydown(function(e) {
 		if (e.keyCode === 13) {		// Enter
 			if ($('#input_answer').val() === '') return; 
+			$('#send_answer').attr('disabled', true);
 			$('#input_answer').attr('disabled', true);
 			timeRequest = false;
 			sendRequest('answerrequest', $('#input_answer').val());
