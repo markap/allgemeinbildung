@@ -106,9 +106,9 @@ class GameController extends Zend_Controller_Action
 				
 		try {
 			$question = $game->nextQuestion();
-			$this->view->question 	= $question->getQuestion();
-			$this->view->answers  	= $question->getAnswers();
-			$this->view->categories = $question->getCategories();
+			$this->view->question 	  = $question->getQuestion();
+			$this->view->questionType = $question->getQuestionType();
+			$this->view->answers  	  = $question->getAnswers();
 			$this->view->numberOfQuestions = 
 						$game->getNumberOfQuestions();
 			$this->view->currentNumberOfQuestions = 

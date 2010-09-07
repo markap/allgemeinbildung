@@ -6,7 +6,7 @@
  *
  * @package models
  */
-class Model_Question {
+class Model_Question implements Model_QuestionInterface {
 
 
 	/**
@@ -223,6 +223,17 @@ class Model_Question {
 	public function getAnswerText() {
 		$answerText = $this->answers['text'];
 		return ($answerText !== '') ? $answerText : '';
+	}
+
+
+	/**
+	 * checks if question is a sorter question
+	 *
+	 * @author Martin Kapfhammer	
+ 	 * @return boolean
+	 */
+	public function isSorterQuestion() {
+		return ($this->answers['fake1'] === '#sorter#') ? true : false;
 	}
 
 }

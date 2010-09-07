@@ -15,12 +15,12 @@
 	<div id="game">
 			<h1><?php echo $this->question['question']; ?></h1>
 
-			<?php foreach($this->categories as $category): ?>
-			<?php //echo $category; ?>
-			<?php endforeach; ?>
+			
 
 
-			<div id="answer_score">
+		<div id="answer_score">
+			
+			
 			<a id="big-img" href="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>">
 			<img title="Vergrößern" height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
 			</a>
@@ -39,6 +39,7 @@
 				<?php endif; ?>
 				<input type="button" id="send_answer" value="Beantworten" />
 			<?php endif; ?>
+
 			<br/>
 			<br/>
 			<div id="result">
@@ -54,6 +55,10 @@
 				<a href="/createquestion/editquestion/question/<?php echo $this->question['questionid']; ?>" target="_blank">Frage bearbeiten</a>
 			<?php endif; ?>
 	</div>
+
+
+
+
 <?php else: ?>
 
 	<p>Die Frage existiert nicht.</p>
