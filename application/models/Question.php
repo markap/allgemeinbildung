@@ -68,6 +68,10 @@ class Model_Question implements Model_QuestionInterface {
 		return $answers;
 	}
 
+	public function getAnswersUnshuffled() {
+		return $this->answers;
+	}
+
 	
 	/**
 	 * creates a array with answerstrings only 

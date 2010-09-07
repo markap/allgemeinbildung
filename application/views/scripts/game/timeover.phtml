@@ -1,3 +1,5 @@
+<?php if (!$this->questionType === 'srt'): ?>
+
 <div><img title="<?php echo $this->answerText; ?>" height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->image; ?>" alt="antwortbild" /></div>
 
 <input type="button" id="next" value="Weiter" onClick="javascript:window.location.replace('/game');" />
@@ -5,6 +7,14 @@
 <div class="error">Ihre Zeit ist leider um.
 <b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.
 </div>
+
+<?php else: ?>
+
+		Falsch
+		<?php foreach ($this->rightAnswer as $rightAnswer): ?>
+			<?php echo $rightAnswer; ?>
+		<?php endforeach; ?>	
+<?php endif; ?>
 
 <div id="result">
 

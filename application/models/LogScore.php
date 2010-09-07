@@ -55,9 +55,9 @@ class Model_LogScore extends Model_Score {
 	 * and saves the right question
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 */
-	public function addRightAnswer(Model_Question $question) {
+	public function addRightAnswer(Model_QuestionInterface $question) {
 		parent::addRightAnswer($question);
 		$this->rightQuestionIds[] = $question->getQuestionId();
 		$this->rightQuestions[]	  = $question;
@@ -71,9 +71,9 @@ class Model_LogScore extends Model_Score {
 	 * and saves the wrong question
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 */
-	public function addWrongAnswer(Model_Question $question) {
+	public function addWrongAnswer(Model_QuestionInterface $question) {
 		parent::addWrongAnswer($question);
 		$this->wrongQuestionIds[] = $question->getQuestionId();
 		$this->wrongQuestions[]   = $question;

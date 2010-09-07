@@ -1,4 +1,4 @@
-
+<?php if (!$this->questionType === 'srt'): ?>
 
 <div id="answer-div" title="<?php echo $this->answerText; ?>" ><img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->image; ?>" alt="antwortbild" /></div>
 
@@ -9,6 +9,27 @@
 <?php else: ?>
 	<div class="error"><?php echo $this->myAnswer; ?> ist falsch.
 	<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.</div>
+<?php endif; ?>
+
+<?php else: ?>
+	<!-- right answer -->
+	<?php if ($this->isAnswerRight): ?>
+		Richtig
+		<?php foreach ($this->rightAnswer as $rightAnswer): ?>
+			<?php echo $rightAnswer; ?>
+		<?php endforeach; ?>
+
+	<!-- wrong answer -->
+	<?php else: ?>	
+		Falsch
+		<?php foreach ($this->rightAnswer as $rightAnswer): ?>
+			<?php echo $rightAnswer; ?>
+		<?php endforeach; ?>	
+		<?php foreach ($this->myAnswer as $myAnswer): ?>
+			<?php echo $myAnswer; ?>
+		<?php endforeach; ?>	
+	<?php endif; ?>
+	
 <?php endif; ?>
 
 <div id="result">

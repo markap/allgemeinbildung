@@ -47,9 +47,9 @@ class Model_Score {
 	 * and the played questions
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 */
-	public function addRightAnswer(Model_Question $question) {
+	public function addRightAnswer(Model_QuestionInterface $question) {
 		$this->questions++;
 		$this->rightAnswers++;
 	}	
@@ -60,9 +60,9 @@ class Model_Score {
 	 * and the played questions
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 */
-	public function addWrongAnswer(Model_Question $question) {
+	public function addWrongAnswer(Model_QuestionInterface $question) {
 		$this->questions++;
 		$this->wrongAnswers++;
 	}

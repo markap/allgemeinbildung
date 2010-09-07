@@ -3,6 +3,7 @@
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.countdown-de.js'); ?>
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.domwindow.js'); ?>
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.tooltip.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/jquery.tablednd.js'); ?>
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.fancybox.js'); ?>
 <?php  $this->headScript()->appendFile('/js/game/play.js'); ?>
 <?php echo $this->headScript(); ?>
@@ -19,6 +20,8 @@
 
 
 		<div id="answer_score">
+		
+		<?php if ($this->questionType !== 'srt'): ?>
 			
 			
 			<a id="big-img" href="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>">
@@ -39,6 +42,19 @@
 				<?php endif; ?>
 				<input type="button" id="send_answer" value="Beantworten" />
 			<?php endif; ?>
+
+
+		<?php else: ?>
+			<!-- sorter question -->
+			<table id="sorter-table">
+				<?php foreach ($this->answers as $key => $answer): ?>
+				<tr id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
+				<?php endforeach; ?>
+			</table>	
+
+			<div style="width: 60px;" id="countdown"></div>
+			<input type="button" id="send_sort_answer" value="Fertig" />
+		<?php endif; ?>
 
 			<br/>
 			<br/>

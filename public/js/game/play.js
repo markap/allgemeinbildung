@@ -86,10 +86,32 @@ $(document).ready(function() {
 
 	});
 
+
+	// bigger image
 	$('a#big-img').fancybox({
 		titleShow: false,
 		scrolling: 'yes',
 		centerOnScroll: true
+	});
+
+
+	// sorter question
+	//
+	//
+	var order = '';
+
+	$('#sorter-table').tableDnD({
+		onDrop: function(table, row) {
+			var rows  = table.tBodies[0].rows;
+			order = '';
+			for (var i = 0; i < rows.length; i++) {
+				order += rows[i].id + "#";
+			}
+		}
+	});
+
+	$('#send_sort_answer').click(function() {
+		sendRequest('answerrequest', order);
 	});
 
 });

@@ -219,10 +219,11 @@ class GameController extends Zend_Controller_Action
 			$question = $game->getQuestion();
 			$this->view->isAnswerRight = $game->checkAnswer($selectedAnswerHash);
 
-			$this->view->image	  = $question->getAnswerImage();
-			$this->view->answerText  = $question->getAnswerText();
-			$this->view->myAnswer = $question->getAnswer($selectedAnswerHash);
-			$this->view->rightAnswer = $question->getRightAnswer(); 
+			$this->view->questionType 	= $question->getQuestionType();
+			$this->view->image	  		= $question->getAnswerImage();
+			$this->view->answerText  	= $question->getAnswerText();
+			$this->view->myAnswer 		= $question->getAnswer($selectedAnswerHash);
+			$this->view->rightAnswer 	= $question->getRightAnswer(); 
 
 			$this->view->numberOfQuestions = 
 						$game->getNumberOfQuestions();
@@ -275,9 +276,10 @@ class GameController extends Zend_Controller_Action
 			$this->_helper->layout->disableLayout();
 			$game = $this->gameSession->game;
 			$question = $game->getQuestion();
-			$this->view->rightAnswer = $question->getRightAnswer();
-			$this->view->image	  	 = $question->getAnswerImage();
-			$this->view->answerText  = $question->getAnswerText();
+			$this->view->rightAnswer 	= $question->getRightAnswer();
+			$this->view->image	  	 	= $question->getAnswerImage();
+			$this->view->answerText  	= $question->getAnswerText();
+			$this->view->questionType 	= $question->getQuestionType();
 
 			$this->view->numberOfQuestions = 
 						$game->getNumberOfQuestions();

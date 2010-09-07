@@ -19,6 +19,12 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 
 
 	/**
+ 	 * @var array
+	 */
+	protected $shuffledAnswers = array();
+
+
+	/**
 	 * constructor
 	 *
 	 * @author Martin Kapfhammer
@@ -47,10 +53,11 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return $this->answers
 	 */
 	public function getAnswers() {
-		$answers 				= $this->question->getAnswers();
-		$sortAnswers 			= explode('#', $answers[3]);
+		$answers 				= $this->question->getAnswersUnshuffled();
+		$sortAnswers 			= explode('#', $answers['answer']);
 		$this->sortedAnswers 	= $sortAnswers;
 		shuffle($sortAnswers);
+		$this->shuffledAnswers  = $sortAnswers;
 		return $sortAnswers;
 	}
 
@@ -67,15 +74,19 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 
 
 	/**
-	 * checks if the given answerhash is right
+	 * checks if the given sorted answer is right
 	 * 
 	 * @param string $answerHash
 	 * @return boolean $result
 	 */
-	public function checkAnswer($answerHash) {
-		$result = false;
-		if ($answerHash === md5($this->answers['answer'])) {
-			$result = true;
+	public function checkAnswer($answer) {
+		$answerIds = explode('#', $answer);
+		$result    = true;
+		foreach ($answerIds as $key => $id) {
+			if (!($this->shuffledAnswers[$id] === $this->sortedAnswers[$key])) {
+				$result = false; 
+				break;
+			}	
 		}
 		return $result;
 	}
@@ -88,17 +99,8 @@ class Model_SorterQuestion implements Model_QuestionInterface {
  	 * @param string $answerHash
 	 * @return string $result
 	 */
-	public function getAnswer($answerHash) {
-		$answers = $this->getAnswerStrings();
-		$result	 = null;
-		foreach ($answers as $answer) {
-			$md5Answer = md5($answer);
-			if ($answerHash === $md5Answer) {
-				$result = $answer;
-				break;
-			}
-		}
-		return $result;
+	public function getAnswer($answer) {
+		return $this->sortedAnswers;
 	}
 
 
@@ -109,7 +111,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
  	 * @return string $this->answers['answer']
 	 */
 	public function getRightAnswer() {
-		return $this->answers['answer'];
+		return $this->sortedAnswers;
 	}
 
 
@@ -143,10 +145,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return string
 	 */
 	public function getAnswerImage() {
-		if ($this->answers['image'] !== '0') {
-			return $this->answers['image'];
-		}
-		return $this->question['image'];
+		return null; 
 	}
 
 	public function getAnswerText() {
