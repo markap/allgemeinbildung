@@ -55,10 +55,13 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	public function getAnswers() {
 		$answers 				= $this->question->getAnswersUnshuffled();
 		$sortAnswers 			= explode('#', $answers['answer']);
-		$this->sortedAnswers 	= $sortAnswers;
+		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
+		$this->sortedAnswers 	= array('keys' 	  => $keys,
+										'answer'  => $sortAnswers);
 		shuffle($sortAnswers);
-		$this->shuffledAnswers  = $sortAnswers;
-		return $sortAnswers;
+		$this->shuffledAnswers  = array('keys'    => $keys,
+										'answers' => $sortAnswers);
+		return $this->shuffledAnswers;
 	}
 
 
@@ -83,7 +86,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 		$answerIds = explode('#', $answer);
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
-			if (!($this->shuffledAnswers[$id] === $this->sortedAnswers[$key])) {
+			if (!($this->shuffledAnswers['answers'][$id] === $this->sortedAnswers['answers'][$key])) {
 				$result = false; 
 				break;
 			}	
@@ -133,7 +136,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return string 
 	 */
 	public function getQuestionType() {
-		return 'srt'; 
+		return 'mc'; 
 	}
 
 

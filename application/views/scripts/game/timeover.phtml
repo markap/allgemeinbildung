@@ -10,9 +10,15 @@
 
 <?php else: ?>
 
-		Falsch
-		<?php foreach ($this->rightAnswer as $rightAnswer): ?>
-			<?php echo $rightAnswer; ?>
+		Zeit ist leider um
+		<table style="float:left">
+		<?php foreach ($this->rightAnswer['keys'] as $keys): ?>
+			<tr><td><?php echo $keys; ?></td></tr>
+		<?php endforeach; ?>
+		</table>
+		<table>
+		<?php foreach ($this->rightAnswer['answer'] as $rightAnswer): ?>
+			<tr><td><?php echo $rightAnswer; ?></td></tr>
 		<?php endforeach; ?>	
 <?php endif; ?>
 
