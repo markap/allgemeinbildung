@@ -57,7 +57,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 		$sortAnswers 			= explode('#', $answers['answer']);
 		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
 		$this->sortedAnswers 	= array('keys' 	  => $keys,
-										'answer'  => $sortAnswers);
+										'answers' => $sortAnswers);
 		shuffle($sortAnswers);
 		$this->shuffledAnswers  = array('keys'    => $keys,
 										'answers' => $sortAnswers);
@@ -83,7 +83,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return boolean $result
 	 */
 	public function checkAnswer($answer) {
-		$answerIds = explode('#', $answer);
+		$answerIds = explode('trtrtrtr', $answer);
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
 			if (!($this->shuffledAnswers['answers'][$id] === $this->sortedAnswers['answers'][$key])) {
@@ -125,7 +125,8 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return string question id
  	 */
 	public function getQuestionId() {
-		return $this->question['questionid'];
+		$question = $this->question->getQuestion();
+		return $question['questionid'];
 	}
 
 

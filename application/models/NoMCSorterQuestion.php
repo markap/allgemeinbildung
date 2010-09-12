@@ -58,10 +58,8 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 		$sortAnswers 			= explode('#', $answers['answer']);
 		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
 		$this->sortedAnswers 	= array('keys' 	  => $keys,
-										'answer'  => $sortAnswers);
-		shuffle($sortAnswers);
-		$this->shuffledAnswers  = array('keys'    => $keys,
 										'answers' => $sortAnswers);
+		$this->shuffledAnswers  = array('keys'    => $keys);
 		return $this->shuffledAnswers;
 	}
 
@@ -84,10 +82,14 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 	 * @return boolean $result
 	 */
 	public function checkAnswer($answer) {
-		$answerIds = explode('#', $answer);
+		$answerIds = explode('trtrtrtr', $answer);
+
+		// remove last element
+		unset($answerIds[count($answerIds)-1]);
+
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
-			if (!($this->shuffledAnswers['answers'][$id] === $this->sortedAnswers['answers'][$key])) {
+			if ($id === $this->sortedAnswers['answers'][$key]) {
 				$result = false; 
 				break;
 			}	
@@ -126,7 +128,8 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 	 * @return string question id
  	 */
 	public function getQuestionId() {
-		return $this->question['questionid'];
+		$question = $this->question->getQuestion();
+		return $question['questionid'];
 	}
 
 

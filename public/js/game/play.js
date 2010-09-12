@@ -107,12 +107,18 @@ $(document).ready(function() {
 			var rows  = table.tBodies[0].rows;
 			order = '';
 			for (var i = 0; i < rows.length; i++) {
-				order += rows[i].id + "#";
+				order += rows[i].id + "trtrtrtr";
 			}
 		}
 	});
 
 	$('#send_sort_answer').click(function() {
+		if ($('.sorter-textfield')) {
+			var textfields = $('.sorter-textfield');
+			$.each(textfields, function() {
+				order += $(this).val() + "trtrtrtr";
+			});
+		}	
 		sendRequest('answerrequest', order);
 	});
 

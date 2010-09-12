@@ -1,14 +1,20 @@
-<table style="float:left">
-				<?php foreach ($this->answers['keys'] as $keys): ?>
-				<tr><td><?php echo $keys; ?></td></tr>
-				<?php endforeach; ?>
-			</table>	
+		<table style="float:left">
+			<?php foreach ($this->answers['keys'] as $keys): ?>
+				<tr><td><?php echo $keys; ?></td>
+					<?php if (!isset($this->answers['answers'])): ?>
+						<td><input class="sorter-textfield" type="textfield" /></td>
+					<?php endif; ?>
+				</tr>
+			<?php endforeach; ?>
+		</table>	
+		<?php if (isset($this->answers['answers'])): ?>
 			<table id="sorter-table">
 				<?php foreach ($this->answers['answers'] as $key => $answer): ?>
-				<tr id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
+					<tr id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
 				<?php endforeach; ?>
 			</table>	
+		<?php endif; ?>
 
-			<div style="width: 60px;" id="countdown"></div>
-			<input type="button" id="send_sort_answer" value="Fertig" />
+<div style="width: 60px;" id="countdown"></div>
+<input type="button" id="send_sort_answer" value="Fertig" />
 
