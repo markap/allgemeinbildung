@@ -84,6 +84,10 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 */
 	public function checkAnswer($answer) {
 		$answerIds = explode('trtrtrtr', $answer);
+
+		// remove last element
+		unset($answerIds[count($answerIds)-1]);
+
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
 			if (!($this->shuffledAnswers['answers'][$id] === $this->sortedAnswers['answers'][$key])) {

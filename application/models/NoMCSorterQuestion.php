@@ -82,14 +82,14 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 	 * @return boolean $result
 	 */
 	public function checkAnswer($answer) {
-		$answerIds = explode('trtrtrtr', $answer);
+		$answers = explode('trtrtrtr', $answer);
 
 		// remove last element
-		unset($answerIds[count($answerIds)-1]);
+		unset($answers[count($answers)-1]);
 
 		$result    = true;
-		foreach ($answerIds as $key => $id) {
-			if ($id === $this->sortedAnswers['answers'][$key]) {
+		foreach ($answers as $key => $answer) {
+			if ($answer !== $this->sortedAnswers['answers'][$key]) {
 				$result = false; 
 				break;
 			}	
@@ -106,7 +106,12 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 	 * @return string $result
 	 */
 	public function getAnswer($answer) {
-		return $this->sortedAnswers;
+		$answers = explode('trtrtrtr', $answer);
+
+		// remove last element
+		unset($answers[count($answers)-1]);
+		return array('keys' 	=> $this->sortedAnswers['keys'],
+					 'answers'	=> $answers);;
 	}
 
 

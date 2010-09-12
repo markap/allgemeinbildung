@@ -42,8 +42,9 @@ $(document).ready(function() {
 	}
 
 	// countdown
-	var seconds = new Date(); 
-	seconds.setSeconds(seconds.getSeconds() + 30);
+	var seconds  = new Date(); 
+	var duration = $('#timer-duration').text();
+	seconds.setSeconds(seconds.getSeconds() + parseInt(duration));
 	$('#countdown').countdown({
 		until: seconds,
 		format: 'S',

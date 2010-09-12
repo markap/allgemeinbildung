@@ -1,18 +1,40 @@
 	<!-- right answer -->
 	<?php if ($this->isAnswerRight): ?>
 		Richtig
-		<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
-			<?php echo $rightAnswer; ?>
-		<?php endforeach; ?>
+		<table style="float: left">
+			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
+				<tr><td><?php echo $key; ?></td></tr>
+			<?php endforeach; ?>
+		</table>
+		<table>
+			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
+				<tr><td><?php echo $rightAnswer; ?></td></tr>
+			<?php endforeach; ?>
+		</table>
 
 	<!-- wrong answer -->
 	<?php else: ?>	
 		Falsch
-		<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
-			<?php echo $rightAnswer; ?>
-		<?php endforeach; ?>	
-		<?php foreach ($this->myAnswer['answers'] as $myAnswer): ?>
-			<?php echo $myAnswer; ?>
-		<?php endforeach; ?>	
+		<table style="float: left">
+			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
+				<tr><td><?php echo $key; ?></td></tr>
+			<?php endforeach; ?>
+		</table>
+		<table>
+			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
+				<tr><td><?php echo $rightAnswer; ?></td></tr>
+			<?php endforeach; ?>	
+		</table>
+		Richitg
+		<table style="float: left">
+			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
+				<tr><td><?php echo $key; ?></td></tr>
+			<?php endforeach; ?>
+		</table>
+		<table>
+			<?php foreach ($this->myAnswer['answers'] as $myAnswer): ?>
+				<tr><td><?php echo $myAnswer; ?></td></tr>
+			<?php endforeach; ?>	
+		</table>
 	<?php endif; ?>
 
