@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * mapping flaggen - suedamerika 
+ *
+ * @package models
+ */
+class Model_GeneratorMapping_FlaggenSuedAmerikaQuestionMapping extends Model_GeneratorMapping_AbstractImageQuestionMapping {
+
+	protected function createQuestionTitle() {
+		$this->questionData['question'] = 'Zu welchem Land gehört die Flagge?';
+	}
+
+	protected function createQuestionImage() {
+		$fileName 	= $this->answerOrg['answer'];
+		$fileName   = $this->formatCheck($fileName);
+		$fileName   = $fileName . '.png';
+	
+		$exist 		= $this->existTmpImage($fileName);
+		if (!$exist) {
+			throw new Exception('Nicht gefunden: ' . $fileName);
+			exit();
+		}
+
+		if ($this->isTestImageCreation === false) {
+			$newData = $this->getImageName();
+			$name    = $newData['name'];
+			$this->moveImage($fileName, $name);
+			$fileName = $name;
+		}
+		
+		$this->questionImage = $fileName;
+	}
+
+	protected function formatCheck($text) {
+		if ($text === 'Französisch-Guayana') $text = 'Franzoesisch-Guayana';
+		if ($text === 'Südgeorgien und die Südlichen Sandwichinseln')
+			$text = 'Suedgeorgien und die Suedlichen Sandwichinseln';
+		return $text;
+	}
+
+
+	protected function createCategories() {
+		$this->categoriesData = array(5,12); 
+	}
+}

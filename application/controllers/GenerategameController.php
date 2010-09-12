@@ -3,9 +3,11 @@
 class GenerategameController extends Zend_Controller_Action
 {
 
-    protected $mapping 		= null;
-    protected $userSession 	= null;
-    protected $userId 	= null;
+    protected $mapping = null;
+
+    protected $userSession = null;
+
+    protected $userId = null;
 
     public function init()
     {
@@ -23,9 +25,9 @@ class GenerategameController extends Zend_Controller_Action
 
 		$gameListDb  	= new Model_DbTable_GameList();
 		$questionIds	= array();
-		for ($i = 0; $i < 15; $i++) $questionIds[] = 18;
-		//$questionIds	= $gameListDb->getQuestionIds(20); 
-		$this->mapping  = new Model_GeneratorMapping_SuedAmerikaMapQuestionMapping($questionIds, $this->userId);
+		//for ($i = 0; $i < 15; $i++) $questionIds[] = 18;
+		$questionIds	= $gameListDb->getQuestionIds(25); 
+		$this->mapping  = new Model_GeneratorMapping_FlaggenSuedAmerikaQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()
@@ -34,13 +36,13 @@ class GenerategameController extends Zend_Controller_Action
 
     public function showAction()
     {
-		$this->view->questions 	= $this->mapping->runAndGetValues(); 
+        $this->view->questions 	= $this->mapping->runAndGetValues(); 
 		$this->view->path		= $this->mapping->getImagePath(true);
     }
 
     public function saveAction()
     {
-		$this->mapping->setTestCreation(false)->runAndSave();
+        $this->mapping->setTestCreation(false)->runAndSave();
     }
 
     protected function isManager()
@@ -55,11 +57,32 @@ class GenerategameController extends Zend_Controller_Action
 		$questionIds	= $gameListDb->getQuestionIds(1);
 		$mapping  = new Model_GeneratorMapping_Bundesland4ImageQuestionMapping($questionIds, $this->userId);
 		$this->view->questions = $mapping->runAndGetValues(); 
-**/
+		**/
+    }
+
+    public function show2Action()
+    {
+		$gameListDb  	= new Model_DbTable_GameList();
+		$questionIds	= $gameListDb->getQuestionIds(25); 
+		$mapping  = new Model_GeneratorMapping_SuedAmerikaCapitalQuestionMapping($questionIds, $this->userId);
+        $this->view->questions 	= $mapping->runAndGetValues(); 
+		$this->view->path		= $mapping->getImagePath(true);
+    }
+
+    public function save2Action()
+    {
+		$gameListDb  	= new Model_DbTable_GameList();
+		$questionIds	= $gameListDb->getQuestionIds(25); 
+		$mapping  = new Model_GeneratorMapping_SuedAmerikaCapitalQuestionMapping($questionIds, $this->userId);
+        $mapping->setTestCreation(false)->runAndSave();
     }
 
 
 }
+
+
+
+
 
 
 
