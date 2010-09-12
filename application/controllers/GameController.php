@@ -107,7 +107,7 @@ class GameController extends Zend_Controller_Action
 		try {
 			$question = $game->nextQuestion();
 			$this->view->question 	  = $question->getQuestion();
-			$this->view->questionType = $question->getQuestionType();
+			$this->view->objectType   = $question->getObjectType();
 			$this->view->answers  	  = $question->getAnswers();
 			$this->view->numberOfQuestions = 
 						$game->getNumberOfQuestions();
@@ -219,7 +219,7 @@ class GameController extends Zend_Controller_Action
 			$question = $game->getQuestion();
 			$this->view->isAnswerRight = $game->checkAnswer($selectedAnswerHash);
 
-			$this->view->questionType 	= $question->getQuestionType();
+			$this->view->objectType 	= $question->getObjectType();
 			$this->view->image	  		= $question->getAnswerImage();
 			$this->view->answerText  	= $question->getAnswerText();
 			$this->view->myAnswer 		= $question->getAnswer($selectedAnswerHash);
@@ -279,7 +279,7 @@ class GameController extends Zend_Controller_Action
 			$this->view->rightAnswer 	= $question->getRightAnswer();
 			$this->view->image	  	 	= $question->getAnswerImage();
 			$this->view->answerText  	= $question->getAnswerText();
-			$this->view->questionType 	= $question->getQuestionType();
+			$this->view->objectType 	= $question->getObjectType();
 
 			$this->view->numberOfQuestions = 
 						$game->getNumberOfQuestions();

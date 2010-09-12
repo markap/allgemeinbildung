@@ -21,55 +21,17 @@
 
 		<div id="answer_score">
 		
-		<?php if ($this->questionType !== 'srt'): ?>
-			
-			
-			<a id="big-img" href="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>">
-			<img title="Vergrößern" height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
-			</a>
-			<div>
-			<div style="width: 60px;" id="countdown"></div>
+		<?php if ($this->objectType === 'default'): ?>
+			<?php echo $this->render('/game/index/default.phtml'); ?>
 
-			<?php if ($this->answers !== 'nochoice'): ?>
-				<input type="button" id="<?php echo $this->answers[0]; ?>" class="answer" value="<?php echo $this->answers[1]; ?>" />
-				<input type="button" id="<?php echo $this->answers[2]; ?>" class="answer" value="<?php echo $this->answers[3]; ?>" />
-				<input type="button" id="<?php echo $this->answers[4]; ?>" class="answer" value="<?php echo $this->answers[5]; ?>" />
-				<input type="button" id="<?php echo $this->answers[6]; ?>" class="answer" value="<?php echo $this->answers[7]; ?>" />
-			<?php else: ?>
-				<span id="textfield"><input type="text" id="input_answer" /></span>
-				<?php if ($this->question['hint']): ?>
-					<span id="hint">Eingabehilfe: <?php echo $this->question['hint']; ?></span>
-				<?php endif; ?>
-				<input type="button" id="send_answer" value="Beantworten" />
-			<?php endif; ?>
+		<?php elseif ($this->objectType === 'sorter'): ?>
 
-
-		<?php else: ?>
-		<!-- sorter question -->
-			<table style="float:left">
-				<?php foreach ($this->answers['keys'] as $keys): ?>
-				<tr><td><?php echo $keys; ?></td></tr>
-				<?php endforeach; ?>
-			</table>	
-			<table id="sorter-table">
-				<?php foreach ($this->answers['answers'] as $key => $answer): ?>
-				<tr id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
-				<?php endforeach; ?>
-			</table>	
-
-			<div style="width: 60px;" id="countdown"></div>
-			<input type="button" id="send_sort_answer" value="Fertig" />
+			<?php echo $this->render('/game/index/sorter.phtml'); ?>
 		<?php endif; ?>
 
 			<br/>
 			<br/>
-			<div id="result">
-			Insgesamt: <?php echo $this->numberOfQuestions; ?> | 
-			Noch übrig: <?php echo $this->currentNumberOfQuestions; ?> | 
-			Beantwortet: <?php echo $this->playedQuestions; ?> | 
-			Richtig: <?php echo $this->rightAnswers; ?> | 
-			Falsch: <?php echo $this->wrongAnswers; ?> 
-			</div>
+		<?php echo $this->render('/game/shared/result.phtml'); ?>
 			</div>
 			</div>
 			<?php if($this->role === 'manager'): ?>

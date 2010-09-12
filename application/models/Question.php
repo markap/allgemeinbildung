@@ -240,4 +240,15 @@ class Model_Question implements Model_QuestionInterface {
 		return ($this->answers['fake1'] === '#sorter#') ? true : false;
 	}
 
+	
+	/**
+	 * Returns the object type
+ 	 *
+	 * @author Martin Kapfhammer	
+ 	 * @return string
+	 */
+	public function getObjectType() {
+		return 'default';
+	}
+
 }

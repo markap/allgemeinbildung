@@ -1,43 +1,8 @@
-<?php if (!($this->questionType === 'srt')): ?>
+<?php if ($this->objectType === 'default'): ?>
+	<?php echo $this->render('/game/answerrequest/default.phtml'); ?>
 
-<div id="answer-div" title="<?php echo $this->answerText; ?>" ><img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->image; ?>" alt="antwortbild" /></div>
-
-<input type="button" id="next" value="Weiter" onClick="javascript:window.location.replace('/game');" />
-
-<?php if($this->isAnswerRight): ?>
-	<div class="success"><b><?php echo $this->rightAnswer; ?></b> ist richtig. Sehr gut!</div>
-<?php else: ?>
-	<div class="error"><?php echo $this->myAnswer; ?> ist falsch.
-	<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.</div>
+<?php elseif ($this->objectType === 'sorter'): ?>
+	<?php echo $this->render('/game/answerrequest/sorter.phtml'); ?>	
 <?php endif; ?>
 
-<?php else: ?>
-	<!-- right answer -->
-	<?php if ($this->isAnswerRight): ?>
-		Richtig
-		<?php foreach ($this->rightAnswer['answer'] as $rightAnswer): ?>
-			<?php echo $rightAnswer; ?>
-		<?php endforeach; ?>
-
-	<!-- wrong answer -->
-	<?php else: ?>	
-		Falsch
-		<?php foreach ($this->rightAnswer['answer'] as $rightAnswer): ?>
-			<?php echo $rightAnswer; ?>
-		<?php endforeach; ?>	
-		<?php foreach ($this->myAnswer['answer'] as $myAnswer): ?>
-			<?php echo $myAnswer; ?>
-		<?php endforeach; ?>	
-	<?php endif; ?>
-	
-<?php endif; ?>
-
-<div id="result">
-
-	Insgesamt: <?php echo $this->numberOfQuestions; ?> | 
-	Noch übrig: <?php echo $this->currentNumberOfQuestions; ?> | 
-	Beantwortet: <?php echo $this->playedQuestions; ?> | 
- 	Richtig: <?php echo $this->rightAnswers; ?>
- 	Falsch: <?php echo $this->wrongAnswers; ?>
-</div>
-
+<?php echo $this->render('/game/shared/result.phtml'); ?>

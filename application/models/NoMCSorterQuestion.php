@@ -2,10 +2,11 @@
 
 /**
  * sorter question object
+ * for no-Multiple Choice
  *
  * @package models
  */
-class Model_SorterQuestion implements Model_QuestionInterface {
+class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 
 	/**
 	 * @var Model_Question
@@ -136,34 +137,6 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return string 
 	 */
 	public function getQuestionType() {
-		return 'mc'; 
+		return 'txt'; 
 	}
-
-
-	/**
-	 * checks if there exists an answer image
-	 * if not, return question image 
-	 *
-	 * @author Martin Kapfhammer
-	 * @return string
-	 */
-	public function getAnswerImage() {
-		return null; 
-	}
-
-	public function getAnswerText() {
-		return ''; 
-	}
-
-
-	/*
-	 * Returns the object type 
-	 *
-	 * @author Martin Kapfhammer
-	 * @return string
-	 */
-	public function getObjectType() {
-		return 'sorter';
-	}
-
 }

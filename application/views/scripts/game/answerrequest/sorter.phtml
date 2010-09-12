@@ -1,0 +1,18 @@
+	<!-- right answer -->
+	<?php if ($this->isAnswerRight): ?>
+		Richtig
+		<?php foreach ($this->rightAnswer['answer'] as $rightAnswer): ?>
+			<?php echo $rightAnswer; ?>
+		<?php endforeach; ?>
+
+	<!-- wrong answer -->
+	<?php else: ?>	
+		Falsch
+		<?php foreach ($this->rightAnswer['answer'] as $rightAnswer): ?>
+			<?php echo $rightAnswer; ?>
+		<?php endforeach; ?>	
+		<?php foreach ($this->myAnswer['answer'] as $myAnswer): ?>
+			<?php echo $myAnswer; ?>
+		<?php endforeach; ?>	
+	<?php endif; ?>
+

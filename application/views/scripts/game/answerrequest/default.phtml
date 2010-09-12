@@ -1,0 +1,11 @@
+<div id="answer-div" title="<?php echo $this->answerText; ?>" ><img height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->image; ?>" alt="antwortbild" /></div>
+
+<input type="button" id="next" value="Weiter" onClick="javascript:window.location.replace('/game');" />
+
+<?php if($this->isAnswerRight): ?>
+	<div class="success"><b><?php echo $this->rightAnswer; ?></b> ist richtig. Sehr gut!</div>
+<?php else: ?>
+	<div class="error"><?php echo $this->myAnswer; ?> ist falsch.
+	<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.</div>
+<?php endif; ?>
+

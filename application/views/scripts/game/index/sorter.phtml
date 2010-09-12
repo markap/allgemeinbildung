@@ -1,0 +1,14 @@
+<table style="float:left">
+				<?php foreach ($this->answers['keys'] as $keys): ?>
+				<tr><td><?php echo $keys; ?></td></tr>
+				<?php endforeach; ?>
+			</table>	
+			<table id="sorter-table">
+				<?php foreach ($this->answers['answers'] as $key => $answer): ?>
+				<tr id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
+				<?php endforeach; ?>
+			</table>	
+
+			<div style="width: 60px;" id="countdown"></div>
+			<input type="button" id="send_sort_answer" value="Fertig" />
+

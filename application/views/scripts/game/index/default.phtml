@@ -1,0 +1,19 @@
+			<a id="big-img" href="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>">
+			<img title="Vergrößern" height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->question['image']; ?>" alt="fragebild" />
+			</a>
+			<div>
+			<div style="width: 60px;" id="countdown"></div>
+
+			<?php if ($this->answers !== 'nochoice'): ?>
+				<input type="button" id="<?php echo $this->answers[0]; ?>" class="answer" value="<?php echo $this->answers[1]; ?>" />
+				<input type="button" id="<?php echo $this->answers[2]; ?>" class="answer" value="<?php echo $this->answers[3]; ?>" />
+				<input type="button" id="<?php echo $this->answers[4]; ?>" class="answer" value="<?php echo $this->answers[5]; ?>" />
+				<input type="button" id="<?php echo $this->answers[6]; ?>" class="answer" value="<?php echo $this->answers[7]; ?>" />
+			<?php else: ?>
+				<span id="textfield"><input type="text" id="input_answer" /></span>
+				<?php if ($this->question['hint']): ?>
+					<span id="hint">Eingabehilfe: <?php echo $this->question['hint']; ?></span>
+				<?php endif; ?>
+				<input type="button" id="send_answer" value="Beantworten" />
+			<?php endif; ?>
+

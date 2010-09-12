@@ -1,32 +1,7 @@
-<?php if (!($this->questionType === 'srt')): ?>
-
-<div><img title="<?php echo $this->answerText; ?>" height="300px" id="gameimg" src="<?php echo $this->baseUrl . '/img/question/' . $this->image; ?>" alt="antwortbild" /></div>
-
-<input type="button" id="next" value="Weiter" onClick="javascript:window.location.replace('/game');" />
-
-<div class="error">Ihre Zeit ist leider um.
-<b><?php echo $this->rightAnswer; ?></b> wäre richtig gewesen.
-</div>
-
-<?php else: ?>
-
-		Zeit ist leider um
-		<table style="float:left">
-		<?php foreach ($this->rightAnswer['keys'] as $keys): ?>
-			<tr><td><?php echo $keys; ?></td></tr>
-		<?php endforeach; ?>
-		</table>
-		<table>
-		<?php foreach ($this->rightAnswer['answer'] as $rightAnswer): ?>
-			<tr><td><?php echo $rightAnswer; ?></td></tr>
-		<?php endforeach; ?>	
+<?php if ($this->objectType === 'default'): ?>
+	<?php echo $this->render('/game/timeover/default.phtml'); ?>
+<?php elseif ($this->objectType === 'sorter'): ?>
+	<?php echo $this->render('/game/timeover/sorter.phtml'); ?>
 <?php endif; ?>
 
-<div id="result">
-
-	Insgesamt: <?php echo $this->numberOfQuestions; ?> | 
-	Noch übrig: <?php echo $this->currentNumberOfQuestions; ?> | 
-	Beantwortet: <?php echo $this->playedQuestions; ?> | 
- 	Richtig: <?php echo $this->rightAnswers; ?>
- 	Falsch: <?php echo $this->wrongAnswers; ?>
-</div>
+<?php echo $this->render('/game/shared/result.phtml'); ?>

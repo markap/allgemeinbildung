@@ -20,15 +20,18 @@ class Model_QuestionFactory {
 	static public function getRandomQuestion($questionId, $questionType = 'MC', $test = false) {
 		switch (strtoupper($questionType)) {
 			case 'MC' : $question = new Model_Question($questionId, $test);
+						if ($question->isSorterQuestion()) {
+							$question = new Model_SorterQuestion($question);
+						}
 						break;
 			case 'TXT': $question = new Model_NoMultipleChoiceQuestion($questionId, $test);
+						if ($question->isSorterQuestion()) {
+							$question = new Model_NoMCSorterQuestion($question);
+						}
 						break;
 			default: throw new Model_Exception_QuestionNotFound('questionfactory', $questionType);
 		} 
 
-		if ($question->isSorterQuestion()) {
-			$question = new Model_SorterQuestion($question);
-		}
 		return $question; 
 	}
 }

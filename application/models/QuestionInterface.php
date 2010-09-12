@@ -26,4 +26,6 @@ interface Model_QuestionInterface {
 	public function getAnswerImage();
 
 	public function getAnswerText();
+
+	public function getObjectType();
 }
