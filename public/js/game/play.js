@@ -104,6 +104,7 @@ $(document).ready(function() {
 	var order = '';
 
 	$('#sorter-table').tableDnD({
+		onDragClass: 'sorter-move',
 		onDrop: function(table, row) {
 			var rows  = table.tBodies[0].rows;
 			order = '';

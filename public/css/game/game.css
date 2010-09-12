@@ -147,3 +147,37 @@ input {
 #answer_score {
 	position: relative;
 }
+
+.sorter-numbers {
+	font-size: 20px;
+	float: left;
+	margin-right: 20px;
+}
+
+
+.sorter-answers {
+	font-size: 20px;
+}
+
+.sorter-move {
+	color: white;
+	background-color: black;
+}
+
+.even {
+	background-color: #45C241;
+}
+
+.odd {
+}
+
+
+#sorter-next {
+	position: absolute;
+	height: 150px;
+	width: 100px;
+	top: 110px;
+	right: 10px;	
+	cursor: pointer;
+}
+

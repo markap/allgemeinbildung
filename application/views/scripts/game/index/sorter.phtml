@@ -1,6 +1,6 @@
 	<span style="display: none" id="timer-duration">60</span>	
-
-	<table style="float:left">
+<div id="sorter-container">
+	<table class="sorter-numbers">
 			<?php foreach ($this->answers['keys'] as $keys): ?>
 				<tr><td><?php echo $keys; ?></td>
 					<?php if (!isset($this->answers['answers'])): ?>
@@ -10,13 +10,13 @@
 			<?php endforeach; ?>
 		</table>	
 		<?php if (isset($this->answers['answers'])): ?>
-			<table id="sorter-table">
+			<table id="sorter-table" class="sorter-answers">
 				<?php foreach ($this->answers['answers'] as $key => $answer): ?>
-					<tr id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
+					<tr  id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
 				<?php endforeach; ?>
 			</table>	
 		<?php endif; ?>
+</div>
 
 <div style="width: 60px;" id="countdown"></div>
 <input type="button" id="send_sort_answer" value="Fertig" />
-

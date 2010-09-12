@@ -88,10 +88,10 @@ class Model_CalculateScore {
 	 * returns the score for level
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 * @return integer the level score
 	 */
-	protected function getScoreForLevel(Model_Question $question) {
+	protected function getScoreForLevel(Model_QuestionInterface $question) {
 		return $this->scoreForLevel[1];
 	}
 
@@ -101,10 +101,10 @@ class Model_CalculateScore {
 	 * if questiontype is txt
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 * @return integer the multiplicator
 	 */
-	protected function getMultiForLevel(Model_Question $question) {
+	protected function getMultiForLevel(Model_QuestionInterface $question) {
 		if ($this->isTXTQuestion($question)) {
 			return $this->multiForlevel[1];
 		}
@@ -116,10 +116,10 @@ class Model_CalculateScore {
 	 * checks if questiontype is TXT
 	 *
 	 * @author Martin Kapfhammer
-	 * @param Model_Question $question
+	 * @param Model_QuestionInterface $question
 	 * @return boolean 
 	 */
-	protected function isTXTQuestion(Model_Question $question) {
+	protected function isTXTQuestion(Model_QuestionInterface $question) {
 		return ($question->getQuestionType() === 'TXT');
 	}
 

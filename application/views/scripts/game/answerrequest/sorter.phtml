@@ -1,12 +1,12 @@
 	<!-- right answer -->
 	<?php if ($this->isAnswerRight): ?>
-		Richtig
-		<table style="float: left">
+		<div class="success">Deine Antwort ist richtig. Sehr gut!</div>
+		<table class="sorter-numbers">
 			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
 				<tr><td><?php echo $key; ?></td></tr>
 			<?php endforeach; ?>
 		</table>
-		<table>
+		<table class="sorter-answers">
 			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
 				<tr><td><?php echo $rightAnswer; ?></td></tr>
 			<?php endforeach; ?>
@@ -14,24 +14,23 @@
 
 	<!-- wrong answer -->
 	<?php else: ?>	
-		Falsch
-		<table style="float: left">
+		<div class="error">Deine Antwort ist leider falsch.</div>
+		<table class="sorter-numbers">
 			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
 				<tr><td><?php echo $key; ?></td></tr>
 			<?php endforeach; ?>
 		</table>
-		<table>
+		<table class="sorter-answers" style="float: left">
 			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
 				<tr><td><?php echo $rightAnswer; ?></td></tr>
 			<?php endforeach; ?>	
 		</table>
-		Richitg
-		<table style="float: left">
+		<table class="sorter-numbers">
 			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
 				<tr><td><?php echo $key; ?></td></tr>
 			<?php endforeach; ?>
 		</table>
-		<table>
+		<table class="sorter-answers">
 			<?php foreach ($this->myAnswer['answers'] as $myAnswer): ?>
 				<tr><td><?php echo $myAnswer; ?></td></tr>
 			<?php endforeach; ?>	

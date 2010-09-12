@@ -1,11 +1,13 @@
-Zeit ist leider um
-<table style="float:left">
+<div class="error">Deine Zeit ist leider um. Folgende Antwort wäre richtig gewesen: </div>
+<table class="sorter-numbers">
 <?php foreach ($this->rightAnswer['keys'] as $keys): ?>
 	<tr><td><?php echo $keys; ?></td></tr>
 <?php endforeach; ?>
 </table>
-<table>
+<table class="sorter-answers">
 <?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
 	<tr><td><?php echo $rightAnswer; ?></td></tr>
 <?php endforeach; ?>	
+</table>
 
+<input type="button" id="sorter-next" value="Weiter" onClick="javascript:window.location.replace('/game');" />
