@@ -52,21 +52,23 @@ class Model_WhatsNext {
 	protected function removeOutOfTimeResults() {
 
 		$newResult = $this->result;
+		$today 	= new Zend_Date();
+		$date   = new Zend_Date();
+		$date2  = new Zend_Date();
 		foreach ($this->result as $key => $result) {
 			$type 	= $result['type'];
-			$today 	= new Zend_Date();
 			if (in_array($type, array("LG", "PW", "PN", "PT"))) {
-				$date = new Zend_Date($result['date']);
+				$date->set($result['date']);
 				$date->add(3, Zend_Date::MONTH);
 				if ($date->get() < $today->get()) {
 					unset($newResult[$key]);
 				}
 			} else if ($type === "PL") {
-				$date1 = new Zend_Date($result['date']);
-				$date1->add(2, Zend_Date::MONTH);
-				$date2 = new Zend_Date($result['date']);
+				$date->set($result['date']);
+				$date->add(2, Zend_Date::MONTH);
+				$date2->set($result['date']);
 				$date2->add(4, Zend_Date::MONTH);
-				if (!($date1->get()  <= $today->get() && $date2->get() >= $today->get())) {
+				if (!($date->get()  <= $today->get() && $date2->get() >= $today->get())) {
 					unset($newResult[$key]);
 				}
 
