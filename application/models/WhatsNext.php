@@ -57,13 +57,7 @@ class Model_WhatsNext {
 		$date2  = new Zend_Date();
 		foreach ($this->result as $key => $result) {
 			$type 	= $result['type'];
-			if (in_array($type, array("LG", "PW", "PN", "PT"))) {
-				$date->set($result['date']);
-				$date->add(3, Zend_Date::MONTH);
-				if ($date->get() < $today->get()) {
-					unset($newResult[$key]);
-				}
-			} else if ($type === "PL") {
+			if ($type === "PL") {
 				$date->set($result['date']);
 				$date->add(2, Zend_Date::MONTH);
 				$date2->set($result['date']);
