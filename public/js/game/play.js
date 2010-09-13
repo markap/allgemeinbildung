@@ -101,7 +101,7 @@ $(document).ready(function() {
 	// sorter question
 	//
 	//
-	var order = '';
+	var order = $("#sorter-start-formation").text();
 
 	$('#sorter-table').tableDnD({
 		onDragClass: 'sorter-move',
@@ -121,6 +121,7 @@ $(document).ready(function() {
 				order += $(this).val() + "trtrtrtr";
 			});
 		}	
+		$('#send_sort_answer').attr('disabled', true);
 		sendRequest('answerrequest', order);
 	});
 

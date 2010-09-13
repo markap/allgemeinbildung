@@ -151,24 +151,20 @@ input {
 .sorter-numbers {
 	font-size: 20px;
 	float: left;
-	margin-right: 20px;
+	padding: 10px;
 }
 
 
 .sorter-answers {
 	font-size: 20px;
+	padding: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
 .sorter-move {
 	color: white;
-	background-color: black;
-}
-
-.even {
-	background-color: #45C241;
-}
-
-.odd {
+	background-color: #06E806;
 }
 
 
@@ -181,3 +177,7 @@ input {
 	cursor: pointer;
 }
 
+#send_sort_answer {
+	width: 200px;
+	height: 40px;
+}

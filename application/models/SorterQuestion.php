@@ -90,7 +90,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
-			if (!($this->shuffledAnswers['answers'][$id] === $this->sortedAnswers['answers'][$key])) {
+			if ($this->shuffledAnswers['answers'][$id] !== $this->sortedAnswers['answers'][$key]) {
 				$result = false; 
 				break;
 			}	
@@ -100,14 +100,24 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 
 	
 	/**
-	 * return readable answer for given hash
+	 * return my answer
 	 *
 	 * @author Martin Kapfhammer
  	 * @param string $answerHash
 	 * @return string $result
 	 */
 	public function getAnswer($answer) {
-		return $this->sortedAnswers;
+		$answerIds = explode('trtrtrtr', $answer);
+
+		// remove last element
+		unset($answerIds[count($answerIds)-1]);
+
+
+		$myAnswers = array();
+		foreach ($answerIds as $key => $id) {
+			$myAnswers[] = $this->shuffledAnswers['answers'][$id];
+		}
+		return $myAnswers;
 	}
 
 

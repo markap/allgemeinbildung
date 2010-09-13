@@ -10,13 +10,16 @@
 			<?php endforeach; ?>
 		</table>	
 		<?php if (isset($this->answers['answers'])): ?>
+			<?php $startFormation = ""; ?>
 			<table id="sorter-table" class="sorter-answers">
 				<?php foreach ($this->answers['answers'] as $key => $answer): ?>
+					<?php $startFormation .= $key . "trtrtrtr"; ?>
 					<tr  id="<?php echo $key; ?>"><td><?php echo $answer; ?></td></tr>
 				<?php endforeach; ?>
 			</table>	
+			<span style="display: none" id="sorter-start-formation"><?php echo $startFormation; ?></span>
 		<?php endif; ?>
 </div>
 
-<div style="width: 60px;" id="countdown"></div>
+<div style="width: 60px; clear:left" id="countdown"></div>
 <input type="button" id="send_sort_answer" value="Fertig" />

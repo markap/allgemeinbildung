@@ -1,12 +1,12 @@
 	<!-- right answer -->
 	<?php if ($this->isAnswerRight): ?>
-		<div class="success">Deine Antwort ist richtig. Sehr gut!</div>
+		<div class="success"><b>Deine Antwort ist richtig. Sehr gut!</b></div>
 		<table class="sorter-numbers">
 			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
 				<tr><td><?php echo $key; ?></td></tr>
 			<?php endforeach; ?>
 		</table>
-		<table class="sorter-answers">
+		<table class="sorter-answers" style="background-color: #1EE664;">
 			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
 				<tr><td><?php echo $rightAnswer; ?></td></tr>
 			<?php endforeach; ?>
@@ -20,20 +20,17 @@
 				<tr><td><?php echo $key; ?></td></tr>
 			<?php endforeach; ?>
 		</table>
-		<table class="sorter-answers" style="float: left">
+		<table class="sorter-answers" style="float: left; background-color: #FFEBE8;">
+			<?php foreach ($this->myAnswer as $myAnswer): ?>
+				<tr><td><?php echo $myAnswer; ?></td></tr>
+			<?php endforeach; ?>	
+		</table>
+		<table class="sorter-answers" style="background-color: #1EE664">
 			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
 				<tr><td><?php echo $rightAnswer; ?></td></tr>
 			<?php endforeach; ?>	
 		</table>
-		<table class="sorter-numbers">
-			<?php foreach ($this->rightAnswer['keys'] as $key): ?>
-				<tr><td><?php echo $key; ?></td></tr>
-			<?php endforeach; ?>
-		</table>
-		<table class="sorter-answers">
-			<?php foreach ($this->myAnswer['answers'] as $myAnswer): ?>
-				<tr><td><?php echo $myAnswer; ?></td></tr>
-			<?php endforeach; ?>	
-		</table>
+
 	<?php endif; ?>
 
+<input type="button" id="sorter-next" value="Weiter" onClick="javascript:window.location.replace('/game');" />
