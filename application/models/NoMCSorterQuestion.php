@@ -9,45 +9,6 @@
 class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 
 	/**
-	 * @var Model_Question
-	 */
-	protected $question;
-
-	/**
-	 * @var array
-	 */
-	protected $sortedAnswers = array();
-
-
-	/**
- 	 * @var array
-	 */
-	protected $shuffledAnswers = array();
-
-
-	/**
-	 * constructor
-	 *
-	 * @author Martin Kapfhammer
-	 * @param string $question
-	 */
-	public function __construct(Model_Question $question) {
-		$this->question = $question;
-	}
-
-
-	/**
-	 * getter for question-array
-	 *
-	 * @author Martin Kapfhammer
-	 * @return $this->question
-	 */
-	public function getQuestion() {
-		return $this->question->getQuestion();
-	}
-
-
-	/**
 	 * getter for answers-array
 	 *
 	 * @author Martin Kapfhammer
@@ -65,17 +26,6 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 
 
 	/**
-	 * getter for categories-array
-	 *
-	 * @author Martin Kapfhammer
-	 * @return $this->categories
-	 */
-	public function getCategories() {
-		return null; 
-	}
-
-
-	/**
 	 * checks if the given sorted answer is right
 	 * 
 	 * @param string $answerHash
@@ -88,10 +38,16 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 		unset($answers[count($answers)-1]);
 
 		$result    = true;
+		$wrongIds  = array();
 		foreach ($answers as $key => $answer) {
-			if ($answer !== $this->sortedAnswers['answers'][$key]) {
-				$result = false; 
-				break;
+			$rightAnswer = $this->sortedAnswers['answers'][$key];
+			if ($answer !== $rightAnswer) {
+				$answer 		= $this->question->modifyAnswer($answer);	
+				$rightAnswer 	= $this->question->modifyAnswer($rightAnswer);
+				if ($answer !== $rightAnswer) {
+					$this->wrongIds[] = $key;
+					$result = false;
+				}
 			}	
 		}
 		return $result;
@@ -99,7 +55,7 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 
 	
 	/**
-	 * return readable answer for given hash
+	 * return my answer 
 	 *
 	 * @author Martin Kapfhammer
  	 * @param string $answerHash
@@ -110,31 +66,8 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 
 		// remove last element
 		unset($answers[count($answers)-1]);
-		return array('keys' 	=> $this->sortedAnswers['keys'],
-					 'answers'	=> $answers);;
-	}
-
-
-	/**
-	 * returns the right answer
-	 * 
-	 * @author Martin Kapfhammer
- 	 * @return string $this->answers['answer']
-	 */
-	public function getRightAnswer() {
-		return $this->sortedAnswers;
-	}
-
-
-	/**
-	 * returns current questionid
-	 *
-	 * @author Martin Kapfhammer
-	 * @return string question id
- 	 */
-	public function getQuestionId() {
-		$question = $this->question->getQuestion();
-		return $question['questionid'];
+		return array('answers' => $answers,
+					 'wrong'   => $this->wrongIds);
 	}
 
 

@@ -1,15 +1,11 @@
 	<span style="display: none" id="timer-duration">60</span>	
-<div id="sorter-container">
+
+	<?php if (isset($this->answers['answers'])): ?>
 	<table class="sorter-numbers">
 			<?php foreach ($this->answers['keys'] as $keys): ?>
-				<tr><td><?php echo $keys; ?></td>
-					<?php if (!isset($this->answers['answers'])): ?>
-						<td><input class="sorter-textfield" type="textfield" /></td>
-					<?php endif; ?>
-				</tr>
+				<tr><td><?php echo $keys; ?></td></tr>
 			<?php endforeach; ?>
 		</table>	
-		<?php if (isset($this->answers['answers'])): ?>
 			<?php $startFormation = ""; ?>
 			<table id="sorter-table" class="sorter-answers">
 				<?php foreach ($this->answers['answers'] as $key => $answer): ?>
@@ -18,8 +14,16 @@
 				<?php endforeach; ?>
 			</table>	
 			<span style="display: none" id="sorter-start-formation"><?php echo $startFormation; ?></span>
+		<?php else: ?>
+			<table class="sorter-answers">
+			<?php foreach ($this->answers['keys'] as $keys): ?>
+				<tr><td><?php echo $keys; ?></td>
+						<td><input class="sorter-textfield" type="textfield" /></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>	
+
 		<?php endif; ?>
-</div>
 
 <div style="width: 60px; clear:left" id="countdown"></div>
 <input type="button" id="send_sort_answer" value="Fertig" />

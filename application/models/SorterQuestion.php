@@ -23,6 +23,11 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 */
 	protected $shuffledAnswers = array();
 
+	/**
+	 * @var array
+ 	 */
+	protected $wrongIds = array();
+
 
 	/**
 	 * constructor
@@ -91,8 +96,8 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
 			if ($this->shuffledAnswers['answers'][$id] !== $this->sortedAnswers['answers'][$key]) {
+				$this->wrongIds[] = $key;
 				$result = false; 
-				break;
 			}	
 		}
 		return $result;
@@ -117,7 +122,8 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 		foreach ($answerIds as $key => $id) {
 			$myAnswers[] = $this->shuffledAnswers['answers'][$id];
 		}
-		return $myAnswers;
+		return array('answers' => $myAnswers,
+					 'wrong'   => $this->wrongIds);
 	}
 
 

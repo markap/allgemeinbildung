@@ -181,3 +181,7 @@ input {
 	width: 200px;
 	height: 40px;
 }
+
+.sorter-red {
+	background-color: #D41B1B;	
+}

@@ -21,9 +21,11 @@
 			<?php endforeach; ?>
 		</table>
 		<table class="sorter-answers" style="float: left; background-color: #FFEBE8;">
-			<?php foreach ($this->myAnswer as $myAnswer): ?>
-				<tr><td><?php echo $myAnswer; ?></td></tr>
-			<?php endforeach; ?>	
+
+			<?php for ($i = 0; $i < count($this->myAnswer['answers']); $i++): ?>
+				<?php $class = (in_array($i, $this->myAnswer['wrong'])) ? 'sorter-red' : 'green'; ?>
+				<tr class="<?php echo $class; ?>"><td><?php  echo ($this->myAnswer['answers'][$i] === "") ? 'Nicht gefüllt' : $this->myAnswer['answers'][$i]; ?></td></tr>
+			<?php endfor; ?>	
 		</table>
 		<table class="sorter-answers" style="background-color: #1EE664">
 			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>

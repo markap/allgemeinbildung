@@ -60,7 +60,7 @@ class Model_NoMultipleChoiceQuestion extends Model_Question {
  	 * @param string $answer
 	 * @return string $answer modified answer
 	 */
-	protected function modifyAnswer($answer) {
+	public function modifyAnswer($answer) {
 		$answer = strtolower($answer);
 		$answer = trim($answer);
 
