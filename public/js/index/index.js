@@ -10,4 +10,11 @@ $(document).ready(function() {
 		delay: 0
 	});
 	
+	$.post("/index/next",
+		function(response) {
+			$("#next").html(response);	
+		},
+		"text"
+		);
+
 });

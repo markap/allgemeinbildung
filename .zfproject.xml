@@ -16,6 +16,7 @@
           <actionMethod actionName="logout"/>
           <actionMethod actionName="registersave"/>
           <actionMethod actionName="activate"/>
+          <actionMethod actionName="next"/>
         </controllerFile>
         <controllerFile controllerName="error"/>
         <controllerFile controllerName="question">
@@ -239,6 +240,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="generategame">
             <viewScriptFile forActionName="save2"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="next"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
