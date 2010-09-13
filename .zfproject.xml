@@ -43,6 +43,7 @@
           <actionMethod actionName="timeline"/>
           <actionMethod actionName="games"/>
           <actionMethod actionName="game"/>
+          <actionMethod actionName="next"/>
         </controllerFile>
         <controllerFile controllerName="createquestion">
           <actionMethod actionName="index"/>
@@ -242,6 +243,9 @@
             <viewScriptFile forActionName="save2"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="index">
+            <viewScriptFile forActionName="next"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="result">
             <viewScriptFile forActionName="next"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

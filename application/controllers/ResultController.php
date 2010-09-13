@@ -3,14 +3,17 @@
 class ResultController extends Zend_Controller_Action
 {
 
-    protected $userId 		= null;
-    protected $resultDb 	= null;
+    protected $userId = null;
+
+    protected $resultDb = null;
+
     protected $gameResultDb = null;
-    protected $gameListDb   = null;
+
+    protected $gameListDb = null;
 
     public function init()
     {
-		if (!Zend_Auth::getInstance()->hasIdentity()) {
+        if (!Zend_Auth::getInstance()->hasIdentity()) {
 			$this->_redirect('/index');
 		}
 		$userSession  = new Zend_Session_Namespace('user');
@@ -23,13 +26,13 @@ class ResultController extends Zend_Controller_Action
 
     public function indexAction()
     {
-		Model_ControllerDeprecated::redirectToIndex($this);
+        Model_ControllerDeprecated::redirectToIndex($this);
     }
 
     public function questionsAction()
     {
-		Model_ControllerDeprecated::redirectToIndex($this);
-        $resultKey = strtoupper($this->_getParam('result'));
+        Model_ControllerDeprecated::redirectToIndex($this);
+		$resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
 		}
@@ -63,8 +66,8 @@ class ResultController extends Zend_Controller_Action
 
     public function categoryAction()
     {
-		Model_ControllerDeprecated::redirectToIndex($this);
-        $resultKey = strtoupper($this->_getParam('result'));
+        Model_ControllerDeprecated::redirectToIndex($this);
+		$resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
 		}
@@ -108,8 +111,8 @@ class ResultController extends Zend_Controller_Action
 
     public function timelineAction()
     {
-		Model_ControllerDeprecated::redirectToIndex($this);
-        $resultKey = strtoupper($this->_getParam('result'));
+        Model_ControllerDeprecated::redirectToIndex($this);
+		$resultKey = strtoupper($this->_getParam('result'));
 		if (!in_array($resultKey, array('Y', 'N'))) {
 			$this->_redirect('/result');
 		}
@@ -120,7 +123,7 @@ class ResultController extends Zend_Controller_Action
 
     public function gamesAction()
     {
-		$gameResult = $this->gameResultDb->getGameResult($this->userId);
+        $gameResult = $this->gameResultDb->getGameResult($this->userId);
 		foreach ($gameResult as $result) {
 			$gameIds[] = $result['gameid'];
 		}
@@ -130,13 +133,12 @@ class ResultController extends Zend_Controller_Action
 				$gameList[] = $this->gameListDb->getGame($gameId);			
 			}
 			$helper = new Model_ControllerHelper();
-			$this->view->gameList = $helper->createGameList($gameList, $this->userId);				//TODO render gamelist/index-view instead of copy
+			$this->view->gameList = $helper->createGameList($gameList, $this->userId);		
 		}
     }
 
     public function gameAction()
     {
-		// user muss angemeldet sein!!!
 		$gameId = $this->_getParam('gid', -1);
 		$results = $this->gameResultDb->getResultForGameAndUser($gameId, $this->userId);
 		if (empty($results)) {
@@ -145,19 +147,46 @@ class ResultController extends Zend_Controller_Action
 
 		$gameDescription = $this->gameListDb->getGame($gameId);
 		$this->view->gameName = $gameDescription['name'];
-        $categoryDb = new Model_DbTable_GameCategoryRelation();
+		$categoryDb = new Model_DbTable_GameCategoryRelation();
 		foreach ($results as $key => $result) {
 			$results[$key]['right'] = Model_String::countValues($result['rightids']);	
 			$results[$key]['wrong'] = Model_String::countValues($result['wrongids']);	
 			$results[$key]['sum']   = $results[$key]['right'] + $results[$key]['wrong'];
-            $results[$key]['cat'] = $categoryDb->getCategories($result['gameid']);;
+			$results[$key]['cat'] = $categoryDb->getCategories($result['gameid']);;
 		}
 		$this->view->results = $results;
 		$this->view->gameId  = $gameId;
 		$this->view->lastResult = $results[0];
     }
 
+    public function nextAction()
+    {
+
+		$linkBuilder	= new Model_WhatsNextLinkBuilder();
+		$whatsNext 		= new Model_WhatsNext($this->userId);
+		$next = $whatsNext->getNext();
+		foreach ($next as $key => $result) {
+			if ($result['type'] !== null) {
+				$next[$key]['link'] 	= $linkBuilder->getLink($result);	
+				$next[$key]['postfix'] 	= $result['result'] . '%  richtig!'; 
+				$date 					= new Zend_Date($result['date']);
+				$next[$key]['tooltip'] 	= Model_Text::get($result['type'])
+											. "\n Zuletzt gespielt am "
+											. $date->toString('dd.MM.yyyy');
+			} else {
+				$next[$key]['linkMC'] 	= $linkBuilder->getGameLink($result['gameid'], 'MC');	
+				$next[$key]['linkTXT'] 	= $linkBuilder->getGameLink($result['gameid'], 'TXT');	
+				$next[$key]['postfix'] 	= 'neu!'; 
+				$next[$key]['tooltip'] 	= 'Diese Game hast du noch nie gespielt!'; 
+			}
+		}	
+		$this->view->next = $next;
+
+    }
+
 
 }
+
+
 
 

@@ -77,8 +77,7 @@ class IndexController extends Zend_Controller_Action
 					$this->sendActivationMail($userId, $postValues);
 					$this->_redirect('/index/registersave'); 
 				} else {
-						
-				$this->view->errors = $registerValidator->getErrors();
+					$this->view->errors = $registerValidator->getErrors();
 				}
 			} else {
 				$this->view->errors = array('Bitte alle Felder ausfüllen');
@@ -138,14 +137,12 @@ class IndexController extends Zend_Controller_Action
 
     public function nextAction()
     {
+		if ($this->getRequest()->isXmlHttpRequest()) {
+				$this->_helper->layout->disableLayout();
 
-        if ($this->getRequest()->isXmlHttpRequest()) {
-			$this->_helper->layout->disableLayout();
-        	$linkBuilder	= new Model_WhatsNextLinkBuilder();
+				$linkBuilder	= new Model_WhatsNextLinkBuilder();
 
-			if ($this->userId === null) {
-				sleep(2);
-				
+						
 				$gameDb = new Model_DbTable_GameList();
 				$games  = $gameDb->getGames(5);
 				foreach ($games as $key => $game) {
@@ -158,32 +155,8 @@ class IndexController extends Zend_Controller_Action
 					
 				}
 				$this->view->next = $games;
-
-			} else {
-
-				$whatsNext 		= new Model_WhatsNext($this->userId);
-				$next = $whatsNext->getNext();
-				foreach ($next as $key => $result) {
-					if ($result['type'] !== null) {
-						$next[$key]['link'] 	= $linkBuilder->getLink($result);	
-						$next[$key]['postfix'] 	= $result['result'] . '%  richtig!'; 
-						$date 					= new Zend_Date($result['date']);
-						$next[$key]['tooltip'] 	= Model_Text::get($result['type'])
-													. "\n Zuletzt gespielt am "
-													. $date->toString('dd.MM.yyyy');
-					} else {
-						$next[$key]['linkMC'] 	= $linkBuilder->getGameLink($result['gameid'], 'MC');	
-						$next[$key]['linkTXT'] 	= $linkBuilder->getGameLink($result['gameid'], 'TXT');	
-						$next[$key]['postfix'] 	= 'neu!'; 
-						$next[$key]['tooltip'] 	= 'Diese Game hast du noch nie gespielt!'; 
-					}
-				}	
-				$this->view->next = $next;
-			}
-		
 		}
-    }
-
+	}
 
 }
 
