@@ -3,7 +3,7 @@
 
 <?php if (!empty($this->questions)): ?>
 
-<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
+<a href="<?php echo Model_LinkBuilder::getInstance()->getSessionTestGameLink(); ?>">Game testen</a>
  | <a href='/creategame/savegame'>Game abspeichern</a>
 <br />
 <br />
@@ -14,7 +14,7 @@
 	<hr />
 <?php endforeach; ?>
 
-<?php echo "<a href='/game/index/play/".md5('nextgame!')."/test/".md5('testgame!'). "/se/" . md5('session!') . "'>Game testen</a>"; ?>
+<a href="<?php echo Model_LinkBuilder::getInstance()->getSessionTestGameLink(); ?>">Game testen</a>
  | <a href='/creategame/savegame'>Game abspeichern</a>
 
 <?php else: ?>

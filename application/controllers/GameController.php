@@ -68,7 +68,9 @@ class GameController extends Zend_Controller_Action
 				}	
 				$questionIds = Model_String::explodeString($result[$getIds]);
 			}
+			$nextGameSession->nextGame = $questionIds;
 		}
+
 
 		if (!isset($questionIds) || $this->isRandomGame()) {
 			$questionDb  = new Model_DbTable_Question();
@@ -242,18 +244,22 @@ class GameController extends Zend_Controller_Action
 
     public function resultAction()
     {
+		$nextGameSession = new Zend_Session_Namespace('nextGame');
+		$nextGameSession->redirect = null;
+		$this->view->playAgainLink = ($nextGameSession->nextGame) ? true : false;
+
         $score = $this->gameSession->result;
 		$this->view->playedQuestions = $score->getPlayedQuestions();
 		$this->view->rightAnswers = $score->getRightAnswers();
 		$this->view->wrongAnswers = $score->getWrongAnswers();
 		$this->view->score		  = $score->getCalculatedScore();
-		$this->view->resultText   = $score->getResultText();
 		$this->view->percentage = $score->getResultPercentage();
 
 		if ($score->getGameId() && $this->userId && $score->getGameType() === 'GAME') {
 			$gameResultDb = new Model_DbTable_GameResult();
 			$lastResult = $gameResultDb->
 					getResultForGameAndUser($score->getGameId(), $this->userId);
+			$this->view->resultText   = $score->getResultText();
 			if (isset($lastResult[1])) {
 				$lastResult = $lastResult[1];
 				$this->view->lastResult = $lastResult;

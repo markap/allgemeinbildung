@@ -72,4 +72,21 @@ class Model_LinkBuilder {
 		return "/result/game/gid/" . $gameId;
 	}
 
+	public function getSessionGameLink() {
+		return "/game/index/play/".
+				md5('nextgame!') . 
+				"/se/" . 
+				md5('session!');
+	}
+
+
+	public function getSessionTestGameLink() {
+		return "/game/index/play/".
+				md5('nextgame!') . 
+				"/test/" .
+				md5('testgame!') . 
+				"/se/" . 
+				md5('session!');
+	}
+
 }
