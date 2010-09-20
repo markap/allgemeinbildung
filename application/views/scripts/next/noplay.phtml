@@ -1,0 +1,7 @@
+<?php echo $this->headScript()->appendFile('/js/3rdParty/jQuery.js'); ?>
+<?php echo $this->headScript()->appendFile('/js/gamelist/index.js'); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/gamelist/index.css'); ?>
+
+<h1>Ungespielt</h1>
+
+<?php echo $this->render('/gamelist.phtml'); ?>

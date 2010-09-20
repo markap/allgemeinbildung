@@ -23,7 +23,8 @@ class Model_WhatsNext {
 		$this->resultDb = new Model_DbTable_GameResult();
 		$this->userId = $userId;
 		$this->getResults();
-		$this->removeDoubleResults();
+		$helper = new Model_ControllerHelper();
+		$this->result = $helper->removeDoubleResults($this->result);
 		$this->removeOutOfTimeResults();
 		$this->shuffleResults();
 	}
@@ -33,21 +34,6 @@ class Model_WhatsNext {
 	}
 	
 
-	protected function removeDoubleResults() {
-		$newResult 	= $this->result;
-		$length		= count($this->result);
-		for ($i = 0; $i < $length; $i++) {
-			$j = $i + 1;
-			$result = $this->result[$i];
-			for ($j; $j < $length; $j++) {
-				$resultToCompare = $this->result[$j];	
-				if ($result['gameid'] === $resultToCompare['gameid']) {
-					unset($newResult[$j]);
-				}
-			}
-		}
-		$this->result = $newResult;
-	}
 
 	protected function removeOutOfTimeResults() {
 

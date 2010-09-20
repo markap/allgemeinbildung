@@ -145,6 +145,59 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 	}
 
 
+	/**
+	 * Returns games by Type
+	 *
+	 * @author Martin Kapfhammer
+	 * @param $userId
+	 * @param $type LG, PW, PN, PT, PL
+	 * @param $qtype
+	 * @return array|false
+ 	 */
+	public function getGamesByType($userId, $type, $qtype) {
+		$db = $this->getAdapter();
+
+		$where = "gr.type = '" . $type . "'";
+		if ($type === 'PT' || ($type === 'PN' && $qtype === 'txt')) {
+			$where = "gr.type in ('PN', 'PT')";
+		}
+					
+		$sql = 'select gl.gameid, gl.name, gr.qtype, 
+						gr.date, gr.type, gr.result, gr.resultid
+						from gameResult gr, gameList gl 
+						where gr.gameid = gl.gameid AND
+							  gr.userid = ' . $userId . ' AND ' .
+							  $where . ' AND
+							  gr.qtype = "' . $qtype . '" 
+						order by gr.date desc, gr.resultid desc';
+
+							 
+		$stmt = $db->query($sql);
+		$row = $stmt->fetchAll();
+		return ($row) ? $row : false;
+	}
+
+
+	public function getUnplayedGames($userId) {
+		$db = $this->getAdapter();
+
+		$sql = 'select gameid, name, null as qtype, 
+						null as date, null as type, 
+						null as result, null as resultid
+				from gameList
+				where gameid NOT IN (
+						select gameid
+						from gameResult
+						where userid = ' . $userId . ')
+					order by rand()';
+
+		$stmt = $db->query($sql);
+		$row = $stmt->fetchAll();
+		return ($row) ? $row : false;
+	}
+
+
+
 	public function updateLGGameResult($userId, $gameId, $questionType) {
 		$data = array('type' => 'PN');
 		$where = array('userid = ' . $userId,

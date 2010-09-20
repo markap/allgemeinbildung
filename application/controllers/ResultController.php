@@ -162,25 +162,11 @@ class ResultController extends Zend_Controller_Action
     public function nextAction()
     {
 
-		$linkBuilder	= new Model_WhatsNextLinkBuilder();
-		$whatsNext 		= new Model_WhatsNext($this->userId);
-		$next = $whatsNext->getNext();
-		foreach ($next as $key => $result) {
-			if ($result['type'] !== null) {
-				$next[$key]['link'] 	= $linkBuilder->getLink($result);	
-				$next[$key]['postfix'] 	= $result['result'] . '%  richtig!'; 
-				$date 					= new Zend_Date($result['date']);
-				$next[$key]['tooltip'] 	= Model_Text::get($result['type'])
-											. "\n Zuletzt gespielt am "
-											. $date->toString('dd.MM.yyyy');
-			} else {
-				$next[$key]['linkMC'] 	= $linkBuilder->getGameLink($result['gameid'], 'MC');	
-				$next[$key]['linkTXT'] 	= $linkBuilder->getGameLink($result['gameid'], 'TXT');	
-				$next[$key]['postfix'] 	= 'neu!'; 
-				$next[$key]['tooltip'] 	= 'Diese Game hast du noch nie gespielt!'; 
-			}
-		}	
-		$this->view->next = $next;
+		$whatsNext 	= new Model_WhatsNext($this->userId);
+		$next 		= $whatsNext->getNext();
+		$helper		= new Model_ControllerHelper();
+		
+		$this->view->next = $helper->createNextList($next); 
 
     }
 

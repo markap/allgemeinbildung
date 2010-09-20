@@ -1,4 +1,4 @@
-
+<?php if (!empty($this->next)): ?>
 <?php foreach ($this->next as $result): ?>
 	
 		<?php if ($result['type'] !== null): ?>
@@ -23,3 +23,7 @@
 		<?php endif; ?>
 
 <?php endforeach; ?>
+
+<?php else: ?>
+	<?php echo $this->message; ?>
+<?php endif; ?>
