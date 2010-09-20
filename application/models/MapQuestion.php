@@ -1,11 +1,11 @@
 <?php
 
 /**
- * sorter question object
+ * map question object
  *
  * @package models
  */
-class Model_SorterQuestion implements Model_QuestionInterface {
+class Model_MapQuestion implements Model_QuestionInterface {
 
 	/**
 	 * @var Model_Question
@@ -63,7 +63,6 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
 		$this->sortedAnswers 	= array('keys' 	  => $keys,
 										'answers' => $sortAnswers);
-		shuffle($keys);
 		shuffle($sortAnswers);
 		$this->shuffledAnswers  = array('keys'    => $keys,
 										'answers' => $sortAnswers);
@@ -96,10 +95,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 
 		$result    = true;
 		foreach ($answerIds as $key => $id) {
-			$shuffledAnswer = $this->shuffledAnswers['answers'][$id];
-			$shuffledKey    = $this->shuffledAnswers['keys'][$key];
-			$rightKey 		= $this->sortedAnswers['keys'][array_search($shuffledAnswer, $this->sortedAnswers['answers'])];
-			if ($shuffledKey !== $rightKey) {
+			if ($this->shuffledAnswers['answers'][$id] !== $this->sortedAnswers['answers'][$key]) {
 				$this->wrongIds[] = $key;
 				$result = false; 
 			}	
@@ -188,7 +184,7 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 	 * @return string
 	 */
 	public function getObjectType() {
-		return 'sorter';
+		return 'map';
 	}
 
 }

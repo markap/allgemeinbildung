@@ -5,6 +5,7 @@
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.tooltip.js'); ?>
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.tablednd.js'); ?>
 <?php  $this->headScript()->appendFile('/js/3rdParty/jquery.fancybox.js'); ?>
+<?php  $this->headScript()->appendFile('/js/3rdParty/OpenLayers.js'); ?>
 <?php  $this->headScript()->appendFile('/js/game/play.js'); ?>
 <?php echo $this->headScript(); ?>
 <?php echo $this->headLink()->appendStylesheet('/css/3rdParty/jquery.countdown.css'); ?>
@@ -23,10 +24,10 @@
 		
 		<?php if ($this->objectType === 'default'): ?>
 			<?php echo $this->render('/game/index/default.phtml'); ?>
-
 		<?php elseif ($this->objectType === 'sorter'): ?>
-
 			<?php echo $this->render('/game/index/sorter.phtml'); ?>
+		<?php elseif ($this->objectType === 'map'): ?>
+			<?php echo $this->render('/game/index/map.phtml'); ?>
 		<?php endif; ?>
 
 			<br/>

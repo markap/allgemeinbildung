@@ -240,6 +240,17 @@ class Model_Question implements Model_QuestionInterface {
 		return ($this->answers['fake1'] === '#sorter#') ? true : false;
 	}
 
+
+	/**
+	 * checks if question is a map question
+	 *
+	 * @author Martin Kapfhammer	
+ 	 * @return boolean
+	 */
+	public function isMapQuestion() {
+		return ($this->answers['fake1'] === '#map#') ? true : false;
+	}
+
 	
 	/**
 	 * Returns the object type

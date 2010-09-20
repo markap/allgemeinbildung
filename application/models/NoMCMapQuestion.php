@@ -38,23 +38,17 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 		unset($answers[count($answers)-1]);
 
 		$result    = true;
+		$wrongIds  = array();
 		foreach ($answers as $key => $answer) {
-			$shuffledKey = $this->shuffledAnswers['keys'][$key];
-			$sortedKeys  = array_keys($this->sortedAnswers['keys'], $shuffledKey);
-
-			$answer = $this->question->modifyAnswer($answer);
-			$found  = false;
-			foreach ($sortedKeys as $sortedKey) {
-				$rightAnswer = $this->question->modifyAnswer($this->sortedAnswers['answers'][$sortedKey]);	
-
-				if ($answer === $rightAnswer) {
-					$found = true;
+			$rightAnswer = $this->sortedAnswers['answers'][$key];
+			if ($answer !== $rightAnswer) {
+				$answer 		= $this->question->modifyAnswer($answer);	
+				$rightAnswer 	= $this->question->modifyAnswer($rightAnswer);
+				if ($answer !== $rightAnswer) {
+					$this->wrongIds[] = $key;
+					$result = false;
 				}
-			}
-			if (!$found) {
-				$this->wrongIds[] = $key;
-				$result = false;
-			}
+			}	
 		}
 		return $result;
 	}

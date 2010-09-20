@@ -22,11 +22,15 @@ class Model_QuestionFactory {
 			case 'MC' : $question = new Model_Question($questionId, $test);
 						if ($question->isSorterQuestion()) {
 							$question = new Model_SorterQuestion($question);
+						} else if ($question->isMapQuestion()) {
+							$question = new Model_MapQuestion($question);
 						}
 						break;
 			case 'TXT': $question = new Model_NoMultipleChoiceQuestion($questionId, $test);
 						if ($question->isSorterQuestion()) {
 							$question = new Model_NoMCSorterQuestion($question);
+						} else if ($question->isMapQuestion()) {
+							$question = new Model_NoMCMapQuestion($question);
 						}
 						break;
 			default: throw new Model_Exception_QuestionNotFound('questionfactory', $questionType);
