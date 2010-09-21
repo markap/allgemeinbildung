@@ -70,7 +70,7 @@ class Model_GeneratorMapping_KfzQuestionMapping extends Model_GeneratorMapping_A
 
 	protected function createAnswerImage() {
 		$img = null;
-		switch ($this->currentData['img']) {
+		switch (trim($this->currentData['img'])) {
 			case 'BY': $img = '32.jpg'; break;
 			case 'BW': $img = '33.png'; break;
 			case 'BR': $img = '46.gif'; break;
@@ -93,7 +93,7 @@ class Model_GeneratorMapping_KfzQuestionMapping extends Model_GeneratorMapping_A
 
 	protected function createAnswerText() {
 		$img = null;
-		switch ($this->currentData['img']) {
+		switch (trim($this->currentData['img'])) {
 			case 'BY': $img = 'Bayern'; break;
 			case 'BW': $img = 'Baden-Württemberg'; break;
 			case 'BR': $img = 'Brandenburg'; break;

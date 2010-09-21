@@ -50,12 +50,15 @@ class Model_DbTable_Answer extends Zend_Db_Table_Abstract {
 	}
 
 	public function insertAnswer(array $postValues, $answerId) {
+		if (!isset($postValues['image'])) $postValues['image'] = 0;
+		if (!isset($postValues['text'])) $postValues['text'] = '';
 		$data = array('answerid' => $answerId,
 					  'answer'	 => $postValues['answer'],
 					  'fake1'	 => $postValues['fake1'],
 					  'fake2'	 => $postValues['fake2'],
 					  'fake3'	 => $postValues['fake3'],
-					  'image'	 => '0'
+					  'image'	 => $postValues['image'],
+					  'text'	 => $postValues['text'] 
 					);
 		$this->insert($data);
 	}
