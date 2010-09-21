@@ -32,6 +32,7 @@ class GameController extends Zend_Controller_Action
 			$nextGameSession = new Zend_Session_Namespace('nextGame');
 			if ($nextGameSession->nextGame !== null && $this->useSession()) {	// nextGame isset ?
 				$questionIds = $nextGameSession->nextGame;
+				$this->gameSession->gameId = $nextGameSession->gameId;
 				if ($nextGameSession->redirect !== null) {
 					$this->gameSession->redirect = $nextGameSession->redirect; 
 				}
@@ -250,6 +251,7 @@ class GameController extends Zend_Controller_Action
 		$this->view->playAgainLink = ($nextGameSession->nextGame) ? true : false;
 
         $score = $this->gameSession->result;
+		$nextGameSession->gameId = $score->getGameId();
 		$this->view->playedQuestions = $score->getPlayedQuestions();
 		$this->view->rightAnswers = $score->getRightAnswers();
 		$this->view->wrongAnswers = $score->getWrongAnswers();
