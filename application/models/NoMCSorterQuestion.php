@@ -20,6 +20,9 @@ class Model_NoMCSorterQuestion extends Model_SorterQuestion {
 		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
 		$this->sortedAnswers 	= array('keys' 	  => $keys,
 										'answers' => $sortAnswers);
+		if ($answers['fake2'] !== '') {
+			shuffle($keys);
+		}
 		$this->shuffledAnswers  = array('keys'    => $keys);
 		return $this->shuffledAnswers;
 	}
