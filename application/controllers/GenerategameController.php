@@ -24,10 +24,10 @@ class GenerategameController extends Zend_Controller_Action
 		}
 
 		$gameListDb  	= new Model_DbTable_GameList();
-		$questionIds	= array();
+		$questionIds	= Model_GeneratorMapping_GenerateLoop::getQuestionIds();
 		//for ($i = 0; $i < 15; $i++) $questionIds[] = 18;
-		$questionIds	= $gameListDb->getQuestionIds(25); 
-		$this->mapping  = new Model_GeneratorMapping_FlaggenSuedAmerikaQuestionMapping($questionIds, $this->userId);
+		//$questionIds	= $gameListDb->getQuestionIds(25); 
+		$this->mapping  = new Model_GeneratorMapping_KfzQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()
@@ -37,12 +37,12 @@ class GenerategameController extends Zend_Controller_Action
     public function showAction()
     {
         $this->view->questions 	= $this->mapping->runAndGetValues(); 
-		$this->view->path		= $this->mapping->getImagePath(true);
+		$this->view->path		= 'img/question/'; 
     }
 
     public function saveAction()
     {
-        $this->mapping->setTestCreation(false)->runAndSave();
+        $this->mapping->runAndSave();
     }
 
     protected function isManager()

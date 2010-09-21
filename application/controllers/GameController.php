@@ -27,6 +27,7 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->redirect = '/game/result';
 			$this->gameSession->gameId 	 = null; 
 			$this->gameSession->typeOfLearnGame = null;
+			$questionIds = null;
 
 			$nextGameSession = new Zend_Session_Namespace('nextGame');
 			if ($nextGameSession->nextGame !== null && $this->useSession()) {	// nextGame isset ?
