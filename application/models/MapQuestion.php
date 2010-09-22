@@ -12,22 +12,6 @@ class Model_MapQuestion implements Model_QuestionInterface {
 	 */
 	protected $question;
 
-	/**
-	 * @var array
-	 */
-	protected $sortedAnswers = array();
-
-
-	/**
- 	 * @var array
-	 */
-	protected $shuffledAnswers = array();
-
-	/**
-	 * @var array
- 	 */
-	protected $wrongIds = array();
-
 
 	/**
 	 * constructor
@@ -47,7 +31,8 @@ class Model_MapQuestion implements Model_QuestionInterface {
 	 * @return $this->question
 	 */
 	public function getQuestion() {
-		return $this->question->getQuestion();
+		$question = $this->question->getQuestion();
+		return array('question' => "Wo liegt " . $question['question'] . "?");
 	}
 
 
@@ -58,15 +43,13 @@ class Model_MapQuestion implements Model_QuestionInterface {
 	 * @return $this->answers
 	 */
 	public function getAnswers() {
-		$answers 				= $this->question->getAnswersUnshuffled();
-		$sortAnswers 			= explode('#', $answers['answer']);
-		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
-		$this->sortedAnswers 	= array('keys' 	  => $keys,
-										'answers' => $sortAnswers);
-		shuffle($sortAnswers);
-		$this->shuffledAnswers  = array('keys'    => $keys,
-										'answers' => $sortAnswers);
-		return $this->shuffledAnswers;
+		$answers = $this->question->getAnswersUnshuffled();
+		$answer  = $answers['answer'];
+		$latLon  = explode('#', $answer);
+		$return['lat'] = $latLon[0]; 
+		$return['lon'] = $latLon[1];
+
+		return $return;
 	}
 
 

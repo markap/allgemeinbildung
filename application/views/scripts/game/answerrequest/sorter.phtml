@@ -7,8 +7,12 @@
 			<?php endforeach; ?>
 		</table>
 		<table class="sorter-answers" style="background-color: #1EE664;">
-			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
-				<tr><td><?php echo $rightAnswer; ?></td></tr>
+			<?php foreach ($this->rightAnswer['answers'] as $key => $rightAnswer): ?>
+				<tr><td><?php echo $rightAnswer; ?></td>
+				<?php if(isset($this->rightAnswer['data'])): ?>
+					<td><?php echo $this->rightAnswer['data'][$key]; ?></td>
+				<?php endif; ?>	
+				</tr>
 			<?php endforeach; ?>
 		</table>
 
@@ -28,8 +32,12 @@
 			<?php endfor; ?>	
 		</table>
 		<table class="sorter-answers" style="background-color: #1EE664">
-			<?php foreach ($this->rightAnswer['answers'] as $rightAnswer): ?>
-				<tr><td><?php echo $rightAnswer; ?></td></tr>
+			<?php foreach ($this->rightAnswer['answers'] as $key => $rightAnswer): ?>
+				<tr><td><?php echo $rightAnswer; ?></td>
+				<?php if(isset($this->rightAnswer['data'])): ?>
+					<td><?php echo $this->rightAnswer['data'][$key]; ?></td>
+				<?php endif; ?>	
+				</tr>
 			<?php endforeach; ?>	
 		</table>
 

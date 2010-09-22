@@ -63,6 +63,9 @@ class Model_SorterQuestion implements Model_QuestionInterface {
 		$keys					= ($answers['fake2'] === '') ? range(1, count($sortAnswers)) : explode('#', $answers['fake2']);
 		$this->sortedAnswers 	= array('keys' 	  => $keys,
 										'answers' => $sortAnswers);
+		if ($answers['fake3'] !== '') {
+			$this->sortedAnswers['data'] = explode('#', $answers['fake3']);
+		}
 		if ($answers['fake2'] !== '') {
 			shuffle($keys);
 		}
