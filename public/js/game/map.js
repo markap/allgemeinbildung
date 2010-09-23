@@ -78,6 +78,7 @@ $(document).ready(function() {
 		var lon = $('#lon').text();
 
 		var distance = distance(lonlat.lat, lonlat.lon, lat, lon, "K");
+		var isRight = "right";
 		if (distance <= 10) {
 			alert('sehr gut. abweichung ' + distance);
 		} else if (distance <= 50) {
@@ -86,7 +87,31 @@ $(document).ready(function() {
 			alert('passt. abweichung ' + distance);
 		} else {
 			alert('nicht gut. abweichung' + distance);
+			isRight = "wrong";
 		}
+
+		$.post("/game/answerrequest/answer/" + isRight,
+				function (response) {
+
+				},"text");
+
+ 		var markers = new OpenLayers.Layer.Markers( "Markers" );
+		map.addLayer(markers);
+
+		var size = new OpenLayers.Size(21,25);
+		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+		var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png',size,offset);
+		markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lon,lat),icon));
+			
+		var markers = new OpenLayers.Layer.Markers( "Markers" );
+		map.addLayer(markers);
+
+		var size = new OpenLayers.Size(21,25);
+		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+		var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png',size,offset);
+		markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lonlat.lon,lonlat.lat),icon));
+
+		click.deactivate();
 	}
 
 	

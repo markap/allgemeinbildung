@@ -59,14 +59,26 @@ class Model_GeneratorMapping_AfricaMapQuestionMapping extends Model_GeneratorMap
 	}
 
 	protected function formatCheck($text) {
-		if ($text === 'Franzoesisch-Guayana') $text = 'Französisch-Guayana';
-		if ($text === 'Suedgeorgien und die Suedlichen Sandwichinseln')
-			$text = 'Suedgeorgien und die Suedlichen Sandwichinseln';
+if ($text === 'Aequatorialguinea')
+$text = 'Äquatorialguinea';
+
+if ($text === 'Aegypten')
+$text = 'Ägypten';
+
+if ($text === 'Aethiopien')
+$text = 'Äthiopien';
+
+
+if ($text === 'Elfenbeinkueste')
+$text = 'Elfenbeinküste';
+
+if ($text === 'Suedafrika')
+$text = 'Südafrika';
 		return $text;
 	}
 
 	protected function createFakeAnswers() {
-		$picSum = 15;		
+		$picSum = 53;		
 
 		$picSum = $picSum-1;
 		$key = $this->key -1;
@@ -86,7 +98,7 @@ class Model_GeneratorMapping_AfricaMapQuestionMapping extends Model_GeneratorMap
 
 
 	protected function createCategories() {
-		$this->categoriesData = array(1,12); 
+		$this->categoriesData = array(1,13); 
 	}
 
 	

@@ -71,19 +71,7 @@ class Model_MapQuestion implements Model_QuestionInterface {
 	 * @return boolean $result
 	 */
 	public function checkAnswer($answer) {
-		$answerIds = explode('trtrtrtr', $answer);
-
-		// remove last element
-		unset($answerIds[count($answerIds)-1]);
-
-		$result    = true;
-		foreach ($answerIds as $key => $id) {
-			if ($this->shuffledAnswers['answers'][$id] !== $this->sortedAnswers['answers'][$key]) {
-				$this->wrongIds[] = $key;
-				$result = false; 
-			}	
-		}
-		return $result;
+		return ($answer === 'right') ? true : false;
 	}
 
 	
@@ -95,18 +83,7 @@ class Model_MapQuestion implements Model_QuestionInterface {
 	 * @return string $result
 	 */
 	public function getAnswer($answer) {
-		$answerIds = explode('trtrtrtr', $answer);
-
-		// remove last element
-		unset($answerIds[count($answerIds)-1]);
-
-
-		$myAnswers = array();
-		foreach ($answerIds as $key => $id) {
-			$myAnswers[] = $this->shuffledAnswers['answers'][$id];
-		}
-		return array('answers' => $myAnswers,
-					 'wrong'   => $this->wrongIds);
+		return null;
 	}
 
 
@@ -117,7 +94,7 @@ class Model_MapQuestion implements Model_QuestionInterface {
  	 * @return string $this->answers['answer']
 	 */
 	public function getRightAnswer() {
-		return $this->sortedAnswers;
+		return null; 
 	}
 
 

@@ -24,10 +24,10 @@ class GenerategameController extends Zend_Controller_Action
 		}
 
 		$gameListDb  	= new Model_DbTable_GameList();
-		$questionIds	= Model_GeneratorMapping_GenerateLoop::getQuestionIds();
-		//for ($i = 0; $i < 15; $i++) $questionIds[] = 18;
+		//$questionIds	= Model_GeneratorMapping_GenerateLoop::getQuestionIds();
+		for ($i = 0; $i < 13; $i++) $questionIds[] = 1;
 		//$questionIds	= $gameListDb->getQuestionIds(25); 
-		$this->mapping  = new Model_GeneratorMapping_KfzQuestionMapping($questionIds, $this->userId);
+		$this->mapping  = new Model_GeneratorMapping_BRDCapitalQuestionMapping($questionIds, $this->userId);
     }
 
     public function indexAction()
@@ -42,7 +42,7 @@ class GenerategameController extends Zend_Controller_Action
 
     public function saveAction()
     {
-        $this->mapping->runAndSave();
+        $this->mapping->setTestCreation(false)->runAndSave();
     }
 
     protected function isManager()
@@ -63,8 +63,8 @@ class GenerategameController extends Zend_Controller_Action
     public function show2Action()
     {
 		$gameListDb  	= new Model_DbTable_GameList();
-		$questionIds	= $gameListDb->getQuestionIds(25); 
-		$mapping  = new Model_GeneratorMapping_SuedAmerikaCapitalQuestionMapping($questionIds, $this->userId);
+		for ($i = 0; $i < 53; $i++) $questionIds[] = 18;
+		$mapping  = new Model_GeneratorMapping_AfricaMapQuestionMapping($questionIds, $this->userId);
         $this->view->questions 	= $mapping->runAndGetValues(); 
 		$this->view->path		= $mapping->getImagePath(true);
     }
@@ -72,8 +72,8 @@ class GenerategameController extends Zend_Controller_Action
     public function save2Action()
     {
 		$gameListDb  	= new Model_DbTable_GameList();
-		$questionIds	= $gameListDb->getQuestionIds(25); 
-		$mapping  = new Model_GeneratorMapping_SuedAmerikaCapitalQuestionMapping($questionIds, $this->userId);
+		for ($i = 0; $i < 53; $i++) $questionIds[] = 18;
+		$mapping  = new Model_GeneratorMapping_AfricaMapQuestionMapping($questionIds, $this->userId);
         $mapping->setTestCreation(false)->runAndSave();
     }
 

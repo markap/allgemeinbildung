@@ -160,6 +160,14 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$where = "gr.type = '" . $type . "'";
 		if ($type === 'PT' || ($type === 'PN' && $qtype === 'txt')) {
 			$where = "gr.type in ('PN', 'PT')";
+		
+		} else if ($type == 'PL') {
+			$where = "gr.type = '" . $type . "' AND 
+							DATE_ADD(gr.date, INTERVAL 2 MONTH) > CURDATE()"; 
+		} else if ($type == 'PLN') {
+			$type = 'PL';
+			$where = "gr.type = '" . $type . "' AND 
+							DATE_ADD(gr.date, INTERVAL 2 MONTH) <= CURDATE()";
 		}
 					
 		$sql = 'select gl.gameid, gl.name, gr.qtype, 

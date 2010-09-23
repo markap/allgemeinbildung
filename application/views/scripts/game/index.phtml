@@ -18,6 +18,9 @@
 			<h1><?php echo $this->question['question']; ?></h1>
 
 			
+		<?php if ($this->objectType === 'map'): ?>
+			<?php echo $this->render('/game/index/map.phtml'); ?>
+		<?php endif; ?>
 
 
 		<div id="answer_score">
@@ -26,8 +29,6 @@
 			<?php echo $this->render('/game/index/default.phtml'); ?>
 		<?php elseif ($this->objectType === 'sorter'): ?>
 			<?php echo $this->render('/game/index/sorter.phtml'); ?>
-		<?php elseif ($this->objectType === 'map'): ?>
-			<?php echo $this->render('/game/index/map.phtml'); ?>
 		<?php endif; ?>
 
 			<br/>
