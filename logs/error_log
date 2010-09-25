@@ -5106,3 +5106,9 @@
 [Thu Sep 23 16:30:07 2010] [error] [client 127.0.0.1] (13)Permission denied: file permissions deny server access: /home/www/allgemeinbildung/public/tmp/Mauretanien.png, referer: http://allgemeinbildung.localhost/generategame/show2
 [Thu Sep 23 16:30:07 2010] [error] [client 127.0.0.1] (13)Permission denied: file permissions deny server access: /home/www/allgemeinbildung/public/tmp/Dschibuti.png, referer: http://allgemeinbildung.localhost/generategame/show2
 [Thu Sep 23 16:30:07 2010] [error] [client 127.0.0.1] (13)Permission denied: file permissions deny server access: /home/www/allgemeinbildung/public/tmp/Guinea-Bissau.png, referer: http://allgemeinbildung.localhost/generategame/show2
+[Sat Sep 25 13:10:30 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';' in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 19
+[Sat Sep 25 13:10:40 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'GameListDb' not found in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 18
+[Sat Sep 25 13:10:56 2010] [error] [client 127.0.0.1] PHP Fatal error:  Class 'Model_DbTable_GameListDb' not found in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 18
+[Sat Sep 25 13:11:38 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/www/allgemeinbildung/application/models/DbTable/GameList.php on line 19
+[Sat Sep 25 13:17:38 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Zend_Json::prettyPrint() in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 20
+[Sat Sep 25 13:21:38 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_MobileAuth::authentificate() in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 8

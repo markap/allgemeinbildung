@@ -16,9 +16,9 @@ class Model_DbTable_GameList extends Zend_Db_Table_Abstract {
 	protected $_name = 'gameList';
 
 
-	public function getGames($limit = null) {
+	public function getGames($limit = null, $where = 1) {
 		$orderBy = array('RAND()');
-		return $this->fetchAll(1, $orderBy, $limit)->toArray();
+		return $this->fetchAll($where, $orderBy, $limit)->toArray();
 	}
 
 	public function getGame($gameId) {

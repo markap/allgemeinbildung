@@ -88,6 +88,10 @@
           <actionMethod actionName="show"/>
           <actionMethod actionName="noplay"/>
         </controllerFile>
+        <controllerFile controllerName="mobile">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="gamelist"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -262,6 +266,12 @@
           <viewControllerScriptsDirectory forControllerName="next">
             <viewScriptFile forActionName="noplay"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="mobile">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="mobile">
+            <viewScriptFile forActionName="gamelist"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -293,6 +303,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
