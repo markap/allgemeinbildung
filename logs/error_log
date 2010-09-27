@@ -5112,3 +5112,4 @@
 [Sat Sep 25 13:11:38 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/www/allgemeinbildung/application/models/DbTable/GameList.php on line 19
 [Sat Sep 25 13:17:38 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Zend_Json::prettyPrint() in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 20
 [Sat Sep 25 13:21:38 2010] [error] [client 127.0.0.1] PHP Fatal error:  Call to undefined method Model_MobileAuth::authentificate() in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 8
+[Sat Sep 25 15:34:19 2010] [error] [client 127.0.0.1] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/www/allgemeinbildung/application/controllers/MobileController.php on line 41

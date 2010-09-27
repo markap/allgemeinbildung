@@ -79,16 +79,23 @@ $(document).ready(function() {
 
 		var distance = distance(lonlat.lat, lonlat.lon, lat, lon, "K");
 		var isRight = "right";
+		var title;
+		var message;
 		if (distance <= 10) {
-			alert('sehr gut. abweichung ' + distance);
+			title = 'Sehr gut!';	
+			message = 'Abweichung von '  + distance.toFixed(2);
 		} else if (distance <= 50) {
-			alert('gut. abweichung ' + distance);
+			title = 'Gut!';	
+			message = 'Abweichung von '  + distance.toFixed(2);
 		} else if (distance <= 100) {
-			alert('passt. abweichung ' + distance);
+			title = 'Passt!';	
+			message = 'Abweichung von '  + distance.toFixed(2);
 		} else {
-			alert('nicht gut. abweichung' + distance);
+			title = 'Leider nicht gut genug!';	
+			message = 'Abweichung von '  + distance.toFixed(2);
 			isRight = "wrong";
 		}
+		message+= " km";
 
 		$.post("/game/answerrequest/answer/" + isRight,
 				function (response) {
@@ -100,7 +107,7 @@ $(document).ready(function() {
 
 		var size = new OpenLayers.Size(21,25);
 		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-		var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png',size,offset);
+		var icon = new OpenLayers.Icon('/img/green_flag.png',size,offset);
 		markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lon,lat),icon));
 			
 		var markers = new OpenLayers.Layer.Markers( "Markers" );
@@ -108,10 +115,20 @@ $(document).ready(function() {
 
 		var size = new OpenLayers.Size(21,25);
 		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-		var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png',size,offset);
+		var icon = new OpenLayers.Icon('/img/red_flag.png',size,offset);
 		markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lonlat.lon,lonlat.lat),icon));
 
 		click.deactivate();
+
+		$("#dialog").html(message);
+		$( "#dialog" ).dialog({ title: title,
+							    buttons: [{ text: "Weiter",
+								click: function() { 
+									window.location.replace('/game');
+									$(this).dialog("close"); }
+								}]
+		 });
+		
 	}
 
 	

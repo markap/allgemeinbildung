@@ -91,6 +91,7 @@
         <controllerFile controllerName="mobile">
           <actionMethod actionName="index"/>
           <actionMethod actionName="gamelist"/>
+          <actionMethod actionName="game"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -271,6 +272,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="mobile">
             <viewScriptFile forActionName="gamelist"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="mobile">
+            <viewScriptFile forActionName="game"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
