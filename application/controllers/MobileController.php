@@ -6,7 +6,7 @@ class MobileController extends Zend_Controller_Action
     public function init()
     {
         if (!Model_MobileAuth::authentificate($this->_getParam('auth'))) {
-        	exit();
+			exit();
 		}
 		$this->_helper->layout->disableLayout();
     }
@@ -25,7 +25,7 @@ class MobileController extends Zend_Controller_Action
 
     public function gameAction()
     {
-		$gameId 		= $this->_getParam('gameid');
+        $gameId 		= $this->_getParam('gameid');
 		$gameListDb  	= new Model_DbTable_GameList();
 		$questionIds  	= $gameListDb->getQuestionIds($gameId);
 	
@@ -47,8 +47,20 @@ class MobileController extends Zend_Controller_Action
 		echo Zend_Json::encode($gameData);
     }
 
+    public function loginAction()
+    {
+		$username = $this->_getParam('user');
+		$password = $this->_getParam('pass');
+
+		$userDb = new Model_DbTable_User();
+		$user	= $userDb->findCredentials($username, $password);
+		echo Zend_Json::encode($user->toArray());
+    }
+
 
 }
+
+
 
 
 

@@ -92,6 +92,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="gamelist"/>
           <actionMethod actionName="game"/>
+          <actionMethod actionName="login"/>
         </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
@@ -275,6 +276,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="mobile">
             <viewScriptFile forActionName="game"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="mobile">
+            <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
