@@ -50,7 +50,7 @@ $(document).ready(function() {
 
  	map.addLayers([layer]);
 	// center over germany
-  	map.setCenter(new OpenLayers.LonLat(9.8,51.3), 4);
+  	map.setCenter(new OpenLayers.LonLat(9.8,51.3), 5);
 
 	var click = new OpenLayers.Control.Click();
 	map.addControl(click);
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
 		var size = new OpenLayers.Size(21,25);
 		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-		var icon = new OpenLayers.Icon('/img/green_flag.png',size,offset);
+		var icon = new OpenLayers.Icon('/img/green_flag.gif',size,offset);
 		markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lon,lat),icon));
 			
 		var markers = new OpenLayers.Layer.Markers( "Markers" );
@@ -115,7 +115,7 @@ $(document).ready(function() {
 
 		var size = new OpenLayers.Size(21,25);
 		var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-		var icon = new OpenLayers.Icon('/img/red_flag.png',size,offset);
+		var icon = new OpenLayers.Icon('/img/red_flag.gif',size,offset);
 		markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lonlat.lon,lonlat.lat),icon));
 
 		click.deactivate();
