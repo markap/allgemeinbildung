@@ -37,9 +37,11 @@ class MobileController extends Zend_Controller_Action
 			
 			$question   	= $questionDb->getQuestion($questionId, false);
 			$answer			= $answerDb->getAnswer($question['answerid']);
+			$answer['answerimage'] = $answer['image'];
+			unset($answer['image']);
 			$questionData 	= array_merge($question, $answer);
 
-			$gameData[$questionId] = $questionData;
+			$gameData[] = $questionData;
 		}	
 
 		echo Zend_Json::encode($gameData);
