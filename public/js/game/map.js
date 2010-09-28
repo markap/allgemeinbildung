@@ -1,5 +1,26 @@
 $(document).ready(function() {
 
+	
+	var type = $('#type').text(); 
+	var center;
+	var zoom;
+	var difference;
+	if (type === '#europe#') {
+
+  		center	= new OpenLayers.LonLat(8.8,53.3);
+		zoom	= 3;
+		$('#map').width('820px');
+		$('#map').height('420px');
+		difference = 250;
+	} else {	//Germany
+	
+		difference = 100;
+  		center 	= new OpenLayers.LonLat(9.8,51.3);
+		zoom	= 5;
+		$('#map').width('500px');
+		$('#map').height('400px');
+	}
+
 
 	// map question
 	//
@@ -49,8 +70,7 @@ $(document).ready(function() {
 
 
  	map.addLayers([layer]);
-	// center over germany
-  	map.setCenter(new OpenLayers.LonLat(9.8,51.3), 5);
+  	map.setCenter(center, zoom);
 
 	var click = new OpenLayers.Control.Click();
 	map.addControl(click);
@@ -81,13 +101,13 @@ $(document).ready(function() {
 		var isRight = "right";
 		var title;
 		var message;
-		if (distance <= 10) {
+		if (distance <= difference/10) {
 			title = 'Sehr gut!';	
 			message = 'Abweichung von '  + distance.toFixed(2);
-		} else if (distance <= 50) {
+		} else if (distance <= difference /2) {
 			title = 'Gut!';	
 			message = 'Abweichung von '  + distance.toFixed(2);
-		} else if (distance <= 100) {
+		} else if (distance <= difference) {
 			title = 'Passt!';	
 			message = 'Abweichung von '  + distance.toFixed(2);
 		} else {

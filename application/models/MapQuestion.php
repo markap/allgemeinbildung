@@ -48,6 +48,7 @@ class Model_MapQuestion implements Model_QuestionInterface {
 		$latLon  = explode('#', $answer);
 		$return['lat'] = $latLon[0]; 
 		$return['lon'] = $latLon[1];
+		$return['type'] = $answers['fake2'];
 
 		return $return;
 	}

@@ -15,7 +15,7 @@ class Model_GeneratorMapping_GenerateLoop {
 		} 
 		$number = count($file);
 		$questionIds = array();
-		for ($i = 0; $i < $number; $i++) $questionIds[] = 33;
+		for ($i = 0; $i < $number; $i++) $questionIds[] = 31;
 		return $questionIds;
 	}
 }

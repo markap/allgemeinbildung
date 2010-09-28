@@ -1,16 +1,15 @@
-F#Frankfurt am Main#H
-FB#Wetteraukreis in Friedberg#H
-FD#Fulda#H
-FDS#Freudenstadt#BW
-FF#Frankfurt (Oder)#BR
-FFB#Fürstenfeldbruck#BY
-FG#Freiberg#S
-FL#Flensburg#SH
-FN#Friedrichshafen#BW
-FO#Forchheim#BY
-FR#Freiburg im Breisgau#BW
-FRG#Freyung-Grafenau#BY
-FRI#Friesland#N
-FS#Freising#BY
-FT#Frankenthal#R
-FÜ#Fürth#BY
+Krefeld#51.3317042#6.5593539
+Halle (Saale)#51.482166#11.965814
+Magdeburg#52.130956#11.636701
+Freiburg im Breisgau#47.9971865#7.8537668
+Oberhausen#51.4695797#6.8659747
+Lübeck#53.869563#10.687579
+Erfurt#50.9737346#11.0223989
+Rostock#54.0902349#12.1329501
+Mainz#49.9951227#8.2674264
+Kassel#51.318928#9.49601
+Hagen#51.3623128#7.4631725
+Hamm#51.680386#7.817429
+Saarbrücken#49.2348506#6.9944016
+Mülheim an der Ruhr#51.427073#6.886492
+Herne#51.5385227#7.2192587
