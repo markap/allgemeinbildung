@@ -18,7 +18,7 @@ $(document).ready(function() {
 		zoom	= 3.4;
 		$('#map').width('820px');
 		$('#map').height('420px');
-		difference = 250;
+		difference = 300;
 	
 	} else {	//Germany
 	
@@ -149,6 +149,8 @@ console.log(lonlat);
 
 		click.deactivate();
 
+		var greater = $('#greater').text(); 
+		message+= "<hr /> Der Ort befindet sich in " + greater;
 		$("#dialog").html(message);
 		$( "#dialog" ).dialog({ title: title,
 							    buttons: [{ text: "Weiter",
