@@ -156,7 +156,9 @@ $(document).ready(function() {
 		click.deactivate();
 
 		var greater = $('#greater').text(); 
-		message+= "<hr /> Der Ort befindet sich in " + greater;
+		if (greater) {
+			message+= "<hr /> Der Ort befindet sich in " + greater;
+		}
 		$("#dialog").html(message);
 		$( "#dialog" ).dialog({ title: title,
 							    buttons: [{ text: "Weiter",
