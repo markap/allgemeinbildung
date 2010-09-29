@@ -157,17 +157,17 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 	public function getGamesByType($userId, $type, $qtype) {
 		$db = $this->getAdapter();
 
-		$where = "gr.type = '" . $type . "'";
-		if ($type === 'PT') {
-			$qtype = "mc";
+		$where = "gr.type = '" . $type . "' AND gr.qtype = '" . $qtype . "'";
+		if ($type === 'PN' && $qtype === 'txt') {
+			$where = "((gr.type = 'PN' AND gr.qtype = 'txt') OR (gr.type = 'PT' AND gr.qtype = 'mc'))";
 		
 		} else if ($type == 'PL') {
 			$where = "gr.type = '" . $type . "' AND 
-							DATE_ADD(gr.date, INTERVAL 2 MONTH) > CURDATE()"; 
+							DATE_ADD(gr.date, INTERVAL 2 MONTH) > CURDATE() AND gr.qtype = '" . $qtype . "'"; 
 		} else if ($type == 'PLN') {
 			$type = 'PL';
 			$where = "gr.type = '" . $type . "' AND 
-							DATE_ADD(gr.date, INTERVAL 2 MONTH) <= CURDATE()";
+							DATE_ADD(gr.date, INTERVAL 2 MONTH) <= CURDATE() AND gr.qtype = '" . $qtype . "'";
 		}
 					
 		$sql = 'select gl.gameid, gl.name, gr.qtype, 
@@ -175,8 +175,7 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 						from gameResult gr, gameList gl 
 						where gr.gameid = gl.gameid AND
 							  gr.userid = ' . $userId . ' AND ' .
-							  $where . ' AND
-							  gr.qtype = "' . $qtype . '" 
+							  $where . ' 
 						order by gr.date desc, gr.resultid desc';
 
 							 
