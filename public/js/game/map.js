@@ -12,6 +12,14 @@ $(document).ready(function() {
 		$('#map').width('820px');
 		$('#map').height('420px');
 		difference = 250;
+	
+	} else if (type === '#usa#') {
+		center	= new OpenLayers.LonLat(-98.64,40.64);
+		zoom	= 3.4;
+		$('#map').width('820px');
+		$('#map').height('420px');
+		difference = 250;
+	
 	} else {	//Germany
 	
 		difference = 100;
@@ -77,6 +85,7 @@ $(document).ready(function() {
 	click.activate();
 
 	function mapClicked(lonlat) {
+console.log(lonlat);
 		// distance between two geocoordinates
 		function distance(lat1, lon1, lat2, lon2, unit) {
 				var radlat1 = Math.PI * lat1/180
