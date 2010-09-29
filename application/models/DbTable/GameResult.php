@@ -158,8 +158,8 @@ class Model_DbTable_GameResult extends Zend_Db_Table_Abstract {
 		$db = $this->getAdapter();
 
 		$where = "gr.type = '" . $type . "'";
-		if ($type === 'PT' || ($type === 'PN' && $qtype === 'txt')) {
-			$where = "gr.type in ('PN', 'PT')";
+		if ($type === 'PT') {
+			$qtype = "mc";
 		
 		} else if ($type == 'PL') {
 			$where = "gr.type = '" . $type . "' AND 
