@@ -19,7 +19,14 @@ $(document).ready(function() {
 		$('#map').width('820px');
 		$('#map').height('420px');
 		difference = 300;
-	
+
+	} else if (type === '#world#') {
+		center	= new OpenLayers.LonLat(8.64,2.64);
+		zoom	= 0.5;
+		$('#map').width('840px');
+		$('#map').height('450px');
+		difference = 500;
+
 	} else {	//Germany
 	
 		difference = 100;
