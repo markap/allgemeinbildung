@@ -92,7 +92,6 @@ $(document).ready(function() {
 	click.activate();
 
 	function mapClicked(lonlat) {
-console.log(lonlat);
 		// distance between two geocoordinates
 		function distance(lat1, lon1, lat2, lon2, unit) {
 				var radlat1 = Math.PI * lat1/180
