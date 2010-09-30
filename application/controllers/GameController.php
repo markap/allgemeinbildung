@@ -40,6 +40,7 @@ class GameController extends Zend_Controller_Action
 		}
 		$game = $this->gameSession->game; 
 		
+		// set configs
 		if ($this->isNewGame()) {
 			$gameConfig->setOptions($game);
 		}
@@ -48,28 +49,21 @@ class GameController extends Zend_Controller_Action
 		if ($this->gameSession->waitForAnswer === true) {
 			$game->getScore()->addWrongAnswer($game->getQuestion());
 		}
-
 		$this->gameSession->waitForAnswer = true;
 				
 		try {
 			$question = $game->nextQuestion();
+			$this->view->game 		  = $game;
 			$this->view->question 	  = $question->getQuestion();
 			$this->view->objectType   = $question->getObjectType();
 			$this->view->answers  	  = $question->getAnswers();
-			$this->view->numberOfQuestions = 
-						$game->getNumberOfQuestions();
-			$this->view->currentNumberOfQuestions = 
-						$game->getCurrentNumberOfQuestions();
-
-			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
-			$this->view->rightAnswers  = $game->getScore()->getRightAnswers();
-			$this->view->wrongAnswers  = $game->getScore()->getWrongAnswers();
-			$this->view->role		   = $this->role;
+			$this->view->role		  = $this->role;
 		}
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
-			$score = $game->getScore();
-			$questionType  = $game->getQuestionType();
-			$resultCreator = new Model_ResultCreator($score, $questionType);
+			$score 			= $game->getScore();
+			$questionType  	= $game->getQuestionType();
+			$resultCreator 	= new Model_ResultCreator($score, $questionType);
+
 			if (Zend_Auth::getInstance()->hasIdentity() && $game->getGameId() !== null) { // user played game -> save it
 				if ($game->getGameType() === 'GAME') {
 					$this->saveGame($game); 
@@ -147,15 +141,8 @@ class GameController extends Zend_Controller_Action
 			$this->view->answerText  	= $question->getAnswerText();
 			$this->view->myAnswer 		= $question->getAnswer($selectedAnswerHash);
 			$this->view->rightAnswer 	= $question->getRightAnswer(); 
+			$this->view->game			= $game;
 
-			$this->view->numberOfQuestions = 
-						$game->getNumberOfQuestions();
-			$this->view->currentNumberOfQuestions = 
-						$game->getCurrentNumberOfQuestions() - 1;
-			$this->view->playedQuestions = $game->getScore()->getPlayedQuestions();
-			$this->view->rightAnswers = $game->getScore()->getRightAnswers();
-			$this->view->wrongAnswers = $game->getScore()->getWrongAnswers();
-			
 			$this->gameSession->waitForAnswer = false;
 
 		} else {
@@ -214,16 +201,9 @@ class GameController extends Zend_Controller_Action
 			$this->view->image	  	 	= $question->getAnswerImage();
 			$this->view->answerText  	= $question->getAnswerText();
 			$this->view->objectType 	= $question->getObjectType();
+			$this->view->game			= $game;
 
-			$this->view->numberOfQuestions = 
-						$game->getNumberOfQuestions();
-			$this->view->currentNumberOfQuestions = 
-						$game->getCurrentNumberOfQuestions() - 1;
 			$game->getScore()->addWrongAnswer($question);
-
-			$this->view->playedQuestions 	= $game->getScore()->getPlayedQuestions();
-			$this->view->rightAnswers 		= $game->getScore()->getRightAnswers();
-			$this->view->wrongAnswers 		= $game->getScore()->getWrongAnswers();
 
 			$this->gameSession->waitForAnswer = false;
 

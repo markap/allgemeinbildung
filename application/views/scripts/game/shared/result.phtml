@@ -1,9 +1,9 @@
 <div id="result">
 
-	Insgesamt: <?php echo $this->numberOfQuestions; ?> | 
-	Noch übrig: <?php echo $this->currentNumberOfQuestions; ?> | 
-	Beantwortet: <?php echo $this->playedQuestions; ?> | 
- 	Richtig: <?php echo $this->rightAnswers; ?> |
- 	Falsch: <?php echo $this->wrongAnswers; ?>
+	Insgesamt: <?php echo $this->game->getNumberOfQuestions(); ?> | 
+	Noch übrig: <?php echo $this->game->getCurrentNumberOfQuestions(); ?> | 
+	Beantwortet: <?php echo $this->game->getScore()->getPlayedQuestions(); ?> | 
+ 	Richtig: <?php echo $this->game->getScore()->getRightAnswers(); ?> |
+ 	Falsch: <?php echo $this->game->getScore()->getWrongAnswers(); ?>
 </div>
 
