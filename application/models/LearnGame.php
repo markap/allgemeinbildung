@@ -23,6 +23,8 @@ class Model_LearnGame extends Model_Game {
 	 */
 	protected $wrongQuestionIds  = array();
 
+	protected $typeOfLearnGame = 'LG';
+
 
 	/**
 	 * constructor
@@ -31,8 +33,8 @@ class Model_LearnGame extends Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, Model_Score $score, $test = false) {
-		parent::__construct($questionIds, $score, $test);
+	public function __construct(array $questionIds, Model_Score $score) {
+		parent::__construct($questionIds, $score);
 		$this->shuffleQuestionIds();
 		$this->copiedQuestionIds = $this->questionIds;
 		$this->numberOfQuestions = $this->numberOfQuestions * 2;
@@ -102,5 +104,13 @@ class Model_LearnGame extends Model_Game {
 
 	public function getGameType() {
 		return 'LEARNGAME';
+	}
+
+	public function setType($type) {
+		$this->typeOfLearnGame = $type;
+	}
+
+	public function getType() {
+		return $this->typeOfLearnGame;
 	}
 }

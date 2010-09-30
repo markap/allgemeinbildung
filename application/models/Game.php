@@ -36,6 +36,11 @@ class Model_Game {
 	protected $questionType = 'MC';
 
 	/**
+	 * @var int
+	 */
+	protected $gameId = null;
+
+	/**
 	 * @var integer
 	 */
 	protected $numberOfQuestions;
@@ -49,11 +54,22 @@ class Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, Model_Score $score, $test = false) {
+	public function __construct(array $questionIds, Model_Score $score) {
 		$this->questionIds 	= array_reverse($questionIds);	
 		$this->score 		= $score; 
-		$this->test 		= $test;
 		$this->numberOfQuestions = count($this->questionIds);
+	}
+
+	public function setTest($isTest) {
+		$this->test = $isTest;
+	}
+
+	public function setGameId($gameId) {
+		$this->gameId = $gameId;
+	}
+
+	public function getGameId() {
+		return $this->gameId;
 	}
 	
 	

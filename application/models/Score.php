@@ -9,12 +9,6 @@
 class Model_Score {
 
 	/**
-	 * counts the played questions
-	 * @var integer
-	 */
-	protected $questions	= 0;
-
-	/**
 	 * array for the right questionids
 	 * @var array
 	 */
@@ -25,22 +19,6 @@ class Model_Score {
 	 * @var array
 	 */
 	protected $wrongQuestionIds = array();
-
-	/**
-	 * counts the right answers
-	 * @var integer
-	 */
-	protected $rightAnswers = 0;
-
-	/**
-	 * counts the wrong answers
-	 * @var integer
-	 */
-	protected $wrongAnswers = 0;
-	
-
-	protected $gameId;
-	protected $gameType;
 
  	/**
 	 * contains all right question objects Model_Question
@@ -63,8 +41,6 @@ class Model_Score {
 	 * @param Model_QuestionInterface $question
 	 */
 	public function addRightAnswer(Model_QuestionInterface $question) {
-		$this->questions++;
-		$this->rightAnswers++;
 		$this->rightQuestionIds[] = $question->getQuestionId();
 		$this->rightQuestions[]	  = $question;
 	}	
@@ -78,8 +54,6 @@ class Model_Score {
 	 * @param Model_QuestionInterface $question
 	 */
 	public function addWrongAnswer(Model_QuestionInterface $question) {
-		$this->questions++;
-		$this->wrongAnswers++;
 		$this->wrongQuestionIds[] = $question->getQuestionId();
 		$this->wrongQuestions[]   = $question;
 	}
@@ -92,7 +66,7 @@ class Model_Score {
 	 * @return integer $this->rightAnswers
 	 */
 	public function getRightAnswers() {
-		return $this->rightAnswers;
+		return count($this->rightQuestionIds);
 	}
 
 
@@ -103,7 +77,7 @@ class Model_Score {
 	 * @return integer $this->wrongAnswers
 	 */
 	public function getWrongAnswers() {
-		return $this->wrongAnswers;
+		return count($this->wrongQuestionIds);
 	}
 
 
@@ -114,24 +88,7 @@ class Model_Score {
 	 * @return integer $this->questions
 	 */
 	public function getPlayedQuestions() {
-		return $this->questions;
-	}
-
-
-	public function setGameId($gameId) {
-		$this->gameId = $gameId;
-	}
-
-	public function getGameId() {
-		return $this->gameId;
-	}
-
-	public function setGameType($gameType) {
-		$this->gameType = $gameType;
-	}
-
-	public function getGameType() {
-		return $this->gameType;
+		return $this->getRightAnswers() + $this->getWrongAnswers(); 
 	}
 
 
