@@ -6,7 +6,7 @@
  * 
  * @package models
  */
-class Model_Score {
+class Model_Score implements Model_ScoreInterface {
 
 	/**
 	 * array for the right questionids
@@ -93,35 +93,13 @@ class Model_Score {
 
 
 	/**
-	 * getter for the right questionids
-	 * 
-	 * @author Martin Kapfhammer
-	 * @return array $this->rightQuestionIds
-	 */
-	public function getRightQuestionIds() {
-		return $this->rightQuestionIds;
-	}
-
-
-	/**
-	 * getter for the wrong questionids
-	 * 
-	 * @author Martin Kapfhammer
-	 * @return array $this->wrongQuestionIds
-	 */ 
-	public function getWrongQuestionIds() {
-		return $this->wrongQuestionIds;
-	}
-
-
-	/**
 	 * returns the right questionIds as a string
 	 * 
 	 * @author Martin Kapfhammer
 	 * @return imploded question Ids
 	 */
 	public function getImplodedRightQuestionIds() {
-		return implode(',', $this->getRightQuestionIds());
+		return implode(',', $this->rightQuestionIds);
 	}
 
 
@@ -132,7 +110,7 @@ class Model_Score {
 	 * @return imploded question Ids
 	 */
 	public function getImplodedWrongQuestionIds() {
-		return implode(',', $this->getWrongQuestionIds());
+		return implode(',', $this->wrongQuestionIds);
 	}
 
 

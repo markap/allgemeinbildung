@@ -1,0 +1,13 @@
+<div id="result">
+	<?php $scores = $this->game->getScore()->getChilds(); 
+		foreach ($scores as $key => $score): ?>
+			Insgesamt: 		<?php echo $this->game->getNumberOfQuestionsForKey($key); ?> | 
+			Noch übrig: 	<?php echo $this->game->getCurrentNumberOfQuestionsForKey($key); ?> | 
+			Beantwortet: 	<?php echo $score->getPlayedQuestions(); ?> | 
+			Richtig: 		<?php echo $score->getRightAnswers(); ?> |
+			Falsch: 		<?php echo $score->getWrongAnswers(); ?>
+			<br />
+
+	<?php endforeach; ?>
+	</div>
+

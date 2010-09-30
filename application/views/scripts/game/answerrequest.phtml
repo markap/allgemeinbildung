@@ -5,4 +5,9 @@
 	<?php echo $this->render('/game/answerrequest/sorter.phtml'); ?>	
 <?php endif; ?>
 
-<?php echo $this->render('/game/shared/result.phtml'); ?>
+<?php if ($this->game->getGameType() === 'LEARNGAME'): ?>
+	<?php echo $this->render('/game/shared/learnresult.phtml'); ?>
+<?php else: ?>
+	<?php echo $this->render('/game/shared/result.phtml'); ?>
+<?php endif; ?>
+

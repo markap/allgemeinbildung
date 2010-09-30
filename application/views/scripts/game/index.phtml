@@ -33,7 +33,11 @@
 
 			<br/>
 			<br/>
-		<?php echo $this->render('/game/shared/result.phtml'); ?>
+		<?php if ($this->game->getGameType() === 'LEARNGAME'): ?>
+			<?php echo $this->render('/game/shared/learnresult.phtml'); ?>
+		<?php else: ?>
+			<?php echo $this->render('/game/shared/result.phtml'); ?>
+		<?php endif; ?>
 			</div>
 			</div>
 			<?php if($this->role === 'manager'): ?>

@@ -54,7 +54,7 @@ class Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, Model_Score $score) {
+	public function __construct(array $questionIds, Model_ScoreInterface $score) {
 		$this->questionIds 	= array_reverse($questionIds);	
 		$this->score 		= $score; 
 		$this->numberOfQuestions = count($this->questionIds);

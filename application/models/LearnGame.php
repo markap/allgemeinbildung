@@ -23,8 +23,12 @@ class Model_LearnGame extends Model_Game {
 	 */
 	protected $wrongQuestionIds  = array();
 
+	/**
+	 * type of the learn game
+	 */
 	protected $typeOfLearnGame = 'LG';
 
+	protected $numberOfWrongQuestions = 0;
 
 	/**
 	 * constructor
@@ -33,11 +37,10 @@ class Model_LearnGame extends Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, Model_Score $score) {
+	public function __construct(array $questionIds, Model_ScoreInterface $score) {
 		parent::__construct($questionIds, $score);
 		$this->shuffleQuestionIds();
 		$this->copiedQuestionIds = $this->questionIds;
-		$this->numberOfQuestions = $this->numberOfQuestions * 2;
 	}
 
 
@@ -55,6 +58,7 @@ class Model_LearnGame extends Model_Game {
 
 		// add the copiedQuestionIds
 		if ($existNextQuestion === false) {
+			$this->score->setNext();
 			$this->questionIds = $this->copiedQuestionIds;	
 			$this->shuffleQuestionIds();
 			$this->copiedQuestionIds = array();
@@ -63,6 +67,7 @@ class Model_LearnGame extends Model_Game {
 
 		// add the wrongQuestionIds
 		if ($existNextQuestion === false) {
+			$this->score->setNext();
 			$this->questionIds = $this->wrongQuestionIds;	
 			$this->shuffleQuestionIds();
 			$this->wrongQuestionIds = array();
@@ -83,7 +88,7 @@ class Model_LearnGame extends Model_Game {
 		$result = parent::checkAnswer($answerHash);
 		if ($result === false) {
 			$this->wrongQuestionIds[] = $this->getQuestion()->getQuestionId();
-			$this->numberOfQuestions++;
+			$this->numberOfWrongQuestions++;
 		}
 		return $result;	
 	}
@@ -95,11 +100,14 @@ class Model_LearnGame extends Model_Game {
 	 * @author Martin Kapfhammer
  	 * @return integer
 	 */
-	public function getCurrentNumberOfQuestions() {
-		$number = count($this->questionIds);
-		$number += count($this->copiedQuestionIds);
-		$number += count($this->wrongQuestionIds);
-		return $number+1;
+	public function getCurrentNumberOfQuestionsForKey($key) {
+		$number = 0;
+		switch ($key) {
+			case 0: $number = count($this->questionIds); break;
+			case 1: $number = count($this->copiedQuestionIds); break;
+			case 2: $number = count($this->wrongQuestionIds); break;
+		}
+		return $number; 
 	}
 
 	public function getGameType() {
@@ -112,5 +120,9 @@ class Model_LearnGame extends Model_Game {
 
 	public function getType() {
 		return $this->typeOfLearnGame;
+	}
+
+	public function getNumberOfQuestionsForKey($key) {
+		return ($key === 0 || $key === 1) ? $this->numberOfQuestions  : $this->numberOfWrongQuestions; 
 	}
 }

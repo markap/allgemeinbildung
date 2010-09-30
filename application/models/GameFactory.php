@@ -17,7 +17,11 @@ class Model_GameFactory {
 	 */
 	static public function createGame($questionIds, $toLearn = false) {
     	if ($toLearn) { // Learn game
-        	$game = new Model_LearnGame($questionIds, new Model_Score());
+			$score = new Model_ScoreComposite();
+			$score->addChild(new Model_Score());
+			$score->addChild(new Model_Score());
+			$score->addChild(new Model_Score());
+        	$game = new Model_LearnGame($questionIds, $score);
      	} else {
           	$game = new Model_Game($questionIds, new Model_Score());
         }
