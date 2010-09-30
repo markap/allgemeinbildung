@@ -22,90 +22,28 @@ class GameController extends Zend_Controller_Action
 
 		// get game ids
 		if ($this->isNewGame() === true) {
-			$this->gameSession->game 	 = null;	
-			$this->gameSession->waitForAnswer = false;
-			$this->gameSession->redirect = '/game/result';
-			$this->gameSession->result = null;
+			$this->gameSession->game 	 		= null;	
+			$this->gameSession->waitForAnswer 	= false;
+			$this->gameSession->redirect 		= '/game/result';
+			$this->gameSession->result 			= null;
 
 			$questionIds 	= null;
-			$gameId			= null;
-			$typeOfLearnGame = null;
 
-			$nextGameSession = new Zend_Session_Namespace('nextGame');
-			if ($nextGameSession->nextGame !== null && $this->useSession()) {	// nextGame isset ?
-				$questionIds = $nextGameSession->nextGame;
-				$gameId = $nextGameSession->gameId;
-				if ($nextGameSession->redirect !== null) {
-					$this->gameSession->redirect = $nextGameSession->redirect; 
-				}
-				$nextGameSession->nextGame = null;
-
-			} else if ($this->isGame()) {
-				if ($this->toLearn()) {
-					$typeOfLearnGame = 'LG';
-				}
-				$gameId = $this->_getParam('g');
-				$gameListDb  	= new Model_DbTable_GameList();
-				$questionIds  	= $gameListDb->getQuestionIds($gameId);
-			} else if ($this->replayGameResult()) {
-				$resultType = $this->_getParam('rty'); // result type -> y or n
-				$resultId   = $this->_getParam('rid'); // result id 
-				$gameResultDb = new Model_DbTable_GameResult();
-				$result	= $gameResultDb->getGameResultForResultId($resultId, $this->userId);
-				if ($result === false) { 
-					$this->_redirect('/gamelist');
-				}	
-				if ($resultType === 'N') {
-					$typeOfLearnGame = 'PW';
-					$gameId = $resultId;
-					$getIds = 'wrongids';
-				} else if ($resultType === 'Y') {
-					$getIds = 'rightids';
-				}	
-				$questionIds = Model_String::explodeString($result[$getIds]);
-			}
-			$nextGameSession->nextGame = $questionIds;
+			$gameConfig 	= new Model_GameConfig($this);
+			$gameConfig->createConfig();
+			$questionIds 	= $gameConfig->getQuestionIds();
 		}
-
-
-		if (!isset($questionIds) || $this->isRandomGame()) {
-			$questionDb  = new Model_DbTable_Question();
-			$questionIds = $questionDb->getRandomQuestionIds();
-		} 
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
-			$toLearn = $this->toLearn();
-			$this->gameSession->game = Model_GameFactory::createGame($questionIds, $toLearn);
+			$this->gameSession->game = Model_GameFactory::createGame($questionIds, $this->toLearn());
 		}
 		$game = $this->gameSession->game; 
 		
-		// set QuestionType
-		if ($this->isNewGame() && $this->hasQuestionType()) {
-			$questionType = $this->_getParam('qtyp');
-			$game->setQuestionType($questionType);
-		}
-
-		// set test game
-		if ($this->isNewGame() && $this->isTestGame()) {
-			$game->isTest(true);
-		}
-
-		// set gameid
 		if ($this->isNewGame()) {
-			$game->setGameId($gameId);
+			$gameConfig->setOptions($game);
 		}
-
-		// set type off LearnGame
-		if ($this->isNewGame() && $this->toLearn()) {
-			$game->setType($typeOfLearnGame);
-		}
-
-		// shuffle
-		if ($this->isNewGame() && $this->getRequest()->has('sh')) {
-			$game->shuffleQuestionIds();
-		}
-
+		
 		// refresh browser -> answer wrong
 		if ($this->gameSession->waitForAnswer === true) {
 			$game->getScore()->addWrongAnswer($game->getQuestion());
@@ -157,34 +95,11 @@ class GameController extends Zend_Controller_Action
 		return ($this->_getParam('play') === md5('nextgame!'));
 	}
 
-	protected function isTestGame() {
-		return ($this->_getParam('test') === md5('testgame!'));
-	}
-
-	protected function isGame() {
-		return ($this->getRequest()->has('g'));
-	}
-
 	protected function toLearn() {
 		return ($this->_getParam('tl') === md5('toLearn!'));
 	}
-	
-	protected function replayGameResult() {
-		return ($this->_getParam('re') === md5('replay!'));
-	}
 
-	
-	protected function useSession() {
-		return ($this->_getParam('se') === md5('session!'));
-	}
 
-	protected function hasQuestionType() {
-		return ($this->isGame() || $this->getRequest()->has('qtyp'));
-	}
-
-	protected function isRandomGame() {
-		return ($this->isGame() && $this->_getParam('ra') === md5('random!'));
-	}
 
 	protected function saveGame(Model_Game $game) {
 		$gameResultDb = new Model_DbTable_GameResult();
