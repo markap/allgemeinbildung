@@ -37,14 +37,7 @@ class GameController extends Zend_Controller_Action
 					$this->gameSession->redirect = $nextGameSession->redirect; 
 				}
 				$nextGameSession->nextGame = null;
-			} else if ($this->getRequest()->has('cat')) {
-				if (!$this->getRequest()->has('result')) {
-					$hasCategoryDb = new Model_DbTable_HasCategory();
-					$questionIds = $hasCategoryDb->getQuestionIds($this->_getParam('cat'));
-				} else {
-					$questionResultDb = new Model_DbTable_QuestionResult($this->userId);
-					$questionIds = $questionResultDb->getQuestionIds($this->_getParam('cat'), $this->_getParam('result'));
-				}
+
 			} else if ($this->isGame()) {
 				if ($this->toLearn()) {
 					$this->gameSession->typeOfLearnGame = 'LG';
@@ -137,8 +130,6 @@ class GameController extends Zend_Controller_Action
 			}
 			$score->setGameId($this->gameSession->gameId);
 			$score->setGameType($game->getGameType());
-			//$this->gameSession->result = $score;
-			//$this->gameSession->game   = null;
 			$this->gameSession->waitForAnswer = false;
 			
 			$this->_redirect($this->gameSession->redirect);
