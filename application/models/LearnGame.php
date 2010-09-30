@@ -31,8 +31,8 @@ class Model_LearnGame extends Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, $userId = null, $test = false) {
-		parent::__construct($questionIds, $userId, $test);
+	public function __construct(array $questionIds, Model_Score $score, $test = false) {
+		parent::__construct($questionIds, $score, $test);
 		$this->shuffleQuestionIds();
 		$this->copiedQuestionIds = $this->questionIds;
 		$this->numberOfQuestions = $this->numberOfQuestions * 2;

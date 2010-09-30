@@ -1,18 +1,13 @@
 <?php
 
 /**
- * score object
+ * score object, saves wrong and right answers in db
  * the collector of all your game data
  * 
  * @package models
  */
-class Model_Score {
+//class Model_LogScore extends Model_Score {
 
-	/**
-	 * counts the played questions
-	 * @var integer
-	 */
-	protected $questions	= 0;
 
 	/**
 	 * array for the right questionids
@@ -27,22 +22,6 @@ class Model_Score {
 	protected $wrongQuestionIds = array();
 
 	/**
-	 * counts the right answers
-	 * @var integer
-	 */
-	protected $rightAnswers = 0;
-
-	/**
-	 * counts the wrong answers
-	 * @var integer
-	 */
-	protected $wrongAnswers = 0;
-	
-
-	protected $gameId;
-	protected $gameType;
-
- 	/**
 	 * contains all right question objects Model_Question
 	 * @var array
 	 */
@@ -56,82 +35,42 @@ class Model_Score {
 
 
 	/**
- 	 * increments the right answers
-	 * and the played questions
+	 * constructor
+	 * creates a new instance of the questionresult-dbtable 	
+	 *
+	 * @author Martin Kapfhammer
+	 * @param integer $userId
+	 */
+	public function __construct($userId) {
+		$this->resultDb = new Model_DbTable_QuestionResult($userId);
+	}
+	
+
+	/**
+ 	 * executes the superclass method 
+	 * and saves the right question
 	 *
 	 * @author Martin Kapfhammer
 	 * @param Model_QuestionInterface $question
 	 */
 	public function addRightAnswer(Model_QuestionInterface $question) {
-		$this->questions++;
-		$this->rightAnswers++;
+		parent::addRightAnswer($question);
 		$this->rightQuestionIds[] = $question->getQuestionId();
 		$this->rightQuestions[]	  = $question;
 	}	
 	
 	
 	/**
-	 * increments the wrong answers
-	 * and the played questions
+	 * executes the superclass method 
+	 * and saves the wrong question
 	 *
 	 * @author Martin Kapfhammer
 	 * @param Model_QuestionInterface $question
 	 */
 	public function addWrongAnswer(Model_QuestionInterface $question) {
-		$this->questions++;
-		$this->wrongAnswers++;
+		parent::addWrongAnswer($question);
 		$this->wrongQuestionIds[] = $question->getQuestionId();
 		$this->wrongQuestions[]   = $question;
-	}
-
-
-	/**
-	 * getter for the right answers
-	 *
-	 * @author Martin Kapfhammer
-	 * @return integer $this->rightAnswers
-	 */
-	public function getRightAnswers() {
-		return $this->rightAnswers;
-	}
-
-
-	/**
-	 * getter for the wrong  answers
-	 *
-	 * @author Martin Kapfhammer
-	 * @return integer $this->wrongAnswers
-	 */
-	public function getWrongAnswers() {
-		return $this->wrongAnswers;
-	}
-
-
-	/**
-	 * getter for the played questions
-	 *
-	 * @author Martin Kapfhammer
-	 * @return integer $this->questions
-	 */
-	public function getPlayedQuestions() {
-		return $this->questions;
-	}
-
-
-	public function setGameId($gameId) {
-		$this->gameId = $gameId;
-	}
-
-	public function getGameId() {
-		return $this->gameId;
-	}
-
-	public function setGameType($gameType) {
-		$this->gameType = $gameType;
-	}
-
-	public function getGameType() {
-		return $this->gameType;
 	}
 
 

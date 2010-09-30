@@ -49,14 +49,10 @@ class Model_Game {
 	 * @param array $questionIds one or more questionIds as array
 	 * @param integer $userId
 	 */
-	public function __construct(array $questionIds, $userId = null, $test = false) {
-		$this->questionIds = array_reverse($questionIds);	
-		if ($userId === null) {
-			$this->score = new Model_Score();
-		} else {
-			$this->score = new Model_LogScore($userId);
-		}
-		$this->test = $test;
+	public function __construct(array $questionIds, Model_Score $score, $test = false) {
+		$this->questionIds 	= array_reverse($questionIds);	
+		$this->score 		= $score; 
+		$this->test 		= $test;
 		$this->numberOfQuestions = count($this->questionIds);
 	}
 	
