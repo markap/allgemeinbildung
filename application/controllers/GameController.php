@@ -34,6 +34,12 @@ class GameController extends Zend_Controller_Action
 			$questionIds 	= $gameConfig->getQuestionIds();
 		}
 
+   		if (!isset($questionIds) || $this->isRandomGame()) {
+            $questionDb   = new Model_DbTable_Question();
+            $questionIds  = $questionDb->getRandomQuestionIds();
+        }
+
+
 		// use always the same game object
 		if ($this->gameSession->game === null) {
 			$this->gameSession->game = Model_GameFactory::createGame($questionIds, $this->toLearn());
@@ -93,7 +99,13 @@ class GameController extends Zend_Controller_Action
 		return ($this->_getParam('tl') === md5('toLearn!'));
 	}
 
+  	protected function isRandomGame() {
+        return ($this->isGame() && $this->_getParam('ra') === md5('random!'));
+    }
 
+  	protected function isGame() {
+        return ($this->getRequest()->has('g'));
+    }
 
 	protected function saveGame(Model_Game $game) {
 		$gameResultDb = new Model_DbTable_GameResult();
@@ -197,13 +209,13 @@ class GameController extends Zend_Controller_Action
 			$game 		= $this->gameSession->game;
 			$question 	= $game->getQuestion();
 
+			$game->checkAnswer('');
 			$this->view->rightAnswer 	= $question->getRightAnswer();
 			$this->view->image	  	 	= $question->getAnswerImage();
 			$this->view->answerText  	= $question->getAnswerText();
 			$this->view->objectType 	= $question->getObjectType();
 			$this->view->game			= $game;
 
-			$game->getScore()->addWrongAnswer($question);
 
 			$this->gameSession->waitForAnswer = false;
 
