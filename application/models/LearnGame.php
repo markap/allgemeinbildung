@@ -29,6 +29,9 @@ class Model_LearnGame extends Model_Game {
 	protected $typeOfLearnGame = 'LG';
 
 	protected $numberOfWrongQuestions = 0;
+	
+	protected $mode = 0;
+	
 
 	/**
 	 * constructor
@@ -58,6 +61,7 @@ class Model_LearnGame extends Model_Game {
 
 		// add the copiedQuestionIds
 		if ($existNextQuestion === false) {
+			$this->mode = 1;
 			$this->score->setNext();
 			$this->questionIds = $this->copiedQuestionIds;	
 			$this->shuffleQuestionIds();
@@ -67,6 +71,7 @@ class Model_LearnGame extends Model_Game {
 
 		// add the wrongQuestionIds
 		if ($existNextQuestion === false) {
+			$this->mode = 2;
 			$this->score->setNext();
 			$this->questionIds = $this->wrongQuestionIds;	
 			$this->shuffleQuestionIds();
@@ -103,9 +108,13 @@ class Model_LearnGame extends Model_Game {
 	public function getCurrentNumberOfQuestionsForKey($key) {
 		$number = 0;
 		switch ($key) {
-			case 0: $number = count($this->questionIds); break;
-			case 1: $number = count($this->copiedQuestionIds); break;
-			case 2: $number = count($this->wrongQuestionIds); break;
+			case 0: $number = ($this->mode === 0) ? count($this->questionIds)+1 : 0; break;
+			case 1: if ($this->mode === 0) $number = $this->numberOfQuestions;
+					if ($this->mode === 1) $number = count($this->questionIds)+1;
+					if ($this->mode === 2) $number = 0;
+					break;
+			case 2: $number = ($this->mode === 2) ? count($this->questionIds) + count($this->wrongQuestionIds)+1 : count($this->wrongQuestionIds); 
+					break;
 		}
 		return $number; 
 	}

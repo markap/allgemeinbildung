@@ -1,0 +1,15 @@
+<?php foreach ($this->score->getChilds() as $score): ?>
+	<?php if ($score->getPlayedQuestions() === 0) continue; ?>
+
+<?php $resultCreator = new Model_ResultCreator($score, $this->game->getQuestionType()); ?>
+<div id="game-result-container">
+	<div>
+
+		<div class="result-count-container" style="margin-left:45px"><div class="result-count"><?php echo $resultCreator->getPercentage(); ?>%</div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $score->getPlayedQuestions(); ?></div>Fragen</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $score->getRightAnswers(); ?></div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $score->getWrongAnswers(); ?></div>Falsch</div>
+	</div>
+
+
+<?php endforeach; ?>

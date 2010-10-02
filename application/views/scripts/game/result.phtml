@@ -3,13 +3,11 @@
 
 <h1 style="margin-left:45px">Ihr Ergebnis</h1>
 
-<div id="game-result-container">
-	<div>
-		<div class="result-count-container" style="margin-left:45px"><div class="result-count"><?php echo $this->percentage; ?>%</div>Richtig</div>
-		<div class="result-count-container"><div class="result-count"><?php echo $this->playedQuestions; ?></div>Fragen</div>
-		<div class="result-count-container"><div class="result-count"><?php echo $this->rightAnswers; ?></div>Richtig</div>
-		<div class="result-count-container"><div class="result-count"><?php echo $this->wrongAnswers; ?></div>Falsch</div>
-	</div>
+<?php if ($this->game->getGameType() === 'GAME'): ?>
+	<?php echo $this->render('/game/result/defaultresult.phtml'); ?>
+<?php elseif ($this->game->getGameType() === 'LEARNGAME'): ?>
+	<?php echo $this->render('/game/result/learnresult.phtml'); ?>
+<?php endif; ?>
 <br/>	
 <br/>	
 <br/>	

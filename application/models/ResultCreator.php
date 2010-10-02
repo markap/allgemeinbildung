@@ -60,7 +60,7 @@ class Model_ResultCreator {
 	 * @param Model_Score $score
 	 * @param String $questionType
  	 */
-	public function __construct(Model_Score $score, $questionType) {
+	public function __construct(Model_ScoreInterface $score, $questionType) {
 		$this->score 		= $score;
 		$this->questionType = $questionType;
 		$this->calculatePercentage();

@@ -68,7 +68,6 @@ class GameController extends Zend_Controller_Action
 		catch (Model_Exception_GameEnd $e) { 	// no more question available
 			$score 			= $game->getScore();
 			$questionType  	= $game->getQuestionType();
-			$resultCreator 	= new Model_ResultCreator($score, $questionType);
 
 			if (Zend_Auth::getInstance()->hasIdentity() && $game->getGameId() !== null) { // user played game -> save it
 				if ($game->getGameType() === 'GAME') {
@@ -171,13 +170,12 @@ class GameController extends Zend_Controller_Action
 
 		$game 			= $this->gameSession->result;
         $score 			= $game->getScore();
-		$resultCreator 	= new Model_ResultCreator($score, $game->getQuestionType());
 
 		$nextGameSession->gameId 		= $game->getGameId();
-		$this->view->playedQuestions 	= $score->getPlayedQuestions();
-		$this->view->rightAnswers 		= $score->getRightAnswers();
-		$this->view->wrongAnswers 		= $score->getWrongAnswers();
-		$this->view->percentage 		= $resultCreator->getPercentage();
+		
+		$this->view->game				= $game;
+		$this->view->score				= $game->getScore();
+		
 
 		if ($game->getGameId() !== null && $this->userId && $game->getGameType() === 'GAME') {
 

@@ -66,11 +66,6 @@ class Model_GameConfig {
       	}
         $nextGameSession->nextGame = $this->questionIds;
 
-		if (!isset($this->questionIds) || $this->isRandomGame()) {
-            $questionDb  		= new Model_DbTable_Question();
-            $this->questionIds 	= $questionDb->getRandomQuestionIds();
-        }
-
 
 	}
 
@@ -144,9 +139,6 @@ class Model_GameConfig {
         return ($this->_getParam('test') === md5('testgame!'));
     }
 
-  	protected function isRandomGame() {
-        return ($this->isGame() && $this->_getParam('ra') === md5('random!'));
-    }
 
 
 }

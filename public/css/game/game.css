@@ -96,6 +96,7 @@ input {
 
 #game-result-container {
 	height: 300px;
+	clear: left;
 }
 
 .result-text {

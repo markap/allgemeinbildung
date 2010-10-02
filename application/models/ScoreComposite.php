@@ -21,6 +21,9 @@ class Model_ScoreComposite implements Model_ScoreInterface {
 
 	public function setNext() {
 		$this->index++;
+		if ($this->index >=  count($this->childs)) {
+			$this->index = count($this->childs) -1;
+		}
 	}
 
 	protected function getCurrentChild() {
@@ -75,5 +78,7 @@ class Model_ScoreComposite implements Model_ScoreInterface {
 		}
 		return $wrongQuestions;
 	}
+
+	
 
 }
