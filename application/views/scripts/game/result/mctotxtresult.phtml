@@ -1,0 +1,10 @@
+	<?php $resultCreator = new Model_ResultCreator($this->score, $this->game->getQuestionType()); ?>
+
+<div id="game-result-container">
+	<div>
+		<div class="result-count-container" style="margin-left:45px"><div class="result-count"><?php echo $resultCreator->getPercentage(); ?>%</div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getPlayedQuestions(); ?></div>Fragen</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getRightAnswers(); ?></div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getWrongAnswers(); ?></div>Falsch</div>
+	</div>
+

@@ -3,10 +3,12 @@
 
 <h1 style="margin-left:45px">Ihr Ergebnis</h1>
 
-<?php if ($this->game->getGameType() === 'GAME'): ?>
-	<?php echo $this->render('/game/result/defaultresult.phtml'); ?>
-<?php elseif ($this->game->getGameType() === 'LEARNGAME'): ?>
+<?php if ($this->game->getGameType() === 'LEARNGAME'): ?>
 	<?php echo $this->render('/game/result/learnresult.phtml'); ?>
+<?php elseif ($this->game->getGameType() === 'MCTOTXTGAME'): ?>
+	<?php echo $this->render('/game/result/mctotxtresult.phtml'); ?>
+<?php else: ?>
+	<?php echo $this->render('/game/result/defaultresult.phtml'); ?>
 <?php endif; ?>
 <br/>	
 <br/>	

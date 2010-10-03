@@ -6,6 +6,8 @@
 
 <?php if ($this->game->getGameType() === 'LEARNGAME'): ?>
 	<?php echo $this->render('/game/shared/learnresult.phtml'); ?>
+<?php elseif ($this->game->getGameType() === 'MCTOTXTGAME'): ?>
+	<?php echo $this->render('/game/shared/mctotxtresult.phtml'); ?>
 <?php else: ?>
 	<?php echo $this->render('/game/shared/result.phtml'); ?>
 <?php endif; ?>

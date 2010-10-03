@@ -3,37 +3,18 @@
 /**
  * learn game object
  * creates a game
- * all questionids must be played double
- * if a answer is false, you must repeat the answer
- * as long as it is right
+ * plays a question first in txt mode, and then (if wrong) in mc mode
  *
  * @package models
  */
-class Model_LearnGame extends Model_Game {
+class Model_MCtoTXTGame extends Model_Game {
 	
-	/**
-	 * the ids of the questionIds-array
-	 * @var array
-	 */
-	protected $copiedQuestionIds = array();
-
-	/**
-	 * the ids of the wrongQuestionIds-array
-	 * @var array
-	 */
-	protected $wrongQuestionIds  = array();
 
 	/**
 	 * type of the learn game
 	 */
 	protected $typeOfLearnGame = 'LG';
 
-	protected $numberOfWrongQuestions = 0;
-	
-	protected $mode = 0;
-
-	protected $changedMode = -1;
-	
 
 	/**
 	 * constructor
@@ -45,42 +26,8 @@ class Model_LearnGame extends Model_Game {
 	public function __construct(array $questionIds, Model_ScoreInterface $score) {
 		parent::__construct($questionIds, $score);
 		$this->shuffleQuestionIds();
-		$this->copiedQuestionIds = $this->questionIds;
 	}
 
-
-	/**
-	 * checks if $this->questionIds contains any values
-	 * if not, add the copiedQuestionIds
-	 * if does not contain anything
-	 * add wrongQuestionIds
-	 *
-	 * @author Martin Kapfhammer
-	 * @return boolean
-	 */
-	protected function existNextQuestion() {
-		$existNextQuestion = parent::existNextQuestion();
-
-		// add the copiedQuestionIds
-		if ($existNextQuestion === false) {
-			$this->mode = 1;
-			$this->score->setNext();
-			$this->questionIds = $this->copiedQuestionIds;	
-			$this->shuffleQuestionIds();
-			$this->copiedQuestionIds = array();
-		}
-		$existNextQuestion = parent::existNextQuestion();
-
-		// add the wrongQuestionIds
-		if ($existNextQuestion === false) {
-			$this->mode = 2;
-			$this->score->setNext();
-			$this->questionIds = $this->wrongQuestionIds;	
-			$this->shuffleQuestionIds();
-			$this->wrongQuestionIds = array();
-		}
-		return parent::existNextQuestion();
-	}
 
 
 	/**
@@ -94,10 +41,18 @@ class Model_LearnGame extends Model_Game {
 	public function checkAnswer($answerHash) {
 		$result = parent::checkAnswer($answerHash);
 		if ($result === false) {
-			$this->wrongQuestionIds[] = $this->getQuestion()->getQuestionId();
-			$this->numberOfWrongQuestions++;
+			$this->questionIds = array_merge($this->getQuestion()->getQuestionId(), $this->questionIds);
 		}
 		return $result;	
+	}
+
+	/**
+	 * sets the questiontype of the whole game
+	 *
+	 * @author Martin Kapfhammer
+	 * @param string $questionType
+	 */
+	public function setQuestionType($questionType) {
 	}
 
 

@@ -1,12 +1,32 @@
+<?php if ($this->game->hasModeChanged()): ?>
+	<div id="learndialog"></div>
+	<script type="text/javascript">
+		var message = "hallo";
+		var title = "Learngame";
+		$("#learndialog").html(message);
+		$("#learndialog" ).dialog({ title: title,
+							   buttons: [{ text: "Weiter",
+								click: function() { 
+									$(this).dialog("close"); }
+								}]
+		 });
+
+	</script>
+<?php endif; ?>
+
+
 <div id="result">
-	<?php $scores = $this->game->getScore()->getChilds(); 
+	<?php 	$scores 	= $this->game->getScore()->getChilds(); 
+			$mode 	= $this->game->getMode(); 
 		foreach ($scores as $key => $score): ?>
+			
+			<div <?php if ($mode === $key) echo "style='background-color: white'"; ?>>
 			Insgesamt: 		<?php echo $this->game->getNumberOfQuestionsForKey($key); ?> | 
 			Noch übrig: 	<?php echo $this->game->getCurrentNumberOfQuestionsForKey($key); ?> | 
 			Beantwortet: 	<?php echo $score->getPlayedQuestions(); ?> | 
 			Richtig: 		<?php echo $score->getRightAnswers(); ?> |
 			Falsch: 		<?php echo $score->getWrongAnswers(); ?>
-			<br />
+			</div>
 
 	<?php endforeach; ?>
 	</div>

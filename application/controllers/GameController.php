@@ -28,7 +28,6 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->result 			= null;
 
 			$questionIds 	= null;
-
 			$gameConfig 	= new Model_GameConfig($this);
 			$gameConfig->createConfig();
 			$questionIds 	= $gameConfig->getQuestionIds();
@@ -42,7 +41,7 @@ class GameController extends Zend_Controller_Action
 
 		// use always the same game object
 		if ($this->gameSession->game === null) {
-			$this->gameSession->game = Model_GameFactory::createGame($questionIds, $this->toLearn());
+			$this->gameSession->game = Model_GameFactory::createGame($questionIds, $this->toLearn(), $this->getLearnType());
 		}
 		$game = $this->gameSession->game; 
 		
@@ -98,6 +97,10 @@ class GameController extends Zend_Controller_Action
 		return ($this->_getParam('tl') === md5('toLearn!'));
 	}
 
+	protected function getlearnType() {
+		return ($this->_getParam('ty') === md5('MCtoTXT!'));
+	}
+
   	protected function isRandomGame() {
         return ($this->isGame() && $this->_getParam('ra') === md5('random!'));
     }
@@ -140,13 +143,18 @@ class GameController extends Zend_Controller_Action
     public function answerrequestAction()
     {
         if ($this->getRequest()->isXmlHttpRequest()) {
-		
 			$this->_helper->layout->disableLayout();
-			$selectedAnswerHash = $this->_getParam('answer');	
-			$game = $this->gameSession->game;
-			$question = $game->getQuestion();
-			$this->view->isAnswerRight = $game->checkAnswer($selectedAnswerHash);
 
+			$selectedAnswerHash = $this->_getParam('answer');	
+			$game 		= $this->gameSession->game;
+			$question 	= $game->getQuestion();
+
+			$isAnswerRight = $game->checkAnswer($selectedAnswerHash);
+			if ($this->isToRedirect($game, $isAnswerRight)) {
+				$this->_redirect('/game');
+			}
+
+			$this->view->isAnswerRight = $isAnswerRight;
 			$this->view->objectType 	= $question->getObjectType();
 			$this->view->image	  		= $question->getAnswerImage();
 			$this->view->answerText  	= $question->getAnswerText();
@@ -160,6 +168,10 @@ class GameController extends Zend_Controller_Action
 			$this->_redirect('/question');
 		}
     }
+
+	protected function isToRedirect(Model_Game $game, $isAnswerRight) {
+		return (!$isAnswerRight && $game->getGameType() === 'MCTOTXTGAME' && $game->getQuestionType() === 'MC');
+	}
 
     public function resultAction()
     {

@@ -47,6 +47,14 @@ class Model_LinkBuilder {
 				. "/qtyp/" . $questionType;
 	}	
 
+	public function getMCtoTXTLink($gameId) {
+		return "/game/index/play/" 
+				. md5('nextgame!') 
+				. "/g/" . $gameId 
+				. "/tl/" . md5('toLearn!') 
+				. "/ty/" . md5('MCtoTXT!');
+	}
+
 
 	/**
 	 * Returns a link for playing wrong or right questionids of a result

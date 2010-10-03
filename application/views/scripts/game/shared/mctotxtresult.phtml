@@ -1,0 +1,10 @@
+<div id="result">
+
+	Insgesamt: <?php echo $this->game->getNumberOfQuestions(); ?> | 
+	Noch übrig: <?php echo $this->game->getCurrentNumberOfQuestions(); ?> | 
+	Beantwortet: <?php echo $this->game->getScore()->getPlayedQuestions(); ?> | 
+ 	Sofort Richtig: <?php echo $this->game->getScore()->getRightTXTAnswers(); ?> |
+ 	Richtig im 2. Versuch: <?php echo $this->game->getScore()->getRightMCAnswers(); ?> |
+ 	Falsch: <?php echo $this->game->getScore()->getWrongAnswers(); ?>
+</div>
+
