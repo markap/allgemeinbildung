@@ -20,6 +20,7 @@ class Model_MCtoTXTGame extends Model_Game {
 	 */
 	protected $questionType = 'TXT';
 
+	protected $firstTime = -1;
 
 	/**
 	 * constructor
@@ -44,6 +45,7 @@ class Model_MCtoTXTGame extends Model_Game {
 	 * @return boolean $result
 	 */
 	public function checkAnswer($answerHash) {
+		$this->firstTime = 0;
 		$result = $this->question->checkAnswer($answerHash);
 		if ($result === false && $this->questionType === 'TXT') {
 			array_push($this->questionIds, $this->getQuestion()->getQuestionId());
@@ -69,6 +71,10 @@ class Model_MCtoTXTGame extends Model_Game {
 		$this->questionType = ($this->questionType === 'MC') ? 
 												'TXT' : 'MC';
 	}
+
+	public function gameStarts() {
+		return ($this->firstTime === -1);
+	} 
 
 	/**
 	 * sets the questiontype of the whole game

@@ -1,3 +1,21 @@
+<?php if ($this->game->gameStarts()): ?>
+	<div  id="mclearndialog"></div>
+	<script type="text/javascript">
+		var message = "Spiele die Fragen im Direkteingabe Modus. Wenn du sie falsch beantwortest, bekommst du die Chance, im Multiple Choice Modus die richtige Antwort zu finden.";
+		var title = "Lernmodus";
+		$("#mclearndialog" ).dialog({ title: title,
+									height: 280,
+							   buttons: [{ text: "Ok",
+								click: function() { 
+									$(this).dialog("close"); }
+								}]
+		 });
+		$("#mclearndialog").html(message);
+
+	</script>
+<?php endif; ?>
+
+
 <div id="result">
 
 	Insgesamt: <?php echo $this->game->getNumberOfQuestions(); ?> | 
