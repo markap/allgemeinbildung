@@ -1,0 +1,175 @@
+#header {
+	background-color: green;
+	height: 80px;
+	background: url(/img/header_repeat.png) top center  repeat-x;
+}
+
+#header h1 {
+	margin: auto;
+	position: relative;
+	left: 230px;
+}
+
+#header .login {
+  position: absolute;
+  left: 590px;
+  top: 25px;
+}
+
+#header ul {
+  position: absolute;
+  left: 200px;
+  top: 43px;;
+}
+
+
+#header ul li {
+  float: left;
+  list-style: none;
+  margin: 0 0 0 8px;
+}
+
+
+#header ul a,
+#header ul strong {
+  color: #352545;
+  background: #FBFBFB url(/img/navi.png) bottom left repeat-x;
+  display: block;
+  padding: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+
+
+}
+#header ul a:hover,
+#header ul a:focus,
+#header ul a:active,
+#header ul strong {
+  color: white;
+  background: #638F56 url(/img/navi_hover.png) bottom left repeat-x; 
+}
+#header a:link { color: black; text-decoration:none }
+#header a:visited { color: black; text-decoration:none }
+#header a:active { color: black; text-decoration:none }
+#header a:hover {color:black; text-decoration: underline; }
+
+
+#content {
+	padding: 15px;
+	margin: auto;
+	width: 820px;
+/*	border-left: 1px #01B701 solid;
+	border-right: 1px #01B701 solid;*/
+
+}
+
+#topnavi {
+}
+
+#topnavi li {
+	display: inline;
+}
+
+#topnavi li a:hover {
+	background-color: red;
+}
+
+#topnavi li a:active {
+	background-color: navy;
+}
+
+#footer {
+	background: url(/img/header_repeat.png) top center  repeat-x;
+	background-color: green;
+	height: 20px;
+}
+
+#footer a {
+	color: black;
+	text-decoration: underline;
+}
+
+#footer #footer-links {
+	margin-left: 250px;
+}
+
+body {
+	font-family: arial, sans-serif;;
+}
+
+h1 {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+/* img links without borders */
+a img {
+border : 0 none;
+}
+
+/*DL, DT, DD TAGS LIST DATA*/
+dl {
+	margin-bottom:50px;
+}
+
+dl dt {
+	float:left;
+	font-weight:bold;
+	margin-right:10px;
+	padding:5px;
+	width:150px;
+}
+
+dl dd {
+	margin:2px 0;
+	padding:5px 0;
+}
+
+input {
+	width: 150px;
+}
+
+.text-container {
+	float:left;
+	height: 100px;
+	margin-left: 20px;
+}
+
+.text-container-number {
+	font-size: 56px;
+	text-align: center;
+}
+
+.error {
+	padding: 10px;
+	margin-bottom: 5px;
+	font-weight: bold;
+	background: url(/img/red.png) top center  repeat-x;
+}
+
+
+.errorlist  {
+	padding: 10px;
+	background: url(/img/red.png) top center  repeat-x;
+	list-style: none;
+	margin-left: -40px;
+	font-weight: bold;
+}
+
+a:link { color: green; text-decoration:none }
+a:visited { color: green; text-decoration:none }
+a:active { color: green; text-decoration:none }
+a:hover {color:green; text-decoration:underline}
+
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+	opacity: 0.9;
+}
+#tooltip h3, #tooltip div { margin: 0; }

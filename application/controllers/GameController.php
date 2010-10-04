@@ -15,14 +15,15 @@ class GameController extends Zend_Controller_Action
 								? $userSession->user['userid'] : null;
 		$this->role		   = isset($userSession->user['role']) 
 								? $userSession->user['role'] : null;
+		if ($this->gameSession->noframe === "noframe/1" && !$this->isNewGame()) {
+			$this->_helper->layout->disableLayout();
+			echo $this->view->headLink()->appendStylesheet('/css/main.css');
+		}
     }
 
     public function indexAction()
     {
 
-		if ($this->_getParam('noframe') == 1) {
-			$this->_helper->layout->disableLayout();
-		}
 
 		// get game ids
 		if ($this->isNewGame() === true) {
@@ -30,11 +31,18 @@ class GameController extends Zend_Controller_Action
 			$this->gameSession->waitForAnswer 	= false;
 			$this->gameSession->redirect 		= '/game/result';
 			$this->gameSession->result 			= null;
+			$this->gameSession->noframe 		= null; 
 
 			$questionIds 	= null;
 			$gameConfig 	= new Model_GameConfig($this);
 			$gameConfig->createConfig();
 			$questionIds 	= $gameConfig->getQuestionIds();
+		}
+
+		if ($this->_getParam('noframe') == 1) {
+			$this->gameSession->noframe = "noframe/1";
+			$this->_helper->layout->disableLayout();
+			echo $this->view->headLink()->appendStylesheet('/css/main.css');
 		}
 
    		if (!isset($questionIds) || $this->isRandomGame()) {

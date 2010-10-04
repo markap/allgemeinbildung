@@ -94,6 +94,9 @@
           <actionMethod actionName="game"/>
           <actionMethod actionName="login"/>
         </controllerFile>
+        <controllerFile controllerName="jobs">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -280,6 +283,9 @@
           <viewControllerScriptsDirectory forControllerName="mobile">
             <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="jobs">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -311,6 +317,7 @@
       <testApplicationDirectory>
         <testApplicationBootstrapFile/>
         <testApplicationControllerDirectory>
+          <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
           <testApplicationControllerFile/>
