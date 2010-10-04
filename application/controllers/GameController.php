@@ -20,6 +20,10 @@ class GameController extends Zend_Controller_Action
     public function indexAction()
     {
 
+		if ($this->_getParam('noframe') == 1) {
+			$this->_helper->layout->disableLayout();
+		}
+
 		// get game ids
 		if ($this->isNewGame() === true) {
 			$this->gameSession->game 	 		= null;	
@@ -195,6 +199,7 @@ class GameController extends Zend_Controller_Action
 
 			$gameResultDb 				= new Model_DbTable_GameResult();
 			$lastResult 				= $gameResultDb->getResultForGameAndUser($game->getGameId(), $this->userId);
+			$resultCreator				= new Model_ResultCreator($score, $game->getGameType());
 			$this->view->resultText 	= $resultCreator->getText();
 
 			if (isset($lastResult[1])) {
