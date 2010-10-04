@@ -66,6 +66,9 @@ class Model_MCtoTXTScore implements Model_ScoreInterface {
 		$this->wrongQuestions[]   = $question;
 	}
 
+	public function getRightAnswers() {
+		return $this->getRightMCAnswers() + $this->getRightTXTAnswers();
+	}
 
 	/**
 	 * @author Martin Kapfhammer

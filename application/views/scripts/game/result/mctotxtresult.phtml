@@ -4,7 +4,8 @@
 	<div>
 		<div class="result-count-container" style="margin-left:45px"><div class="result-count"><?php echo $resultCreator->getPercentage(); ?>%</div>Richtig</div>
 		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getPlayedQuestions(); ?></div>Fragen</div>
-		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getRightAnswers(); ?></div>Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getRightTXTAnswers(); ?></div>Sofort Richtig</div>
+		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getRightMCAnswers(); ?></div>Im 2. Richtig</div>
 		<div class="result-count-container"><div class="result-count"><?php echo $this->score->getWrongAnswers(); ?></div>Falsch</div>
 	</div>
 

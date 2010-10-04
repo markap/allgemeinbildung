@@ -151,7 +151,9 @@ class GameController extends Zend_Controller_Action
 
 			$isAnswerRight = $game->checkAnswer($selectedAnswerHash);
 			if ($this->isToRedirect($game, $isAnswerRight)) {
-				$this->_redirect('/game');
+				$this->gameSession->waitForAnswer = false;
+				echo "redirect"; 
+				exit();
 			}
 
 			$this->view->isAnswerRight = $isAnswerRight;
@@ -220,6 +222,13 @@ class GameController extends Zend_Controller_Action
 			$question 	= $game->getQuestion();
 
 			$game->checkAnswer('');
+
+			if ($this->isToRedirect($game, false)) {
+				$this->gameSession->waitForAnswer = false;
+				echo "redirect"; 
+				exit();
+			}
+
 			$this->view->rightAnswer 	= $question->getRightAnswer();
 			$this->view->image	  	 	= $question->getAnswerImage();
 			$this->view->answerText  	= $question->getAnswerText();

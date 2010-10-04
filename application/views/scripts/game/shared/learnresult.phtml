@@ -1,15 +1,25 @@
 <?php if ($this->game->hasModeChanged()): ?>
-	<div id="learndialog"></div>
+	<div  id="learndialog"></div>
+	<span id="learndialogid"><?php echo $this->game->getMode(); ?></span>
 	<script type="text/javascript">
-		var message = "hallo";
-		var title = "Learngame";
-		$("#learndialog").html(message);
+		var mode = $("#learndialogid").html();
+		var message = "";
+		if (mode == 0) {
+			message = "Du spielst dieses Game im Lernmodus. Dabei spielst du alle Fragen zweimal durch, um sie besonders gut im Gedächtnis zu behalten!";
+		} else if (mode == 1) {
+			message = "Die zweite Runde beginnnt. Jetzt kommen die gerade gespielten Fragen nocheinmal!";
+		} else {
+			message = "Endspurt!. Abschließend kommen noch die Fragen, die du bisher falsch beantwortet hattest.";
+		}
+		var title = "Lernmodus";
 		$("#learndialog" ).dialog({ title: title,
-							   buttons: [{ text: "Weiter",
+									height: 280,
+							   buttons: [{ text: "Ok",
 								click: function() { 
 									$(this).dialog("close"); }
 								}]
 		 });
+		$("#learndialog").html(message);
 
 	</script>
 <?php endif; ?>

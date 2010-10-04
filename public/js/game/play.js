@@ -35,7 +35,11 @@ $(document).ready(function() {
 			+ "/answer/" + getParam
 		,
 		function(response) {
-			$("#answer_score").html(response);	
+			if (response == "redirect") {
+				window.location.replace('/game');
+			} else {
+				$("#answer_score").html(response);	
+			}
 		},
 		"text"
 		);
