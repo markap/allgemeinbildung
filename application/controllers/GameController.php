@@ -21,6 +21,10 @@ class GameController extends Zend_Controller_Action
 		}
     }
 
+	public function getGameSession() {
+		return $this->gameSession;
+	}
+
     public function indexAction()
     {
 

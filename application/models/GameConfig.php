@@ -30,7 +30,7 @@ class Model_GameConfig {
             $this->gameId 		= $nextGameSession->gameId;
 
             if ($nextGameSession->redirect !== null) {
-                $this->controller->gameSession->redirect = $nextGameSession->redirect;
+                $this->controller->getGameSession()->redirect = $nextGameSession->redirect;
             }
             $nextGameSession->nextGame = null;
 
@@ -82,7 +82,7 @@ class Model_GameConfig {
 
         // set test game
         if ($this->isNewGame() && $this->isTestGame()) {
-            $game->isTest(true);
+            $game->setTest(true);
         }
 
         // set gameid
