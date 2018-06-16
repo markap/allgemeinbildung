@@ -34,6 +34,13 @@ $(document).ready(function() {
 		$('#map').width('500px');
 		$('#map').height('400px');
 
+	} else if (type === '#spain#') {	
+		difference = 100;
+  		center 	= new OpenLayers.LonLat(-3.7,40.4);
+		zoom	= 4.45;
+		$('#map').width('500px');
+		$('#map').height('400px');
+
 	} else {	//Germany
 	
 		difference = 100;
