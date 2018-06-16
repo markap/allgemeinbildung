@@ -5,3 +5,14 @@ What is allgemeinbildung?
 -------------------------
 
 Allgemeinbildung is (or should become) a quiz website with a lot of question about common knowledge.
+
+Still running in 2018 locally
+-----------------------------
+*install apache2, php, mysql (root, no password)
+*update apache config file http://files.zend.com/help/Zend-Server/content/configuring_zend_framework.htm
+
+*create database allgemeinbildung
+*mysql -u root -p allgemeinbildung < ./DB766123.sql 
+
+*https://askubuntu.com/questions/766334/cant-login-as-mysql-user-root-from-normal-user-account-in-ubuntu-16-04/801950
+
