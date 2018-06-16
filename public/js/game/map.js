@@ -27,6 +27,13 @@ $(document).ready(function() {
 		$('#map').height('450px');
 		difference = 500;
 
+	} else if (type === '#france#') {	
+		difference = 100;
+  		center 	= new OpenLayers.LonLat(2.4,46.75);
+		zoom	= 4.5;
+		$('#map').width('500px');
+		$('#map').height('400px');
+
 	} else {	//Germany
 	
 		difference = 100;
